@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 
 const Navbar = ({ navsChangeHandler }) => {
   const navs = [
-    { link: '/', title: 'Главная', bgClassName: '' },
+    { link: '/', title: 'Главная', bgClassName: 'bg-white' },
     {
       link: 'services',
       title: 'Услуги',
@@ -16,12 +16,12 @@ const Navbar = ({ navsChangeHandler }) => {
     {
       link: 'portfolio',
       title: 'Портфолио',
-      bgClassName: 'bg-security',
+      bgClassName: 'bg-cloud',
       items: [{}],
     },
-    { link: 'experts', title: 'Эксперты', bgClassName: '', items: [{}] },
-    { link: 'blog', title: 'Блог', bgClassName: '', items: [{}] },
-    { link: 'contacts', title: 'Контакты', bgClassName: '', items: [{}] },
+    { link: 'experts', title: 'Эксперты', bgClassName: 'bg-security', items: [{}] },
+    { link: 'blog', title: 'Блог', bgClassName: 'bg-alert', items: [{}] },
+    { link: 'contacts', title: 'Контакты', bgClassName: 'bg-white', items: [{}] },
   ];
 
   useEffect(() => {

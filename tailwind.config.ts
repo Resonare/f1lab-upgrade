@@ -4,9 +4,10 @@ export default {
   content: ['./app/**/*.{js,jsx,ts,tsx}'],
   theme: {
     colors: {
-      consulting: '#D2F3F3',
-      cloud: '#FEFFE0',
+      consulting: '#FEFFE0',
+      cloud: '#D2F3F3',
       security: '#FBE3FF',
+      alert: '#F24055',
       accent: '#00FFC5',
       'accent-dark': '#01CA9A',
       black: '#22282E',

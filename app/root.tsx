@@ -18,7 +18,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const currentSegment = segments[segments.length - 1];
 
   const [navs, setNavs] = useState([
-    { link: '/', title: 'Главная', bgClassName: '' },
+    { link: '/', title: 'Главная', bgClassName: 'bg-white' },
   ]);
 
   const navsChangeHandler = (
@@ -42,7 +42,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className={`${currentNav[0]?.bgClassName}`}>
+      <body className={`${currentNav[0]?.bgClassName || 'bg-white'}`}>
         <header>
           <Navbar navsChangeHandler={navsChangeHandler} />
         </header>

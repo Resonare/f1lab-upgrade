@@ -7,11 +7,6 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function Index() {
-  return (
-    <>
-     
-      <h1>Home Page</h1>
-    </>
-  );
+export default function Services() {
+  return <div className='text-5xl font-title p-5'>Главная</div>;
 }
