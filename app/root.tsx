@@ -22,7 +22,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
   ]);
 
   const navsChangeHandler = (
-    updatedNavs: { link: string; title: 'string'; bgClassName: string }[]
+    updatedNavs: {
+      link: string;
+      title: 'string';
+      bgClassName: string;
+      items: Array<any>;
+    }[]
   ) => {
     setNavs(updatedNavs);
   };

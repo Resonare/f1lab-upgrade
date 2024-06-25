@@ -3,16 +3,26 @@ import { NavLink } from '@remix-run/react';
 import Logo from './Logo';
 import ShoppingCart from './ShoppingCart';
 import BreadCrumbs from './Breadcrumbs';
-import { useCallback, useEffect } from 'react';
+import { useEffect } from 'react';
 
 const Navbar = ({ navsChangeHandler }) => {
   const navs = [
     { link: '/', title: 'Главная', bgClassName: '' },
-    { link: 'services', title: 'Услуги', bgClassName: 'bg-consulting' },
-    { link: 'portfolio', title: 'Портфолио', bgClassName: 'bg-security' },
-    { link: 'experts', title: 'Эксперты', bgClassName: '' },
-    { link: 'blog', title: 'Блог', bgClassName: '' },
-    { link: 'contacts', title: 'Контакты', bgClassName: '' },
+    {
+      link: 'services',
+      title: 'Услуги',
+      bgClassName: 'bg-consulting',
+      items: [{}],
+    },
+    {
+      link: 'portfolio',
+      title: 'Портфолио',
+      bgClassName: 'bg-security',
+      items: [{}],
+    },
+    { link: 'experts', title: 'Эксперты', bgClassName: '', items: [{}] },
+    { link: 'blog', title: 'Блог', bgClassName: '', items: [{}] },
+    { link: 'contacts', title: 'Контакты', bgClassName: '', items: [{}] },
   ];
 
   useEffect(() => {
