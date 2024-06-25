@@ -4,11 +4,25 @@
 
 @layer base {
   @font-face {
-    font-family: 'RF\\ Dewi\\ Expanded\\ Ultrabold';
+    font-family: 'RFDewiExpanded-Ultrabold';
     font-style: normal;
     font-weight: 900;
     font-display: swap;
     src: url(./fonts/RFDewiExpanded-Ultrabold.ttf);
+  }
+  @font-face {
+    font-family: 'RFDewiExpanded-Bold';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(./fonts/RFDewiExpanded-Bold.ttf);
+  }
+  @font-face {
+    font-family: 'RFDewiExpanded-Light';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(./fonts/RFDewiExpanded-Light.ttf);
   }
   @font-face {
     font-family: 'Bahnschrift';
