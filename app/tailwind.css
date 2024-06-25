@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'RF\\ Dewi\\ Expanded\\ Ultrabold';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(./fonts/RFDewiExpanded-Ultrabold.ttf);
+  }
+  @font-face {
+    font-family: 'Bahnschrift';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(./fonts/bahnschrift.ttf);
+  }
+}
