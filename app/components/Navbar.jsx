@@ -1,6 +1,5 @@
 import { NavLink } from '@remix-run/react';
 
-import Logo from './Logo';
 import ShoppingCart from './ShoppingCart';
 import BreadCrumbs from './Breadcrumbs';
 import { useEffect } from 'react';
@@ -32,8 +31,10 @@ const Navbar = ({ navsChangeHandler }) => {
   return (
     <>
       <div className='w-[100%] h-[90px] px-[120px] bg-opacity-0 border-dashed border-b border-grey justify-between items-center inline-flex'>
-        <div className='pr-[15px] border-dashed border-r border-grey flex'>
-          <Logo />
+        <div className='pr-[15px] border-dashed border-r border-grey h-[100%] items-center flex'>
+          <div>
+            <img src='/images/logo.svg' />
+          </div>
         </div>
         <div className='px-[30px] grow shrink justify-start items-center inline-flex'>
           <BreadCrumbs navs={navs} />
@@ -45,9 +46,7 @@ const Navbar = ({ navsChangeHandler }) => {
             </NavLink>
           ))}
         </div>
-        <div className='justify-center items-center border-dashed border-r border-l border-grey flex'>
-          <ShoppingCart />
-        </div>
+        <ShoppingCart />
       </div>
     </>
   );

@@ -1,36 +1,20 @@
+import { useState } from 'react';
+
 const ShoppingCart = () => {
+  const [dummyNumber, setDummyNumber] = useState(0);
+
+  const dummyNumberHandler = () => {
+    setDummyNumber((prev) => prev + 1);
+  };
   return (
-    <svg
-      width='97'
-      height='90'
-      viewBox='0 0 97 90'
-      fill='none'
-      xmlns='http://www.w3.org/2000/svg'
-    >
-      <g clipPath='url(#clip0_1076_19469)'>
-        <path
-          d='M31.5078 28.2852H37.7877L40.0248 50.528C40.1178 51.1412 40.4293 51.7001 40.9018 52.1017C41.3743 52.5034 41.9761 52.7207 42.5963 52.7137H58.7963C59.3571 52.743 59.912 52.5879 60.3761 52.2722C60.8405 51.9564 61.1887 51.4974 61.3677 50.9652L64.7877 40.6794C64.9152 40.2928 64.9492 39.8813 64.8864 39.4789C64.8239 39.0766 64.6666 38.6949 64.4277 38.3652C64.1788 38.0146 63.8458 37.7321 63.4595 37.5434C63.0733 37.3547 62.6457 37.2659 62.2163 37.2852H38.6877'
-          stroke='#22282E'
-          strokeWidth='2'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
-        <path
-          d='M58.3599 61.714C57.65 61.714 57.0742 61.1383 57.0742 60.4283C57.0742 59.7183 57.65 59.1426 58.3599 59.1426C59.0699 59.1426 59.6456 59.7183 59.6456 60.4283C59.6456 61.1383 59.0699 61.714 58.3599 61.714Z'
-          stroke='#22282E'
-          strokeWidth='2'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
-        <path
-          d='M41.6451 61.714C40.935 61.714 40.3594 61.1383 40.3594 60.4283C40.3594 59.7183 40.935 59.1426 41.6451 59.1426C42.3552 59.1426 42.9308 59.7183 42.9308 60.4283C42.9308 61.1383 42.3552 61.714 41.6451 61.714Z'
-          stroke='#22282E'
-          strokeWidth='2'
-          strokeLinecap='round'
-          strokeLinejoin='round'
-        />
-      </g>
-    </svg>
+    <div className='border-dashed border-r border-l border-grey h-[100%] grid'>
+      <div className='place-self-center px-[30px]' onClick={dummyNumberHandler}>
+        <img src='/images/shopping-cart.svg' />
+      </div>
+      <div className='min-w-5 h-5 absolute place-self-end self-start border-dashed border-b border-l border-grey flex justify-center items-center '>
+        <div className='font-title text-sm'>{dummyNumber}</div>
+      </div>
+    </div>
   );
 };
 
