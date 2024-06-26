@@ -1,3 +1,5 @@
+import ServicesPage from "../components/ServicesPage";
+
 export const meta = () => {
     return [
       { title: 'F1LAB' },
@@ -7,8 +9,6 @@ export const meta = () => {
 
 export default function Services() {
     return (
-      <div className='text-5xl font-title p-5'>
-        Услуги
-      </div>
+      <ServicesPage />
     );
   }
