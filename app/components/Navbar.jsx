@@ -1,7 +1,6 @@
 import { NavLink } from '@remix-run/react';
 
 import ShoppingCart from './ShoppingCart';
-import BurgerMenu from './BurgerMenu';
 import BreadCrumbs from './Breadcrumbs';
 import { useEffect } from 'react';
 
@@ -20,19 +19,9 @@ const Navbar = ({ navsChangeHandler }) => {
       bgClassName: 'bg-cloud',
       items: [{}],
     },
-    {
-      link: 'experts',
-      title: 'Эксперты',
-      bgClassName: 'bg-security',
-      items: [{}],
-    },
+    { link: 'experts', title: 'Эксперты', bgClassName: 'bg-security', items: [{}] },
     { link: 'blog', title: 'Блог', bgClassName: 'bg-alert', items: [{}] },
-    {
-      link: 'contacts',
-      title: 'Контакты',
-      bgClassName: 'bg-white',
-      items: [{}],
-    },
+    { link: 'contacts', title: 'Контакты', bgClassName: 'bg-white', items: [{}] },
   ];
 
   useEffect(() => {
@@ -41,14 +30,16 @@ const Navbar = ({ navsChangeHandler }) => {
 
   return (
     <>
-      <div className='w-[100%] h-[90px] xl:px-120 lg:px-60 md:px-40 px-15 bg-opacity-0 border-dashed border-b border-gray-200 justify-between items-center inline-flex'>
-        <div className='h-full shrink-0 pr-15 mr-30 border-dashed border-r border-gray-200 items-center flex'>
-          <img src='/images/logo.svg' /> 
+      <div className='w-[100%] h-[90px] px-[120px] bg-opacity-0 border-dashed border-b border-grey justify-between items-center inline-flex'>
+        <div className='pr-[15px] border-dashed border-r border-grey h-[100%] items-center flex'>
+          <div>
+            <img src='/images/logo.svg' />
+          </div>
         </div>
-        <div className='shrink min-w-[140px] grow justify-start items-center flex lg:flex-wrap hidden md:flex'>
+        <div className='px-[30px] grow shrink justify-start items-center inline-flex'>
           <BreadCrumbs navs={navs} />
         </div>
-        <div className='px-60 justify-end gap-30 text-sm text-gray-400 font-title flex hidden lg:flex'>
+        <div className='px-[60px] justify-end gap-[30px] text-sm font-title flex'>
           {navs.map((nav) => (
             <NavLink to={nav.link} key={nav.title}>
               {nav.title}
@@ -56,7 +47,6 @@ const Navbar = ({ navsChangeHandler }) => {
           ))}
         </div>
         <ShoppingCart />
-        <BurgerMenu />
       </div>
     </>
   );
