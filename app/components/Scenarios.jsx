@@ -1,4 +1,4 @@
-import ScenarioCard from "./ScenarioCard";
+import Section from "./Section";
 
 const SCENARIOS_DATA = [
   {
@@ -27,23 +27,7 @@ const SCENARIOS_DATA = [
 
 const Scenarios = () => {
   return (
-    <>
-      <div className="flex flex-col gap-[100px]">
-        <p className="text-black font-bold text-[40px] font-subtitle">
-          Сценарии применения
-        </p>
-        <div className="grid grid-cols-4 grid-rows-2">
-          {SCENARIOS_DATA.map((scenario, index) => (
-            <ScenarioCard
-              key={index}
-              descriptionText={scenario.descriptionText}
-              iconName={scenario.iconName}
-              position={scenario.position}
-            />
-          ))}
-        </div>
-      </div>
-    </>
+    <Section cardsData={SCENARIOS_DATA} sectionTitle={"Сценарии применения"} />
   );
 };
 
