@@ -35,9 +35,20 @@ const Section = ({
         >
           {cardsData.map((card, index) =>
             card.button ? (
-              <PrimaryButton key={index} cardData={card}>{card.text}</PrimaryButton>
+              <PrimaryButton
+                key={index}
+                type={card.buttonType}
+                row={Math.floor(card.position / 4)}
+                col={card.position % 4}
+              >
+                {card.text}
+              </PrimaryButton>
             ) : (
-              <ContentCard key={index} cardData={card} inverseColor={inverseColor} />
+              <ContentCard
+                key={index}
+                cardData={card}
+                inverseColor={inverseColor}
+              />
             )
           )}
         </div>
