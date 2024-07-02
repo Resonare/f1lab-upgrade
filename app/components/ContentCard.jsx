@@ -5,7 +5,7 @@ const ContentCard = ({ cardData, inverseColor = false }) => {
         inverseColor
           ? "border-t-gray-300 border-b-gray-300"
           : "border-t-grey border-b-grey"
-      } p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed flex flex-col gap-[10px] min-h-[280px] flex flex-col justify-between`}
+      } p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] min-h-[280px] flex flex-col justify-between`}
       style={{
         "grid-column": `${(cardData.position % 4) + 1}`,
         "grid-row": `${Math.floor(cardData.position / 4) + 1}`,
