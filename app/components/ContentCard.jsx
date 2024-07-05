@@ -1,25 +1,38 @@
-const ContentCard = ({ cardData, inverseColor = false }) => {
+const ContentCard = ({
+  row,
+  col,
+  width = 1,
+  height = 1,
+  iconPath,
+  inverseColor = false,
+  children,
+}) => {
+  //Computing card color depending on color inversion flag
+  let cardColorClasses = "";
+  let cardTextColorClasses = "";
+  if (inverseColor) {
+    cardColorClasses = "border-t-gray-300 border-b-gray-300";
+    cardTextColorClasses = "text-gray-100";
+  } else {
+    cardColorClasses = "border-t-grey border-b-grey";
+    cardTextColorClasses = "text-gray-400";
+  }
+
   return (
     <div
-      className={`${
-        inverseColor
-          ? "border-t-gray-300 border-b-gray-300"
-          : "border-t-grey border-b-grey"
-      } p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] min-h-[280px] flex flex-col justify-between`}
+      className={`${cardColorClasses} p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] min-h-[280px] flex flex-col justify-between`}
       style={{
-        "grid-column": `${(cardData.position % 4) + 1}`,
-        "grid-row": `${Math.floor(cardData.position / 4) + 1}`,
+        "grid-column": `${col} / ${col + width}`,
+        "grid-row": `${row} / ${row + height}`,
       }}
     >
       <div className="w-20 h-20 relative">
-        <img src={`/images/${cardData.iconName}`} alt="" />
+        <img src={`/images/${iconPath}`} alt="" />
       </div>
       <p
-        className={`${
-          inverseColor ? "text-gray-100" : "text-gray-400"
-        } text-[1.1rem] font-light font-text leading-relaxed`}
+        className={`${cardTextColorClasses} text-[1.1rem] font-light font-text leading-relaxed`}
       >
-        {cardData.descriptionText}
+        {children}
       </p>
     </div>
   );

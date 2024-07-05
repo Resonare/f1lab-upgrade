@@ -1,40 +1,53 @@
 import Section from "../Section";
+import ContentCard from "../ContentCard";
+import PrimaryButton from "../PrimaryButton";
+import SectionTitle from "../SectionTitle";
 
 const OFFERS_DATA = [
   {
     descriptionText:
       "Исчерпывающую информацию для принятия управленческих решений",
-    iconName: "consulting/consulting-offer-icon1.svg",
-    position: 1,
+    iconPath: "consulting/consulting-offer-icon1.svg",
+    row: 2,
+    col: 2,
   },
   {
     descriptionText:
       "Располагаем ресурсами и компетенциями для решения выявленных проблем",
-    iconName: "consulting/consulting-offer-icon2.svg",
-    position: 3,
+    iconPath: "consulting/consulting-offer-icon2.svg",
+    row: 2,
+    col: 4,
   },
   {
     descriptionText:
       "Только понятные, полезные и применимые рекомендации исходя из целей и ограничений бизнеса",
-    iconName: "consulting/consulting-offer-icon3.svg",
-    position: 6,
+    iconPath: "consulting/consulting-offer-icon3.svg",
+    row: 3,
+    col: 3,
   },
-  {
-    button: true,
-    buttonType: "light",
-    text: "Консультация",
-    position: 9,
-  }
 ];
 
 const Offers = () => {
   return (
-    <Section
-      cardsData={OFFERS_DATA}
-      sectionTitle={"Что мы предлагаем?"}
-      inverseColor={true}
-      titleShifted={true}
-    />
+    <Section rowsAmount={3} inverseColor={true}>
+      <SectionTitle row={1} col={2} width={2} inverseColor={true}>
+        Что мы предлагаем?
+      </SectionTitle>
+      {OFFERS_DATA.map((card, index) => (
+        <ContentCard
+          key={index}
+          row={card.row}
+          col={card.col}
+          iconPath={card.iconPath}
+          inverseColor={true}
+        >
+          {card.descriptionText}
+        </ContentCard>
+      ))}
+      <PrimaryButton col={1} row={4} type="light">
+        Консультация
+      </PrimaryButton>
+    </Section>
   );
 };
 
