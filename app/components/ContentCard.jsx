@@ -20,15 +20,17 @@ const ContentCard = ({
 
   return (
     <div
-      className={`${cardColorClasses} p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] min-h-[280px] flex flex-col justify-between`}
+      className={`${cardColorClasses} p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] flex flex-col justify-between`} //min-h-[280px]
       style={{
         "grid-column": `${col} / ${col + width}`,
         "grid-row": `${row} / ${row + height}`,
       }}
     >
-      <div className="w-20 h-20 relative">
-        <img src={`/images/${iconPath}`} alt="" />
-      </div>
+      {iconPath ? (
+        <div className="w-20 h-20 relative">
+          <img src={`/images/${iconPath}`} alt="" />
+        </div>
+      ) : null}
       <p
         className={`${cardTextColorClasses} text-[1.1rem] font-light font-text leading-relaxed`}
       >
