@@ -16,7 +16,7 @@ const SectionTitle = ({
 
   return (
     <p
-      className={`${titleColor} font-bold text-[40px] font-subtitle`}
+      className={`${titleColor} pb-100 font-bold text-[40px] font-subtitle`}
       style={{
         "grid-column": `${col} / ${col + width}`,
         "grid-row": `${row} / ${row + height}`,

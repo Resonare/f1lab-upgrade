@@ -30,7 +30,7 @@ const OFFERS_DATA = [
 const Offers = () => {
   return (
     <Section rowsAmount={3} inverseColor={true}>
-      <SectionTitle row={1} col={2} width={2} inverseColor={true}>
+      <SectionTitle row={1} col={2} width={3} inverseColor={true}>
         Что мы предлагаем?
       </SectionTitle>
       {OFFERS_DATA.map((card, index) => (
@@ -44,7 +44,7 @@ const Offers = () => {
           {card.descriptionText}
         </ContentCard>
       ))}
-      <PrimaryButton col={1} row={4} type="light">
+      <PrimaryButton col={2} row={4} type="light">
         Консультация
       </PrimaryButton>
     </Section>

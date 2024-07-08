@@ -3,7 +3,10 @@ import ContentCard from "../ContentCard";
 
 const Hero = () => {
   return (
-    <div className="grid grid-cols-4 grid-rows-4 p-[120px]">
+    <div
+      className="grid grid-cols-4 p-[120px]"
+      style={{ "grid-template-rows": "1.2fr repeat(3, minmax(0, 1fr))" }}
+    >
       <p className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 text-[56px] font-title leading-[60px]">
         ИТ‑аудит с применимыми рекомендациями
       </p>

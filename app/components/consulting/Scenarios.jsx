@@ -34,7 +34,7 @@ const SCENARIOS_DATA = [
 const Scenarios = () => {
   return (
     <Section rowsAmount={3}>
-      <SectionTitle row={1} col={1} width={2}>
+      <SectionTitle row={1} col={1} width={4}>
         Сценарии применения
       </SectionTitle>
       {SCENARIOS_DATA.map((card, index) => (
