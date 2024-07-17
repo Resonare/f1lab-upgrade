@@ -5,55 +5,64 @@ import {
   Scripts,
   ScrollRestoration,
   useLocation,
-} from "@remix-run/react";
-import "./tailwind.css";
+} from '@remix-run/react';
+import './tailwind.css';
 
-import Navbar from "~/components/navigation/Navbar";
-import SidebarButtons from "~/components/navigation/SidebarButtons";
-import { useState } from "react";
+import Navbar from '~/components/navigation/Navbar';
+import SidebarButtons from '~/components/navigation/SidebarButtons';
+import { useState } from 'react';
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const { pathname } = location;
-  const segments = pathname.split("/");
+  const segments = pathname.split('/');
   const currentSegment = segments[segments.length - 1];
 
   const [navs, setNavs] = useState([
-    { link: "/", title: "Главная", bgClassName: "bg-white" },
+    { link: '/', title: 'Главная', bgClassName: 'bg-white', items: [{}] },
   ]);
 
   const navsChangeHandler = (
     updatedNavs: {
       link: string;
-      title: "string";
+      title: 'string';
       bgClassName: string;
       items: Array<any>;
-    }[],
+    }[]
   ) => {
     setNavs(updatedNavs);
   };
 
-  const currentNav = navs.filter((nav) => nav.link === currentSegment);
+  let currentNav = navs.filter((nav) => nav.link === currentSegment);
+
+  if (currentNav.length === 0) {
+    for (let nav of navs) {
+      const itemNav = nav.items.filter((item) => item.link === currentSegment);
+      if (itemNav.length > 0) {
+        currentNav = [...itemNav];
+      }
+    }
+  }
 
   return (
-    <html lang="ru" className="scroll-smooth">
+    <html lang='ru' className='scroll-smooth'>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
         <Meta />
         <Links />
       </head>
-      <body className={`${currentNav[0]?.bgClassName || "bg-white"}`}>
-        <header className="fixed top-0 w-full">
+      <body className={`${currentNav[0]?.bgClassName || 'bg-white'}`}>
+        <header className='fixed top-0 w-full'>
           <Navbar
             navsChangeHandler={navsChangeHandler}
-            background={`${currentNav[0]?.bgClassName || "bg-white"}`}
-          />
-          <SidebarButtons
-            background={`${currentNav[0]?.bgClassName || "bg-white"}`}
+            background={`${currentNav[0]?.bgClassName || 'bg-white'}`}
           />
         </header>
-        <div className="mt-90">{children}</div>
+        <SidebarButtons
+          background={`${currentNav[0]?.bgClassName || 'bg-white'}`}
+        />
+        <div className='mt-90'>{children}</div>
 
         <ScrollRestoration />
         <Scripts />

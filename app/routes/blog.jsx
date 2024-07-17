@@ -6,9 +6,6 @@ export const meta = () => {
   };
 
 export default function Services() {
-    return (
-      <div className='text-5xl font-title p-5'>
-        Блог
-      </div>
-    );
+  return <div className='text-5xl font-title p-100'>Блог</div>;
+
   }
