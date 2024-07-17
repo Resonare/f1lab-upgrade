@@ -33,21 +33,23 @@ const SCENARIOS_DATA = [
 
 const Scenarios = () => {
   return (
-    <Section rowsAmount={3}>
-      <SectionTitle row={1} col={1} width={4}>
-        Сценарии применения
-      </SectionTitle>
-      {SCENARIOS_DATA.map((card, index) => (
-        <ContentCard
-          key={index}
-          row={card.row}
-          col={card.col}
-          iconPath={card.iconPath}
-        >
-          {card.descriptionText}
-        </ContentCard>
-      ))}
-    </Section>
+    <div id="why">
+      <Section rowsAmount={3}>
+        <SectionTitle row={1} col={1} width={4}>
+          Сценарии применения
+        </SectionTitle>
+        {SCENARIOS_DATA.map((card, index) => (
+          <ContentCard
+            key={index}
+            row={card.row}
+            col={card.col}
+            iconPath={card.iconPath}
+          >
+            {card.descriptionText}
+          </ContentCard>
+        ))}
+      </Section>
+    </div>
   );
 };
 

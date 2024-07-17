@@ -38,7 +38,7 @@ const PrimaryButton = ({
     if (type === "accent") {
       buttonContainerRef.current.style.setProperty(
         "--filter-add",
-        filterAccent
+        filterAccent,
       );
     } else if (type === "dark") {
       buttonContainerRef.current.style.setProperty("--filter-add", filterDark);
@@ -50,8 +50,8 @@ const PrimaryButton = ({
       ref={buttonContainerRef}
       className={styles.buttonContainer}
       style={{
-        "grid-column": `${col} / ${col + width}`,
-        "grid-row": `${row} / ${row + height}`,
+        gridColumn: `${col} / ${col + width}`,
+        gridRow: `${row} / ${row + height}`,
       }}
     >
       <button

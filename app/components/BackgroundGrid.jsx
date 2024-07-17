@@ -43,7 +43,7 @@ const BackgroundGrid = ({ bgOwnerRef, inverseColor = false }) => {
         className={`h-full ${linesColor} border-l-[1px] border-dashed`}
       ></div>
       <div
-        className={`h-full ${linesColor} border-l-[1px] border-dashed border-r-[1px] border-dashed`}
+        className={`h-full ${linesColor} border-l-[1px] border-dashed border-r-[1px]`}
       ></div>
     </div>
   );

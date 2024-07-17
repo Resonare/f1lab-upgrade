@@ -24,8 +24,8 @@ const ContentCard = ({
         iconPath ? "min-h-[280px]" : ""
       } p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] flex flex-col justify-between`} //min-h-[280px]
       style={{
-        "grid-column": `${col} / ${col + width}`,
-        "grid-row": `${row} / ${row + height}`,
+        gridColumn: `${col} / ${col + width}`,
+        gridRow: `${row} / ${row + height}`,
       }}
     >
       {iconPath ? (

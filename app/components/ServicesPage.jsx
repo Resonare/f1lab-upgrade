@@ -11,8 +11,8 @@ const ServicesPage = () => {
   return (
     <>
       <BackgroundGrid bgOwnerRef={bgOwnerRef} />
-      <div className="" ref={bgOwnerRef}>
-        <div className="text-5xl font-title p-5">Услуги</div>
+      <div ref={bgOwnerRef}>
+        {/* <div className="text-5xl font-title p-5">Услуги</div> */}
         <Hero />
         <Scenarios />
         <Offers />

@@ -18,8 +18,8 @@ const SectionTitle = ({
     <p
       className={`${titleColor} pb-100 font-bold text-[40px] font-subtitle`}
       style={{
-        "grid-column": `${col} / ${col + width}`,
-        "grid-row": `${row} / ${row + height}`,
+        gridColumn: `${col} / ${col + width}`,
+        gridRow: `${row} / ${row + height}`,
       }}
     >
       {children}
