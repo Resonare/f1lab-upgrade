@@ -43,12 +43,12 @@ const Navbar = ({ navsChangeHandler, background }) => {
   return (
     <>
       <div
-        className={`w-[100%] h-90 xl:px-120 lg:px-60 md:px-40 px-15 ${background} border-dashed border-b border-gray-200 justify-between items-center inline-flex`}
+        className={`w-[100%] h-90 xl:px-120 lg:px-60 px-40 ${background} border-dashed border-b border-gray-200 justify-between items-center inline-flex`}
       >
         <div className="h-full shrink-0 pr-15 mr-30 border-dashed border-r border-gray-200 items-center flex">
           <img src="/images/logo.svg" alt="" />
         </div>
-        <div className="shrink min-w-[140px] grow justify-start items-center lg:flex-wrap hidden md:flex">
+        <div className="shrink min-w-[150px] grow justify-start items-center lg:flex-wrap hidden md:flex">
           <BreadCrumbs navs={navs} />
         </div>
         <div className="px-60 justify-end gap-30 text-sm text-gray-400 font-title hidden lg:flex">
@@ -58,8 +58,10 @@ const Navbar = ({ navsChangeHandler, background }) => {
             </NavLink>
           ))}
         </div>
-        <ShoppingCart />
-        <BurgerMenu />
+        <div className="w-[100%] h-90 flex justify-end">
+          <ShoppingCart />
+          <BurgerMenu />
+        </div>
       </div>
     </>
   );
