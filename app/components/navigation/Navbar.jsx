@@ -55,7 +55,7 @@ const Navbar = ({ navsChangeHandler, background }) => {
         <div className='h-full shrink-0 pr-15 mr-30 border-dashed border-r border-gray-200 items-center flex'>
           <img src='/images/logo.svg' alt='' />
         </div>
-        <div className='shrink min-w-[250px] grow justify-start items-center lg:flex-wrap hidden md:flex'>
+        <div className='shrink max-lg:min-w-[210px] grow justify-start items-center lg:flex-wrap hidden md:flex'>
           <BreadCrumbs navs={navs} />
         </div>
         <div className='px-60 justify-end gap-30 text-sm text-gray-400 font-title hidden lg:flex'>
