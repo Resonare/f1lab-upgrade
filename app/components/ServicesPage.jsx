@@ -1,9 +1,9 @@
 import { useRef } from "react";
 
 import BackgroundGrid from "./BackgroundGrid";
-import Scenarios from "./consulting/Scenarios";
-import Offers from "./consulting/Offers";
-import Hero from "./consulting/Hero";
+import Scenarios from "./audit/Scenarios";
+import Offers from "./audit/Offers";
+import Hero from "./audit/Hero";
 
 const ServicesPage = () => {
   const bgOwnerRef = useRef();

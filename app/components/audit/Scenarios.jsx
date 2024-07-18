@@ -6,26 +6,26 @@ const SCENARIOS_DATA = [
   {
     descriptionText:
       "Понять текущее состояние IT-инфраструктуры и выявить слабые места",
-    iconPath: "consulting/consulting-scenario-icon1.svg",
+    iconPath: "audit/audit-scenario-icon1.svg",
     row: 2,
     col: 1,
   },
   {
     descriptionText: "Подготовиться к внедрению новых технологий и ит-решений",
-    iconPath: "consulting/consulting-scenario-icon2.svg",
+    iconPath: "audit/audit-scenario-icon2.svg",
     row: 2,
     col: 3,
   },
   {
     descriptionText:
       "Проверить соответствие стандартам безопасности и требованиям отрасли",
-    iconPath: "consulting/consulting-scenario-icon3.svg",
+    iconPath: "audit/audit-scenario-icon3.svg",
     row: 3,
     col: 2,
   },
   {
     descriptionText: "Оптимизировать затраты на ит-инфраструктуру",
-    iconPath: "consulting/consulting-scenario-icon4.svg",
+    iconPath: "audit/audit-scenario-icon4.svg",
     row: 3,
     col: 4,
   },

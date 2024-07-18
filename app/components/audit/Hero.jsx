@@ -29,7 +29,7 @@ const Hero = () => {
       </PrimaryButton>
       <img
         className="row-start-1 row-end-5 col-start-3 col-end-5"
-        src="/images/consulting/hero-scheme.svg"
+        src="/images/audit/hero-scheme.svg"
         alt=""
       />
     </div>
