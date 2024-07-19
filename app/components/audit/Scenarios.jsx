@@ -4,7 +4,7 @@ import Section from "../Section";
 import ContentCard from "../ContentCard";
 import SectionTitle from "../SectionTitle";
 
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 const Scenarios = () => {
   const { screen } = useContext(GlobalContext);

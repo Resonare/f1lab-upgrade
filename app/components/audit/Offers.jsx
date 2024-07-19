@@ -2,10 +2,10 @@ import { useContext } from "react";
 
 import Section from "../Section";
 import ContentCard from "../ContentCard";
-import PrimaryButton from "../PrimaryButton";
+import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import SectionTitle from "../SectionTitle";
 
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 const Offers = () => {
   const { screen } = useContext(GlobalContext);

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { NavLink } from '@remix-run/react';
 
-import ShoppingCart from '../shoppingCart/ShoppingCart';
+import ShoppingCart from '../ShoppingCart/ShoppingCart';
 import BurgerMenu from './BurgerMenu';
 import BreadCrumbs from './Breadcrumbs';
 import { useEffect } from 'react';

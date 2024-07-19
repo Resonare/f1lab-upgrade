@@ -1,9 +1,9 @@
 import { useContext } from "react";
 
-import PrimaryButton from "../PrimaryButton";
+import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import ContentCard from "../ContentCard";
 
-import { GlobalContext } from "../GlobalContext";
+import { GlobalContext } from "../../contexts/GlobalContext";
 
 const Hero = () => {
   const { screen } = useContext(GlobalContext);
@@ -28,7 +28,7 @@ const Hero = () => {
 
   return (
     <div
-      className="grid grid-cols-4 xl:px-120 lg:px-60 md:px-40 sm:px-40 py-120"
+      className="grid grid-cols-4 xl:px-120 lg:px-60 md:px-40 sm:px-40 pt-120"
       style={{
         gridTemplateRows: `${
           screenSm
@@ -85,7 +85,7 @@ const Hero = () => {
           gridColumn: schemePos.col,
           gridRow: schemePos.row,
         }}
-        src={`/images/audit/hero-schemes/hero-scheme-${screen}.svg`}
+        src={`/images/audit/hero-schemes/hero-scheme-${screen ?? "xl"}.svg`}
         alt=""
       />
     </div>

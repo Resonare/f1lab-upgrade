@@ -11,10 +11,10 @@ import './tailwind.css';
 
 import { useState } from 'react';
 
-import Navbar from '~/components/navigation/Navbar';
-import SidebarButtons from '~/components/navigation/SidebarButtons';
+import Navbar from '~/components/Navigation/Navbar';
+import SidebarButtons from '~/components/Navigation/SidebarButtons';
 
-import { GlobalProvider } from "~/components/GlobalContext";
+import { GlobalProvider } from "~/contexts/GlobalContext";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
