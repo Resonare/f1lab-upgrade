@@ -30,9 +30,11 @@ const Hero = () => {
     <div
       className="grid grid-cols-4 xl:px-120 lg:px-60 md:px-40 sm:px-40 py-120"
       style={{
-        gridTemplateRows: `${screenSm ? "1fr" : "1.2fr"} repeat(${
-          screenSm ? 5 : 3
-        }, minmax(0, 1fr))`,
+        gridTemplateRows: `${
+          screenSm
+            ? "1fr 0.5fr 0.5fr repeat(2, minmax(0, 1fr)) 0.5fr"
+            : "1.2fr repeat(3, minmax(0, 1fr))"
+        }`,
       }}
     >
       <div

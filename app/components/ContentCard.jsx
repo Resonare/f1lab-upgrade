@@ -13,16 +13,15 @@ const ContentCard = ({
 }) => {
   const { screen } = useContext(GlobalContext);
 
+  //Computing screen flags for shorter syntax
+  const screenMd = screen == "md";
+  const screenSm = screen == "sm";
+
   //Computing card color depending on color inversion flag
-  let cardColorClasses = "";
-  let cardTextColorClasses = "";
-  if (inverseColor) {
-    cardColorClasses = "border-t-gray-300 border-b-gray-300";
-    cardTextColorClasses = "text-gray-100";
-  } else {
-    cardColorClasses = "border-t-grey border-b-grey";
-    cardTextColorClasses = "text-gray-400";
-  }
+  const cardColorClasses = inverseColor
+    ? "border-t-gray-300 border-b-gray-300"
+    : "border-t-grey border-b-grey";
+  const cardTextColorClasses = inverseColor ? "text-gray-100" : "text-gray-400";
 
   return (
     <div
@@ -41,7 +40,11 @@ const ContentCard = ({
       ) : null}
       <p
         className={`${cardTextColorClasses} ${
-          screen == "sm" ? "text-[1.5rem]" : "text-[1.1rem]"
+          screenMd
+            ? "text-[1.2rem]"
+            : screenSm
+            ? "text-[1.5rem]"
+            : "text-[1.1rem]"
         } font-light font-text leading-relaxed`}
       >
         {children}
