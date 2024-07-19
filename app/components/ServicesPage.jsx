@@ -4,6 +4,7 @@ import BackgroundGrid from "./BackgroundGrid";
 import Scenarios from "./Audit/Scenarios";
 import Offers from "./Audit/Offers";
 import Hero from "./Audit/Hero";
+import Process from "./Audit/Process";
 
 const ServicesPage = () => {
   const bgOwnerRef = useRef();
@@ -16,6 +17,7 @@ const ServicesPage = () => {
         <Hero />
         <Scenarios />
         <Offers />
+        <Process />
       </div>
     </>
   );

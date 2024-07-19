@@ -1,7 +1,3 @@
-import { useContext } from "react";
-
-import { GlobalContext } from "../contexts/GlobalContext";
-
 const ContentCard = ({
   row,
   col,
@@ -11,12 +7,6 @@ const ContentCard = ({
   inverseColor = false,
   children,
 }) => {
-  const { screen } = useContext(GlobalContext);
-
-  //Computing screen flags for shorter syntax
-  const screenMd = screen == "md";
-  const screenSm = screen == "sm";
-
   //Computing card color depending on color inversion flag
   const cardColorClasses = inverseColor
     ? "border-t-gray-300 border-b-gray-300"
@@ -39,13 +29,7 @@ const ContentCard = ({
         </div>
       ) : null}
       <p
-        className={`${cardTextColorClasses} ${
-          screenMd
-            ? "text-[1.2rem]"
-            : screenSm
-            ? "text-[1.5rem]"
-            : "text-[1.1rem]"
-        } font-light font-text leading-relaxed`}
+        className={`${cardTextColorClasses} text-xl font-light font-text leading-relaxed`}
       >
         {children}
       </p>
