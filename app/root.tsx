@@ -6,11 +6,15 @@ import {
   ScrollRestoration,
   useLocation,
 } from '@remix-run/react';
+
 import './tailwind.css';
+
+import { useState } from 'react';
 
 import Navbar from '~/components/navigation/Navbar';
 import SidebarButtons from '~/components/navigation/SidebarButtons';
-import { useState } from 'react';
+
+import { GlobalProvider } from "~/components/GlobalContext";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -53,19 +57,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className={`${currentNav[0]?.bgClassName || 'bg-white'}`}>
-        <header className='fixed top-0 w-full'>
-          <Navbar
-            navsChangeHandler={navsChangeHandler}
+        <GlobalProvider>
+          <header className='fixed top-0 w-full'>
+            <Navbar
+              navsChangeHandler={navsChangeHandler}
+              background={`${currentNav[0]?.bgClassName || 'bg-white'}`}
+            />
+          </header>
+          <SidebarButtons
             background={`${currentNav[0]?.bgClassName || 'bg-white'}`}
           />
-        </header>
-        <SidebarButtons
-          background={`${currentNav[0]?.bgClassName || 'bg-white'}`}
-        />
-        <div className='mt-90'>{children}</div>
+          <div className='mt-90'>{children}</div>
 
-        <ScrollRestoration />
-        <Scripts />
+          <ScrollRestoration />
+          <Scripts />
+        </GlobalProvider>
       </body>
     </html>
   );

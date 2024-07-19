@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import styles from "./PrimaryButtom.module.css";
+import styles from "./PrimaryButton.module.css";
 
 const PrimaryButton = ({
   row,
@@ -9,6 +9,7 @@ const PrimaryButton = ({
   height = 1,
   type = "accent",
   children,
+  ...otherAttributes
 }) => {
   //Primary Button types: accent, dark, light
 
@@ -53,6 +54,7 @@ const PrimaryButton = ({
         gridColumn: `${col} / ${col + width}`,
         gridRow: `${row} / ${row + height}`,
       }}
+      {...otherAttributes}
     >
       <button
         className={`${buttonColorClasses} flex justify-between py-15 pl-30 pr-15 w-full text-xl font-subtitle leading-normal transition-all duration-[400ms]`}

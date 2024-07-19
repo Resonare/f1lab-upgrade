@@ -1,6 +1,10 @@
+import { useContext } from "react";
+
 import Section from "../Section";
 import ContentCard from "../ContentCard";
 import SectionTitle from "../SectionTitle";
+
+import { GlobalContext } from "../GlobalContext";
 
 const SCENARIOS_DATA = [
   {
@@ -32,6 +36,8 @@ const SCENARIOS_DATA = [
 ];
 
 const Scenarios = () => {
+  const { screen } = useContext(GlobalContext);
+
   return (
     <div id="why">
       <Section rowsAmount={3}>

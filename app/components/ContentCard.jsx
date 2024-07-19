@@ -1,3 +1,7 @@
+import { useContext } from "react";
+
+import { GlobalContext } from "./GlobalContext";
+
 const ContentCard = ({
   row,
   col,
@@ -7,6 +11,8 @@ const ContentCard = ({
   inverseColor = false,
   children,
 }) => {
+  const { screen } = useContext(GlobalContext);
+
   //Computing card color depending on color inversion flag
   let cardColorClasses = "";
   let cardTextColorClasses = "";
@@ -22,7 +28,7 @@ const ContentCard = ({
     <div
       className={`${cardColorClasses} ${
         iconPath ? "min-h-[280px]" : ""
-      } p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] flex flex-col justify-between`} //min-h-[280px]
+      } xl:p-30 lg:p-15 md:p-15 sm:p-15 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] flex flex-col justify-between`}
       style={{
         gridColumn: `${col} / ${col + width}`,
         gridRow: `${row} / ${row + height}`,
@@ -34,7 +40,9 @@ const ContentCard = ({
         </div>
       ) : null}
       <p
-        className={`${cardTextColorClasses} text-[1.1rem] font-light font-text leading-relaxed`}
+        className={`${cardTextColorClasses} ${
+          screen == "sm" ? "text-[1.5rem]" : "text-[1.1rem]"
+        } font-light font-text leading-relaxed`}
       >
         {children}
       </p>

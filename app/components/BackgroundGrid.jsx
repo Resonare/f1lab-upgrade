@@ -6,7 +6,6 @@ const BackgroundGrid = ({ bgOwnerRef, inverseColor = false }) => {
   const bgRef = useRef();
 
   const handleResize = () => {
-    console.log();
     bgRef.current.style.height = bgOwnerRef.current.offsetHeight + "px";
   };
 
@@ -30,7 +29,7 @@ const BackgroundGrid = ({ bgOwnerRef, inverseColor = false }) => {
     <div
       className={`${
         inverseColor ? "bg-gray-400" : ""
-      } absolute w-full z-[-1] grid grid-cols-[1fr_1fr_1fr_1fr] px-[120px] py-0`}
+      } absolute w-full z-[-1] grid grid-cols-[1fr_1fr_1fr_1fr] xl:px-120 lg:px-60 md:px-40 sm:px-40`}
       ref={bgRef}
     >
       <div
