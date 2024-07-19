@@ -14,8 +14,13 @@ const Process = () => {
         col={1}
         title="Определение целей и объема аудита"
         tags={[
+          <Tag className="bg-red" inverseColor={true}>
+            ZABBIX
+          </Tag>,
+          <Tag className="bg-consulting">SIEM система</Tag>,
+          <Tag className="bg-security">SIEM система</Tag>,
           <Tag className="bg-cloud">SIEM система</Tag>,
-          <Tag className="bg-cloud">SIEM система 2</Tag>,
+          <Tag className="bg-cloud">ITIL</Tag>,
         ]}
         upperLabels={["Этап 1", "Начальная консультация"]}
       >

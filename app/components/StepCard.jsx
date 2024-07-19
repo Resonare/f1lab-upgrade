@@ -29,7 +29,9 @@ const StepCard = ({
       <div className="flex gap-[2px]">
         {upperLabels.map((label) => (
           <div className="bg-f1-light rounded-[15px] px-15 py-5">
-            <p className="uppercase text-gray-400 text-sm font-bold font-text">{label}</p>
+            <p className="uppercase text-gray-400 text-sm font-bold font-text">
+              {label}
+            </p>
           </div>
         ))}
       </div>
@@ -49,7 +51,7 @@ const StepCard = ({
           {children}
         </p>
 
-        <div className="flex gap-5">{tags}</div>
+        <div className="flex flex-wrap gap-5">{tags}</div>
       </div>
     </div>
   );
