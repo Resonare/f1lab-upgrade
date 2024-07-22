@@ -26,10 +26,13 @@ const StepCard = ({
         gridRow: `${row} / ${row + height}`,
       }}
     >
-      <div className="flex gap-[2px]">
-        {upperLabels.map((label) => (
-          <div className="bg-f1-light rounded-[15px] px-15 py-5">
-            <p className="uppercase text-gray-400 text-sm font-bold font-text">
+      <div className="flex flex-wrap gap-[2px]">
+        {upperLabels.map((label, index) => (
+          <div
+            key={index}
+            className="bg-f1-light rounded-[15px] xl:px-15 px-10 py-5"
+          >
+            <p className="uppercase text-gray-400 xl:text-sm text-xs font-bold font-text">
               {label}
             </p>
           </div>

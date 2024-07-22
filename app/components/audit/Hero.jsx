@@ -28,17 +28,17 @@ const Hero = () => {
 
   return (
     <div
-      className="grid grid-cols-4 xl:px-120 lg:px-60 md:px-40 sm:px-40 pt-120"
-      style={{
-        gridTemplateRows: `${
-          screenSm
-            ? "1fr 0.5fr 0.5fr repeat(2, minmax(0, 1fr)) 0.5fr"
-            : "1.2fr repeat(3, minmax(0, 1fr))"
-        }`,
-      }}
+      className={`grid grid-cols-4 grid-rows-${screenSm ? 6 : 4} xl:px-120 lg:px-60 md:px-40 sm:px-40 pt-120`}
+      // style={{
+      //   gridTemplateRows: `${
+      //     screenSm
+      //       ? "1fr 0.5fr 0.5fr repeat(2, minmax(0, 1fr)) 0.5fr"
+      //       : "1.2fr repeat(3, minmax(0, 1fr))"
+      //   }`,
+      // }}
     >
       <div
-        className="text-gray-400 xl:text-[56px] lg:text-[44px] md:text-[56px] sm:text-[56px] font-title leading-[60px]"
+        className="xl:pb-30 pb-10 text-gray-400 xl:text-[56px] lg:text-[44px] md:text-[56px] sm:text-[56px] font-title leading-[60px]"
         style={{
           gridColumn: titlePos.col,
           gridRow: titlePos.row,
@@ -71,7 +71,7 @@ const Hero = () => {
         <img src="/images/misc/arrow-card-left.svg" alt="" />
       </div>
       <PrimaryButton
-        className={screenMd || screenSm ? `self-center` : undefined}
+        className={screenMd || screenSm ? `self-center` : null}
         type="accent"
         row={screenSm ? 6 : 4}
         col={1}
@@ -80,7 +80,6 @@ const Hero = () => {
         Консультация
       </PrimaryButton>
       <img
-        className={`${screenSm ? "w-full" : ""}`}
         style={{
           gridColumn: schemePos.col,
           gridRow: schemePos.row,
