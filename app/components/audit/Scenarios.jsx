@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import Section from "../Section";
-import ContentCard from "../ContentCard";
+import ContentCard from "../Cards/ContentCard";
 import SectionTitle from "../SectionTitle";
 
 import { GlobalContext } from "../../contexts/GlobalContext";

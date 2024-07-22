@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import Section from "../Section";
-import ContentCard from "../ContentCard";
+import ContentCard from "../Cards/ContentCard";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 import SectionTitle from "../SectionTitle";
 

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
-import ContentCard from "../ContentCard";
+import ContentCard from "../Cards/ContentCard";
 
 import { GlobalContext } from "../../contexts/GlobalContext";
 

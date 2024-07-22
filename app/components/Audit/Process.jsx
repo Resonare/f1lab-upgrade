@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import Section from "../Section";
 import Tag from "../Tag";
-import StepCard from "../StepCard";
+import StepCard from "../Cards/StepCard";
 import SectionTitle from "../SectionTitle";
 import PrimaryButton from "../PrimaryButton/PrimaryButton";
 
