@@ -14,12 +14,12 @@ const SidebarWhyButton = ({ background }) => {
       {sideButtons.map((button) => (
         <div
           key={button.text}
-          className='w-40 grid md:justify-items-start justify-items-end'
+          className='grid md:justify-items-start justify-items-end text-center'
         >
           <Link
             to={button.to}
             style={{ writingMode: 'vertical-rl' }}
-            className={`w-40 max-md:w-[40.835px] left-0 top-90 p-10 md:rotate-0 rotate-180 border-r md:border-b max-md:border-t  border-dashed justify-center items-center ${background} font-subtitle text-gray-400 transition ease-in-out hover:bg-gray-400 hover:text-gray-100 duration-600`}
+            className={`left-0 top-90 p-10 md:rotate-0 rotate-180 border-r md:border-b max-md:border-t  border-dashed ${background} font-subtitle text-gray-400 transition ease-in-out hover:bg-gray-400 hover:text-gray-100 duration-600`}
           >
             {button.text}
           </Link>

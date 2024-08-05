@@ -1,28 +1,27 @@
-import { useLocation, Link, NavLink } from '@remix-run/react';
-import { Fragment } from 'react/jsx-runtime';
+import { useLocation, Link, NavLink } from "@remix-run/react";
+import { Fragment } from "react/jsx-runtime";
 
 const BreadCrumbs = ({ navs }) => {
   const location = useLocation();
   const { pathname } = location;
-  const segments = pathname.split('/');
+  const segments = pathname.split("/");
   const currentSegment = segments[segments.length - 1];
-  console.log(currentSegment)
 
   const staticLinks = [
     <Link
       className={`${
         segments.filter((s) => s.length > 0).length > 0
-          ? 'text-gray-200'
-          : 'text-gray-400'
-      } text-sm font-text`}
-      to='/'
-      key='homepage'
+          ? "text-gray-200"
+          : "text-gray-400"
+      } text-sm font-text hover:underline hover:underline-offset-4`}
+      to="/"
+      key="homepage"
     >
       Главная
     </Link>,
   ];
 
-  let url = '';
+  let url = "";
 
   const BreadCrumbLinks = segments
     .filter((segment) => segment.length > 0)
@@ -42,18 +41,18 @@ const BreadCrumbs = ({ navs }) => {
 
       return (
         <Fragment key={i}>
-          <div className='px-5 shrink-0'>
-            <img src='/images/arrow-right.svg' alt='' />
+          <div className="px-5 shrink-0">
+            <img src="/images/arrow-right.svg" alt="" />
           </div>
           <NavLink
-            to={`http:localhost:5173${url}`}
+            to={`${segments[0]}${url}`}
             className={
               currentSegment === navItem[0].link
-                ? 'text-gray-400 text-sm font-text'
-                : 'text-gray-200 text-sm font-text '
+                ? "text-gray-400 text-sm font-text"
+                : "text-gray-200 text-sm font-text hover:underline hover:underline-offset-4"
             }
           >
-            {navItem[0]?.title || 'Not found'}
+            {navItem[0]?.title || "Not found"}
           </NavLink>
         </Fragment>
       );

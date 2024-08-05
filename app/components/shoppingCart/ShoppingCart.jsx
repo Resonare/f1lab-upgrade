@@ -7,7 +7,7 @@ const ShoppingCart = () => {
     setDummyNumber((prev) => prev + 1);
   };
   return (
-    <div className="border-dashed border-r border-l border-gray-200 h-[100%] grid shrink-0">
+    <div className="border-dashed border-r border-l border-gray-200 h-[100%] grid shrink-0  hover:bg-f1-light">
       <button className="place-self-center px-30" onClick={dummyNumberHandler}>
         <img src="/images/shopping-cart.svg" alt="" />
       </button>
