@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 const BurgerMenu = () => {
-  const [image, setImage] = useState("images/burger-menu.svg");
+  const [image, setImage] = useState("/images/burger-menu.svg");
 
   const imageChangeHandler = () => {
     image === "images/burger-menu.svg"
-      ? setImage("images/burger-menu-close.svg")
-      : setImage("images/burger-menu.svg");
+      ? setImage("/images/burger-menu-close.svg")
+      : setImage("/images/burger-menu.svg");
   };
   return (
     <button

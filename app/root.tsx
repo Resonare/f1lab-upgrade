@@ -19,14 +19,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const currentSegment = segments[segments.length - 1];
 
   const [navs, setNavs] = useState([
-    { link: "/", title: "Главная", color: "white", items: [{}] },
+    {
+      link: "/",
+      title: "Главная",
+      bgColor: "bg-white",
+      textColor: "text-gray-400",
+      items: [{}],
+    },
   ]);
 
   const navsChangeHandler = (
     updatedNavs: {
       link: string;
       title: "string";
-      color: string;
+      bgColor: string;
+      textColor: string;
       items: Array<any>;
     }[]
   ) => {
@@ -52,15 +59,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className={`bg-${currentNav[0]?.color || "bg-white"}`}>
+      <body className={`${currentNav[0]?.bgColor || "bg-consulting"}`}>
         <header className="fixed top-0 w-full z-50">
           <Navbar
             navsChangeHandler={navsChangeHandler}
-            background={`bg-${currentNav[0]?.color || "bg-white"}`}
+            background={`${currentNav[0]?.bgColor || "bg-consulting"}`}
           />
         </header>
         <SidebarButtons
-          background={`bg-${currentNav[0]?.color || "bg-white"}`}
+          background={`${currentNav[0]?.bgColor || "bg-consulting"}`}
         />
         <div className="mt-90">{children}</div>
 

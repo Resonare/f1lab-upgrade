@@ -9,34 +9,45 @@ import { useEffect, useState } from "react";
 
 const Navbar = ({ navsChangeHandler, background }) => {
   const navs = [
-    { link: "/", title: "Главная", color: "white", items: [] },
+    {
+      link: "/",
+      title: "Главная",
+      bgColor: "bg-white",
+      textColor: "text-white",
+      items: [],
+    },
     {
       link: "services",
       title: "Услуги",
-      color: "consulting",
+      bgColor: "bg-consulting",
+      textColor: "text-consulting",
       items: [
         {
-          link: "it-consulting",
+          link: "it-audit",
           title: "ИТ-консалтинг",
-          color: "consulting",
+          bgColor: "bg-consulting",
+          textColor: "text-consulting",
           items: [],
         },
         {
           link: "cloud-management",
           title: "Менеджмент облачной инфраструктуры",
-          color: "cloud",
+          bgColor: "bg-cloud",
+          textColor: "text-cloud",
           items: [],
         },
         {
           link: "it-security",
           title: "Информационная безопасность",
-          color: "security",
+          bgColor: "bg-security",
+          textColor: "text-security",
           items: [],
         },
         {
           link: "service-packages",
           title: "Пакеты услуг",
-          color: "f1-light",
+          bgColor: "bg-f1-light",
+          textColor: "text-f1-light",
           items: [],
         },
       ],
@@ -44,20 +55,29 @@ const Navbar = ({ navsChangeHandler, background }) => {
     {
       link: "portfolio",
       title: "Портфолио",
-      color: "cloud",
+      bgColor: "bg-cloud",
+      textColor: "text-cloud",
       items: [],
     },
     {
       link: "experts",
       title: "Эксперты",
-      color: "security",
+      bgColor: "bg-security",
+      textColor: "text-security",
       items: [],
     },
-    { link: "blog", title: "Блог", color: "alert", items: [] },
+    {
+      link: "blog",
+      title: "Блог",
+      bgColor: "bg-alert",
+      textColor: "text-alert",
+      items: [],
+    },
     {
       link: "contacts",
       title: "Контакты",
-      color: "white",
+      bgColor: "bg-white",
+      textColor: "text-white",
       items: [],
     },
   ];
@@ -85,10 +105,13 @@ const Navbar = ({ navsChangeHandler, background }) => {
         </div>
         <div className="px-60 justify-end gap-30 text-sm text-gray-400 font-title hidden lg:flex">
           {navs.map((nav) => (
-            <>
+            <div key={nav.link}>
               {nav.items.length !== 0 && (
                 <>
-                  <div className="hover:underline hover:underline-offset-4 gap-5 flex">
+                  <div
+                    className="hover:underline hover:underline-offset-4 gap-5 flex"
+                    aria-expanded="false"
+                  >
                     <button onClick={showMenuHandler}>{nav.title}</button>
                     <img
                       src={
@@ -113,7 +136,7 @@ const Navbar = ({ navsChangeHandler, background }) => {
                   </NavLink>
                 </>
               )}
-            </>
+            </div>
           ))}
         </div>
         <div className="h-90 flex justify-end">

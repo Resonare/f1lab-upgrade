@@ -38,7 +38,7 @@ const PrimaryButton = ({
     if (type === "accent") {
       buttonContainerRef.current.style.setProperty(
         "--filter-add",
-        filterAccent,
+        filterAccent
       );
     } else if (type === "dark") {
       buttonContainerRef.current.style.setProperty("--filter-add", filterDark);

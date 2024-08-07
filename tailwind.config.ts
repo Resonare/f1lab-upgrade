@@ -26,6 +26,7 @@ export default {
       "60": "60px",
       "40": "40px",
       "30": "30px",
+      "20": "20px",
       "15": "15px",
       "10": "10px",
       "5": "5px",
@@ -50,7 +51,11 @@ export default {
       md: "1024px",
       sm: "770px",
     },
-    extend: {},
+    extend: {
+      transitionProperty: {
+        height: "height",
+      },
+    },
   },
 
   plugins: [],

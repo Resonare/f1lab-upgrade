@@ -47,7 +47,7 @@ const BreadCrumbs = ({ navs }) => {
           <NavLink
             to={`${segments[0]}${url}`}
             className={
-              currentSegment === navItem[0].link
+              currentSegment === navItem[0]?.link
                 ? "text-gray-400 text-sm font-text"
                 : "text-gray-200 text-sm font-text hover:underline hover:underline-offset-4"
             }

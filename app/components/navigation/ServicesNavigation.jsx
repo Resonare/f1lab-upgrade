@@ -1,36 +1,38 @@
 import { useState } from "react";
 import ServicesNavigationItem from "./ServicesNavigationItem";
+import SecondaryButton from "../buttons/SecondaryButton";
 
 const ServicesNavigation = ({ showMenu, items }) => {
-  const [currentState, setCurrentState] = useState("consulting");
+  const [currentBgState, setCurrentBgState] = useState("bg-consulting");
+  const [currentTextState, setCurrentTextState] = useState("text-gray-400");
 
   return (
     <div
-      className={
-        showMenu ? "fixed start-0 top-90 w-full  bg-gray-400" : " hidden"
-      }
+      className={`fixed start-0 -z-10 ${
+        showMenu ? "top-90" : "-top-full"
+      } w-full bg-gray-400 flex font-subtitle text-sm transition-all duration-500`}
     >
-      <div className={"flex font-subtitle text-sm"}>
-        <div className="h-[435px] w-[740px] pt-30 pl-120">
-          <div
-            className={`bg-${
-              currentState === "consulting" ? "consulting" : "gray-400"
-            }`}
-          >
-            <div className={`h-30 rounded-br-3xl bg-gray-400`}></div>
-          </div>
-          <ul>
-            {items.map((item) => (
-              <ServicesNavigationItem
-                key={item.link}
-                item={item}
-                currentState={currentState}
-                setCurrentState={setCurrentState}
-              />
-            ))}
-          </ul>
-        </div>
-        <div className={`w-full bg-${currentState}`}></div>
+      <div className="w-[740px] pt-30 pl-120 border-b border-dashed border-gray-200">
+        <ul>
+          {items.map((item) => (
+            <ServicesNavigationItem
+              key={item.link}
+              item={item}
+              currentBgState={currentBgState}
+              setCurrentBgState={setCurrentBgState}
+              currentTextState={currentTextState}
+              setCurrentTextState={setCurrentTextState}
+            />
+          ))}
+        </ul>
+      </div>
+      <div
+        className={`w-full ${currentBgState} py-60 px-30 grid grid-rows-5 justify-start gap-15 border-b border-dashed border-gray-200`}
+      >
+        <SecondaryButton variant="shaded">ИТ-аудит</SecondaryButton>
+        <SecondaryButton variant="dark">Обслуживание серверов</SecondaryButton>
+        <SecondaryButton variant="info">Удалённая техподдержка</SecondaryButton>
+        <SecondaryButton variant="light">Обслуживание VOIP</SecondaryButton>
       </div>
     </div>
   );
