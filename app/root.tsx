@@ -1,3 +1,4 @@
+import { useState, useContext, useEffect } from "react";
 import {
   Links,
   Meta,
@@ -10,23 +11,24 @@ import "./tailwind.css";
 
 import Navbar from "~/components/navigation/Navbar";
 import SidebarButtons from "~/components/navigation/SidebarButtons";
-import { useState } from "react";
+
+import { ThemeContext } from "~/store/theme-context";
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const themeContext = useContext(ThemeContext);
+
+  const [bgColor, setBgColor] = useState(themeContext.bgColor);
+
+  const bgColorChangeHandler = (color: string) => {
+    setBgColor(color);
+  };
+
   const location = useLocation();
   const { pathname } = location;
   const segments = pathname.split("/");
   const currentSegment = segments[segments.length - 1];
 
-  const [navs, setNavs] = useState([
-    {
-      link: "/",
-      title: "Главная",
-      bgColor: "bg-white",
-      textColor: "text-gray-400",
-      items: [{}],
-    },
-  ]);
+  const [navs, setNavs] = useState([{}]);
 
   const navsChangeHandler = (
     updatedNavs: {
@@ -40,16 +42,32 @@ export function Layout({ children }: { children: React.ReactNode }) {
     setNavs(updatedNavs);
   };
 
-  let currentNav = navs.filter((nav) => nav.link === currentSegment);
-
-  if (currentNav.length === 0) {
-    for (let nav of navs) {
-      const itemNav = nav.items.filter((item) => item.link === currentSegment);
-      if (itemNav.length > 0) {
-        currentNav = [...itemNav];
+  const findItem = (items, targetLink) => {
+    // Inner recursive function to search within nested structures
+    function recursiveSearch(items) {
+      for (const item of items) {
+        if (item.link === targetLink) {
+          return item;
+        }
+        if (item.items && item.items.length > 0) {
+          const foundInChildren = recursiveSearch(item.items);
+          if (foundInChildren) {
+            return foundInChildren;
+          }
+        }
       }
+      return null; // Return null if not found in the current level
     }
-  }
+
+    const foundItem = recursiveSearch(items);
+    return foundItem || items[0]; // Return the found item or the first top-level item
+  };
+
+  const currentItem = findItem(navs, currentSegment);
+
+  useEffect(() => {
+    bgColorChangeHandler(currentItem.bgColor);
+  }, [currentItem]);
 
   return (
     <html lang="ru" className="scroll-smooth">
@@ -59,21 +77,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className={`${currentNav[0]?.bgColor || "bg-consulting"}`}>
-        <header className="fixed top-0 w-full z-50">
-          <Navbar
-            navsChangeHandler={navsChangeHandler}
-            background={`${currentNav[0]?.bgColor || "bg-consulting"}`}
-          />
-        </header>
-        <SidebarButtons
-          background={`${currentNav[0]?.bgColor || "bg-consulting"}`}
-        />
-        <div className="mt-90">{children}</div>
-
-        <ScrollRestoration />
-        <Scripts />
-      </body>
+      <ThemeContext.Provider value={{ bgColor: bgColor }}>
+        <body className={bgColor}>
+          <header className="fixed top-0 w-full z-50">
+            <Navbar navsChangeHandler={navsChangeHandler} />
+          </header>
+          <SidebarButtons />
+          <div className="mt-90">{children}</div>
+          <ScrollRestoration />
+          <Scripts />
+        </body>
+      </ThemeContext.Provider>
     </html>
   );
 }

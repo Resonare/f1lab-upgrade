@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { useLocation, Link, NavLink } from "@remix-run/react";
 import { Fragment } from "react/jsx-runtime";
 
+import { NavbarContext } from "../../store/navbar-context";
+
 const BreadCrumbs = ({ navs }) => {
+  const { closeServicesDropdownHandler } = useContext(NavbarContext);
   const location = useLocation();
   const { pathname } = location;
   const segments = pathname.split("/");
@@ -15,6 +19,7 @@ const BreadCrumbs = ({ navs }) => {
           : "text-gray-400"
       } text-sm font-text hover:underline hover:underline-offset-4`}
       to="/"
+      onClick={closeServicesDropdownHandler}
       key="homepage"
     >
       Главная
@@ -46,6 +51,7 @@ const BreadCrumbs = ({ navs }) => {
           </div>
           <NavLink
             to={`${segments[0]}${url}`}
+            onClick={closeServicesDropdownHandler}
             className={
               currentSegment === navItem[0]?.link
                 ? "text-gray-400 text-sm font-text"

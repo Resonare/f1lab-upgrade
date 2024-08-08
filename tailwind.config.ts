@@ -44,6 +44,7 @@ export default {
       subtitle: "RFDewiExpanded-Bold",
       light: "RFDewiExpanded-Light",
       text: "Bahnschrift",
+      "button-md": "RFDewiExpanded",
     },
     screens: {
       xl: "1600px",

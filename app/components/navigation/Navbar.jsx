@@ -1,101 +1,46 @@
-import PropTypes from "prop-types";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "@remix-run/react";
+import PropTypes from "prop-types";
 
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 import BurgerMenu from "./BurgerMenu";
 import BreadCrumbs from "./Breadcrumbs";
 import ServicesNavigation from "./ServicesNavigation";
-import { useEffect, useState } from "react";
 
-const Navbar = ({ navsChangeHandler, background }) => {
-  const navs = [
-    {
-      link: "/",
-      title: "Главная",
-      bgColor: "bg-white",
-      textColor: "text-white",
-      items: [],
-    },
-    {
-      link: "services",
-      title: "Услуги",
-      bgColor: "bg-consulting",
-      textColor: "text-consulting",
-      items: [
-        {
-          link: "it-audit",
-          title: "ИТ-консалтинг",
-          bgColor: "bg-consulting",
-          textColor: "text-consulting",
-          items: [],
-        },
-        {
-          link: "cloud-management",
-          title: "Менеджмент облачной инфраструктуры",
-          bgColor: "bg-cloud",
-          textColor: "text-cloud",
-          items: [],
-        },
-        {
-          link: "it-security",
-          title: "Информационная безопасность",
-          bgColor: "bg-security",
-          textColor: "text-security",
-          items: [],
-        },
-        {
-          link: "service-packages",
-          title: "Пакеты услуг",
-          bgColor: "bg-f1-light",
-          textColor: "text-f1-light",
-          items: [],
-        },
-      ],
-    },
-    {
-      link: "portfolio",
-      title: "Портфолио",
-      bgColor: "bg-cloud",
-      textColor: "text-cloud",
-      items: [],
-    },
-    {
-      link: "experts",
-      title: "Эксперты",
-      bgColor: "bg-security",
-      textColor: "text-security",
-      items: [],
-    },
-    {
-      link: "blog",
-      title: "Блог",
-      bgColor: "bg-alert",
-      textColor: "text-alert",
-      items: [],
-    },
-    {
-      link: "contacts",
-      title: "Контакты",
-      bgColor: "bg-white",
-      textColor: "text-white",
-      items: [],
-    },
-  ];
+import { ThemeContext } from "../../store/theme-context";
+import { NavbarContext } from "../../store/navbar-context";
+
+import { navData } from "../../store/data";
+
+const Navbar = ({ navsChangeHandler }) => {
+  const { bgColor } = useContext(ThemeContext);
+
+  const [showServicesDropdown, setShowServicesDropdown] = useState(false);
+
+  const showServicesDropdownHandler = () => {
+    setShowServicesDropdown(!showServicesDropdown);
+  };
+
+  const closeServicesDropdownHandler = () => {
+    setShowServicesDropdown(false);
+  };
+
+  const navs = navData;
 
   useEffect(() => {
     navsChangeHandler(navs);
-  }, []);
-
-  const [showMenu, setShowMenu] = useState(false);
-
-  const showMenuHandler = () => {
-    setShowMenu(!showMenu);
-  };
+  });
 
   return (
-    <>
+    <NavbarContext.Provider
+      value={{
+        showServicesDropdown: showServicesDropdown,
+        showServicesDropdownHandler: showServicesDropdownHandler,
+        closeServicesDropdownHandler: closeServicesDropdownHandler,
+      }}
+    >
       <div
-        className={`w-[100%] h-90 xl:px-120 lg:px-60 px-40 ${background} border-dashed border-b border-gray-200 justify-between items-center inline-flex`}
+        className={`w-[100%] h-90 xl:px-120 lg:px-60 px-40 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex`}
       >
         <div className="h-full shrink-0 pr-15 mr-30 border-dashed border-r border-gray-200 items-center flex">
           <img src="/images/logo.svg" alt="" />
@@ -108,21 +53,22 @@ const Navbar = ({ navsChangeHandler, background }) => {
             <div key={nav.link}>
               {nav.items.length !== 0 && (
                 <>
-                  <div
-                    className="hover:underline hover:underline-offset-4 gap-5 flex"
-                    aria-expanded="false"
+                  <button
+                    onClick={showServicesDropdownHandler}
+                    className="flex justify-between items-center gap-5 hover:underline hover:underline-offset-4 "
                   >
-                    <button onClick={showMenuHandler}>{nav.title}</button>
+                    {nav.title}
                     <img
                       src={
-                        !showMenu
+                        !showServicesDropdown
                           ? "/images/arrow-down.svg"
                           : "/images/arrow-up.svg"
                       }
                       alt=""
                     />
-                  </div>
-                  <ServicesNavigation showMenu={showMenu} items={nav.items} />
+                  </button>
+
+                  <ServicesNavigation items={nav.items} />
                 </>
               )}
               {nav.items.length === 0 && (
@@ -131,6 +77,9 @@ const Navbar = ({ navsChangeHandler, background }) => {
                     to={nav.link}
                     key={nav.title}
                     className="hover:underline hover:underline-offset-4"
+                    onClick={() => {
+                      setShowServicesDropdown(false);
+                    }}
                   >
                     {nav.title}
                   </NavLink>
@@ -144,7 +93,7 @@ const Navbar = ({ navsChangeHandler, background }) => {
           <BurgerMenu />
         </div>
       </div>
-    </>
+    </NavbarContext.Provider>
   );
 };
 
