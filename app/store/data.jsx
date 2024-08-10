@@ -2,7 +2,7 @@ export const navData = [
   {
     link: "/",
     title: "Главная",
-    bgColor: "bg-gray-100",
+    bgColor: "bg-consulting",
     textColor: "text-white",
     items: [],
   },

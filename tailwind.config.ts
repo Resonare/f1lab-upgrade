@@ -49,15 +49,11 @@ export default {
     screens: {
       "2xl": "1920px",
       xl: "1600px",
-      lg: "1200px",
+      lg: "1300px",
       md: "1024px",
       sm: "770px",
     },
-    extend: {
-      transitionProperty: {
-        height: "height",
-      },
-    },
+    extend: {},
   },
 
   plugins: [],

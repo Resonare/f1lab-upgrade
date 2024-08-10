@@ -50,9 +50,9 @@ const ServicesNavigation = ({ items }) => {
       }}
     >
       <div
-        className={`fixed start-0 -z-10 ${
-          navbarContext.showServicesDropdown ? "top-90" : "-top-full"
-        } w-full bg-gray-400 flex font-subtitle text-sm transition-all duration-500`}
+        className={`fixed hidden lg:flex max-2xl:start-0 max-w-screen-2xl mx-auto w-full -z-10 ${
+          navbarContext.showServicesDropdown ? "top-90" : "-top-[700px]"
+        } bg-gray-400 font-subtitle text-sm transition-all duration-500`}
       >
         <div className="w-1/2 pt-30 pl-120 border-b border-dashed border-gray-200">
           <ul>
@@ -62,18 +62,20 @@ const ServicesNavigation = ({ items }) => {
           </ul>
         </div>
         <div
-          className={`w-1/2 ${bgColor} py-60 px-30 grid grid-rows-5 justify-start gap-15 border-b border-dashed border-gray-200`}
+          className={`w-1/2 ${bgColor} py-60 px-30 lg:pr-60 xl:pr-120 border-b border-dashed border-gray-200`}
         >
-          {currentService[0].items.map((service) => (
-            <SecondaryButton
-              key={service.link}
-              variant="shaded"
-              link
-              to={`/services/${service.link}`}
-            >
-              {service.title}
-            </SecondaryButton>
-          ))}
+          <div className="max-w-full grid grid-cols-1 grid-rows-5 justify-start gap-15 ">
+            {currentService[0].items.map((service) => (
+              <SecondaryButton
+                key={service.link}
+                variant="shaded"
+                link
+                to={`/services/${service.link}`}
+              >
+                {service.title}
+              </SecondaryButton>
+            ))}
+          </div>
         </div>
       </div>
       <button

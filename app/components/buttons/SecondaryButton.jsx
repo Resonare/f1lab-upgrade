@@ -14,7 +14,7 @@ const SecondaryButton = ({ variant, link, to, onClick, children }) => {
   switch (variant) {
     case "shaded":
       buttonStyle =
-        "flex group w-[710px] h-[52px] text-md  justify-between border-y border-dashed border-gray-200 pl-20 pr-5 py-5 bg-striped hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500 ";
+        "flex group h-[52px] text-md  justify-between border-y border-dashed border-gray-200 pl-20 pr-5 py-5 bg-striped hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500 ";
       arrowColor = "#22282E";
       arrowHoverColor = "#22282E";
       break;
@@ -51,7 +51,7 @@ const SecondaryButton = ({ variant, link, to, onClick, children }) => {
       )}
       {link && (
         <NavLink
-          className={buttonStyle}
+          className={`${buttonStyle} min-w-full`}
           to={to}
           onClick={showServicesDropdownHandler}
         >

@@ -79,13 +79,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <ThemeContext.Provider value={{ bgColor: bgColor }}>
         <body
-          className={`${bgColor} max-w-screen-2xl mx-auto 2xl:border-x 2xl:border-dashed 2xl:border-gray-200`}
+          className={`${bgColor} max-w-[1922px] 2xl:border-x 2xl:border-dashed 2xl:border-gray-200 mx-auto`}
         >
           <header className="fixed top-0 w-full z-50">
             <Navbar navsChangeHandler={navsChangeHandler} />
           </header>
           <SidebarButtons />
-          <div className="mt-90">{children}</div>
+          <div className="pt-70 lg:pt-90">{children}</div>
           <ScrollRestoration />
           <Scripts />
         </body>

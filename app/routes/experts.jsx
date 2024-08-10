@@ -6,5 +6,9 @@ export const meta = () => {
 };
 
 export default function Services() {
-  return <div className="text-5xl font-title p-100">Эксперты</div>;
+  return (
+    <div className="text-5xl font-title p-100 h-[calc(100svh-90px)]">
+      Эксперты
+    </div>
+  );
 }

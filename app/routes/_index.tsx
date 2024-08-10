@@ -8,5 +8,9 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Services() {
-  return <div className="text-5xl font-title p-100 h-svh">Главная</div>;
+  return (
+    <div className="text-5xl font-title p-100 h-[calc(100svh-90px)]">
+      Главная
+    </div>
+  );
 }

@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+
 import { NavLink } from "@remix-run/react";
 import PropTypes from "prop-types";
 
@@ -40,7 +41,7 @@ const Navbar = ({ navsChangeHandler }) => {
       }}
     >
       <div
-        className={`w-full h-90 xl:px-120 lg:px-60 px-40 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex  max-w-screen-2xl mx-auto 2xl:border-x 2xl:border-dashed 2xl:border-gray-200`}
+        className={`fixed w-full h-[70px] lg:h-90 px-40 lg:px-60 xl:px-120 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
       >
         <div className="h-full shrink-0 pr-15 mr-30 border-dashed border-r border-gray-200 items-center flex">
           <img src="/images/logo.svg" alt="" />
@@ -67,8 +68,6 @@ const Navbar = ({ navsChangeHandler }) => {
                       alt=""
                     />
                   </button>
-
-                  <ServicesNavigation items={nav.items} />
                 </>
               )}
               {nav.items.length === 0 && (
@@ -88,11 +87,16 @@ const Navbar = ({ navsChangeHandler }) => {
             </div>
           ))}
         </div>
-        <div className="h-90 flex justify-end">
+        <div className="h-[70px] lg:h-90 flex justify-end">
           <ShoppingCart />
-          <BurgerMenu />
+          <BurgerMenu navs={navs} />
         </div>
       </div>
+      {navs.map((nav) => (
+        <div key={nav.link}>
+          {nav.items.length !== 0 && <ServicesNavigation items={nav.items} />}
+        </div>
+      ))}
     </NavbarContext.Provider>
   );
 };
