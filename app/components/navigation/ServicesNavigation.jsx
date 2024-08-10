@@ -51,7 +51,7 @@ const ServicesNavigation = ({ items }) => {
     >
       <div
         className={`fixed hidden lg:flex max-2xl:start-0 max-w-screen-2xl mx-auto w-full -z-10 ${
-          navbarContext.showServicesDropdown ? "top-90" : "-top-[700px]"
+          navbarContext.showServicesDropdown ? "top-90" : "-top-[1000px]"
         } bg-gray-400 font-subtitle text-sm transition-all duration-500`}
       >
         <div className="w-1/2 pt-30 pl-120 border-b border-dashed border-gray-200">

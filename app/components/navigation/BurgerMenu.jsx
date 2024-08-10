@@ -73,7 +73,7 @@ const BurgerMenu = ({ navs }) => {
         </button>
         <div
           className={`fixed start-0 grid grid-rows-2 grid-cols-1 lg:hidden w-full h-[calc(100svh-70px)] ${
-            navbarContext.showServicesDropdown ? "top-[70px]" : "-top-[1200px]"
+            navbarContext.showServicesDropdown ? "top-[70px]" : "-top-[1500px]"
           } bg-gray-400 font-subtitle text-sm transition-all duration-500`}
         >
           <div className={`${themeContext.bgColor} flex flex-col gap-15 p-40`}>

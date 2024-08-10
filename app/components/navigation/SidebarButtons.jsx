@@ -15,7 +15,7 @@ const SidebarWhyButton = () => {
   ];
 
   return (
-    <div className="fixed top-90 max-md:right-0 grid md:justify-items-start justify-items-end">
+    <div className="fixed top-[70px] lg:top-90 max-md:right-0 grid md:justify-items-start justify-items-end">
       {sideButtons.map((button) => (
         <div
           key={button.text}
