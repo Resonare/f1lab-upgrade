@@ -28,21 +28,33 @@ const BreadCrumbs = ({ navs }) => {
 
   let url = "";
 
+  const findItem = (items, targetLink) => {
+    // Inner recursive function to search within nested structures
+    function recursiveSearch(items) {
+      for (const item of items) {
+        if (item.link === targetLink) {
+          return item;
+        }
+        if (item.items && item.items.length > 0) {
+          const foundInChildren = recursiveSearch(item.items);
+          if (foundInChildren) {
+            return foundInChildren;
+          }
+        }
+      }
+      return null; // Return null if not found in the current level
+    }
+
+    const foundItem = recursiveSearch(items);
+    return foundItem || items[0]; // Return the found item or the first top-level item
+  };
+
   const BreadCrumbLinks = segments
     .filter((segment) => segment.length > 0)
     .map((segment, i) => {
       url += `/${segment}`;
 
-      let navItem = navs.filter((nav) => nav.link === segment);
-
-      if (navItem.length === 0) {
-        for (let nav of navs) {
-          const itemNav = nav.items.filter((item) => item.link === segment);
-          if (itemNav.length > 0) {
-            navItem = [...itemNav];
-          }
-        }
-      }
+      const navItem = findItem(navs, segment);
 
       return (
         <Fragment key={i}>
@@ -53,12 +65,12 @@ const BreadCrumbs = ({ navs }) => {
             to={`${segments[0]}${url}`}
             onClick={closeServicesDropdownHandler}
             className={
-              currentSegment === navItem[0]?.link
+              currentSegment === navItem.link
                 ? "text-gray-400 text-sm font-text"
                 : "text-gray-200 text-sm font-text hover:underline hover:underline-offset-4"
             }
           >
-            {navItem[0]?.title || "Not found"}
+            {navItem.title || "Not found"}
           </NavLink>
         </Fragment>
       );

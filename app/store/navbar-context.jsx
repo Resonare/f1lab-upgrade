@@ -1,11 +1,26 @@
 import { createContext } from "react";
 
 export const NavbarContext = createContext({
-  // services dropdown open/close context
   showServicesDropdown: false,
   showServicesDropdownHandler: () => {
-    return false;
+    return null;
   },
-  // services dropdown active color context
-  //
+  closeServicesDropdownHandler: () => {
+    return null;
+  },
+});
+
+export const ServicesDropdownContext = createContext({
+  state: "it-consulting",
+  stateChangeHandler: () => {
+    return null;
+  },
+  bgColor: "bg-consulting",
+  bgColorChangeHandler: () => {
+    return null;
+  },
+  textColor: "text-gray-400",
+  textColorChangeHandler: () => {
+    return null;
+  },
 });

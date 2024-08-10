@@ -78,7 +78,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <ThemeContext.Provider value={{ bgColor: bgColor }}>
-        <body className={bgColor}>
+        <body
+          className={`${bgColor} max-w-screen-2xl mx-auto 2xl:border-x 2xl:border-dashed 2xl:border-gray-200`}
+        >
           <header className="fixed top-0 w-full z-50">
             <Navbar navsChangeHandler={navsChangeHandler} />
           </header>

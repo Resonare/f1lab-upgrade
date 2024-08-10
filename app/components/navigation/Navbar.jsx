@@ -40,7 +40,7 @@ const Navbar = ({ navsChangeHandler }) => {
       }}
     >
       <div
-        className={`w-[100%] h-90 xl:px-120 lg:px-60 px-40 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex`}
+        className={`w-full h-90 xl:px-120 lg:px-60 px-40 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex  max-w-screen-2xl mx-auto 2xl:border-x 2xl:border-dashed 2xl:border-gray-200`}
       >
         <div className="h-full shrink-0 pr-15 mr-30 border-dashed border-r border-gray-200 items-center flex">
           <img src="/images/logo.svg" alt="" />

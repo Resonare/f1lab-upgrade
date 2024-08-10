@@ -47,6 +47,7 @@ export default {
       "button-md": "RFDewiExpanded",
     },
     screens: {
+      "2xl": "1920px",
       xl: "1600px",
       lg: "1200px",
       md: "1024px",

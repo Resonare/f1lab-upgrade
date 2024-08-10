@@ -1,22 +1,54 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import ServicesNavigationItem from "./ServicesNavigationItem";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-import { NavbarContext } from "../../store/navbar-context";
+import {
+  NavbarContext,
+  ServicesDropdownContext,
+} from "../../store/navbar-context";
+
 import { navData } from "../../store/data";
 
 const ServicesNavigation = ({ items }) => {
-  const [currentBgState, setCurrentBgState] = useState("bg-consulting");
-  const [currentTextState, setCurrentTextState] = useState("text-gray-400");
-
   const navbarContext = useContext(NavbarContext);
+  const dropdownContext = useContext(ServicesDropdownContext);
+
+  const [currentState, setCurrentState] = useState(dropdownContext.state);
+  const [bgColor, setBgColor] = useState(dropdownContext.bgColor);
+  const [textColor, setTextColor] = useState(dropdownContext.textColor);
+
+  const currentStateChangeHandler = (state) => {
+    setCurrentState(state);
+  };
+  const bgColorChangeHandler = (color) => {
+    setBgColor(color);
+  };
+  const textColorChangeHandler = (color) => {
+    setTextColor(color);
+  };
 
   const services = navData.filter((item) => item.link === "services");
+  const [currentService, setCurrentService] = useState(
+    services[0].items.filter((service) => service.link === currentState)
+  );
 
-  const [serviceItems, setServiceItems] = useState(services[0].items);
+  useEffect(() => {
+    setCurrentService(
+      services[0].items.filter((service) => service.link === currentState)
+    );
+  }, [currentState]);
 
   return (
-    <>
+    <ServicesDropdownContext.Provider
+      value={{
+        state: currentState,
+        stateChangeHandler: currentStateChangeHandler,
+        bgColor: bgColor,
+        bgColorChangeHandler: bgColorChangeHandler,
+        textColor: textColor,
+        textColorChangeHandler: textColorChangeHandler,
+      }}
+    >
       <div
         className={`fixed start-0 -z-10 ${
           navbarContext.showServicesDropdown ? "top-90" : "-top-full"
@@ -25,21 +57,14 @@ const ServicesNavigation = ({ items }) => {
         <div className="w-1/2 pt-30 pl-120 border-b border-dashed border-gray-200">
           <ul>
             {items.map((item) => (
-              <ServicesNavigationItem
-                key={item.link}
-                item={item}
-                currentBgState={currentBgState}
-                setCurrentBgState={setCurrentBgState}
-                currentTextState={currentTextState}
-                setCurrentTextState={setCurrentTextState}
-              />
+              <ServicesNavigationItem key={item.link} item={item} />
             ))}
           </ul>
         </div>
         <div
-          className={`w-1/2 ${currentBgState} py-60 px-30 grid grid-rows-5 justify-start gap-15 border-b border-dashed border-gray-200`}
+          className={`w-1/2 ${bgColor} py-60 px-30 grid grid-rows-5 justify-start gap-15 border-b border-dashed border-gray-200`}
         >
-          {serviceItems[0].items.map((service) => (
+          {currentService[0].items.map((service) => (
             <SecondaryButton
               key={service.link}
               variant="shaded"
@@ -57,7 +82,7 @@ const ServicesNavigation = ({ items }) => {
         }`}
         onClick={navbarContext.closeServicesDropdownHandler}
       ></button>
-    </>
+    </ServicesDropdownContext.Provider>
   );
 };
 
