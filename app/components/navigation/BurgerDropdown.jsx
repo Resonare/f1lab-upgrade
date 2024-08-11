@@ -20,7 +20,7 @@ const BurgerDropdown = ({ navs }) => {
 
   const [currentState, setCurrentState] = useState(dropdownContext.state);
   const [serviceState, setServiceState] = useState({
-    active: false,
+    activeEl: "menu",
     bgColor: "bg-gray-400",
     title: navs[1].items[0].title,
     items: navs[1].items[0].items,
@@ -67,31 +67,51 @@ const BurgerDropdown = ({ navs }) => {
           } bg-gray-400 font-subtitle text-sm transition-all duration-500`}
         >
           <div
-            className={`${serviceState.active ? "hidden" : ""} ${
+            className={`${serviceState.activeEl === "menu" ? "" : "hidden"} ${
               themeContext.bgColor
             } flex flex-col gap-15 p-40 transition-all duration-500 ease-in-out`}
           >
             <div className="font-text font-bold uppercase text-sm text-gray-300 mb-15">
               Навигация по сайту
             </div>
-            {navs
-              .filter((nav) => nav.link !== "services")
-              .map((nav) => (
-                <div key={nav.link}>
-                  <SecondaryButton
-                    key={nav.link}
-                    variant="shaded"
-                    link
-                    to={nav.link}
-                  >
-                    {nav.title}
-                  </SecondaryButton>
-                </div>
-              ))}
+            {navs.map((nav) => (
+              <>
+                {nav.link !== "services" && (
+                  <div key={nav.link}>
+                    <SecondaryButton
+                      key={nav.link}
+                      variant="shaded"
+                      link
+                      to={nav.link}
+                    >
+                      {nav.title}
+                    </SecondaryButton>
+                  </div>
+                )}
+                {nav.link === "services" && (
+                  <div key={nav.link}>
+                    <SecondaryButton
+                      key={nav.link}
+                      variant="shaded"
+                      onClick={() => {
+                        setServiceState({
+                          activeEl: "area",
+                          bgColor: "bg-gray-400",
+                          title: navs[1].items[0].title,
+                          items: navs[1].items[0].items,
+                        });
+                      }}
+                    >
+                      {nav.title}
+                    </SecondaryButton>
+                  </div>
+                )}
+              </>
+            ))}
           </div>
           <div
             className={`${
-              serviceState.active ? "hidden" : ""
+              serviceState.activeEl === "area" ? "" : "hidden"
             } bg-gray-400 flex flex-col gap-15 p-40 transition-all duration-500 ease-in-out`}
           >
             <div className="font-text font-bold uppercase text-sm text-gray-200 mb-15">
@@ -106,7 +126,7 @@ const BurgerDropdown = ({ navs }) => {
                     bg={nav.bgColor}
                     onClick={() => {
                       setServiceState({
-                        active: true,
+                        activeEl: "services",
                         bgColor: nav.bgColor,
                         title: nav.title,
                         items: nav.items,
@@ -119,7 +139,9 @@ const BurgerDropdown = ({ navs }) => {
               ))}
           </div>
           <div
-            className={`${serviceState.active ? "" : "hidden"} ${
+            className={`${
+              serviceState.activeEl === "services" ? "" : "hidden"
+            } ${
               serviceState.bgColor
             } flex flex-col gap-15 p-40 transition-all duration-500 ease-in-out`}
           >
@@ -141,7 +163,7 @@ const BurgerDropdown = ({ navs }) => {
             <BackButton
               onClick={() => {
                 setServiceState({
-                  active: false,
+                  activeEl: "area",
                   bgColor: "bg-gray-400",
                   title: navs[1].items[0].title,
                   items: navs[1].items[0].items,
