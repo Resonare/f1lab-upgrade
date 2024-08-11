@@ -137,6 +137,16 @@ const BurgerDropdown = ({ navs }) => {
                   </TertiaryButton>
                 </div>
               ))}
+            <BackButton
+              onClick={() => {
+                setServiceState({
+                  activeEl: "menu",
+                  bgColor: "bg-gray-400",
+                  title: navs[1].items[0].title,
+                  items: navs[1].items[0].items,
+                });
+              }}
+            />
           </div>
           <div
             className={`${
