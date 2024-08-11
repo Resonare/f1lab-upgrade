@@ -162,13 +162,13 @@ export const navData = [
           },
         ],
       },
-      {
-        link: "service-packages",
-        title: "Пакеты услуг",
-        bgColor: "bg-f1-light",
-        textColor: "text-f1-light",
-        items: [],
-      },
+      // {
+      //  link: "service-packages",
+      //  title: "Пакеты услуг",
+      //  bgColor: "bg-f1-light",
+      //  textColor: "text-f1-light",
+      //  items: [],
+      // },
     ],
   },
   {

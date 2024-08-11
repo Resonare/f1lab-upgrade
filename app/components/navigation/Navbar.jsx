@@ -7,6 +7,7 @@ import ShoppingCart from "../shoppingCart/ShoppingCart";
 import BurgerMenu from "./BurgerMenu";
 import BreadCrumbs from "./Breadcrumbs";
 import ServicesNavigation from "./ServicesNavigation";
+import BurgerDropdown from "./BurgerDropdown";
 
 import { ThemeContext } from "../../store/theme-context";
 import { NavbarContext } from "../../store/navbar-context";
@@ -40,8 +41,8 @@ const Navbar = ({ navsChangeHandler }) => {
         closeServicesDropdownHandler: closeServicesDropdownHandler,
       }}
     >
-      <div
-        className={`fixed w-full h-[70px] lg:h-90 px-40 lg:px-60 xl:px-120 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
+      <nav
+        className={`fixed w-full h-[70px] lg:h-90 px-[44.1px] lg:px-60 xl:px-120 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
       >
         <div className="h-full shrink-0 pr-15 mr-30 border-dashed border-r border-gray-200 items-center flex">
           <img src="/images/logo.svg" alt="" />
@@ -89,14 +90,15 @@ const Navbar = ({ navsChangeHandler }) => {
         </div>
         <div className="h-[70px] lg:h-90 flex justify-end">
           <ShoppingCart />
-          <BurgerMenu navs={navs} />
+          <BurgerMenu />
         </div>
-      </div>
+      </nav>
       {navs.map((nav) => (
         <div key={nav.link}>
           {nav.items.length !== 0 && <ServicesNavigation items={nav.items} />}
         </div>
       ))}
+      <BurgerDropdown navs={navs} />
     </NavbarContext.Provider>
   );
 };

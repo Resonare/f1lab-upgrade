@@ -24,7 +24,7 @@ const SidebarWhyButton = () => {
           <Link
             to={button.to}
             style={{ writingMode: "vertical-rl" }}
-            className={`left-0 top-90 p-10 md:rotate-0 rotate-180 border-r md:border-b max-md:border-t  border-dashed ${bgColor} font-subtitle text-gray-400 transition ease-in-out hover:bg-gray-400 hover:text-gray-100 duration-600`}
+            className={`left-0 top-90 p-10 md:rotate-0 rotate-180 border-r md:border-b max-md:border-t  border-dashed ${bgColor} font-subtitle text-gray-400 transition-colors ease-in-out hover:bg-gray-400 hover:text-gray-100 duration-600`}
           >
             {button.text}
           </Link>
