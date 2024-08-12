@@ -4,16 +4,20 @@ import ArrowBack from "../misc/ArrowBack";
 
 import { NavbarContext } from "../../store/navbar-context";
 
-const BackButton = ({ bg, link, to, onClick, children }) => {
+const BackButton = ({ bg, borderX, textColor, link, to, onClick }) => {
   const { showServicesDropdownHandler } = useContext(NavbarContext);
 
-  const buttonStyle = `flex group ${bg} h-[52px] text-md justify-between border-y border-dashed border-gray-200 pl-10 pr-20 py-5 bg-striped transition-all duration-500`;
+  const buttonStyle = `flex group ${bg} ${
+    textColor ? textColor : ""
+  } h-[52px] text-md justify-between border-y ${
+    borderX ? "border-x" : ""
+  } border-dashed border-gray-200 pl-10 pr-20 py-5 bg-striped transition-all duration-500`;
 
   return (
     <>
       {!link && (
         <button className={`${buttonStyle} min-w-full`} onClick={onClick}>
-          <ArrowBack />
+          <ArrowBack color={textColor?.substring(5)} />
           <span className="place-self-center">Назад</span>
         </button>
       )}
@@ -23,7 +27,7 @@ const BackButton = ({ bg, link, to, onClick, children }) => {
           to={to}
           onClick={showServicesDropdownHandler}
         >
-          <ArrowBack />
+          <ArrowBack color={textColor?.substring(5)} />
           <span className="place-self-center">Назад</span>
         </NavLink>
       )}

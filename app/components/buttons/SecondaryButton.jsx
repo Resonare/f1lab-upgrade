@@ -4,7 +4,7 @@ import ArrowURSecondary from "../misc/ArrowURSecondary";
 
 import { NavbarContext } from "../../store/navbar-context";
 
-const SecondaryButton = ({ variant, link, to, onClick, children }) => {
+const SecondaryButton = ({ variant, borderX, link, to, onClick, children }) => {
   const { showServicesDropdownHandler } = useContext(NavbarContext);
 
   let buttonStyle = "";
@@ -13,8 +13,9 @@ const SecondaryButton = ({ variant, link, to, onClick, children }) => {
 
   switch (variant) {
     case "shaded":
-      buttonStyle =
-        "flex group h-[52px] text-md justify-between border-y border-dashed border-gray-200 pl-20 pr-5 py-5 bg-striped hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500";
+      buttonStyle = `flex group h-[52px] text-md justify-between border-y ${
+        borderX ? "border-x" : ""
+      } border-dashed border-gray-200 pl-20 pr-5 py-5 bg-striped hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500`;
       arrowColor = "#22282E";
       arrowHoverColor = "#22282E";
       break;

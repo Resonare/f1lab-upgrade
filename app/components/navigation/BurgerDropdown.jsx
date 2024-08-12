@@ -74,40 +74,42 @@ const BurgerDropdown = ({ navs }) => {
             <div className="font-text font-bold uppercase text-sm text-gray-300 mb-15">
               Навигация по сайту
             </div>
-            {navs.map((nav) => (
-              <>
-                {nav.link !== "services" && (
-                  <div key={nav.link}>
-                    <SecondaryButton
-                      key={nav.link}
-                      variant="shaded"
-                      link
-                      to={nav.link}
-                    >
-                      {nav.title}
-                    </SecondaryButton>
-                  </div>
-                )}
-                {nav.link === "services" && (
-                  <div key={nav.link}>
-                    <SecondaryButton
-                      key={nav.link}
-                      variant="shaded"
-                      onClick={() => {
-                        setServiceState({
-                          activeEl: "area",
-                          bgColor: "bg-gray-400",
-                          title: navs[1].items[0].title,
-                          items: navs[1].items[0].items,
-                        });
-                      }}
-                    >
-                      {nav.title}
-                    </SecondaryButton>
-                  </div>
-                )}
-              </>
-            ))}
+            {navs
+              .filter((nav) => nav.link !== "services")
+              .map((nav) => (
+                <div key={nav.link}>
+                  <SecondaryButton
+                    key={nav.link}
+                    variant="shaded"
+                    borderX
+                    link
+                    to={nav.link}
+                  >
+                    {nav.title}
+                  </SecondaryButton>
+                </div>
+              ))}
+            {navs
+              .filter((nav) => nav.link === "services")
+              .map((nav) => (
+                <div key={nav.link}>
+                  <TertiaryButton
+                    key={nav.link}
+                    bg="bg-gray-400"
+                    textColor={`text-${themeContext.bgColor?.substring(3)}`}
+                    onClick={() => {
+                      setServiceState({
+                        activeEl: "area",
+                        bgColor: "bg-gray-400",
+                        title: navs[1].items[0].title,
+                        items: navs[1].items[0].items,
+                      });
+                    }}
+                  >
+                    {nav.title}
+                  </TertiaryButton>
+                </div>
+              ))}
           </div>
           <div
             className={`${
@@ -138,6 +140,8 @@ const BurgerDropdown = ({ navs }) => {
                 </div>
               ))}
             <BackButton
+              textColor={`text-${themeContext.bgColor?.substring(3)}`}
+              borderX
               onClick={() => {
                 setServiceState({
                   activeEl: "menu",
@@ -153,7 +157,7 @@ const BurgerDropdown = ({ navs }) => {
               serviceState.activeEl === "services" ? "" : "hidden"
             } ${
               serviceState.bgColor
-            } flex flex-col gap-15 p-40 transition-all duration-500 ease-in-out`}
+            } flex flex-col gap-15 p-40 transition-all duration-500 ease-in-out max-h-[calc(100svh-70px)] overflow-y-auto`}
           >
             <div className="font-text font-bold uppercase text-sm text-gray-300 mb-15">
               {serviceState.title}
@@ -163,6 +167,7 @@ const BurgerDropdown = ({ navs }) => {
                 <SecondaryButton
                   key={nav.link}
                   variant="shaded"
+                  borderX
                   link
                   to={"services/" + nav.link}
                 >
@@ -179,6 +184,7 @@ const BurgerDropdown = ({ navs }) => {
                   items: navs[1].items[0].items,
                 });
               }}
+              borderX
             />
           </div>
         </div>
