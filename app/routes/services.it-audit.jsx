@@ -2,6 +2,7 @@ import HeroV2 from "../components/consulting/HeroV2";
 import Scenarios from "../components/consulting/Scenarios";
 import Offers from "../components/consulting/Offers";
 import Process from "../components/consulting/Process";
+import Cases from "../components/consulting/Cases";
 
 export const meta = () => {
   return [
@@ -17,6 +18,7 @@ export default function ITAudit() {
       <Scenarios />
       <Offers />
       <Process />
+      <Cases />
     </>
   );
 }
