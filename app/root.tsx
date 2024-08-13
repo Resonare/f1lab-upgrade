@@ -11,6 +11,7 @@ import "./tailwind.css";
 
 import Navbar from "~/components/navigation/Navbar";
 import SidebarButtons from "~/components/navigation/SidebarButtons";
+import BackgroundGridV2 from "~/components/BackgroundGridV2";
 
 import { ThemeContext } from "~/store/theme-context";
 
@@ -79,13 +80,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <ThemeContext.Provider value={{ bgColor: bgColor }}>
         <body
-          className={`${bgColor} max-w-[1922px] 2xl:border-x 2xl:border-dashed 2xl:border-gray-200 mx-auto transition-full duration-300`}
+          className={`${bgColor} max-w-[1923px] 2xl:border-x 2xl:border-dashed 2xl:border-gray-200 mx-auto transition-full duration-300`}
         >
           <header className="fixed top-0 w-full z-10">
             <Navbar navsChangeHandler={navsChangeHandler} />
           </header>
+          <div className="pt-180 px-[44.1px] lg:px-60 xl:px-120">
+            {children}
+          </div>
           <SidebarButtons />
-          <div className="pt-70 lg:pt-90">{children}</div>
+          <BackgroundGridV2 />
           <ScrollRestoration />
           <Scripts />
         </body>

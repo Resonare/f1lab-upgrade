@@ -22,7 +22,7 @@ const ContentCard = ({
     <div
       className={`${cardColorClasses} ${
         iconPath ? "min-h-[280px]" : ""
-      } p-30 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] flex flex-col justify-between`} //min-h-[280px]
+      } p-15 xl:p-30 border-y border-dashed -mt-[0.8px]`}
       style={{
         gridColumn: `${col} / ${col + width}`,
         gridRow: `${row} / ${row + height}`,
@@ -33,11 +33,11 @@ const ContentCard = ({
           <img src={`/images/${iconPath}`} alt="" />
         </div>
       ) : null}
-      <p
-        className={`${cardTextColorClasses} text-[1.1rem] font-light font-text leading-relaxed`}
+      <span
+        className={`${cardTextColorClasses} text-base lg:text-xl font-text font-light leading-relaxed `}
       >
         {children}
-      </p>
+      </span>
     </div>
   );
 };

@@ -1,12 +1,9 @@
 import PrimaryButton from "../buttons/PrimaryButton";
 import ContentCard from "../ContentCard";
 
-const HeroV2 = () => {
+const Hero = () => {
   return (
-    <div
-      className="grid grid-cols-4 transition-all"
-      style={{ gridTemplateRows: "1.2fr repeat(3, minmax(0, 1fr))" }}
-    >
+    <div className="grid grid-cols-4 transition-all">
       <div className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 xl:text-[56px] text-[44px] font-title leading-[60px] pb-60">
         ИТ‑аудит с применимыми рекомендациями
       </div>
@@ -14,9 +11,10 @@ const HeroV2 = () => {
         Хотите убедиться, что ваша ИТ-инфраструктура соответствует целям вашего
         бизнеса и не создает ненужных рисков?
       </ContentCard>
-      <div className="row-start-2 row-end-3 col-start-2 col-end-3 flex items-end">
+      <div className="row-start-2 row-end-3 col-start-2 col-end-3 flex items-end overflow-auto">
         <img
-          className="max-lg:hidden"
+          height="85px"
+          className="max-lg:hidden h-1/2"
           src="/images/misc/arrow-card-right.svg"
           alt=""
         />
@@ -46,4 +44,4 @@ const HeroV2 = () => {
   );
 };
 
-export default HeroV2;
+export default Hero;

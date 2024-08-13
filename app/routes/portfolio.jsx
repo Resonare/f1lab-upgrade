@@ -1,3 +1,7 @@
+import Hero from "../components/consulting/Hero";
+import Scenarios from "../components/consulting/Scenarios";
+import Offers from "../components/consulting/Offers";
+
 export const meta = () => {
   return [
     { title: "F1LAB" },
@@ -5,10 +9,12 @@ export const meta = () => {
   ];
 };
 
-export default function Services() {
+export default function Portfolio() {
   return (
-    <div className="text-5xl font-title p-100 h-[calc(100svh-90px)]">
-      Портфолио
+    <div className="min-h-[calc(100svh-90px)]">
+      <Hero />
+      <Scenarios />
+      <Offers />
     </div>
   );
 }

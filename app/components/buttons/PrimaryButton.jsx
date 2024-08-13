@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import styles from "./PrimaryButtom.module.css";
+import styles from "./PrimaryButton.module.css";
 
 const PrimaryButton = ({
   row,

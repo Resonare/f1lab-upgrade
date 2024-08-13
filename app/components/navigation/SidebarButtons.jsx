@@ -15,16 +15,16 @@ const SidebarWhyButton = () => {
   ];
 
   return (
-    <div className="fixed top-[70px] lg:top-90 max-md:right-0 grid md:justify-items-start justify-items-end">
+    <div className="fixed top-[70px] lg:top-90 max-lg:right-0 grid lg:justify-items-start justify-items-end">
       {sideButtons.map((button) => (
         <div
           key={button.text}
-          className="grid md:justify-items-start justify-items-end text-center"
+          className="grid lg:justify-items-start justify-items-end text-center"
         >
           <Link
             to={button.to}
             style={{ writingMode: "vertical-rl" }}
-            className={`left-0 top-90 p-10 md:rotate-0 rotate-180 border-r md:border-b max-md:border-t  border-dashed ${bgColor} font-subtitle text-gray-400 transition-colors ease-in-out hover:bg-gray-400 hover:text-gray-100 duration-600`}
+            className={`left-0 top-90 p-10 lg:rotate-0 rotate-180 border-r lg:border-b max-lg:border-t  border-dashed ${bgColor} font-subtitle text-gray-400 transition-colors ease-in-out hover:bg-gray-400 hover:text-gray-100 duration-600`}
           >
             {button.text}
           </Link>

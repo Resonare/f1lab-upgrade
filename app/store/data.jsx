@@ -174,7 +174,7 @@ export const navData = [
   {
     link: "portfolio",
     title: "Портфолио",
-    bgColor: "bg-cloud",
+    bgColor: "bg-gray-100",
     textColor: "text-cloud",
     items: [],
   },

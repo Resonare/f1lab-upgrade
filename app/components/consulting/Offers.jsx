@@ -1,6 +1,6 @@
 import Section from "../Section";
 import ContentCard from "../ContentCard";
-import PrimaryButton from "../PrimaryButton";
+import PrimaryButton from "../buttons/PrimaryButton";
 import SectionTitle from "../SectionTitle";
 
 const OFFERS_DATA = [
