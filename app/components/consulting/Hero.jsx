@@ -1,5 +1,5 @@
 import PrimaryButton from "../buttons/PrimaryButton";
-import ContentCard from "../ContentCard";
+import ContentCard from "../cards/ContentCard";
 
 const HeroV2 = () => {
   return (

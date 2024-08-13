@@ -14,11 +14,14 @@ import SidebarButtons from "~/components/navigation/SidebarButtons";
 import BackgroundGridV2 from "~/components/BackgroundGridV2";
 
 import { ThemeContext } from "~/store/theme-context";
+import { ScreenContext } from "~/store/screen-context";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const themeContext = useContext(ThemeContext);
+  const screenContext = useContext(ScreenContext);
 
   const [bgColor, setBgColor] = useState(themeContext.bgColor);
+  const [screen, setScreen] = useState(screenContext.screen);
 
   const bgColorChangeHandler = (color: string) => {
     setBgColor(color);
@@ -41,6 +44,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
     }[]
   ) => {
     setNavs(updatedNavs);
+  };
+
+  const SCREENS: { [key: string]: number } = {
+    xl: 1600,
+    lg: 1200,
+    md: 1024,
+    sm: 770,
+  };
+  
+  const getCurrentScreen = (): string => {
+    //Returns one of the available screen sizes or "mobile" if smaller
+    return (
+      Object.keys(SCREENS).find((key) => SCREENS[key] < window.innerWidth) ??
+      "mobile"
+    );
   };
 
   const findItem = (items, targetLink) => {
@@ -67,8 +85,23 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const currentItem = findItem(navs, currentSegment);
 
   useEffect(() => {
+    const handleResize = () => {
+      //Updates only if screen changed
+      let currentScreen = getCurrentScreen();
+      if (currentScreen != screen) setScreen(currentScreen);
+    };
+
+    setScreen(getCurrentScreen());
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
     bgColorChangeHandler(currentItem.bgColor);
   }, [currentItem]);
+
+  console.log(screen);
 
   return (
     <html lang="ru" className="scroll-smooth">
@@ -79,20 +112,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <ThemeContext.Provider value={{ bgColor: bgColor }}>
-        <body
-          className={`${bgColor} max-w-[1923px] 2xl:border-x 2xl:border-dashed 2xl:border-gray-200 mx-auto transition-full duration-300`}
-        >
-          <header className="fixed top-0 w-full z-10">
-            <Navbar navsChangeHandler={navsChangeHandler} />
-          </header>
-          <div className="pt-180 px-[44.1px] lg:px-60 xl:px-120">
-            {children}
-          </div>
-          <SidebarButtons />
-          <BackgroundGridV2 />
-          <ScrollRestoration />
-          <Scripts />
-        </body>
+        <ScreenContext.Provider value={{screen: screen}}>
+          <body
+            className={`${bgColor} max-w-[1923px] 2xl:border-x 2xl:border-dashed 2xl:border-gray-200 mx-auto transition-full duration-300`}
+          >
+            <header className="fixed top-0 w-full z-10">
+              <Navbar navsChangeHandler={navsChangeHandler} />
+            </header>
+            <div>
+              {children}
+            </div>
+            <SidebarButtons />
+            <BackgroundGridV2 />
+            <ScrollRestoration />
+            <Scripts />
+          </body>
+        </ScreenContext.Provider>
       </ThemeContext.Provider>
     </html>
   );

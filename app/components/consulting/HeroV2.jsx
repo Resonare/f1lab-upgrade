@@ -4,7 +4,7 @@ import SchemaCanvas from "./SchemaCanvas";
 
 const Hero = () => {
   return (
-    <div className="grid grid-cols-4 transition-all">
+    <div className="grid grid-cols-4 transition-all py-180 xl:px-120 lg:px-60 px-[44.1px]">
       <div className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 xl:text-[56px] text-[44px] font-title leading-[60px] pb-60">
         ИТ‑аудит с применимыми рекомендациями
       </div>

@@ -8,15 +8,10 @@ const ContentCard = ({
   children,
 }) => {
   //Computing card color depending on color inversion flag
-  let cardColorClasses = "";
-  let cardTextColorClasses = "";
-  if (inverseColor) {
-    cardColorClasses = "border-t-gray-300 border-b-gray-300";
-    cardTextColorClasses = "text-gray-100";
-  } else {
-    cardColorClasses = "border-t-grey border-b-grey";
-    cardTextColorClasses = "text-gray-400";
-  }
+  const cardColorClasses = inverseColor
+    ? "border-t-gray-300 border-b-gray-300"
+    : "border-t-grey border-b-grey";
+  const cardTextColorClasses = inverseColor ? "text-gray-100" : "text-gray-400";
 
   return (
     <div
@@ -29,15 +24,15 @@ const ContentCard = ({
       }}
     >
       {iconPath ? (
-        <div className="w-20 h-20 relative">
+        <div>
           <img src={`/images/${iconPath}`} alt="" />
         </div>
       ) : null}
-      <span
-        className={`${cardTextColorClasses} text-base lg:text-xl font-text font-light leading-relaxed `}
+      <p
+        className={`${cardTextColorClasses} text-xl font-light font-text leading-relaxed`}
       >
         {children}
-      </span>
+      </p>
     </div>
   );
 };
