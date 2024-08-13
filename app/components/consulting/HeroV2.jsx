@@ -1,5 +1,6 @@
 import PrimaryButton from "../buttons/PrimaryButton";
 import ContentCard from "../ContentCard";
+import SchemaCanvas from "./SchemaCanvas";
 
 const Hero = () => {
   return (
@@ -20,8 +21,8 @@ const Hero = () => {
         </div>
       </div>
       <ContentCard row={3} col={2}>
-        ИТ-аудит F1 LAB, предоставит полный отчёт о состоянии и
-        отказоустойчивости вашей ИТ-среды.
+        ИТ-аудит предоставит полный отчёт о состоянии и отказоустойчивости вашей
+        ИТ-среды.
       </ContentCard>
       <div className="row-start-3 row-end-4 col-start-1 col-end-2 flex items-end justify-end">
         <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
@@ -31,16 +32,14 @@ const Hero = () => {
           <div className=""></div>
         </div>
       </div>
-      <div className="row-start-4 max-lg:mt-60 col-start-1 col-end-5 ">
+      <div className="row-start-4 max-lg:mt-60 col-start-1 col-end-5 lg:col-end-2 ">
         <PrimaryButton type="accent" row={4} col={1}>
           Консультация
         </PrimaryButton>
       </div>
-      <img
-        className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5"
-        src="/images/consulting/hero-scheme.svg"
-        alt=""
-      />
+      <div className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5">
+        <SchemaCanvas />
+      </div>
     </div>
   );
 };

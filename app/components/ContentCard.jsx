@@ -22,7 +22,7 @@ const ContentCard = ({
     <div
       className={`${cardColorClasses} ${
         iconPath ? "min-h-[280px]" : ""
-      } p-15 xl:p-30 border-y border-dashed -mt-[0.8px]`}
+      } p-15 xl:p-20 border-y border-dashed -mt-[0.8px]`}
       style={{
         gridColumn: `${col} / ${col + width}`,
         gridRow: `${row} / ${row + height}`,
