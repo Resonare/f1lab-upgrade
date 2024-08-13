@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 
 import { ServicesDropdownContext } from "../../store/navbar-context";
+import ArrowTertiary from "../misc/ArrowTertiary";
 
 const ServicesNavigationItem = ({ item }) => {
   const {
@@ -28,13 +29,14 @@ const ServicesNavigationItem = ({ item }) => {
       </div>
       <button
         onClick={currentStateChangeHandler}
-        className={`p-15 w-full text-start rounded-l-2xl ${currentBgColor} ${
+        className={`flex px-15 py-5 hover:pr-5 justify-between items-center w-full text-start rounded-l-2xl  transition-all duration-300 ${currentBgColor} ${
           currentBgColor !== bgColor
             ? "hover:bg-opacity-20 hover:bg-gray-100"
             : ""
         }`}
       >
         {item.title}
+        <ArrowTertiary color={item.textColor.substring(5)} />
       </button>
       <div className={`${currentBgColor}`}>
         <div className={`h-15 rounded-tr-full bg-gray-400`}></div>

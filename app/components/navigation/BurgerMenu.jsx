@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import {
   NavbarContext,
@@ -7,12 +7,10 @@ import {
 
 import { ThemeContext } from "../../store/theme-context";
 
-import { navData } from "../../store/data";
-
-const BurgerMenu = ({ navs }) => {
-  const [image, setImage] = useState("/images/burger-menu.svg");
-
+const BurgerMenu = () => {
   const themeContext = useContext(ThemeContext);
+  const image = "/images/burger-menu.svg";
+
   const navbarContext = useContext(NavbarContext);
   const dropdownContext = useContext(ServicesDropdownContext);
 
@@ -30,23 +28,21 @@ const BurgerMenu = ({ navs }) => {
     setTextColor(color);
   };
 
-  const services = navData.filter((item) => item.link === "services");
-  const [currentService, setCurrentService] = useState(
-    services[0].items.filter((service) => service.link === currentState)
-  );
+  const [buttonBgColor, setButtonBgColor] = useState(themeContext);
 
   useEffect(() => {
-    setCurrentService(
-      services[0].items.filter((service) => service.link === currentState)
-    );
-  }, [currentState]);
+    if (!navbarContext.showServicesDropdown) {
+      setButtonBgColor(themeContext);
+    }
+  }, [navbarContext.showServicesDropdown, themeContext]);
 
   const showMenuHandler = () => {
-    //  image === "images/burger-menu.svg"
-    //  ? setImage("images/burger-menu-close.svg")
-    //  : setImage("images/burger-menu.svg");
-
     navbarContext.showServicesDropdownHandler();
+    if (!navbarContext.showServicesDropdown) {
+      setButtonBgColor("bg-f1-light");
+    } else {
+      setButtonBgColor(themeContext);
+    }
   };
   return (
     <>
@@ -61,10 +57,10 @@ const BurgerMenu = ({ navs }) => {
         }}
       >
         <button
-          className="border-dashed border-r hover:bg-f1-light border-gray-200 h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center"
+          className={`border-r border-b border-dashed  border-gray-200 ${buttonBgColor} hover:bg-f1-light h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
           onClick={showMenuHandler}
         >
-          <div className="px-20">
+          <div className={`px-20`}>
             <img src={image} alt="" />
           </div>
         </button>

@@ -1,22 +1,24 @@
 import type { Config } from "tailwindcss";
 
+export const colors = {
+  gray: {
+    100: "#F1F1F1",
+    200: "#BDBDBD",
+    300: "#606467",
+    400: "#22282E",
+  },
+  "f1-light": "#00FFC5",
+  "f1-dark": "#01CA9A",
+  cloud: "#D2F3F3",
+  consulting: "#FEFFE0",
+  security: "#FBE3FF",
+  alert: "#F24055",
+};
+
 export default {
   content: ["./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
-    colors: {
-      gray: {
-        100: "#F1F1F1",
-        200: "#BDBDBD",
-        300: "#606467",
-        400: "#22282E",
-      },
-      "f1-light": "#00FFC5",
-      "f1-dark": "#01CA9A",
-      cloud: "#D2F3F3",
-      consulting: "#FEFFE0",
-      security: "#FBE3FF",
-      alert: "#F24055",
-    },
+    colors: colors,
     spacing: {
       "200": "200px",
       "180": "180px",

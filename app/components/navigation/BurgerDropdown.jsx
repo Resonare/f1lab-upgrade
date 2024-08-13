@@ -69,7 +69,7 @@ const BurgerDropdown = ({ navs }) => {
           <div
             className={`${serviceState.activeEl === "menu" ? "" : "hidden"} ${
               themeContext.bgColor
-            } flex flex-col gap-15 p-40 transition-all duration-500 ease-in-out`}
+            } flex flex-col gap-15 p-40 border-b border-gray-200 border-dashed  transition-all duration-500 ease-in-out`}
           >
             <div className="font-text font-bold uppercase text-sm text-gray-300 mb-15">
               Навигация по сайту
@@ -157,7 +157,7 @@ const BurgerDropdown = ({ navs }) => {
               serviceState.activeEl === "services" ? "" : "hidden"
             } ${
               serviceState.bgColor
-            } flex flex-col gap-15 p-40 transition-all duration-500 ease-in-out max-h-[calc(100svh-70px)] overflow-y-auto`}
+            } flex flex-col gap-15 p-40 border-b border-gray-200 border-dashed  transition-all duration-500 ease-in-out max-h-[calc(100svh-70px)] overflow-y-auto`}
           >
             <div className="font-text font-bold uppercase text-sm text-gray-300 mb-15">
               {serviceState.title}
