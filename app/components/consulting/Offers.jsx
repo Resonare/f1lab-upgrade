@@ -1,51 +1,37 @@
-import { useContext } from "react";
-
 import Section from "../Section";
 import ContentCard from "../cards/ContentCard";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SectionTitle from "../SectionTitle";
 
-import { ScreenContext } from "../../store/screen-context";
-
 const Offers = () => {
-  const { screen } = useContext(ScreenContext);
-
-  //Computing screen flags for shorter syntax
-  const screenMd = screen == "md";
-  const screenSm = screen == "sm";
-
   return (
     <Section rowsAmount={3} inverseColor={true}>
       <SectionTitle
-        row={1}
-        col={2}
-        width={screenMd || screenSm ? 2 : 3}
+        row="row-start-1"
+        col="col-start-2 col-end-4 xl:col-end-5 lg:col-end-5"
         inverseColor={true}
       >
         Что мы предлагаем?
       </SectionTitle>
       <ContentCard
-        row={2}
-        col={screenMd || screenSm ? 1 : 2}
-        width={screenMd || screenSm ? 2 : 1}
+        row="row-start-2"
+        col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
         iconPath="audit/audit-offer-icon1.svg"
         inverseColor={true}
       >
         Исчерпывающую информацию для принятия управленческих решений
       </ContentCard>
       <ContentCard
-        row={2}
-        col={screenMd || screenSm ? 3 : 4}
-        width={screenMd || screenSm ? 2 : 1}
+        row="row-start-2"
+        col="xl:col-start-4 lg:col-start-4 col-start-3 col-end-5"
         iconPath="audit/audit-offer-icon2.svg"
         inverseColor={true}
       >
         Располагаем ресурсами и компетенциями для решения выявленных проблем
       </ContentCard>
       <ContentCard
-        row={3}
-        col={3}
-        width={screenMd || screenSm ? 2 : 1}
+        row="row-start-3"
+        col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
         iconPath="audit/audit-offer-icon3.svg"
         inverseColor={true}
       >
@@ -54,9 +40,8 @@ const Offers = () => {
       </ContentCard>
       <PrimaryButton
         type="light"
-        col={screenMd || screenSm ? 1 : 2}
-        row={4}
-        width={screenMd || screenSm ? 5 : 1}
+        row="row-start-4"
+        col="xl:col-start-2 lg:col-start-2 col-start-1 xl:col-end-3 lg:col-end-3 col-end-6"
       >
         Консультация
       </PrimaryButton>

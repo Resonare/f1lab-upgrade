@@ -1,8 +1,6 @@
 const SectionTitle = ({
   row,
   col,
-  width = 1,
-  height = 1,
   inverseColor = false,
   children,
 }) => {
@@ -16,11 +14,7 @@ const SectionTitle = ({
 
   return (
     <p
-      className={`${titleColor} pb-100 font-bold text-[40px] font-subtitle`}
-      style={{
-        gridColumn: `${col} / ${col + width}`,
-        gridRow: `${row} / ${row + height}`,
-      }}
+      className={`${titleColor} ${row} ${col} pb-100 font-bold text-[40px] font-subtitle`}
     >
       {children}
     </p>
