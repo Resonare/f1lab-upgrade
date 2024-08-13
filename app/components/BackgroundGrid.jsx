@@ -1,51 +1,17 @@
-import { useRef, useEffect } from "react";
-
-const BackgroundGrid = ({ bgOwnerRef, inverseColor = false }) => {
-  let linesColor = inverseColor ? "border-gray-300" : "border-grey";
-
-  const bgRef = useRef();
-
-  const handleResize = () => {
-    console.log();
-    bgRef.current.style.height = bgOwnerRef.current.offsetHeight + "px";
-  };
-
-  useEffect(() => {
-    if (bgRef.current) {
-      const observer = new ResizeObserver((entries) => {
-        for (let entry of entries) {
-          handleResize();
-        }
-      });
-
-      observer.observe(bgRef.current);
-
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, []);
+const BackgroundGrid = ({ inverseColor = false }) => {
+  let linesColor = inverseColor ? "border-gray-300" : "border-gray-200";
 
   return (
     <div
-      className={`${
-        inverseColor ? "bg-gray-400" : ""
-      } absolute w-full z-[-1] grid grid-cols-[1fr_1fr_1fr_1fr] px-[120px] py-0`}
-      ref={bgRef}
-    >
-      <div
-        className={`h-full ${linesColor} border-l-[1px] border-dashed`}
-      ></div>
-      <div
-        className={`h-full ${linesColor} border-l-[1px] border-dashed`}
-      ></div>
-      <div
-        className={`h-full ${linesColor} border-l-[1px] border-dashed`}
-      ></div>
-      <div
-        className={`h-full ${linesColor} border-l-[1px] border-dashed border-r-[1px]`}
-      ></div>
-    </div>
+        className={`${
+          inverseColor ? "bg-gray-400" : ""
+        } absolute -z-[9] grid grid-cols-4 max-w-[1920px] w-full h-full px-[44.1px] lg:px-60 xl:px-120`}
+      >
+        <div className={`border-x border-dashed ${linesColor}`}></div>
+        <div className={`border-r border-dashed ${linesColor}`}></div>
+        <div className={`border-r border-dashed ${linesColor}`}></div>
+        <div className={`border-r border-dashed ${linesColor}`}></div>
+      </div>
   );
 };
 

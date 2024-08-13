@@ -1,53 +1,56 @@
+import { useContext } from "react";
+
 import Section from "../Section";
-import ContentCard from "../ContentCard";
+import ContentCard from "../cards/ContentCard";
 import SectionTitle from "../SectionTitle";
 
-const SCENARIOS_DATA = [
-  {
-    descriptionText:
-      "Понять текущее состояние IT-инфраструктуры и выявить слабые места",
-    iconPath: "consulting/consulting-scenario-icon1.svg",
-    row: 2,
-    col: 1,
-  },
-  {
-    descriptionText: "Подготовиться к внедрению новых технологий и ит-решений",
-    iconPath: "consulting/consulting-scenario-icon2.svg",
-    row: 2,
-    col: 3,
-  },
-  {
-    descriptionText:
-      "Проверить соответствие стандартам безопасности и требованиям отрасли",
-    iconPath: "consulting/consulting-scenario-icon3.svg",
-    row: 3,
-    col: 2,
-  },
-  {
-    descriptionText: "Оптимизировать затраты на ит-инфраструктуру",
-    iconPath: "consulting/consulting-scenario-icon4.svg",
-    row: 3,
-    col: 4,
-  },
-];
+import { ScreenContext } from "../../store/screen-context";
 
 const Scenarios = () => {
+  const { screen } = useContext(ScreenContext);
+
+  //Computing screen flags for shorter syntax
+  const screenMd = screen == "md";
+  const screenSm = screen == "sm";
+
   return (
     <div id="why">
       <Section rowsAmount={3}>
         <SectionTitle row={1} col={1} width={4}>
           Сценарии применения
         </SectionTitle>
-        {SCENARIOS_DATA.map((card, index) => (
-          <ContentCard
-            key={index}
-            row={card.row}
-            col={card.col}
-            iconPath={card.iconPath}
-          >
-            {card.descriptionText}
-          </ContentCard>
-        ))}
+        <ContentCard
+          row={2}
+          col={1}
+          iconPath="audit/audit-scenario-icon1.svg"
+          width={screenMd || screenSm ? 2 : 1}
+        >
+          Понять текущее состояние IT-инфраструктуры и выявить слабые места
+        </ContentCard>
+        <ContentCard
+          row={2}
+          col={3}
+          iconPath="audit/audit-scenario-icon2.svg"
+          width={screenMd || screenSm ? 2 : 1}
+        >
+          Подготовиться к внедрению новых технологий и ит-решений
+        </ContentCard>
+        <ContentCard
+          row={3}
+          col={screenMd || screenSm ? 1 : 2}
+          iconPath="audit/audit-scenario-icon3.svg"
+          width={screenMd || screenSm ? 2 : 1}
+        >
+          Проверить соответствие стандартам безопасности и требованиям отрасли
+        </ContentCard>
+        <ContentCard
+          row={3}
+          col={screenMd || screenSm ? 3 : 4}
+          iconPath="audit/audit-scenario-icon4.svg"
+          width={screenMd || screenSm ? 2 : 1}
+        >
+          Оптимизировать затраты на ит-инфраструктуру
+        </ContentCard>
       </Section>
     </div>
   );

@@ -1,9 +1,9 @@
 import PrimaryButton from "../buttons/PrimaryButton";
-import ContentCard from "../ContentCard";
+import ContentCard from "../cards/ContentCard";
 
 const Hero = () => {
   return (
-    <div className="grid grid-cols-4 transition-all">
+    <div className="grid grid-cols-4 transition-all py-180 xl:px-120 lg:px-60 px-[44.1px]">
       <div className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 xl:text-[56px] text-[44px] font-title leading-[60px] pb-60">
         ИТ‑аудит с применимыми рекомендациями
       </div>
@@ -38,7 +38,7 @@ const Hero = () => {
       </div>
       <img
         className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5"
-        src="/images/consulting/hero-scheme.svg"
+        src="/images/audit/hero-scheme.svg"
         alt=""
       />
     </div>

@@ -9,13 +9,14 @@ const PrimaryButton = ({
   height = 1,
   type = "accent",
   children,
+  ...otherAttributes
 }) => {
   //Primary Button types: accent, dark, light
 
   //Filter property values depending on button type
-  const filterAccent =
+  const filterForAccent =
     "brightness(0) saturate(100%) invert(84%) sepia(16%) saturate(4650%) hue-rotate(104deg) brightness(99%) contrast(105%)";
-  const filterDark =
+  const filterForDark =
     "brightness(0) saturate(100%) invert(8%) sepia(5%) saturate(3618%) hue-rotate(169deg) brightness(90%) contrast(81%)";
 
   //Ref for css variables
@@ -38,17 +39,28 @@ const PrimaryButton = ({
     if (type === "accent") {
       buttonContainerRef.current.style.setProperty(
         "--filter-add",
-        filterAccent
+        filterForAccent
       );
     } else if (type === "dark") {
-      buttonContainerRef.current.style.setProperty("--filter-add", filterDark);
+      buttonContainerRef.current.style.setProperty(
+        "--filter-add",
+        filterForDark
+      );
+
+      buttonContainerRef.current.style.setProperty(
+        "--filter-remove",
+        filterForAccent
+      );
     }
   }, []);
 
   return (
     <div
+      {...otherAttributes}
       ref={buttonContainerRef}
-      className={styles.buttonContainer}
+      className={`${styles.buttonContainer} ${
+        otherAttributes.className ?? ""
+      } lg:pt-0 pt-30`}
       style={{
         gridColumn: `${col} / ${col + width}`,
         gridRow: `${row} / ${row + height}`,

@@ -13,6 +13,7 @@ export const colors = {
   consulting: "#FEFFE0",
   security: "#FBE3FF",
   alert: "#F24055",
+  red: "#D40000"
 };
 
 export default {
