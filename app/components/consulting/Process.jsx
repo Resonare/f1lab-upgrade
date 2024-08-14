@@ -28,7 +28,7 @@ const Process = () => {
       </Tag>
     ),
     zabbix: (
-      <Tag key="5" className="bg-red" inverseColor={true}>
+      <Tag key="5" className="bg-[#D40000]" inverseColor={true}>
         ZABBIX
       </Tag>
     ),

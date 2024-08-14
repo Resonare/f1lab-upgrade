@@ -1,5 +1,5 @@
 import PrimaryButton from "../buttons/PrimaryButton";
-import ContentCard from "../ContentCard";
+import ContentCard from "../cards/ContentCard";
 import SchemaCanvas from "./SchemaCanvas";
 
 const Hero = () => {
@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 xl:text-[56px] text-[44px] font-title leading-[60px] pb-60">
         ИТ‑аудит с применимыми рекомендациями
       </div>
-      <ContentCard row={2} col={1}>
+      <ContentCard row="row-start-2" col="col-start-1">
         Хотите убедиться, что ваша ИТ-инфраструктура соответствует целям вашего
         бизнеса и не создает ненужных рисков?
       </ContentCard>
@@ -20,7 +20,7 @@ const Hero = () => {
           <div className=""></div>
         </div>
       </div>
-      <ContentCard row={3} col={2}>
+      <ContentCard row="row-start-3" col="col-start-2">
         ИТ-аудит предоставит полный отчёт о состоянии и отказоустойчивости вашей
         ИТ-среды.
       </ContentCard>
@@ -33,7 +33,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="row-start-4 max-lg:mt-60 col-start-1 col-end-5 lg:col-end-2 ">
-        <PrimaryButton type="accent" row={4} col={1}>
+        <PrimaryButton type="accent" row="row-start-4" col="col-start-1">
           Консультация
         </PrimaryButton>
       </div>
