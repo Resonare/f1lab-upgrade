@@ -1,231 +1,92 @@
+import Icon from "../schemaConnectionBlocks/Icon";
+import RightLeft from "../schemaConnectionBlocks/RightLeft";
+import Empty from "../schemaConnectionBlocks/Empty";
+import TopBottom from "../schemaConnectionBlocks/TopBottom";
+import RightBottom from "../schemaConnectionBlocks/RightBottom";
+import LeftRightBottom from "../schemaConnectionBlocks/LeftRightBottom";
+import TopRight from "../schemaConnectionBlocks/TopRight";
+import TopRightLeft from "../schemaConnectionBlocks/TopRightLeft";
+import BottomRightLeft from "../schemaConnectionBlocks/BottomRightLeft";
+import BottomLeft from "../schemaConnectionBlocks/BottomLeft";
+import TopBottomLeft from "../schemaConnectionBlocks/TopBottomLeft";
+
 const SchemaCanvas = () => {
   return (
     <div className="grid grid-rows-9 grid-cols-9 p-10">
-      <div className="">
-        <img src="/images/schema-icons/internet-server-network.svg" alt="" />
-      </div>
-
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="">
-        <img src="/images/schema-icons/firewall.svg" alt="" />
-      </div>
-      <div className=""></div>
-
-      <div className="grid grid-rows-2 grid-cols-2 h-full w-full">
-        <div className=""></div>
-        <div className=""></div>
-        <div className=""></div>
-        <div className="border-l border-t border-dashed border-gray-400 rounded-tl-2xl -m-[0.8px]"></div>
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="">
-        <img src="/images/schema-icons/active-directory.svg" alt="" />
-      </div>
-      <div className="col-span-3"></div>
-      <div className="grid grid-cols-2 w-full h-full">
-        <div className="border-r border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="col-span"></div>
-      <div className="grid grid-cols-2 w-full h-full">
-        <div className="border-r border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="col-span-2"></div>
-      <div className=""></div>
-      <div className="">
-        <img src="/images/schema-icons/wi-fi.svg" alt="" />
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="">
-        <img src="/images/schema-icons/network-equipment.svg" alt="" />
-      </div>
-
-      <div className="grid grid-rows-2 w-full h-full">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="">
-        <img src="/images/schema-icons/database-server.svg" alt="" />
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2  w-full h-full">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className="border-r rounded-tr-2xl border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="">
-        <img src="/images/schema-icons/local-backup-storage.svg" alt="" />
-      </div>
-      <div className=""></div>
-      <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
-        <div className=""></div>
-        <div className="border-l border-b rounded-bl-2xl border-dashed border-gray-400"></div>
-        <div className=""></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
-        <div className=""></div>
-        <div className=""></div>
-        <div className="border-t rounded-tr-2xl border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className="border-t border-l rounded-tl-2xl border-dashed border-gray-400"></div>
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
-        <div className="border-b rounded-br-2xl border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className="border-b border-l rounded-bl-2xl border-dashed border-gray-400"></div>
-        <div className=""></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2">
-        <div className=""></div>
-        <div className=""></div>
-        <div className="border-t border-r rounded-tr-2xl border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
-        <div className="border-r border-dashed border-gray-400"></div>
-        <div className=""></div>
-        <div className=""></div>
-        <div className="border-l border-dashed border-gray-400 -m-[0.8px]"></div>
-      </div>
-      <div className="grid grid-cols-2 w-full h-full">
-        <div className="border-r border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className=""></div>
-      <div className=""></div>
-      <div className=""></div>
-      <div className="">
-        <img src="/images/schema-icons/antivirus.svg" alt="" />
-      </div>
-      <div className="col-span-2"></div>
-      <div className="">
-        <img src="/images/schema-icons/infrastructure-monitoring.svg" alt="" />
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
-        <div className="border-b rounded-br-2xl border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className="border-l border-dashed border-gray-400"></div>
-        <div className="border-r border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-cols-2">
-        <div className="border-r border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-
-      <div className="col-span-2"></div>
-      <div className="grid grid-rows-2 grid-cols-2 w-full h-full  -m-[0.8px]">
-        <div className=""></div>
-        <div className=""></div>
-        <div className=""></div>
-        <div className="border-l border-t rounded-tl-2xl border-dashed border-gray-400"></div>
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2">
-        <div className="border-b rounded-br-2xl border-dashed border-gray-400"></div>
-        <div className="border-b border-l rounded-bl-2xl border-dashed border-gray-400"></div>
-        <div className=""></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
-        <div className=""></div>
-        <div className=""></div>
-        <div className="border-t border-r rounded-tr-2xl border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className=""></div>
-      </div>
-      <div className=""></div>
-      <div className="grid grid-cols-2">
-        <div className="border-r border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2 grid-cols-2">
-        <div className=""></div>
-        <div className="border-l border-b rounded-bl-2xl border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className=""></div>
-        <div className=""></div>
-      </div>
-      <div className="">
-        <img src="/images/schema-icons/1c.svg" alt="" />
-      </div>
-      <div className=""></div>
-      <div className="grid grid-cols-2">
-        <div className="border-r border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="col-span-2"></div>
-      <div className="grid grid-cols-2">
-        <div className="border-r border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className=""></div>
-      <div className="grid grid-cols-2">
-        <div className="border-r border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className=""></div>
-      </div>
-      <div className="col-span-3"></div>
-      <div className="grid grid-cols-2 w-full h-full">
-        <div className="border-r border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="col-span-2"></div>
-      <div className="">
-        <img src="/images/schema-icons/desktop.svg" alt="" />
-      </div>
-      <div className=""></div>
-      <div className="grid grid-cols-2">
-        <div className="border-r border-dashed border-gray-400 -m-[0.8px]"></div>
-        <div className=""></div>
-      </div>
-      <div className="col-span-3"></div>
-      <div className="">
-        <img src="/images/schema-icons/laptop.svg" alt="" />
-      </div>
-      <div className="col-span-4"></div>
-      <div className="grid grid-rows-2 grid-cols-2">
-        <div className=""></div>
-        <div className="border-l border-b rounded-bl-2xl border-dashed border-gray-400 "></div>
-        <div className=""></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="grid grid-rows-2">
-        <div className="border-b border-dashed border-gray-400"></div>
-        <div className=""></div>
-      </div>
-      <div className="">
-        <img src="/images/schema-icons/databases.svg" alt="" />
-      </div>
+      {/* ROW-1 */}
+      <Icon name="internet-server-network" />
+      <RightLeft />
+      <RightLeft />
+      <Icon name="firewall" />
+      <Empty />
+      <RightBottom fix />
+      <RightLeft />
+      <RightLeft />
+      <Icon name="active-directory" />
+      {/* ROW-2 */}
+      <Empty colSpan={3} />
+      <TopBottom />
+      <Empty />
+      <TopBottom />
+      <Empty colSpan={3} />
+      {/* ROW-3 */}
+      <Icon name="wi-fi" />
+      <RightLeft />
+      <RightLeft />
+      <Icon name="network-equipment" />
+      <RightLeft />
+      <Icon name="database-server" />
+      <LeftRightBottom fix />
+      <Icon name="local-backup-storage" />
+      <Empty />
+      {/* ROW-4 */}
+      <TopRight fix />
+      <BottomRightLeft />
+      <RightLeft fix />
+      <TopRightLeft fix />
+      <BottomLeft />
+      <TopBottom />
+      <TopBottom fix />
+      <Empty colSpan={2} />
+      {/* ROW-5 */}
+      <Empty />
+      <Icon name="antivirus" />
+      <Empty colSpan={2} />
+      <Icon name="infrastructure-monitoring" />
+      <TopBottomLeft fix />
+      <TopBottom fix />
+      <Empty colSpan={2} />
+      {/* ROW-6 */}
+      <RightBottom fix />
+      <TopRightLeft />
+      <RightLeft />
+      <BottomLeft fix />
+      <Empty />
+      <TopBottom />
+      <TopRight />
+      <Icon name="1c" />
+      <Empty />
+      {/* ROW-7 */}
+      <TopBottom fix />
+      <Empty colSpan={2} />
+      <TopBottom fix />
+      <Empty />
+      <TopBottom />
+      <Empty colSpan={3} />
+      {/* ROW-8 */}
+      <TopBottom fix />
+      <Empty colSpan={2} />
+      <Icon name="desktop" />
+      <Empty />
+      <TopBottom />
+      <Empty colSpan={3} />
+      {/* ROW-9 */}
+      <Icon name="laptop" />
+      <Empty colSpan={4} />
+      <TopRight fix />
+      <RightLeft />
+      <RightLeft />
+      <Icon name="databases" />
     </div>
   );
 };

@@ -1,6 +1,7 @@
 const ContentCard = ({
   row,
   col,
+  bg,
   iconPath,
   inverseColor = false,
   children,
@@ -15,7 +16,9 @@ const ContentCard = ({
     <div
       className={`${cardColorClasses} ${
         iconPath ? "min-h-[280px] justify-between" : "justify-center"
-      } ${row} ${col} xl:p-30 lg:p-15 md:p-15 sm:p-15 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] flex flex-col gap-10`}
+      } ${row} ${col} ${
+        bg ? bg : ""
+      } xl:p-30 lg:p-15 md:p-15 sm:p-15 mt-[-0.8px] mx-[0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] flex flex-col gap-10`}
     >
       {iconPath ? (
         <div>

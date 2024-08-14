@@ -1,14 +1,22 @@
+import { useContext } from "react";
 import PrimaryButton from "../buttons/PrimaryButton";
 import ContentCard from "../cards/ContentCard";
 import SchemaCanvas from "./SchemaCanvas";
 
+import { ThemeContext } from "../../store/theme-context";
+
 const Hero = () => {
+  const themeContext = useContext(ThemeContext);
   return (
     <div className="grid grid-cols-4 transition-all py-180 xl:px-120 lg:px-60 px-[44.1px]">
-      <div className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 xl:text-[56px] text-[44px] font-title leading-[60px] pb-60">
+      <div className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 text-[56px] xl:text-[56px] lg:text-[44px] font-title leading-[60px] pb-60 max-md:col-end-5 ">
         ИТ‑аудит с применимыми рекомендациями
       </div>
-      <ContentCard row="row-start-2" col="col-start-1">
+      <ContentCard
+        row="row-start-2"
+        col="col-start-1 max-md:col-end-3"
+        bg={themeContext.bgColor}
+      >
         Хотите убедиться, что ваша ИТ-инфраструктура соответствует целям вашего
         бизнеса и не создает ненужных рисков?
       </ContentCard>
@@ -20,7 +28,11 @@ const Hero = () => {
           <div className=""></div>
         </div>
       </div>
-      <ContentCard row="row-start-3" col="col-start-2">
+      <ContentCard
+        row="row-start-3"
+        col="col-start-2 max-md:col-start-3 max-md:col-end-5"
+        bg={themeContext.bgColor}
+      >
         ИТ-аудит предоставит полный отчёт о состоянии и отказоустойчивости вашей
         ИТ-среды.
       </ContentCard>
@@ -37,7 +49,7 @@ const Hero = () => {
           Консультация
         </PrimaryButton>
       </div>
-      <div className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5">
+      <div className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5 max-md:hidden">
         <SchemaCanvas />
       </div>
     </div>
