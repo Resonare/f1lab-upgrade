@@ -24,11 +24,13 @@ const SchemaCanvas = () => {
       <RightLeft />
       <Icon name="active-directory" />
       {/* ROW-2 */}
-      <Empty colSpan={3} />
+      <Empty />
+      <Empty />
+      <Empty />
       <TopBottom />
       <Empty />
       <TopBottom />
-      <Empty colSpan={3} />
+      <Empty /> <Empty /> <Empty />
       {/* ROW-3 */}
       <Icon name="wi-fi" />
       <RightLeft />
@@ -47,15 +49,15 @@ const SchemaCanvas = () => {
       <BottomLeft />
       <TopBottom />
       <TopBottom fix />
-      <Empty colSpan={2} />
+      <Empty /> <Empty />
       {/* ROW-5 */}
       <Empty />
       <Icon name="antivirus" />
-      <Empty colSpan={2} />
+      <Empty /> <Empty />
       <Icon name="infrastructure-monitoring" />
       <TopBottomLeft fix />
       <TopBottom fix />
-      <Empty colSpan={2} />
+      <Empty /> <Empty />
       {/* ROW-6 */}
       <RightBottom fix />
       <TopRightLeft />
@@ -68,21 +70,21 @@ const SchemaCanvas = () => {
       <Empty />
       {/* ROW-7 */}
       <TopBottom fix />
-      <Empty colSpan={2} />
+      <Empty /> <Empty />
       <TopBottom fix />
       <Empty />
       <TopBottom />
-      <Empty colSpan={3} />
+      <Empty /> <Empty /> <Empty />
       {/* ROW-8 */}
       <TopBottom fix />
-      <Empty colSpan={2} />
+      <Empty /> <Empty />
       <Icon name="desktop" />
       <Empty />
       <TopBottom />
-      <Empty colSpan={3} />
+      <Empty /> <Empty /> <Empty />
       {/* ROW-9 */}
       <Icon name="laptop" />
-      <Empty colSpan={4} />
+      <Empty /> <Empty /> <Empty /> <Empty />
       <TopRight fix />
       <RightLeft />
       <RightLeft />
