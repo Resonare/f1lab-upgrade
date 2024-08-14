@@ -5,8 +5,6 @@ import styles from "./PrimaryButton.module.css";
 const PrimaryButton = ({
   row,
   col,
-  width = 1,
-  height = 1,
   type = "accent",
   children,
   ...otherAttributes
@@ -60,11 +58,7 @@ const PrimaryButton = ({
       ref={buttonContainerRef}
       className={`${styles.buttonContainer} ${
         otherAttributes.className ?? ""
-      } lg:pt-0 pt-30`}
-      style={{
-        gridColumn: `${col} / ${col + width}`,
-        gridRow: `${row} / ${row + height}`,
-      }}
+      } ${row} ${col} lg:pt-0 pt-30`}
     >
       <button
         className={`${buttonColorClasses} flex justify-between py-15 pl-30 pr-15 w-full text-xl font-subtitle leading-normal transition-all duration-[400ms]`}

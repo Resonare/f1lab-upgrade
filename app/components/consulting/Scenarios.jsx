@@ -1,53 +1,39 @@
-import { useContext } from "react";
-
 import Section from "../Section";
 import ContentCard from "../cards/ContentCard";
 import SectionTitle from "../SectionTitle";
 
-import { ScreenContext } from "../../store/screen-context";
-
 const Scenarios = () => {
-  const { screen } = useContext(ScreenContext);
-
-  //Computing screen flags for shorter syntax
-  const screenMd = screen == "md";
-  const screenSm = screen == "sm";
-
   return (
     <div id="why">
       <Section rowsAmount={3}>
-        <SectionTitle row={1} col={1} width={4}>
+        <SectionTitle row="row-start-1" col="col-start-1 col-end-5">
           Сценарии применения
         </SectionTitle>
         <ContentCard
-          row={2}
-          col={1}
+          row="row-start-2"
+          col="col-start-1 xl:col-end-2 lg:col-end-2 col-end-3"
           iconPath="audit/audit-scenario-icon1.svg"
-          width={screenMd || screenSm ? 2 : 1}
         >
           Понять текущее состояние IT-инфраструктуры и выявить слабые места
         </ContentCard>
         <ContentCard
-          row={2}
-          col={3}
+          row="row-start-2"
+          col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
           iconPath="audit/audit-scenario-icon2.svg"
-          width={screenMd || screenSm ? 2 : 1}
         >
           Подготовиться к внедрению новых технологий и ит-решений
         </ContentCard>
         <ContentCard
-          row={3}
-          col={screenMd || screenSm ? 1 : 2}
+          row="row-start-3"
+          col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
           iconPath="audit/audit-scenario-icon3.svg"
-          width={screenMd || screenSm ? 2 : 1}
         >
           Проверить соответствие стандартам безопасности и требованиям отрасли
         </ContentCard>
         <ContentCard
-          row={3}
-          col={screenMd || screenSm ? 3 : 4}
+          row="row-start-3"
+          col="xl:col-start-4 lg:col-start-4 col-start-3 col-end-5"
           iconPath="audit/audit-scenario-icon4.svg"
-          width={screenMd || screenSm ? 2 : 1}
         >
           Оптимизировать затраты на ит-инфраструктуру
         </ContentCard>

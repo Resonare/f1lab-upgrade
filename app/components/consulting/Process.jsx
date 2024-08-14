@@ -1,20 +1,10 @@
-import { useContext } from "react";
-
 import Section from "../Section";
 import Tag from "../Tag";
 import StepCard from "../cards/StepCard";
 import SectionTitle from "../SectionTitle";
 import PrimaryButton from "../buttons/PrimaryButton";
 
-import { ScreenContext } from "../../store/screen-context";
-
 const Process = () => {
-  const { screen } = useContext(ScreenContext);
-
-  //Computing screen flags for shorter syntax
-  const screenMd = screen == "md";
-  const screenSm = screen == "sm";
-
   //REDO NEEDED
   const tags = {
     siemCons: (
@@ -46,13 +36,12 @@ const Process = () => {
 
   return (
     <Section rowsAmount={8}>
-      <SectionTitle row={1} col={1} width={4}>
+      <SectionTitle row="row-start-1" col="col-start-1 col-end-5">
         Процесс проведения аудита
       </SectionTitle>
       <StepCard
-        row={2}
-        col={screenMd || screenSm ? 1 : 2}
-        width={screenMd || screenSm ? 2 : 1}
+        row="row-start-2"
+        col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
         title="Определение целей и объема аудита"
         tags={[
           tags.zabbix,
@@ -68,9 +57,8 @@ const Process = () => {
         аудита.
       </StepCard>
       <StepCard
-        row={3}
-        col={3}
-        width={screenMd || screenSm ? 2 : 1}
+        row="row-start-3"
+        col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
         title="Инвентаризация оборудования, ПО и сетей"
         tags={[
           tags.zabbix,
@@ -85,9 +73,8 @@ const Process = () => {
         состояния IT инфраструктуры.
       </StepCard>
       <StepCard
-        row={4}
-        col={screenMd || screenSm ? 1 : 4}
-        width={screenMd || screenSm ? 2 : 1}
+        row="row-start-4"
+        col="xl:col-start-4 lg:col-start-4 col-start-1 xl:col-end-5 lg:col-end-5 col-end-3"
         title="Оценка производительности, безопасности и соответствия нормативным требованиям"
         tags={[
           tags.zabbix,
@@ -102,9 +89,8 @@ const Process = () => {
         повлиять на работу бизнеса.
       </StepCard>
       <StepCard
-        row={5}
-        col={3}
-        width={screenMd || screenSm ? 2 : 1}
+        row="row-start-5"
+        col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
         title="Проведение тестов на уязвимости и отказоустойчивость "
         tags={[
           tags.zabbix,
@@ -119,9 +105,8 @@ const Process = () => {
         насколько она защищена от возможных угроз.
       </StepCard>
       <StepCard
-        row={6}
-        col={screenMd || screenSm ? 1 : 2}
-        width={screenMd || screenSm ? 2 : 1}
+        row="row-start-6"
+        col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
         title="Составление отчета с результатами и рекомендациями по улучшению."
         tags={[
           tags.zabbix,
@@ -138,11 +123,9 @@ const Process = () => {
         соответствия нормативным требованиям IT инфраструктуры.
       </StepCard>
       <PrimaryButton
-        className={screenMd || screenSm ? `self-center` : null}
         type="dark"
-        col={1}
-        row={screenMd || screenSm ? 7 : 3}
-        width={screenMd || screenSm ? 5 : 1}
+        row="xl:row-start-3 lg:row-start-3 row-start-7"
+        col="col-start-1 xl:col-end-2 lg:col-end-2 col-end-6"
       >
         Консультация
       </PrimaryButton>
