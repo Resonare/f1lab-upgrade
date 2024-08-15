@@ -49,7 +49,7 @@ const Hero = () => {
           Консультация
         </PrimaryButton>
       </div>
-      <div className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5 max-md:hidden">
+      <div className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5 max-md:hidden h-[calc(100svh-290px)] max-lg:h-[34svh]">
         <SchemaCanvas />
       </div>
     </div>
