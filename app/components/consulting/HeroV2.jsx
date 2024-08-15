@@ -8,7 +8,7 @@ import { ThemeContext } from "../../store/theme-context";
 const Hero = () => {
   const themeContext = useContext(ThemeContext);
   return (
-    <div className="grid grid-cols-4 transition-all py-180 xl:px-120 lg:px-60 px-[44.1px]">
+    <div className="grid grid-cols-4 transition-all py-90 xl:px-120 lg:px-60 px-[44.1px] lg:mt-90 mt-[70px] h-[calc(100svh-90px)]">
       <div className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 text-[56px] xl:text-[56px] lg:text-[44px] font-title leading-[60px] pb-60 max-md:col-end-5 ">
         ИТ‑аудит с применимыми рекомендациями
       </div>
@@ -49,7 +49,7 @@ const Hero = () => {
           Консультация
         </PrimaryButton>
       </div>
-      <div className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5 max-md:hidden">
+      <div className="row-start-2 row-end-4 col-start-3 col-end-5 lg:row-start-1 lg:row-end-5 lg:col-start-3 lg:col-end-5 max-md:hidden h-[calc(100svh-290px)] max-lg:h-[34svh]">
         <SchemaCanvas />
       </div>
     </div>
