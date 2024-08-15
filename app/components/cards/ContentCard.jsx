@@ -18,18 +18,18 @@ const ContentCard = ({
         iconPath ? "min-h-[280px] justify-between" : "justify-center"
       } ${row} ${col} ${
         bg ? bg : ""
-      } xl:p-30 lg:p-15 md:p-15 sm:p-15 mt-[-0.8px] mx-[0.8px] border-t-[1px] border-b-[1px] border-dashed gap-[10px] flex flex-col gap-10`}
+      } xl:p-30 p-15 mt-[-1px] mx-[1px] border-y border-dashed flex flex-col`}
     >
       {iconPath ? (
         <div>
           <img src={`/images/${iconPath}`} alt="" />
         </div>
       ) : null}
-      <p
+      <div
         className={`${cardTextColorClasses} text-xl font-light font-text leading-relaxed`}
       >
         {children}
-      </p>
+      </div>
     </div>
   );
 };

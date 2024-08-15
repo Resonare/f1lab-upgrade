@@ -4,7 +4,7 @@ const TopRight = ({ fix }) => {
       <div className=""></div>
       <div
         className={`border-l border-b rounded-bl-2xl border-dashed border-gray-400 ${
-          fix ? "-m-[0.8px]" : ""
+          fix ? "-m-[1px]" : ""
         }`}
       ></div>
       <div className=""></div>

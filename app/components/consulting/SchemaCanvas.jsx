@@ -12,82 +12,69 @@ import TopBottomLeft from "../schemaConnectionBlocks/TopBottomLeft";
 
 const SchemaCanvas = () => {
   return (
-    <div className="grid grid-rows-9 grid-cols-9 p-10">
+    <div className="grid grid-rows-8 grid-cols-9">
       {/* ROW-1 */}
       <Icon name="internet-server-network" />
-      <RightLeft />
-      <RightLeft />
+      <RightLeft colSpan="col-span-2" />
       <Icon name="firewall" />
       <Empty />
-      <RightBottom fix />
-      <RightLeft />
-      <RightLeft />
+      <RightBottom />
+      <RightLeft down colSpan="col-span-2" />
       <Icon name="active-directory" />
       {/* ROW-2 */}
-      <Empty />
-      <Empty />
-      <Empty />
+      <Empty colSpan="col-span-3" />
       <TopBottom />
       <Empty />
-      <TopBottom />
-      <Empty /> <Empty /> <Empty />
+      <TopBottom right />
+      <Empty colSpan="col-span-3" />
       {/* ROW-3 */}
       <Icon name="wi-fi" />
-      <RightLeft />
-      <RightLeft />
+      <RightLeft down colSpan="col-span-2" />
       <Icon name="network-equipment" />
       <RightLeft />
       <Icon name="database-server" />
-      <LeftRightBottom fix />
+      <LeftRightBottom />
       <Icon name="local-backup-storage" />
       <Empty />
       {/* ROW-4 */}
-      <TopRight fix />
-      <BottomRightLeft />
-      <RightLeft fix />
-      <TopRightLeft fix />
+      <TopRight />
+      <BottomRightLeft fix />
+      <RightLeft />
+      <TopRightLeft fixRight />
       <BottomLeft />
+      <TopBottom right />
       <TopBottom />
-      <TopBottom fix />
-      <Empty /> <Empty />
+      <Empty colSpan="col-span-2" />
       {/* ROW-5 */}
       <Empty />
       <Icon name="antivirus" />
       <Empty /> <Empty />
       <Icon name="infrastructure-monitoring" />
-      <TopBottomLeft fix />
-      <TopBottom fix />
-      <Empty /> <Empty />
+      <TopBottomLeft />
+      <TopBottom />
+      <Empty colSpan="col-span-2" />
       {/* ROW-6 */}
       <RightBottom fix />
       <TopRightLeft />
       <RightLeft />
       <BottomLeft fix />
       <Empty />
-      <TopBottom />
-      <TopRight />
+      <TopBottom right />
+      <TopRight fix />
       <Icon name="1c" />
       <Empty />
       {/* ROW-7 */}
-      <TopBottom fix />
-      <Empty /> <Empty />
-      <TopBottom fix />
-      <Empty />
       <TopBottom />
-      <Empty /> <Empty /> <Empty />
-      {/* ROW-8 */}
-      <TopBottom fix />
-      <Empty /> <Empty />
+      <Empty colSpan="col-span-2" />
       <Icon name="desktop" />
       <Empty />
-      <TopBottom />
-      <Empty /> <Empty /> <Empty />
-      {/* ROW-9 */}
+      <TopBottom right />
+      <Empty colSpan="col-span-3" />
+      {/* ROW-8 */}
       <Icon name="laptop" />
-      <Empty /> <Empty /> <Empty /> <Empty />
-      <TopRight fix />
-      <RightLeft />
-      <RightLeft />
+      <Empty colSpan="col-span-4" />
+      <TopRight />
+      <RightLeft colSpan="col-span-2" />
       <Icon name="databases" />
     </div>
   );

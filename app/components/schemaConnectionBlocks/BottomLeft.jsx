@@ -5,7 +5,7 @@ const BottomLeft = ({ fix }) => {
       <div className=""></div>
       <div
         className={`border-t border-r rounded-tr-2xl border-dashed border-gray-400 ${
-          fix ? "-m-[0.8px]" : ""
+          fix ? "-m-[1px]" : ""
         }`}
       ></div>
       <div className=""></div>

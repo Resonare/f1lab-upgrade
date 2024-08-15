@@ -1,12 +1,14 @@
-const TopBottom = ({ fix }) => {
+const TopBottom = ({ left, right }) => {
   return (
     <div className="grid grid-cols-2">
       <div
-        className={`border-r border-dashed border-gray-400 ${
-          fix ? "-m-[0.8px]" : ""
+        className={`${
+          left || !right ? "border-r border-dashed border-gray-400" : ""
         }`}
       ></div>
-      <div className=""></div>
+      <div
+        className={`${right ? "border-l border-dashed border-gray-400" : ""}`}
+      ></div>
     </div>
   );
 };

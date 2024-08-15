@@ -1,5 +1,5 @@
-const Empty = ({ colSpan }) => {
-  return <div className={`col-span-${colSpan}`}></div>;
+const Empty = ({ colSpan = "col-span-1" }) => {
+  return <div className={`${colSpan}`}></div>;
 };
 
 export default Empty;

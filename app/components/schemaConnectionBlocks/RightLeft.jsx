@@ -1,12 +1,14 @@
-const RightLeft = ({ fix }) => {
+const RightLeft = ({ up, down, colSpan = "col-span-1" }) => {
   return (
-    <div className="grid grid-rows-2">
+    <div className={`grid grid-rows-2 ${colSpan}`}>
       <div
-        className={`border-b border-dashed border-gray-400 ${
-          fix ? "-m-[0.8px]" : ""
+        className={`${
+          up || !down ? "border-b border-dashed border-gray-400" : ""
         }`}
       ></div>
-      <div className=""></div>
+      <div
+        className={`${down ? "border-t border-dashed border-gray-400" : ""}`}
+      ></div>
     </div>
   );
 };
