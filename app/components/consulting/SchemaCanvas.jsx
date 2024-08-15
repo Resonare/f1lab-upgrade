@@ -12,7 +12,7 @@ import TopBottomLeft from "../schemaConnectionBlocks/TopBottomLeft";
 
 const SchemaCanvas = () => {
   return (
-    <div className="grid grid-rows-8 grid-cols-9 p-5">
+    <div className="grid grid-rows-7 grid-cols-9 p-5">
       {/* ROW-1 */}
       <Icon name="internet-server-network" />
       <RightLeft colSpan="col-span-2" />
@@ -51,8 +51,9 @@ const SchemaCanvas = () => {
       <Empty /> <Empty />
       <Icon name="infrastructure-monitoring" />
       <TopBottomLeft />
-      <TopBottom />
-      <Empty colSpan="col-span-2" />
+      <TopRight fix />
+      <Icon name="1c" />
+      <Empty />
       {/* ROW-6 */}
       <RightBottom fix />
       <TopRightLeft />
@@ -60,19 +61,14 @@ const SchemaCanvas = () => {
       <BottomLeft fix />
       <Empty />
       <TopBottom right />
-      <TopRight fix />
-      <Icon name="1c" />
+      <Empty />
+      <Empty />
       <Empty />
       {/* ROW-7 */}
-      <TopBottom />
+      <Icon name="laptop" />
       <Empty colSpan="col-span-2" />
       <Icon name="desktop" />
       <Empty />
-      <TopBottom right />
-      <Empty colSpan="col-span-3" />
-      {/* ROW-8 */}
-      <Icon name="laptop" />
-      <Empty colSpan="col-span-4" />
       <TopRight />
       <RightLeft colSpan="col-span-2" />
       <Icon name="databases" />
