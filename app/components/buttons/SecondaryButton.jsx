@@ -4,7 +4,16 @@ import ArrowURSecondary from "../misc/ArrowURSecondary";
 
 import { NavbarContext } from "../../store/navbar-context";
 
-const SecondaryButton = ({ variant, borderX, link, to, onClick, children }) => {
+const SecondaryButton = ({
+  variant,
+  borderX,
+  link,
+  to,
+  onClick,
+  row = "",
+  col = "",
+  children,
+}) => {
   const { showServicesDropdownHandler } = useContext(NavbarContext);
 
   let buttonStyle = "";
@@ -45,7 +54,7 @@ const SecondaryButton = ({ variant, borderX, link, to, onClick, children }) => {
   return (
     <>
       {!link && (
-        <button className={`${buttonStyle} min-w-full`} onClick={onClick}>
+        <button className={`${buttonStyle} ${row} ${col} min-w-full`} onClick={onClick}>
           <span className="place-self-center">{children}</span>
           <ArrowURSecondary color={arrowColor} hoverColor={arrowHoverColor} />
         </button>

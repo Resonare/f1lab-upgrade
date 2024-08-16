@@ -1,6 +1,6 @@
 const ArrowNext = ({ className, onClick }) => {
   return (
-    <div className={`${className} select-none cursor-pointer`} onClick={onClick}>
+    <div className={`${className} select-none cursor-pointer transition-all duration-300`} onClick={onClick}>
       <svg
         width="100%"
         height="100%"

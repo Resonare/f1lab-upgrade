@@ -1,7 +1,7 @@
-const ArrowURSecondary = () => {
+const ArrowURSecondary = ({ className }) => {
   return (
     <span
-      className={`p-[14px] group-hover:p-5 group-hover:self-start transition-all duration-300`}
+      className={`p-[14px] group-hover:p-5 group-hover:self-start transition-all duration-300 ${className}`}
     >
       <svg
         width="15"

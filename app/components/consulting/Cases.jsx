@@ -3,6 +3,7 @@ import SectionTitle from "../SectionTitle";
 import CaseCard from "../cards/CaseCard";
 import ReviewCard from "../cards/ReviewCard";
 import Tag from "../Tag";
+import SecondaryButton from "../buttons/SecondaryButton";
 
 const Cases = () => {
   //REDO NEEDED
@@ -33,6 +34,7 @@ const Cases = () => {
         >
           Примеры кейсов с аудитом
         </SectionTitle>
+
         <CaseCard
           row="row-start-2"
           col="col-start-1"
@@ -43,6 +45,7 @@ const Cases = () => {
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
           привело к этому и позволило это
         </CaseCard>
+
         <CaseCard
           row="row-start-2"
           col="col-start-2"
@@ -53,6 +56,7 @@ const Cases = () => {
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
           привело к этому и позволило это
         </CaseCard>
+
         <CaseCard
           row="row-start-2"
           col="col-start-3"
@@ -63,16 +67,18 @@ const Cases = () => {
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
           привело к этому и позволило это
         </CaseCard>
+
         <CaseCard
           row="row-start-3"
           col="col-start-1"
           tags={tags}
           logoPath="sunlight_logo.svg"
-          className="border-y-[1px] border-l-[1px]"
+          className="border-t-[1px] border-l-[1px]"
         >
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
           привело к этому и позволило это
         </CaseCard>
+
         <CaseCard
           row="row-start-3"
           col="col-start-2"
@@ -83,6 +89,7 @@ const Cases = () => {
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
           привело к этому и позволило это
         </CaseCard>
+
         <CaseCard
           row="row-start-3"
           col="col-start-3"
@@ -93,8 +100,16 @@ const Cases = () => {
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
           привело к этому и позволило это
         </CaseCard>
-        <ReviewCard row="row-start-2 row-end-4"
-        col="col-start-4" reviewPaths={["test_review.png", "test_review.png"]}></ReviewCard>
+
+        <ReviewCard
+          row="row-start-2 row-end-4"
+          col="col-start-4"
+          reviewPaths={["test_review.png", "test_review.png"]}
+        ></ReviewCard>
+
+        <SecondaryButton row="row-start-4" col="col-start-1" variant="shaded">
+          <p className="text-gray-400 text-base font-subtitle">Все кейсы</p>
+        </SecondaryButton>
       </Section>
     </div>
   );

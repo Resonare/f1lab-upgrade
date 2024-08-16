@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import SecondaryButton from "../buttons/SecondaryButton";
 import ArrowNext from "../misc/reviewButtons/ArrowNext";
 import ArrowPrev from "../misc/reviewButtons/ArrowPrev";
 
@@ -25,10 +26,14 @@ const ReviewCard = ({ row, col, reviewPaths }) => {
   return (
     <div className={`${row} ${col} h-full gap-60 flex flex-col justify-start`}>
       <div className="border-y-[1px] border-dashed">
-        <p className="pb-30 font-bold text-[26px] font-subtitle">
+        <p className="pb-30 font-bold text-[26px] font-subtitle text-right">
           Что о нас говорят?
         </p>
-        {/* <div>For button</div> */}
+        <div>
+          <SecondaryButton variant="shaded">
+            <p className="text-gray-400 text-base font-subtitle">Все отзывы</p>
+          </SecondaryButton>
+        </div>
         <div className="pr-[1px]">
           <img src={`/images/reviews/${reviewPaths[curReview]}`}></img>
           <div className="flex flex-col gap-10">
@@ -38,15 +43,15 @@ const ReviewCard = ({ row, col, reviewPaths }) => {
                   key={index}
                   className={`${
                     index == curReview ? "text-gray-400" : "text-gray-200"
-                  } text-[40px]`}
+                  } text-[40px] transition-all duration-300 select-none`}
                 >
                   •
                 </div>
               ))}
             </div>
             <div className="flex gap-15">
-              <ArrowNext className={"p-15"} onClick={handleNext} />
-              <ArrowPrev className={"p-15"} onClick={handlePrev} />
+              <ArrowNext className={"p-15 pl-40 hover:pl-15 hover:pr-40"} onClick={handleNext} />
+              <ArrowPrev className={"p-15 pr-40 hover:pr-15 hover:pl-40"} onClick={handlePrev} />
             </div>
           </div>
         </div>
