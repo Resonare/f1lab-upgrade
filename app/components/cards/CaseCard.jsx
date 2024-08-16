@@ -2,13 +2,13 @@ import { useContext } from "react";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const CaseCard = ({ row, col, tags, logoPath, children }) => {
+const CaseCard = ({ row, col, tags, logoPath, className, children }) => {
   const { bgColor } = useContext(ThemeContext);
 
   return (
     <div className={`${row} ${col} bg-gray-400`}>
       <div
-        className={`${bgColor} h-full border-y-[1px] border-l-[1px] border-dashed rounded-xl xl:p-30 lg:p-15 md:p-15 sm:p-15 gap-60 flex flex-col`}
+        className={`${bgColor} ${className} h-full border-dashed rounded-xl xl:p-30 lg:p-15 md:p-15 sm:p-15 gap-60 flex flex-col`}
       >
         <div>
           <img src={`/images/logo/${logoPath}`} alt="" />
