@@ -2,7 +2,7 @@ import Section from "../Section";
 import SectionTitle from "../SectionTitle";
 import CaseCard from "../cards/CaseCard";
 import ReviewCard from "../cards/ReviewCard";
-import Tag from "../Tag";
+import Tag from "../misc/Tag";
 import SecondaryButton from "../buttons/SecondaryButton";
 
 const Cases = () => {
