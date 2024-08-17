@@ -39,7 +39,7 @@ const Cases = () => {
           row="row-start-2"
           col="col-start-1"
           tags={tags}
-          logoPath="lg_logo.svg"
+          logoPath="lg-logo.svg"
           className="border-t-[1px] border-l-[1px]"
         >
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
@@ -50,7 +50,7 @@ const Cases = () => {
           row="row-start-2"
           col="col-start-2"
           tags={tags}
-          logoPath="xxi_logo.png"
+          logoPath="xxi-logo.png"
           className="border-t-[1px] border-l-[1px]"
         >
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
@@ -61,7 +61,7 @@ const Cases = () => {
           row="row-start-2"
           col="col-start-3"
           tags={tags}
-          logoPath="dv_logo.png"
+          logoPath="dv-logo.png"
           className="border-t-[1px] border-x-[1px]"
         >
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
@@ -72,7 +72,7 @@ const Cases = () => {
           row="row-start-3"
           col="col-start-1"
           tags={tags}
-          logoPath="sunlight_logo.svg"
+          logoPath="sunlight-logo.svg"
           className="border-t-[1px] border-l-[1px]"
         >
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
@@ -83,7 +83,7 @@ const Cases = () => {
           row="row-start-3"
           col="col-start-2"
           tags={tags}
-          logoPath="onduline_logo.svg"
+          logoPath="onduline-logo.svg"
           className="border-y-[1px] border-l-[1px]"
         >
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
@@ -94,7 +94,7 @@ const Cases = () => {
           row="row-start-3"
           col="col-start-3"
           tags={tags}
-          logoPath="rusapai_logo.png"
+          logoPath="rusapai-logo.png"
           className="border-y-[1px] border-x-[1px]"
         >
           Сделали то и это, а еще вон то и это для компании “Samarga”, что
@@ -104,7 +104,7 @@ const Cases = () => {
         <ReviewCard
           row="row-start-2 row-end-4"
           col="col-start-4"
-          reviewPaths={["test_review.png", "test_review.png"]}
+          reviewPaths={["test-review.png", "test-review.png"]}
         ></ReviewCard>
 
         <SecondaryButton row="row-start-4" col="col-start-1" variant="shaded">

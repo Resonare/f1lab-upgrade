@@ -63,7 +63,7 @@ const SecondaryButton = ({
         <NavLink
           className={`${buttonStyle} min-w-full`}
           to={to}
-          onClick={showServicesDropdownHandler}
+          // onClick={showServicesDropdownHandler}
         >
           <span className="place-self-center">{children}</span>
           <ArrowURSecondary color={arrowColor} hoverColor={arrowHoverColor} />

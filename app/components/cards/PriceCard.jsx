@@ -1,9 +1,12 @@
 import PrimaryButton from "../buttons/PrimaryButton";
+import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 const PriceCard = ({ row, col, title, price, children }) => {
+  const dummyAddToCartHandler = () => {};
+
   return (
     <div
-      className={`${row} ${col} xl:p-30 p-15 border-y border-dashed flex flex-col gap-60`}
+      className={`${row} ${col} relative xl:p-30 p-15 border-y border-dashed flex flex-col gap-60`}
     >
       <div className="flex flex-col gap-30">
         <div className="flex flex-col gap-15">
@@ -16,11 +19,14 @@ const PriceCard = ({ row, col, title, price, children }) => {
         </div>
         <div className="flex flex-col gap-30">{children}</div>
       </div>
-      <PrimaryButton type="dark">
-        Консультация
-      </PrimaryButton>
+      <PrimaryButton type="dark">Консультация</PrimaryButton>
 
-      <div className="absolute top-0 right-0">{/* for cart */}</div>
+      <div className="absolute top-0 right-0">
+        <ShoppingCart
+          className="border-l border-b p-15"
+          addHandler={dummyAddToCartHandler}
+        />
+      </div>
     </div>
   );
 };

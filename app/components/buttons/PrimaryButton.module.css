@@ -1,9 +1,0 @@
-.buttonContainer > button > div {
-  filter: var(--filter-remove);
-  /* background-color: red; */
-}
-
-.buttonContainer > button:hover > div {
-  padding: 0;
-  filter: var(--filter-add);
-}

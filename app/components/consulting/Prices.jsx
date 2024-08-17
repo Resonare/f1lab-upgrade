@@ -24,26 +24,26 @@ const Cases = () => {
           </p>
           <Condition
             className="text-gray-400 text-2xl font-subtitle leading-[29px]"
-            icon="desktop_icon.svg"
+            icon="desktop-icon.svg"
           >
             1-5 рабочих мест
           </Condition>
           <div className="flex flex-col gap-15">
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               12 часов удаленной поддержки
             </Condition>
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               2 экстренных выезда
             </Condition>
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               2 профилактических выезда
             </Condition>
@@ -63,26 +63,26 @@ const Cases = () => {
           </p>
           <Condition
             className="text-gray-400 text-2xl font-subtitle leading-[29px]"
-            icon="desktop_icon.svg"
+            icon="desktop-icon.svg"
           >
             1-5 рабочих мест
           </Condition>
           <div className="flex flex-col gap-15">
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               12 часов удаленной поддержки
             </Condition>
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               2 экстренных выезда
             </Condition>
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               2 профилактических выезда
             </Condition>
@@ -102,26 +102,26 @@ const Cases = () => {
           </p>
           <Condition
             className="text-gray-400 text-2xl font-subtitle leading-[29px]"
-            icon="desktop_icon.svg"
+            icon="desktop-icon.svg"
           >
             1-5 рабочих мест
           </Condition>
           <div className="flex flex-col gap-15">
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               12 часов удаленной поддержки
             </Condition>
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               2 экстренных выезда
             </Condition>
             <Condition
               className="text-gray-400 text-xl font-light font-text leading-relaxed"
-              icon="add_circle_icon.svg"
+              icon="add-circle-icon.svg"
             >
               2 профилактических выезда
             </Condition>
