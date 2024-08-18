@@ -1,5 +1,5 @@
 import Section from "../Section";
-import Tag from "../Tag";
+import Tag from "../misc/Tag";
 import StepCard from "../cards/StepCard";
 import SectionTitle from "../SectionTitle";
 import PrimaryButton from "../buttons/PrimaryButton";

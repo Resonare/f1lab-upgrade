@@ -8,7 +8,7 @@ const StepCard = ({
 }) => {
   return (
     <div
-      className={`${row} ${col} xl:p-30 lg:p-15 md:p-15 sm:p-15 mt-[-0.8px] border-t-[1px] border-b-[1px] border-dashed gap-60 flex flex-col`}
+      className={`${row} ${col} xl:p-30 p-15 mt-[-1px] mx-[1px] border-y border-dashed gap-60 flex flex-col`}
     >
       <div className="flex flex-wrap gap-[2px]">
         {upperLabels.map((label, index) => (

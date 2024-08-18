@@ -3,6 +3,7 @@ import Scenarios from "../components/consulting/Scenarios";
 import Offers from "../components/consulting/Offers";
 import Process from "../components/consulting/Process";
 import Cases from "../components/consulting/Cases";
+import Prices from "../components/consulting/Prices";
 
 export const meta = () => {
   return [
@@ -19,6 +20,7 @@ export default function ITAudit() {
       <Offers />
       <Process />
       <Cases />
+      <Prices />
     </>
   );
 }

@@ -89,7 +89,7 @@ const Navbar = ({ navsChangeHandler }) => {
           ))}
         </div>
         <div className="h-[70px] lg:h-90 flex justify-end">
-          <ShoppingCart />
+          <ShoppingCart className="border-r border-l px-20 lg:px-30" />
           <BurgerMenu />
         </div>
       </nav>
