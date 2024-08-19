@@ -1,10 +1,11 @@
 import ArrowURPrimary from "../misc/ArrowURPrimary";
 
 const PrimaryButton = ({
-  row,
-  col,
+  row = "",
+  col = "",
   type = "accent",
   className = "",
+  fullHeight = false,
   children,
   ...otherAttributes
 }) => {
@@ -34,13 +35,18 @@ const PrimaryButton = ({
   return (
     <div
       {...otherAttributes}
-      className={`${className} ${row} ${col} group lg:pt-0 pt-30`}
+      className={`${className} ${row} ${col} w-full`}
     >
       <button
-        className={`${buttonColor} h-full flex items-center justify-between py-15 pl-30 pr-15 w-full text-xl font-subtitle leading-normal transition-all duration-300`}
+        className={`${buttonColor} ${
+          fullHeight === "true" ||
+          (typeof fullHeight == "boolean" && fullHeight)
+            ? "h-full"
+            : ""
+        } group flex items-center justify-between py-15 pl-30 pr-15 w-full text-xl font-subtitle leading-normal transition-all duration-300`}
       >
-        {children}
-        <div className="p-10 group-hover:pt-0 group-hover:pr-0 transition-all duration-300">
+        <div>{children}</div>
+        <div className="p-[7px] group-hover:pt-0 group-hover:pr-0 transition-all duration-300">
           <ArrowURPrimary color={arrowColor} hoverColor={arrowHoverColor} />
         </div>
       </button>
