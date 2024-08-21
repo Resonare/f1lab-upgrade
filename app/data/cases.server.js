@@ -1,0 +1,86 @@
+import { prisma } from "./database.server";
+
+export const getAll = async () => {
+  try {
+    const serviceCases = await prisma.serviceCase.findMany({
+      include: {
+        services: true,
+        CasesOnServices: {
+          include: {
+            case: true,
+          },
+        },
+      },
+    });
+
+    return serviceCases;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const add = async (serviceCaseData) => {
+  try {
+    return await prisma.serviceCase.create({
+      data: {
+        title: serviceCaseData.title || "",
+        description: serviceCaseData.description || "",
+        body: serviceCaseData.body || "",
+        imageUrl: "/images/logo/" + serviceCaseData.image,
+        services: {
+          connect: serviceCaseData.serviceIds.map((serviceId) => ({
+            id: +serviceId,
+          })),
+        },
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const update = async (serviceCaseData) => {
+  try {
+    await prisma.serviceCase.update({
+      where: { id: +serviceCaseData.id },
+      data: {
+        title: serviceCaseData.title || "",
+        description: serviceCaseData.description || "",
+        body: serviceCaseData.body || "",
+        imageUrl: "/images/logo/" + serviceCaseData.image || "",
+        services: {
+          connect: serviceCaseData.serviceIds.map((serviceId) => ({
+            id: +serviceId,
+          })),
+        },
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const remove = async (serviceCaseId) => {
+  try {
+    const serviceCase = await prisma.serviceCase.findUnique({
+      where: { id: serviceCaseId },
+    });
+
+    if (!serviceCase) {
+      throw new Error(`ServiceCase with ID ${serviceCaseId} does not exist.`);
+    }
+
+    await prisma.casesOnServices.deleteMany({
+      where: { caseId: serviceCaseId },
+    });
+
+    const deletedServiceCase = await prisma.serviceCase.delete({
+      where: { id: serviceCaseId },
+    });
+
+    console.log("ServiceCase and related records deleted:", deletedServiceCase);
+    return deletedServiceCase;
+  } catch (error) {
+    console.log(error);
+  }
+};
