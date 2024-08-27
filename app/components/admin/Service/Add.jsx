@@ -17,7 +17,12 @@ const AddService = ({ closeHandler, branches = [] }) => {
             placeholder="Наименование"
             className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full "
           />
-
+          <input
+            type="text"
+            name="link"
+            placeholder="Линк"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full "
+          />
           <div className="flex flex-col gap-10">
             <div className="font-subtitle text-xl">Направление</div>
             {branches.map((branch) => (

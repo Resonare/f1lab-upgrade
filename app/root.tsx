@@ -85,11 +85,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Navbar navsChangeHandler={navsChangeHandler} />
           </header>
           <div>{children}</div>
-
+          <BackgroundGrid />
           <ScrollRestoration />
           <Scripts />
         </body>
-        <BackgroundGrid />
       </ThemeContext.Provider>
     </html>
   );

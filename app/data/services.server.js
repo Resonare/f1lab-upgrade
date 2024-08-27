@@ -25,6 +25,7 @@ export const add = async (serviceData) => {
     return await prisma.service.create({
       data: {
         title: serviceData.title,
+        link: serviceData.link,
         branchId: parseInt(serviceData.branchId),
         cases: serviceData.cases,
       },
@@ -40,7 +41,8 @@ export const update = async (serviceData) => {
       where: { id: +serviceData.id },
       data: {
         title: serviceData.title,
-        branch: serviceData.branch,
+        link: serviceData.link,
+        branchId: parseInt(serviceData.branchId),
         cases: serviceData.cases,
       },
     });

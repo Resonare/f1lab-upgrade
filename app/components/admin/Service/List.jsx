@@ -89,6 +89,7 @@ export default function ListServices({ services = [], branches = [] }) {
       {showService.active && (
         <UpdateService
           service={showService.service}
+          branches={branches}
           closeHandler={() => {
             setShowService({ service: {}, active: false });
           }}

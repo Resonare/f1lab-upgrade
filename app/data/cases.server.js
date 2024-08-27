@@ -19,6 +19,25 @@ export const getAll = async () => {
   }
 };
 
+export const getByService = async (service) => {
+  try {
+    const serviceCases = await prisma.serviceCase.findMany({
+      include: {
+        services: true,
+        CasesOnServices: {
+          include: {
+            case: true,
+          },
+        },
+      },
+    });
+
+    return serviceCases;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const add = async (serviceCaseData) => {
   try {
     return await prisma.serviceCase.create({

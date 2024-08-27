@@ -5,6 +5,8 @@ import Process from "../components/consulting/Process";
 import Cases from "../components/consulting/Cases";
 import Prices from "../components/consulting/Prices";
 
+import { getAll as getAllServiceCases } from "../data/cases.server";
+
 export const meta = () => {
   return [
     { title: "F1LAB" },
@@ -23,4 +25,9 @@ export default function ITAudit() {
       <Prices />
     </>
   );
+}
+
+export async function loader() {
+  const serviceCasesData = await getAllServiceCases();
+  return serviceCasesData;
 }

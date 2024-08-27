@@ -1,29 +1,74 @@
+import { useLoaderData, useLocation } from "@remix-run/react";
+
 import Section from "../../layout/Section";
 import SectionTitle from "../SectionTitle";
 import CaseCard from "../cards/CaseCard";
 import ReviewCard from "../cards/ReviewCard";
-import Tag from "../misc/Tag";
 import SecondaryButton from "../buttons/SecondaryButton";
 
 const Cases = () => {
-  //REDO NEEDED
-  const tags = [
-    <Tag key={1} className="bg-f1-light">
-      It аудит
-    </Tag>,
-    <Tag key={2} className="bg-consulting">
-      Обслуживание серверов
-    </Tag>,
-    <Tag key={3} className="bg-consulting">
-      Гибернация данных
-    </Tag>,
-    <Tag key={4} className="bg-consulting">
-      VOIP
-    </Tag>,
-    <Tag key={5} className="bg-consulting">
-      Обслуживание сетевого оборудования
-    </Tag>,
-  ];
+  const serviceCases = useLoaderData();
+
+  const location = useLocation();
+  const { pathname } = location;
+  const path = pathname.split("/");
+  const currentLocation = path[path.length - 1];
+
+  if (serviceCases[0]) {
+    serviceCases[0] = {
+      ...serviceCases[0],
+      row: "row-start-2",
+      col: "col-start-1 col-end-3 lg:col-end-1",
+      border: `border-t border-l ${serviceCases.length < 4 ? "border-b" : ""}`,
+    };
+  }
+
+  if (serviceCases[1]) {
+    serviceCases[1] = {
+      ...serviceCases[1],
+      row: "row-start-2",
+      col: "col-start-3 col-end-5 lg:col-start-2 lg:col-end-2",
+      border: `border-t border-l ${serviceCases.length < 4 ? "border-b" : ""}`,
+    };
+  }
+
+  if (serviceCases[2]) {
+    serviceCases[2] = {
+      ...serviceCases[2],
+      row: "lg:row-start-2 row-start-3",
+      col: "col-start-1 col-end-3 lg:col-start-3 lg:col-end-3",
+      border: `border-t border-x  ${serviceCases.length < 4 ? "border-b" : ""}`,
+    };
+  }
+
+  if (serviceCases[3]) {
+    serviceCases[3] = {
+      ...serviceCases[3],
+      row: "row-start-3",
+      col: "lg:col-start-1 col-start-3 lg:col-end-1 col-end-5",
+      border: "border-t lg:border-l border-x",
+    };
+  }
+
+  if (serviceCases[4]) {
+    serviceCases[4] = {
+      ...serviceCases[4],
+      row: "row-start-3",
+      col: "col-start-2",
+      border: "max-lg:hidden border-y border-l",
+      maxLgHidden: true,
+    };
+  }
+
+  if (serviceCases[5]) {
+    serviceCases[5] = {
+      ...serviceCases[5],
+      row: "row-start-3",
+      col: "col-start-3",
+      border: `border-y border-x`,
+      maxLgHidden: true,
+    };
+  }
 
   return (
     <div id="">
@@ -35,73 +80,19 @@ const Cases = () => {
           Примеры кейсов с аудитом
         </SectionTitle>
 
-        <CaseCard
-          row="row-start-2"
-          col="col-start-1 lg:col-end-1 col-end-3"
-          tags={tags}
-          logoPath="lg-logo.svg"
-          className="border-t-[1px] border-l-[1px]"
-        >
-          Сделали то и это, а еще вон то и это для компании “Samarga”, что
-          привело к этому и позволило это
-        </CaseCard>
-
-        <CaseCard
-          row="row-start-2"
-          col="lg:col-start-2 col-start-3 lg:col-end-2 col-end-5"
-          tags={tags}
-          logoPath="xxi-logo.png"
-          className="border-t-[1px] lg:border-l-[1px] border-x-[1px]"
-        >
-          Сделали то и это, а еще вон то и это для компании “Samarga”, что
-          привело к этому и позволило это
-        </CaseCard>
-
-        <CaseCard
-          row="lg:row-start-2 row-start-3"
-          col="lg:col-start-3 col-start-1 lg:col-end-3 col-end-3"
-          tags={tags}
-          logoPath="dv-logo.png"
-          className="border-t-[1px] lg:border-x-[1px] border-l-[1px]"
-        >
-          Сделали то и это, а еще вон то и это для компании “Samarga”, что
-          привело к этому и позволило это
-        </CaseCard>
-
-        <CaseCard
-          row="row-start-3"
-          col="lg:col-start-1 col-start-3 lg:col-end-1 col-end-5"
-          tags={tags}
-          logoPath="sunlight-logo.svg"
-          className="border-t-[1px] lg:border-l-[1px] border-x-[1px]"
-        >
-          Сделали то и это, а еще вон то и это для компании “Samarga”, что
-          привело к этому и позволило это
-        </CaseCard>
-
-        <CaseCard
-          row="row-start-3"
-          col="col-start-2"
-          tags={tags}
-          logoPath="onduline-logo.svg"
-          className="max-lg:hidden border-y-[1px] border-l-[1px]"
-          maxLgHidden={true}
-        >
-          Сделали то и это, а еще вон то и это для компании “Samarga”, что
-          привело к этому и позволило это
-        </CaseCard>
-
-        <CaseCard
-          row="row-start-3"
-          col="col-start-3"
-          tags={tags}
-          logoPath="rusapai-logo.png"
-          className="border-y-[1px] border-x-[1px]"
-          maxLgHidden={true}
-        >
-          Сделали то и это, а еще вон то и это для компании “Samarga”, что
-          привело к этому и позволило это
-        </CaseCard>
+        {serviceCases.map((serviceCase) => (
+          <CaseCard
+            key={serviceCase.id}
+            tags={serviceCase.services}
+            logoPath={serviceCase.imageUrl}
+            currentLocation={currentLocation}
+            row={serviceCase.row}
+            col={serviceCase.col}
+            className={`${serviceCase.border}`}
+          >
+            {serviceCase.description}
+          </CaseCard>
+        ))}
 
         <ReviewCard
           row="row-start-2 row-end-4"
