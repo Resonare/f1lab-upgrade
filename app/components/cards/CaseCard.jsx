@@ -4,11 +4,11 @@ import ArrowURSecondary from "../misc/ArrowURSecondary";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const CaseCard = ({ row, col, tags, logoPath, className, children }) => {
+const CaseCard = ({ row, col, tags, logoPath, className, maxLgHidden = false, children }) => {
   const { bgColor } = useContext(ThemeContext);
 
   return (
-    <div className={`${row} ${col} bg-gray-400`}>
+    <div className={`${row} ${col} ${maxLgHidden ? "max-lg:hidden" : ""} bg-gray-400`}>
       <div
         className={`${bgColor} ${className} h-full border-dashed rounded-xl cursor-pointer`}
       >
