@@ -10,8 +10,7 @@ import {
 import "./tailwind.css";
 
 import Navbar from "~/components/navigation/Navbar";
-import SidebarButtons from "~/components/navigation/SidebarButtons";
-import BackgroundGridV2 from "~/components/BackgroundGridV2";
+import BackgroundGrid from "~/components/BackgroundGrid";
 
 import { ThemeContext } from "~/store/theme-context";
 
@@ -85,14 +84,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <header className="fixed top-0 w-full z-10">
             <Navbar navsChangeHandler={navsChangeHandler} />
           </header>
-          <div>
-            {children}
-          </div>
-          <SidebarButtons />
-          <BackgroundGridV2 />
+          <div>{children}</div>
+
           <ScrollRestoration />
           <Scripts />
         </body>
+        <BackgroundGrid />
       </ThemeContext.Provider>
     </html>
   );

@@ -1,4 +1,4 @@
-import HeroV2 from "../components/consulting/HeroV2";
+import Hero from "../components/consulting/Hero";
 import Scenarios from "../components/consulting/Scenarios";
 import Offers from "../components/consulting/Offers";
 import Process from "../components/consulting/Process";
@@ -15,7 +15,7 @@ export const meta = () => {
 export default function ITAudit() {
   return (
     <>
-      <HeroV2 />
+      <Hero />
       <Scenarios />
       <Offers />
       <Process />

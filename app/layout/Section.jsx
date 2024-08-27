@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import BackgroundGrid from "./BackgroundGrid";
+import BackgroundGrid from "../components/BackgroundGrid";
 
 const Section = ({ rowsAmount = 1, inverseColor = false, children }) => {
   //Ref for BackgroundGrid
