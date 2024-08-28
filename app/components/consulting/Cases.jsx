@@ -121,7 +121,7 @@ const Cases = () => {
             "test-review.png",
             "test-review.png",
           ]}
-          reviewsOnPage={2}
+          reviewsOnPage={3}
           className="lg:hidden"
         ></ReviewCard>
 

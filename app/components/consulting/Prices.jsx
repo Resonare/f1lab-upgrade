@@ -7,13 +7,13 @@ const Cases = () => {
   return (
     <div id="">
       <Section rowsAmount={4}>
-        <SectionTitle row="row-start-1" col="col-start-1">
+        <SectionTitle row="row-start-1" col="col-start-1 lg:col-end-2 col-end-3">
           Понятные цены
         </SectionTitle>
 
         <PriceCard
           row="row-start-1"
-          col="col-start-2"
+          col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
           title="Аудит S"
           price="7 200 ₽"
         >
@@ -51,8 +51,8 @@ const Cases = () => {
         </PriceCard>
 
         <PriceCard
-          row="row-start-1"
-          col="col-start-3"
+          row="lg:row-start-1 row-start-2"
+          col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
           title="Аудит S"
           price="7 200 ₽"
         >
@@ -90,8 +90,8 @@ const Cases = () => {
         </PriceCard>
 
         <PriceCard
-          row="row-start-1"
-          col="col-start-4"
+          row="lg:row-start-1 row-start-2"
+          col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
           title="Аудит S"
           price="7 200 ₽"
         >

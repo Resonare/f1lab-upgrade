@@ -4,7 +4,13 @@ import SecondaryButton from "../buttons/SecondaryButton";
 import ArrowNext from "../misc/reviewButtons/ArrowPrev";
 import ArrowPrev from "../misc/reviewButtons/ArrowNext";
 
-const ReviewCard = ({ row, col, reviewPaths, reviewsOnPage = 1, className }) => {
+const ReviewCard = ({
+  row,
+  col,
+  reviewPaths,
+  reviewsOnPage = 1,
+  className,
+}) => {
   const [curPage, setCurPage] = useState(0);
   const pagesAmount = Math.ceil(reviewPaths.length / reviewsOnPage);
 
@@ -46,16 +52,19 @@ const ReviewCard = ({ row, col, reviewPaths, reviewsOnPage = 1, className }) => 
     );
 
     return curReviewPaths.map((reviewPath, index) => (
-      <div key={index} className="flex-1 max-w-[400px]">
-        <div>
-          <img src={`/images/reviews/${reviewPath}`}></img>
-        </div>
+      <div
+        key={index}
+        className={`${reviewsOnPage <= 1 ? "w-full" : "max-w-[400px]"} bg-[white] h-[400px] flex justify-center items-center`}
+      >
+        <img src={`/images/reviews/${reviewPath}`} className="max-h-[400px]"></img>
       </div>
     ));
   };
 
   return (
-    <div className={`${row} ${col} ${className} h-full gap-60 flex flex-col justify-start`}>
+    <div
+      className={`${row} ${col} ${className} h-full gap-60 flex flex-col justify-start`}
+    >
       <div className="lg:border-y-[1px] border-b-[1px] border-dashed max-lg:pt-60">
         <p className="pb-30 font-bold lg:text-[26px] text-[22px] font-subtitle lg:text-right">
           Что о нас говорят?
