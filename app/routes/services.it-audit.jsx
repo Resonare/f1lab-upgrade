@@ -6,6 +6,7 @@ import Cases from "../components/consulting/Cases";
 import Prices from "../components/consulting/Prices";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
+import Pockets from "../components/consulting/Pockets";
 
 export const meta = () => {
   return [
@@ -23,6 +24,7 @@ export default function ITAudit() {
       <Process />
       <Cases />
       <Prices />
+      <Pockets />
     </>
   );
 }

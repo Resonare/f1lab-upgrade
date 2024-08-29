@@ -5,8 +5,7 @@ import Condition from "../misc/Condition";
 
 const Cases = () => {
   return (
-    <div id="">
-      <Section rowsAmount={4}>
+      <Section id="" rowsAmount={4}>
         <SectionTitle row="row-start-1" col="col-start-1 lg:col-end-2 col-end-3">
           Понятные цены
         </SectionTitle>
@@ -128,7 +127,6 @@ const Cases = () => {
           </div>
         </PriceCard>
       </Section>
-    </div>
   );
 };
 
