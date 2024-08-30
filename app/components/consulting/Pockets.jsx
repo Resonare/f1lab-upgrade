@@ -12,13 +12,17 @@ const Pockets = () => {
 
   return (
     <Section id="" rowsAmount={3}>
-      <SectionTitle row="row-start-1" col="col-start-1">
+      <SectionTitle
+        row="row-start-1"
+        col="col-start-1 max-lg:col-end-5"
+        className="md:pb-60"
+      >
         Решения под ключ с пакетами услуг
       </SectionTitle>
 
       <PocketCard
-        row="row-start-1"
-        col="col-start-2 col-end-5"
+        row="lg:row-start-1 row-start-2"
+        col="lg:col-start-2 col-start-1 col-end-5"
         subTitle="IT-Аудит и Поддержка"
         whenTitle="Когда нужно понять что не так с IT-инфраструктурой и исправить это"
         name="Рефлексия и рост"
@@ -40,11 +44,11 @@ const Pockets = () => {
         </PocketColumn>
       </PocketCard>
 
-      <div className="h-120 row-start-2 col-start-1 col-end-5"></div>
+      <div className="h-120 lg:row-start-2 row-start-3 col-start-1 col-end-5"></div>
 
       <PocketCard
-        row="row-start-3"
-        col="col-start-1 col-end-4"
+        row="lg:row-start-3 row-start-4"
+        col="col-start-1 lg:col-end-4 col-end-5"
         subTitle="Миграция в облако"
         whenTitle="Когда нужна высокая производительность, простая масштабируемость и безопасность"
         name="Облачная Инфраструктура и Безопасность"

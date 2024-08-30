@@ -17,44 +17,44 @@ const PocketCard = ({
 
   return (
     <div
-      className={`${bgColor} ${row} ${col} flex flex-col gap-[50px] border-dashed border-t mx-[0.8px] `}
+      className={`${bgColor} ${row} ${col} pb-15 flex flex-col gap-[50px] border-dashed border-t mx-[0.8px] `}
     >
-      <div className="pt-30 pl-30 pr-60 flex flex-col gap-5 bg-gradient-to-b from-[transparent] via-f1-light to-[transparent]">
+      <div className="xl:pt-30 xl:pl-30 xl:pr-60 lg:pt-15 lg:px-15 pt-30 pl-30 pr-60 flex flex-col gap-5 bg-gradient-to-b from-[transparent] via-f1-light to-[transparent]">
         <p className="font-text text-sm uppercase leading-[18px] tracking-wide">
           {subTitle}
         </p>
         <p className="text-[26px] font-subtitle leading-30">{whenTitle}</p>
       </div>
 
-      <div className="pl-30 pr-60 flex flex-col gap-15">
-        <p className="text-2xl font-normal font-text leading-[1.75rem]">
-          Пакет:
-          <span className="ml-5 text-f1-light px-15 py-5 bg-gray-400 rounded-xl">
-            {name}
-          </span>
-        </p>
-        <p className="text-xl font-light font-text leading-relaxed">
-          {description}
-        </p>
-      </div>
-
-      <div className="pl-30 pr-60 flex gap-15">
-        {children}
-      </div>
-
-      <div className="flex pl-30 pr-60">
-        <div className="flex flex-col gap-15 grow shrink">
+      <div className="flex flex-col gap-60 xl:pl-30 xl:pr-60 lg:px-15 pl-30 pr-60">
+        <div className="flex flex-col gap-15">
           <p className="text-2xl font-normal font-text leading-[1.75rem]">
-            Состав пакета:
+            Пакет:
+            <span className="ml-5 text-f1-light px-15 py-5 bg-gray-400 rounded-xl">
+              {name}
+            </span>
           </p>
-          <div className="flex gap-5">{tags}</div>
+          <p className="text-xl font-light font-text leading-relaxed">
+            {description}
+          </p>
         </div>
 
-        <div className="flex flex-col gap-5">
-          <p className="text-[40px] font-subtitle leading-[44px]">{price}</p>
-          <p className="text-sm font-bold font-text uppercase leading-[18px] tracking-wide">
-            Средняя стоимость пакета
-          </p>
+        <div className="flex gap-15">{children}</div>
+
+        <div className="flex">
+          <div className="flex flex-col gap-15 grow shrink">
+            <p className="text-2xl font-normal font-text leading-[1.75rem]">
+              Состав пакета:
+            </p>
+            <div className="flex gap-5">{tags}</div>
+          </div>
+
+          <div className="flex flex-col gap-5">
+            <p className="text-[40px] font-subtitle leading-[44px]">{price}</p>
+            <p className="text-sm font-bold font-text uppercase leading-[18px] tracking-wide">
+              Средняя стоимость пакета
+            </p>
+          </div>
         </div>
       </div>
     </div>

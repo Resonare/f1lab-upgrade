@@ -2,6 +2,7 @@ const SectionTitle = ({
   row,
   col,
   inverseColor = false,
+  className = "",
   children,
 }) => {
   //Computing title color depending on color inversion flag
@@ -14,7 +15,7 @@ const SectionTitle = ({
 
   return (
     <p
-      className={`${titleColor} ${row} ${col} pb-100 font-bold text-[40px] font-subtitle`}
+      className={`${titleColor} ${row} ${col} pb-100 font-bold text-[40px] font-subtitle ${className}`}
     >
       {children}
     </p>
