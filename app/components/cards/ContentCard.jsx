@@ -4,21 +4,21 @@ const ContentCard = ({
   bg,
   iconPath,
   inverseColor = false,
+  transparentOnMobile = false,
   children,
 }) => {
   //Computing card color depending on color inversion flag
-  const cardColorClasses = inverseColor
-    ? "border-t-gray-300 border-b-gray-300"
-    : "border-t-grey border-b-grey";
+  const cardColorClasses =
+    inverseColor && !transparentOnMobile ? "border-y-gray-300" : "";
   const cardTextColorClasses = inverseColor ? "text-gray-100" : "text-gray-400";
 
   return (
     <div
-      className={`${cardColorClasses} ${
+      className={`${cardColorClasses} ${row} ${col} ${bg ? bg : ""} ${
+        transparentOnMobile ? "max-sm:bg-[transparent]" : "border-y"
+      } ${
         iconPath ? "min-h-[280px] justify-between" : "justify-center"
-      } ${row} ${col} ${
-        bg ? bg : ""
-      } xl:p-30 p-15 mt-[-1px] mx-[1px] border-y border-dashed flex flex-col`}
+      } sm:border-y xl:p-30 sm:p-15 p-0 max-sm:pb-15 mt-[-1px] mx-[1.2px] border-dashed flex flex-col`}
     >
       {iconPath ? (
         <div>
@@ -26,7 +26,7 @@ const ContentCard = ({
         </div>
       ) : null}
       <div
-        className={`${cardTextColorClasses} text-xl font-light font-text leading-relaxed`}
+        className={`${cardTextColorClasses} sm:text-xl text-[16px] font-light font-text sm:leading-relaxed leading-tight`}
       >
         {children}
       </div>

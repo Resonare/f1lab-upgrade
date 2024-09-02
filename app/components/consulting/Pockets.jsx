@@ -6,8 +6,8 @@ import PocketColumn from "../misc/PocketColumn";
 
 const Pockets = () => {
   const firstPocketTags = [
-    <Tag className="bg-f1-light">IT-Аудит</Tag>,
-    <Tag className="">Техподдержка</Tag>,
+    <Tag key={0} className="bg-f1-light">IT-Аудит</Tag>,
+    <Tag key={1} className="">Техподдержка</Tag>,
   ];
 
   return (
