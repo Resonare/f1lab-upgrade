@@ -22,8 +22,7 @@ const Scenarios = () => {
           row="sm:row-start-2 row-start-3"
           col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
           iconPath="audit/audit-scenario-icon1.svg"
-          transparentOnMobile={false}
-          className="border-l"
+          borderLeft={true}
         >
           Понять текущее состояние IT-инфраструктуры и выявить слабые места
         </ContentCard>
@@ -41,8 +40,7 @@ const Scenarios = () => {
           row="sm:row-start-2 row-start-6"
           col="sm:col-start-3 col-start-1 xl:col-end-4 lg:col-end-4 sm:col-end-5 col-end-4"
           iconPath="audit/audit-scenario-icon2.svg"
-          transparentOnMobile={false}
-          className="border-r"
+          borderRight={true}
         >
           Подготовиться к внедрению новых технологий и ит-решений
         </ContentCard>
@@ -60,8 +58,7 @@ const Scenarios = () => {
           row="sm:row-start-3 row-start-9"
           col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
           iconPath="audit/audit-scenario-icon3.svg"
-          transparentOnMobile={false}
-          className="border-l"
+          borderLeft={true}
         >
           Проверить соответствие стандартам безопасности и требованиям отрасли
         </ContentCard>
@@ -79,8 +76,7 @@ const Scenarios = () => {
           row="sm:row-start-3 row-start-12"
           col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
           iconPath="audit/audit-scenario-icon4.svg"
-          transparentOnMobile={false}
-          className="border-r"
+          borderRight={true}
         >
           Оптимизировать затраты на ит-инфраструктуру
         </ContentCard>
