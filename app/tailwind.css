@@ -50,4 +50,8 @@
       #22282E 6px /* конец промежутка (5px + 1px толщина линии) */
     );
   }
+
+  .snap-x-mandatory {
+    scroll-snap-type: x mandatory
+  }
 }

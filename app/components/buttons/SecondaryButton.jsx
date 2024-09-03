@@ -42,7 +42,7 @@ const SecondaryButton = ({
       break;
     case "light":
       buttonStyle =
-        "flex group h-[52px] justify-between text-gray-400 bg-f1-light pl-20 pr-5 py-5 hover:bg-gray-400 hover:text-f1-light transition-all duration-500";
+        "flex group h-[52px] justify-between text-gray-400 bg-f1-light pl-20 pr-5 py-5 hover:bg-gray-100 hover:text-f1-light transition-all duration-500";
       arrowColor = "#22282E";
       arrowHoverColor = "#00FFC5";
       break;

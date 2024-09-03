@@ -1,14 +1,25 @@
+import { useContext } from "react";
+
+import { ThemeContext } from "../../store/theme-context";
+
 const StepCard = ({
-  row,
-  col,
-  title,
-  tags,
-  upperLabels,
+  row = "",
+  col = "",
+  title = "",
+  tags = [],
+  upperLabels = [],
+  inverseColor = false,
   children,
 }) => {
+  const { bgColor } = useContext(ThemeContext);
+
   return (
     <div
-      className={`${row} ${col} xl:p-30 p-15 mt-[-1px] mx-[1px] border-y border-dashed gap-60 flex flex-col`}
+      className={`${row} ${col} max-sm:${bgColor} ${
+        inverseColor ? "bg-gray-400 max-sm:bg-gray-400" : ""
+      } ${
+        upperLabels.length == 0 ? "" : "gap-15"
+      } sm:gap-60 xl:p-30 p-15 mt-[-1px] sm:mx-[1px] border-y border-dashed flex flex-col w-fit`}
     >
       <div className="flex flex-wrap gap-[2px]">
         {upperLabels.map((label, index) => (
@@ -16,19 +27,29 @@ const StepCard = ({
             key={index}
             className="bg-f1-light rounded-[15px] xl:px-15 px-10 py-5"
           >
-            <p className="uppercase text-gray-400 xl:text-sm text-xs font-bold font-text">
+            <p className="uppercase text-gray-400 text-sm font-bold font-text">
               {label}
             </p>
           </div>
         ))}
       </div>
-      <div className="gap-30 flex flex-col">
-        <p className="text-zinc-800 text-[26px] font-bold font-subtitle leading-[30px]">
+      <div
+        className={`${tags.length == 0 ? "" : "gap-30"} flex flex-col w-fit`}
+      >
+        <p
+          className={`${
+            inverseColor ? "text-f1-light" : ""
+          } xl:text-[26px] lg:text-[22px] md:text-[26px] sm:text-[22px] text-xl font-subtitle sm:leading-[30px] leading-[24px] w-fit`}
+        >
           {title}
         </p>
-        <p className=" md:text-[1.2rem] sm:text-[1.5rem] text-[1.1rem] text-xl text-gray-300 font-light font-text leading-relaxed">
+        <div
+          className={`${
+            tags.length == 0 ? "mt-30" : ""
+          } sm:text-xl text-[1rem] text-gray-300 font-light font-text sm:leading-relaxed leading-tight`}
+        >
           {children}
-        </p>
+        </div>
 
         <div className="flex flex-wrap gap-5">{tags}</div>
       </div>
