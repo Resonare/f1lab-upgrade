@@ -7,10 +7,12 @@ const Section = ({ id, rowsAmount = 1, inverseColor = false, children }) => {
   const bgOwnerRef = useRef();
 
   return (
-    <div id={id} className="relative">
+    <div id={id} className="relative ">
       {inverseColor ? <BackgroundGrid inverseColor={inverseColor} /> : null}
       <div
-        className={`grid grid-cols-4 grid-rows-${rowsAmount} py-120 xl:px-120 lg:px-60 px-[44.1px]`}
+        className={`${
+          inverseColor ? "sm:py-100" : ""
+        } grid grid-rows-${rowsAmount} sm:grid-cols-4 xl:px-120 lg:px-60 sm:px-[44.1px] px-15 max-sm:pt-60 max-sm:pb-15`}
         ref={bgOwnerRef}
       >
         {children}

@@ -7,6 +7,7 @@ import Prices from "../components/consulting/Prices";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
 import Pockets from "../components/consulting/Pockets";
+import TailwindCrutch from "../components/misc/TailwindCrutch";
 
 export const meta = () => {
   return [
@@ -17,7 +18,7 @@ export const meta = () => {
 
 export default function ITAudit() {
   return (
-    <>
+    <div className="flex flex-col lg:gap-200 sm:gap-[82px]">
       <Hero />
       <Scenarios />
       <Offers />
@@ -25,7 +26,8 @@ export default function ITAudit() {
       <Cases />
       <Prices />
       <Pockets />
-    </>
+      <TailwindCrutch />
+    </div>
   );
 }
 

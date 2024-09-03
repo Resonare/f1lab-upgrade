@@ -1,5 +1,6 @@
 import Section from "../../layout/Section";
 import ContentCard from "../cards/ContentCard";
+import ImageCard from "../cards/ImageCard";
 import SectionTitle from "../SectionTitle";
 
 const Scenarios = () => {
@@ -9,31 +10,77 @@ const Scenarios = () => {
         <SectionTitle row="row-start-1" col="col-start-1 col-end-5">
           Сценарии применения
         </SectionTitle>
-        <ContentCard
+
+        <ImageCard
           row="row-start-2"
-          col="col-start-1 xl:col-end-2 lg:col-end-2 col-end-3"
+          col="col-start-1"
+          className="sm:hidden border-r border-y"
+          imagePath="audit/audit-scenario-icon1.svg"
+        />
+
+        <ContentCard
+          row="sm:row-start-2 row-start-3"
+          col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
           iconPath="audit/audit-scenario-icon1.svg"
+          transparentOnMobile={false}
+          className="border-l"
         >
           Понять текущее состояние IT-инфраструктуры и выявить слабые места
         </ContentCard>
+
+        <div className="sm:hidden h-15 row-start-4"></div>
+
+        <ImageCard
+          row="row-start-5"
+          col="col-start-4"
+          className="sm:hidden border-l border-y"
+          imagePath="audit/audit-scenario-icon2.svg"
+        />
+
         <ContentCard
-          row="row-start-2"
-          col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
+          row="sm:row-start-2 row-start-6"
+          col="sm:col-start-3 col-start-1 xl:col-end-4 lg:col-end-4 sm:col-end-5 col-end-4"
           iconPath="audit/audit-scenario-icon2.svg"
+          transparentOnMobile={false}
+          className="border-r"
         >
           Подготовиться к внедрению новых технологий и ит-решений
         </ContentCard>
+
+        <div className="sm:hidden h-15 row-start-7"></div>
+
+        <ImageCard
+          row="row-start-8"
+          col="col-start-1"
+          className="sm:hidden border-r border-y"
+          imagePath="audit/audit-scenario-icon3.svg"
+        />
+
         <ContentCard
-          row="row-start-3"
-          col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
+          row="sm:row-start-3 row-start-9"
+          col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
           iconPath="audit/audit-scenario-icon3.svg"
+          transparentOnMobile={false}
+          className="border-l"
         >
           Проверить соответствие стандартам безопасности и требованиям отрасли
         </ContentCard>
+
+        <div className="sm:hidden h-15 row-start-10"></div>
+
+        <ImageCard
+          row="row-start-11"
+          col="col-start-4"
+          className="sm:hidden border-l border-y"
+          imagePath="audit/audit-scenario-icon4.svg"
+        />
+
         <ContentCard
-          row="row-start-3"
-          col="xl:col-start-4 lg:col-start-4 col-start-3 col-end-5"
+          row="sm:row-start-3 row-start-12"
+          col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
           iconPath="audit/audit-scenario-icon4.svg"
+          transparentOnMobile={false}
+          className="border-r"
         >
           Оптимизировать затраты на ит-инфраструктуру
         </ContentCard>

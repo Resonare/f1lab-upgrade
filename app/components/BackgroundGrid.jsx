@@ -5,7 +5,7 @@ const BackgroundGrid = ({ inverseColor = false }) => {
     <>
       {inverseColor && (
         <div
-          className={`bg-gray-400 absolute -z-[9] grid grid-cols-4 max-w-[1920px] w-full h-full sm:px-[44.1px] px-15 lg:px-60 xl:px-120`}
+          className={`max-sm:bg-dark-striped bg-gray-400 absolute -z-[9] grid grid-cols-4 max-w-[1920px] w-full h-full sm:px-[44.1px] px-15 lg:px-60 xl:px-120`}
         >
           <div className={`sm:border-x border-l border-dashed ${linesColor}`}></div>
           <div className={`border-r border-dashed ${linesColor}`}></div>

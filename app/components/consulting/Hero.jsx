@@ -21,7 +21,7 @@ const Hero = () => {
   const dummyAddToCartHandler = () => {};
 
   return (
-    <div className="grid grid-cols-4 sm:py-100 py-30 lg:mt-90 mt-[70px] xl:px-120 lg:px-60 sm:px-[44.1px] px-15">
+    <div className="grid grid-cols-4 sm:pt-100 pt-15 lg:mt-90 mt-[70px] xl:px-120 lg:px-60 sm:px-[44.1px] px-15">
       <div className="row-start-1 row-end-2 col-start-1 col-end-3 text-gray-400 sm:text-[56px] text-[28px] xl:text-[56px] lg:text-[44px] font-title sm:leading-[60px] leading-[30px] sm:pb-60 pb-30 max-md:col-end-5 ">
         {content.header}
       </div>
@@ -30,6 +30,7 @@ const Hero = () => {
         col="col-start-1 max-md:col-end-3 max-sm:col-end-5"
         bg={themeContext.bgColor}
         transparentOnMobile={true}
+        className="max-sm:px-0"
       >
         {content.cards[0]}
       </ContentCard>
@@ -46,6 +47,7 @@ const Hero = () => {
         col="col-start-2 max-md:col-start-3 max-sm:col-start-1 max-md:col-end-5"
         bg={themeContext.bgColor}
         transparentOnMobile={true}
+        className="max-sm:px-0"
       >
         {content.cards[1]}
       </ContentCard>
@@ -57,7 +59,7 @@ const Hero = () => {
           <div className=""></div>
         </div>
       </div>
-      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex justify-between max-lg:mt-120 max-md:mt-60 max-sm:mt-30">
+      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between max-lg:mt-120 max-md:mt-60 max-sm:mt-30">
         <PrimaryButton
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"
@@ -66,27 +68,28 @@ const Hero = () => {
           Консультация
         </PrimaryButton>
 
-        <div className="sm:hidden flex flex-col justify-between items-start">
-          <div className="text-sm font-text font-normal">
-            Средняя стоимость аудита
+        <div className="flex justify-between items-start">
+          <div className="sm:hidden flex flex-col justify-between items-start">
+            <div className="text-sm font-text font-normal">
+              Средняя стоимость аудита
+            </div>
+            <div className="font-subtitle text-[26px] leading-[30px]">
+              100 000 ₽
+            </div>
           </div>
-          <div className="font-subtitle text-[26px] leading-[30px]">
-            100 000 ₽
-          </div>
+          <ShoppingCart
+            className="border-y max-sm:border-l p-15 lg:h-full h-fit lg:hidden"
+            addHandler={dummyAddToCartHandler}
+          />
         </div>
 
-        <ShoppingCart
-          className="border-y max-sm:border-l p-15 lg:h-full h-fit lg:hidden"
-          addHandler={dummyAddToCartHandler}
-        />
-
-        {/* <PrimaryButton
-          className="h-full max-lg:grow"
+        <PrimaryButton
+          className="h-full max-lg:grow sm:hidden"
           type="dark"
           fullHeight="true"
         >
           Консультация
-        </PrimaryButton> */}
+        </PrimaryButton>
       </div>
       <div className="row-start-4 max-lg:mt-60 col-start-2 col-end-5 lg:col-end-2 max-lg:hidden">
         <div className="h-full flex">

@@ -15,7 +15,7 @@ const SectionTitle = ({
 
   return (
     <p
-      className={`${titleColor} ${row} ${col} pb-100 font-bold text-[40px] font-subtitle ${className}`}
+      className={`${titleColor} ${row} ${col} sm:pb-100 pb-30 font-bold sm:text-[40px] text-2xl font-subtitle ${className}`}
     >
       {children}
     </p>
