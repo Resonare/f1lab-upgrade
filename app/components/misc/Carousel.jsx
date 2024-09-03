@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-const Carousel = ({ className, children }) => {
+const Carousel = ({ className, lastIndicatorIsLight = false, children }) => {
   const [curPage, setCurPage] = useState(0);
   const carouselRef = useRef();
 
@@ -22,7 +22,7 @@ const Carousel = ({ className, children }) => {
           className={`${
             i == curPage
               ? "text-gray-400"
-              : i == children.length - 1
+              : i == children.length - 1 && lastIndicatorIsLight
               ? "text-f1-light"
               : "text-gray-200"
           } flex-1 flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}

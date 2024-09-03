@@ -141,11 +141,12 @@ const Process = () => {
       </Section>
 
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
-        <SectionTitle row="row-start-1" col="col-start-1 col-end-5">
-          Процесс проведения аудита
-        </SectionTitle>
+        <SectionTitle>Процесс проведения аудита</SectionTitle>
 
-        <Carousel className="border-x [&>*]:border-r [&>*]:border-t [&>*]:mt-[0.1px]">
+        <Carousel
+          className="border-x [&>*]:border-r [&>*]:border-t [&>*]:mt-[0.1px]"
+          lastIndicatorIsLight={true}
+        >
           <StepCard
             title="Определение целей и объема аудита"
             tags={[
@@ -238,15 +239,6 @@ const Process = () => {
             </div>
           </StepCard>
         </Carousel>
-
-        <PrimaryButton
-          type="dark"
-          row="xl:row-start-3 lg:row-start-3 row-start-7"
-          col="col-start-1 xl:col-end-2 lg:col-end-2 col-end-6"
-          className="max-sm:hidden"
-        >
-          Консультация
-        </PrimaryButton>
       </div>
     </>
   );

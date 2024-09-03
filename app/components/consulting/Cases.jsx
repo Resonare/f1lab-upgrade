@@ -5,6 +5,7 @@ import SectionTitle from "../SectionTitle";
 import CaseCard from "../cards/CaseCard";
 import ReviewCard from "../cards/ReviewCard";
 import SecondaryButton from "../buttons/SecondaryButton";
+import Carousel from "../misc/Carousel";
 
 const Cases = () => {
   const serviceCases = useLoaderData();
@@ -72,7 +73,7 @@ const Cases = () => {
 
   return (
     <div id="">
-      <Section rowsAmount={4}>
+      <Section rowsAmount={4} className="max-sm:hidden">
         <SectionTitle
           row="row-start-1"
           col="md:col-start-2 col-start-1 lg:col-end-5 md:col-end-4 col-end-5"
@@ -134,6 +135,26 @@ const Cases = () => {
           <p className="text-gray-400 text-base font-subtitle">Все кейсы</p>
         </SecondaryButton>
       </Section>
+
+      <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
+        <SectionTitle>Примеры кейсов с аудитом</SectionTitle>
+
+        <Carousel className="border-x border-b [&>*>*]:border-0 [&>*:not(&>*:last-child)]:border-r [&>*]:border-dashed [&>*]:border-t [&>*]:mt-[0.1px]">
+          {serviceCases.map((serviceCase) => (
+            <CaseCard
+              key={serviceCase.id}
+              tags={serviceCase.services}
+              logoPath={serviceCase.imageUrl}
+              currentLocation={currentLocation}
+              row={serviceCase.row}
+              col={serviceCase.col}
+              className={`${serviceCase.border}`}
+            >
+              {serviceCase.description}
+            </CaseCard>
+          ))}
+        </Carousel>
+      </div>
     </div>
   );
 };

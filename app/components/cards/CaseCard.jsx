@@ -6,11 +6,11 @@ import Tag from "../misc/Tag";
 import { ThemeContext } from "../../store/theme-context";
 
 const CaseCard = ({
-  row,
-  col,
-  tags,
+  row = "",
+  col = "",
+  tags = [],
   logoPath,
-  className,
+  className = "",
   maxLgHidden = false,
   currentLocation,
   children,
@@ -24,7 +24,7 @@ const CaseCard = ({
       } bg-gray-400`}
     >
       <div
-        className={`${bgColor} ${className} h-full border-dashed rounded-xl cursor-pointer`}
+        className={`${bgColor} ${className} h-full border-dashed sm:rounded-xl cursor-pointer`}
       >
         <div className="group hover:bg-striped h-full xl:p-30 p-15 gap-60 hover:gap-40 hover:xl:pb-60 hover:pb-[45px] flex flex-col transition-all duration-300">
           <div className="flex justify-between">
