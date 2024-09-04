@@ -139,7 +139,7 @@ const Cases = () => {
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
         <SectionTitle>Примеры кейсов с аудитом</SectionTitle>
 
-        <Carousel className="border-x border-b [&>*>*]:border-0 [&>*:not(&>*:last-child)]:border-r [&>*]:border-dashed [&>*]:border-t [&>*]:mt-[0.1px]">
+        <Carousel>
           {serviceCases.map((serviceCase) => (
             <CaseCard
               key={serviceCase.id}
@@ -154,6 +154,27 @@ const Cases = () => {
             </CaseCard>
           ))}
         </Carousel>
+
+        <SecondaryButton
+          row="row-start-4"
+          col="col-start-1 max-lg:col-end-5"
+          variant="shaded"
+        >
+          <p className="text-gray-400 text-base font-subtitle">Все кейсы</p>
+        </SecondaryButton>
+
+        <ReviewCard
+          reviewPaths={[
+            "test-review.png",
+            "test-review.png",
+            "test-review.png",
+            "test-review.png",
+            "test-review.png",
+            "test-review.png",
+            "test-review.png",
+          ]}
+          className="h-fit"
+        ></ReviewCard>
       </div>
     </div>
   );

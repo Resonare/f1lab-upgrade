@@ -5,8 +5,8 @@ import ArrowNext from "../misc/reviewButtons/ArrowPrev";
 import ArrowPrev from "../misc/reviewButtons/ArrowNext";
 
 const ReviewCard = ({
-  row,
-  col,
+  row = "",
+  col = "",
   reviewPaths,
   reviewsOnPage = 1,
   className,
@@ -54,9 +54,14 @@ const ReviewCard = ({
     return curReviewPaths.map((reviewPath, index) => (
       <div
         key={index}
-        className={`${reviewsOnPage <= 1 ? "w-full" : "max-w-[400px]"} bg-[white] h-[400px] flex justify-center items-center`}
+        className={`${
+          reviewsOnPage <= 1 ? "w-full" : "max-w-[400px]"
+        } bg-[white] h-[400px] flex justify-center items-center`}
       >
-        <img src={`/images/reviews/${reviewPath}`} className="max-h-[400px]"></img>
+        <img
+          src={`/images/reviews/${reviewPath}`}
+          className="max-h-[400px]"
+        ></img>
       </div>
     ));
   };
@@ -65,8 +70,8 @@ const ReviewCard = ({
     <div
       className={`${row} ${col} ${className} h-full gap-60 flex flex-col justify-start`}
     >
-      <div className="lg:border-y-[1px] border-b-[1px] border-dashed max-lg:pt-60">
-        <p className="pb-30 font-bold lg:text-[26px] text-[22px] font-subtitle lg:text-right">
+      <div className="lg:border-y-[1px] sm:border-b-[1px] border-dashed lg:pt-0 sm:pt-60 pt-0">
+        <p className="pb-30 font-bold lg:text-[26px] sm:text-[22px] text-2xl max-sm:leading-[30px] font-subtitle lg:text-right max-sm:text-right">
           Что о нас говорят?
         </p>
         <div className="max-lg:hidden">
@@ -76,18 +81,30 @@ const ReviewCard = ({
         </div>
         <div className="pr-[1px]">
           <div className="flex justify-between gap-10">{getCurReviews()}</div>
-          <div className="lg:hidden">
+
+          <div className="lg:hidden max-sm:hidden">
             <SecondaryButton variant="shaded">
               <p className="text-gray-400 text-base font-subtitle">
                 Все отзывы
               </p>
             </SecondaryButton>
           </div>
+
           <div className="flex flex-col lg:gap-10">
+            <div className="sm:hidden flex">
+              <div className="flex-1 flex lg:gap-15 gap-60 border-r border-b border-dashed">
+                <ArrowPrev className="p-20" onClick={handlePrev} />
+              </div>
+              <div className="flex-1"></div>
+              <div className="flex-1 flex lg:gap-15 gap-60 border-l border-b border-dashed">
+                <ArrowNext className="p-20" onClick={handleNext} />
+              </div>
+            </div>
+
             <div className="w-full px-15 justify-between items-center inline-flex">
               {getPageIndicators()}
             </div>
-            <div className="flex lg:gap-15 gap-60">
+            <div className="flex lg:gap-15 gap-60 max-sm:hidden">
               <ArrowPrev
                 className="p-15 lg:pl-40 pl-20 hover:pl-15 hover:pr-20 lg:hover:pr-40 w-full"
                 onClick={handlePrev}
@@ -97,6 +114,14 @@ const ReviewCard = ({
                 onClick={handleNext}
               />
             </div>
+          </div>
+
+          <div className="sm:hidden">
+            <SecondaryButton variant="shaded">
+              <p className="text-gray-400 text-base font-subtitle">
+                Все отзывы
+              </p>
+            </SecondaryButton>
           </div>
         </div>
       </div>

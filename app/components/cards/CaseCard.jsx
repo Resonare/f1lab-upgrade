@@ -26,13 +26,13 @@ const CaseCard = ({
       <div
         className={`${bgColor} ${className} h-full border-dashed sm:rounded-xl cursor-pointer`}
       >
-        <div className="group hover:bg-striped h-full xl:p-30 p-15 gap-60 hover:gap-40 hover:xl:pb-60 hover:pb-[45px] flex flex-col transition-all duration-300">
+        <div className="sm:group hover:sm:bg-striped h-full xl:p-30 p-15 gap-60 hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] flex flex-col max-sm:justify-between transition-all duration-300">
           <div className="flex justify-between">
             <img src={`${logoPath}`} alt="" />
-            <ArrowURSecondary className="px-0 opacity-0 group-hover:p-0 group-hover:opacity-100" />
+            <ArrowURSecondary className="px-5 sm:opacity-0 group-hover:sm:p-0 group-hover:sm:opacity-100" />
           </div>
-          <div className="gap-15 group-hover:gap-5 flex flex-col transition-all duration-300">
-            <p className="text-xl text-gray-400 font-light font-text leading-relaxed">
+          <div className="gap-15 group-hover:sm:gap-5 flex flex-col transition-all duration-300">
+            <p className="sm:text-base text-gray-400 sm:font-light font-[350] font-text sm:leading-relaxed leading-tight">
               {children}
             </p>
 
