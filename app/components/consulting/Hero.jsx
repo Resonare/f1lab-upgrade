@@ -78,7 +78,7 @@ const Hero = () => {
             </div>
           </div>
           <ShoppingCart
-            className="border-y max-sm:border-l p-15 lg:h-full h-fit lg:hidden"
+            className="max-sm:w-90 border-y max-sm:border-l p-15 lg:h-full h-fit lg:hidden"
             addHandler={dummyAddToCartHandler}
           />
         </div>
