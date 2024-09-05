@@ -17,31 +17,45 @@ const PocketCard = ({
 
   return (
     <div
-      className={`${bgColor} ${row} ${col} pb-15 flex flex-col gap-[50px] border-dashed border-t mx-[0.8px] `}
+      className={`${bgColor} ${row} ${col} sm:pb-15 pb-30 flex flex-col gap-[50px] border-dashed border-t mx-[0.8px] `}
     >
-      <div className="xl:pt-30 xl:pl-30 xl:pr-60 lg:pt-15 lg:px-15 pt-30 pl-30 pr-60 flex flex-col gap-5 bg-gradient-to-b from-[transparent] via-f1-light to-[transparent]">
+      <div className="xl:pt-30 xl:pl-30 xl:pr-60 lg:pt-15 lg:px-15 sm:pt-30 sm:pl-30 sm:pr-60 pt-15 pl-15 pr-30 flex flex-col gap-5 bg-gradient-to-b from-[transparent] via-f1-light to-[transparent]">
         <p className="font-text text-sm uppercase leading-[18px] tracking-wide">
           {subTitle}
         </p>
-        <p className="text-[26px] font-subtitle leading-30">{whenTitle}</p>
+        <p className="max-sm:hidden text-[26px] font-subtitle leading-30">
+          {whenTitle}
+        </p>
+
+        <p className="sm:hidden text-2xl font-normal font-text leading-[1.75rem]">
+          Пакет:
+          <span className="max-sm:hidden ml-5 text-f1-light px-15 py-5 bg-gray-400 rounded-xl">
+            {name}
+          </span>
+        </p>
       </div>
 
-      <div className="flex flex-col gap-60 xl:pl-30 xl:pr-60 lg:px-15 pl-30 pr-60">
+      <div className="flex flex-col sm:gap-60 gap-15 xl:pl-30 xl:pr-60 lg:px-15 sm:pl-30 sm:pr-60 pl-15 pr-30">
         <div className="flex flex-col gap-15">
-          <p className="text-2xl font-normal font-text leading-[1.75rem]">
+          <p className="max-sm:hidden text-2xl font-normal font-text leading-7">
             Пакет:
             <span className="ml-5 text-f1-light px-15 py-5 bg-gray-400 rounded-xl">
               {name}
             </span>
           </p>
-          <p className="text-xl font-light font-text leading-relaxed">
+
+          <p className="sm:hidden text-xl font-subtitle leading-normal">
+            {whenTitle}
+          </p>
+
+          <p className="sm:text-xl text-sm sm:font-light font-normal font-text sm:leading-relaxed leading-tight">
             {description}
           </p>
         </div>
 
-        <div className="flex gap-15">{children}</div>
+        <div className="flex gap-15 flex-wrap">{children}</div>
 
-        <div className="flex">
+        <div className="flex max-sm:flex-col max-sm:gap-15">
           <div className="flex flex-col gap-15 grow shrink">
             <p className="text-2xl font-normal font-text leading-[1.75rem]">
               Состав пакета:
