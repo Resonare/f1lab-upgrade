@@ -79,8 +79,8 @@ const ReviewCard = ({
             <p className="text-gray-400 text-base font-subtitle">Все отзывы</p>
           </SecondaryButton>
         </div>
-        <div className="pr-[1px]">
-          <div className="flex justify-between gap-10">{getCurReviews()}</div>
+        <div>
+          <div className="flex justify-between gap-10 max-sm:mx-[1px]">{getCurReviews()}</div>
 
           <div className="lg:hidden max-sm:hidden">
             <SecondaryButton variant="shaded">

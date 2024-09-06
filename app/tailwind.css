@@ -32,23 +32,21 @@
 
 @layer utilities {
   .bg-striped {
-    background: repeating-linear-gradient(
-      -45deg /* угол наклона */,
-      rgba(189, 189, 189, 0.3) /* цвет линии */,
-      rgba(189, 189, 189, 0.3) 1px /* цвет линии и её конец (1px) */,
-      transparent 1px /* цвет фона после линии */,
-      transparent 6px /* конец промежутка (5px + 1px толщина линии) */
-    );
+    background-repeat: repeat;
+    background-size: 5px;
+    background-image: url("/images/misc/background-pattern-15.png");
+  }
+
+  .bg-striped-25 {
+    background-repeat: repeat;
+    background-size: 5px;
+    background-image: url("/images/misc/background-pattern-25.png");
   }
 
   .bg-dark-striped {
-    background: repeating-linear-gradient(
-      -45deg /* угол наклона */,
-      #434648 /* цвет линии */,
-      #434648 1px /* цвет линии и её конец (1px) */,
-      #22282E 1px /* цвет фона после линии */,
-      #22282E 6px /* конец промежутка (5px + 1px толщина линии) */
-    );
+    background-repeat: repeat;
+    background-size: 5px;
+    background-image: url("/images/misc/background-pattern-dark.png");
   }
 
   .snap-x-mandatory {

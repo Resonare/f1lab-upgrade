@@ -57,7 +57,7 @@ const BurgerMenu = () => {
         }}
       >
         <button
-          className={`border-r border-dashed border-gray-200 ${buttonBgColor} hover:bg-f1-light h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
+          className={`max-sm:border-l border-r border-dashed border-gray-200 ${buttonBgColor} hover:bg-f1-light h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
           onClick={showMenuHandler}
         >
           <div className={`px-20`}>

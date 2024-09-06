@@ -42,10 +42,10 @@ const Navbar = ({ navsChangeHandler }) => {
       }}
     >
       <nav
-        className={`fixed w-full h-[70px] lg:h-90 px-[44.1px] lg:px-60 xl:px-120 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
+        className={`fixed w-full h-[70px] lg:h-90 xl:px-120 lg:px-60 sm:px-[44.1px] px-15 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
       >
-        <div className="h-full shrink-0 pr-15 mr-30 border-dashed border-r border-gray-200 items-center flex">
-          <img src="/images/logo.svg" alt="" />
+        <div className="h-full shrink-0 pr-15 mr-30 border-dashed sm:border-r border-gray-200 items-center flex">
+          <img className="max-sm:h-[65%]" src="/images/logo.svg" alt="" />
         </div>
         <div className="shrink max-lg:min-w-[210px] min-w-[150px] grow justify-start items-center lg:flex-wrap hidden md:flex">
           <BreadCrumbs navs={navs} />
@@ -89,7 +89,7 @@ const Navbar = ({ navsChangeHandler }) => {
           ))}
         </div>
         <div className="h-[70px] lg:h-90 flex justify-end">
-          <ShoppingCart className="border-r border-l px-20 lg:px-30" />
+          <ShoppingCart className="max-sm:hidden border-r border-l px-20 lg:px-30" />
           <BurgerMenu />
         </div>
       </nav>

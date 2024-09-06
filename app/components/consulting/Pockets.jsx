@@ -14,8 +14,8 @@ const Pockets = () => {
     <Section id="" rowsAmount={3}>
       <SectionTitle
         row="row-start-1"
-        col="col-start-1 max-lg:col-end-5 max-sm:col-end-2"
-        className="md:pb-60"
+        col="col-start-1 max-lg:col-end-5"
+        className="md:pb-60 max-sm:pb-30"
       >
         Решения под ключ с пакетами услуг
       </SectionTitle>
@@ -52,6 +52,7 @@ const Pockets = () => {
         subTitle="Миграция в облако"
         whenTitle="Когда нужна высокая производительность, простая масштабируемость и безопасность"
         name="Облачная Инфраструктура и Безопасность"
+        namesArray={["Облачная", "инфраструктура", "и безопасность"]}
         description="Подходит для компаний, планирующих миграцию в облако и нуждающихся в комплексной защите данных. Включает услуги по развертыванию и мониторингу облачной инфраструктуры, а также меры по защите от киберугроз."
         price="7 200 ₽"
         tags={firstPocketTags}

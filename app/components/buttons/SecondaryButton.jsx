@@ -3,6 +3,7 @@ import { useContext } from "react";
 import ArrowURSecondary from "../misc/ArrowURSecondary";
 
 import { NavbarContext } from "../../store/navbar-context";
+import { ThemeContext } from "../../store/theme-context";
 
 const SecondaryButton = ({
   variant,
@@ -15,6 +16,7 @@ const SecondaryButton = ({
   children,
 }) => {
   const { showServicesDropdownHandler } = useContext(NavbarContext);
+  const { bgColor } = useContext(ThemeContext);
 
   let buttonStyle = "";
   let arrowColor = "#22282E";
@@ -24,7 +26,7 @@ const SecondaryButton = ({
     case "shaded":
       buttonStyle = `flex group h-[52px] text-md justify-between border-y ${
         borderX ? "border-x" : ""
-      } border-dashed border-gray-200 pl-20 pr-5 py-5 bg-striped hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500`;
+      } border-dashed border-gray-200 pl-20 pr-5 py-5 sm:bg-striped bg-striped-25 hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500`;
       arrowColor = "#22282E";
       arrowHoverColor = "#22282E";
       break;
@@ -54,12 +56,11 @@ const SecondaryButton = ({
   return (
     <>
       {!link && (
-        <button
-          className={`${buttonStyle} ${row} ${col} min-w-full`}
-          onClick={onClick}
-        >
-          <span className="place-self-center">{children}</span>
-          <ArrowURSecondary color={arrowColor} hoverColor={arrowHoverColor} />
+        <button className={`${row} ${col} max-sm:${bgColor} max-sm:border-x mr-[-10px] border-dashed min-w-full`} onClick={onClick}>
+          <div className={`${buttonStyle}`}>
+            <span className="place-self-center">{children}</span>
+            <ArrowURSecondary color={arrowColor} hoverColor={arrowHoverColor} />
+          </div>
         </button>
       )}
       {link && (

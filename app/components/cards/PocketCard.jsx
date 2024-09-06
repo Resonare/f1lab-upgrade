@@ -8,6 +8,7 @@ const PocketCard = ({
   subTitle,
   whenTitle,
   name,
+  namesArray,
   description,
   price,
   tags,
@@ -27,12 +28,26 @@ const PocketCard = ({
           {whenTitle}
         </p>
 
-        <p className="sm:hidden text-2xl font-normal font-text leading-[1.75rem]">
-          Пакет:
-          <span className="max-sm:hidden ml-5 text-f1-light px-15 py-5 bg-gray-400 rounded-xl">
-            {name}
-          </span>
-        </p>
+        <div className="sm:hidden text-2xl flex font-normal items-center font-text leading-[1.75rem]">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-[1px] w-full text-f1-light">
+            <p className="text-gray-400">Пакет:</p>
+            {namesArray != undefined ? (
+              namesArray.map((name, index) => {
+                console.log("tres");
+                return (
+                  <div
+                    className="px-15 py-5 bg-gray-400 rounded-xl"
+                    key={index}
+                  >
+                    {name}
+                  </div>
+                );
+              })
+            ) : (
+              <p className="px-15 py-5 bg-gray-400 rounded-xl">{name}</p>
+            )}
+          </div>
+        </div>
       </div>
 
       <div className="flex flex-col sm:gap-60 gap-15 xl:pl-30 xl:pr-60 lg:px-15 sm:pl-30 sm:pr-60 pl-15 pr-30">
