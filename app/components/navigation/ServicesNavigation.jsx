@@ -54,22 +54,29 @@ const ServicesNavigation = ({ items }) => {
           navbarContext.showServicesDropdown ? "top-90" : "-top-[1000px]"
         } bg-gray-400 font-subtitle text-sm transition-all duration-500`}
       >
-        <div className="w-1/2 pt-30 pl-120 border-b border-dashed border-gray-200">
-          <ul>
-            {items.map((item) => (
-              <ServicesNavigationItem key={item.link} item={item} />
-            ))}
-          </ul>
+        <div className="flex flex-col w-1/2 bg-dark-striped xl:pl-120 lg:pl-60 border-b border-dashed border-gray-200">
+          <div className="bg-gray-400 border-l border-b border-dashed border-gray-300">
+            <ul className="pt-30 pl-60">
+              {items.map((item) => (
+                <ServicesNavigationItem key={item.link} item={item} />
+              ))}
+            </ul>
+          </div>
+          <div className="flex grow">
+            <div className="grow border-dashed border-l border-gray-300"></div>
+            <div className="grow border-dashed border-l border-gray-300"></div>
+          </div>
         </div>
         <div
-          className={`w-1/2 ${bgColor} py-60 px-30 lg:pr-60 xl:pr-120 border-b border-dashed border-gray-200`}
+          className={`w-1/2 ${bgColor} xl:pr-120 lg:pr-60 px-30 border-b border-dashed border-gray-200`}
         >
-          <div className="max-w-full grid grid-cols-1 grid-rows-5 justify-start gap-15 ">
+          <div className="h-60 border-dashed border-r"></div>
+          <div className="max-w-full grid grid-cols-1 grid-rows-5 justify-start gap-15 border-dashed border-x">
             {currentService[0].items.map((service) => (
               <SecondaryButton
                 key={service.link}
                 variant="shaded"
-                borderX
+                borderX={false}
                 link
                 to={`/services/${service.link}`}
               >
@@ -77,6 +84,7 @@ const ServicesNavigation = ({ items }) => {
               </SecondaryButton>
             ))}
           </div>
+          <div className="h-60 border-dashed border-x"></div>
         </div>
       </div>
       <button
