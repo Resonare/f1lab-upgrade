@@ -71,22 +71,25 @@ const ReviewCard = ({
       className={`${row} ${col} ${className} h-full gap-60 flex flex-col justify-start`}
     >
       <div className="lg:border-y-[1px] sm:border-b-[1px] border-dashed lg:pt-0 sm:pt-60 pt-0">
-        <p className="pb-30 font-bold lg:text-[26px] sm:text-[22px] text-2xl max-sm:leading-[30px] font-subtitle lg:text-right max-sm:text-right">
+        <p className="pb-30 font-bold font-extended lg:text-[26px] sm:text-[22px] text-2xl max-sm:leading-[30px] lg:text-right max-sm:text-right">
           Что о нас говорят?
         </p>
         <div className="max-lg:hidden">
-          <SecondaryButton variant="shaded">
-            <p className="text-gray-400 text-base font-subtitle">Все отзывы</p>
+          <SecondaryButton variant="shaded" className="text-base font-subtitle">
+            Все отзывы
           </SecondaryButton>
         </div>
         <div>
-          <div className="flex justify-between gap-10 max-sm:mx-[1px]">{getCurReviews()}</div>
+          <div className="flex justify-between gap-10 max-sm:mx-[1px]">
+            {getCurReviews()}
+          </div>
 
           <div className="lg:hidden max-sm:hidden">
-            <SecondaryButton variant="shaded">
-              <p className="text-gray-400 text-base font-subtitle">
-                Все отзывы
-              </p>
+            <SecondaryButton
+              variant="shaded"
+              className="text-base font-subtitle"
+            >
+              Все отзывы
             </SecondaryButton>
           </div>
 
@@ -117,10 +120,11 @@ const ReviewCard = ({
           </div>
 
           <div className="sm:hidden">
-            <SecondaryButton variant="shaded">
-              <p className="text-gray-400 text-base font-subtitle">
-                Все отзывы
-              </p>
+            <SecondaryButton
+              variant="shaded"
+              className="text-base font-subtitle"
+            >
+              Все отзывы
             </SecondaryButton>
           </div>
         </div>

@@ -13,6 +13,7 @@ const SecondaryButton = ({
   onClick,
   row = "",
   col = "",
+  className = "",
   children,
 }) => {
   const { showServicesDropdownHandler } = useContext(NavbarContext);
@@ -56,7 +57,10 @@ const SecondaryButton = ({
   return (
     <>
       {!link && (
-        <button className={`${row} ${col} max-sm:${bgColor} max-sm:border-x mr-[-10px] border-dashed min-w-full`} onClick={onClick}>
+        <button
+          className={`${row} ${col} ${className} max-sm:${bgColor} max-sm:border-x mr-[-10px] border-dashed min-w-full`}
+          onClick={onClick}
+        >
           <div className={`${buttonStyle}`}>
             <span className="place-self-center">{children}</span>
             <ArrowURSecondary color={arrowColor} hoverColor={arrowHoverColor} />

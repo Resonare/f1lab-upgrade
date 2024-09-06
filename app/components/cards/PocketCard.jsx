@@ -18,13 +18,13 @@ const PocketCard = ({
 
   return (
     <div
-      className={`${bgColor} ${row} ${col} sm:pb-15 pb-30 flex flex-col gap-[50px] border-dashed border-t mx-[0.8px] `}
+      className={`${bgColor} ${row} ${col} sm:pb-15 pb-30 flex flex-col sm:gap-[50px] gap-15 border-dashed border-t mx-[0.8px] `}
     >
       <div className="xl:pt-30 xl:pl-30 xl:pr-60 lg:pt-15 lg:px-15 sm:pt-30 sm:pl-30 sm:pr-60 pt-15 pl-15 pr-30 flex flex-col gap-5 bg-gradient-to-b from-[transparent] via-f1-light to-[transparent]">
         <p className="font-text text-sm uppercase leading-[18px] tracking-wide">
           {subTitle}
         </p>
-        <p className="max-sm:hidden text-[26px] font-subtitle leading-30">
+        <p className="max-sm:hidden text-[26px] font-bold font-extended leading-30">
           {whenTitle}
         </p>
 
@@ -33,7 +33,6 @@ const PocketCard = ({
             <p className="text-gray-400">Пакет:</p>
             {namesArray != undefined ? (
               namesArray.map((name, index) => {
-                console.log("tres");
                 return (
                   <div
                     className="px-15 py-5 bg-gray-400 rounded-xl"
@@ -59,7 +58,7 @@ const PocketCard = ({
             </span>
           </p>
 
-          <p className="sm:hidden text-xl font-subtitle leading-normal">
+          <p className="sm:hidden text-xl font-extended font-bold leading-normal">
             {whenTitle}
           </p>
 
@@ -79,7 +78,7 @@ const PocketCard = ({
           </div>
 
           <div className="flex flex-col gap-5">
-            <p className="text-[40px] font-subtitle leading-[44px]">{price}</p>
+            <p className="text-[40px] font-title leading-[44px]">{price}</p>
             <p className="text-sm font-bold font-text uppercase leading-[18px] tracking-wide">
               Средняя стоимость пакета
             </p>

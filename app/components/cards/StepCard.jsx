@@ -39,7 +39,7 @@ const StepCard = ({
         <p
           className={`${
             inverseColor ? "text-f1-light" : ""
-          } xl:text-[26px] lg:text-[22px] md:text-[26px] sm:text-[22px] text-xl font-subtitle sm:leading-[30px] leading-[24px] w-fit`}
+          } xl:text-[26px] lg:text-[22px] md:text-[26px] sm:text-[22px] text-xl font-bold font-extended sm:leading-[30px] leading-[24px] w-fit`}
         >
           {title}
         </p>

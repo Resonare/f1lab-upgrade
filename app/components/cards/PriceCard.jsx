@@ -27,10 +27,10 @@ const PriceCard = ({
     >
       <div className="flex flex-col gap-30">
         <div className="flex flex-col gap-15">
-          <p className="font-subtitle text-gray-400 sm:text-[26px] text-2xl leading-[30px]">
+          <p className="font-bold font-extended text-gray-400 sm:text-[26px] text-2xl leading-[30px]">
             {title}
           </p>
-          <p className="font-subtitle text-gray-400 text-[40px] leading-[44px]">
+          <p className="font-title text-gray-400 text-[40px] leading-[44px]">
             {price}
           </p>
         </div>
@@ -39,7 +39,7 @@ const PriceCard = ({
             {children}
           </p>
           <Condition
-            className="text-gray-400 sm:text-2xl text-base font-subtitle sm:leading-[29px] leading-[18px]"
+            className="text-gray-400 sm:text-2xl text-base font-extended font-bold sm:leading-[29px] leading-[18px]"
             icon={mainConditionIcon}
           >
             {mainCondition}
@@ -59,7 +59,14 @@ const PriceCard = ({
       </div>
 
       <PrimaryButton
-        className="[&>button]:py-10 [&>button]:pl-20 [&>button]:pr-10"
+        type="dark"
+        className="max-sm:hidden"
+      >
+        Консультация
+      </PrimaryButton>
+
+      <PrimaryButton
+        className="sm:hidden [&>button]:py-10 [&>button]:pl-20 [&>button]:pr-10"
         type="accent"
       >
         Заказать

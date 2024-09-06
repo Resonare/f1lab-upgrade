@@ -131,8 +131,9 @@ const Cases = () => {
           row="row-start-4"
           col="col-start-1 max-lg:col-end-5"
           variant="shaded"
+          className="text-base font-subtitle"
         >
-          <p className="text-gray-400 text-base font-subtitle">Все кейсы</p>
+          Все кейсы
         </SecondaryButton>
       </Section>
 
@@ -159,8 +160,9 @@ const Cases = () => {
           row="row-start-4"
           col="col-start-1 max-lg:col-end-5"
           variant="shaded"
+          className="text-base font-subtitle"
         >
-          <p className="text-gray-400 text-base font-subtitle">Все кейсы</p>
+          Все кейсы
         </SecondaryButton>
 
         <ReviewCard
