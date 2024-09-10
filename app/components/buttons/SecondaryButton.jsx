@@ -58,7 +58,7 @@ const SecondaryButton = ({
     <>
       {!link && (
         <button
-          className={`${row} ${col} ${className} max-sm:${bgColor} max-sm:border-x mr-[-10px] border-dashed min-w-full`}
+          className={`${row} ${col} ${className} max-sm:${bgColor} max-sm:border-x border-dashed min-w-full`}
           onClick={onClick}
         >
           <div className={`${buttonStyle}`}>
