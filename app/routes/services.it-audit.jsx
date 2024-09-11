@@ -4,10 +4,12 @@ import Offers from "../components/consulting/Offers";
 import Process from "../components/consulting/Process";
 import Cases from "../components/consulting/Cases";
 import Prices from "../components/consulting/Prices";
-
-import { getAll as getAllServiceCases } from "../data/cases.server";
 import Pockets from "../components/consulting/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
+import RecallModal from "../components/modals/RecallModal";
+
+import { getAll as getAllServiceCases } from "../data/cases.server";
+import TariffModal from "../components/modals/TariffModal";
 
 export const meta = () => {
   return [
@@ -27,6 +29,8 @@ export default function ITAudit() {
       <Prices />
       <Pockets />
       <TailwindCrutch />
+      {/* <RecallModal /> */}
+      <TariffModal />
     </div>
   );
 }
