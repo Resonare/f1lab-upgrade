@@ -131,13 +131,11 @@ const Process = () => {
           безопасности и соответствия нормативным требованиям IT инфраструктуры.
         </StepCard>
 
-        <PrimaryButton
-          type="dark"
-          row="xl:row-start-3 lg:row-start-3 row-start-7"
-          col="col-start-1 xl:col-end-2 lg:col-end-2 col-end-6"
-        >
-          Консультация
-        </PrimaryButton>
+        <div className="sticky top-0 max-lg:pt-100 col-start-1 max-lg:col-end-5 lg:row-start-2 row-start-7 lg:row-end-3 lg:h-full h-fit">
+          <PrimaryButton type="dark" className="lg:absolute lg:bottom-[-60px]">
+            Консультация
+          </PrimaryButton>
+        </div>
       </Section>
 
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
