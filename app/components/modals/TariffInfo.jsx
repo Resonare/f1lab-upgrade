@@ -19,7 +19,7 @@ const TariffInfo = ({
 
   return (
     <div
-      className={`${bgColor} w-[50%] h-full p-30 border-dashed flex flex-col justify-between`}
+      className={`${bgColor} w-[40%] h-full p-30 border-dashed flex flex-col justify-between`}
     >
       <div className="flex flex-col gap-30">
         <div>
@@ -55,7 +55,9 @@ const TariffInfo = ({
 
       <div className="w-fit p-5 bg-gray-400 rounded-[10px] gap-5 flex">
         <div className="flex items-center p-15 bg-f1-light rounded-[5px]">
-          <div className="h-fit text-base font-title leading-[18px]">Ежемесячно</div>
+          <div className="h-fit text-base font-title leading-[18px]">
+            Ежемесячно
+          </div>
         </div>
         <div className="flex gap-15 items-center px-15 py-5 bg-gray-300 rounded-[5px]">
           <div className="h-fit text-gray-100 text-base font-subtitle leading-[18px]">

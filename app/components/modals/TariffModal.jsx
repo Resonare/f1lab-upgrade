@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import BlurCurtain from "./BlurCurtain";
-import RecallForm from "./RecallForm";
+import TariffForm from "./TariffForm";
 import BackgroundGrid from "../BackgroundGrid";
 import TariffInfo from "./TariffInfo";
 
@@ -16,7 +16,7 @@ const TariffModal = () => {
 
       <div className={`pr-120 py-90 h-full`}>
         <div
-          className={`${bgColor} pl-120 bg-striped h-full border-[1px] border-dashed border-gray-200`}
+          className={`${bgColor} flex pl-120 bg-striped h-full border-[1px] border-dashed border-gray-200`}
         >
           <TariffInfo
             title="Аудит S"
@@ -33,6 +33,8 @@ const TariffModal = () => {
             сотрудников, которым необходима надежная и доступная поддержка для
             IT инфраструктуры.
           </TariffInfo>
+
+          <TariffForm />
         </div>
       </div>
     </BlurCurtain>
