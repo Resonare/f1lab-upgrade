@@ -33,10 +33,7 @@ const PrimaryButton = ({
   }
 
   return (
-    <div
-      {...otherAttributes}
-      className={`${className} ${row} ${col} w-full`}
-    >
+    <div {...otherAttributes} className={`${className} ${row} ${col} w-full`}>
       <button
         className={`${buttonColor} ${
           fullHeight === "true" ||
@@ -46,7 +43,7 @@ const PrimaryButton = ({
         } group flex items-center justify-between py-15 pl-30 pr-15 w-full sm:text-xl text-base font-subtitle leading-normal transition-all duration-300`}
       >
         <div>{children}</div>
-        <div className="p-[7px] group-hover:pt-0 group-hover:pr-0 transition-all duration-300">
+        <div className="p-[7px] group-hover:pt-0 group-hover:pb-[14px] group-hover:pr-0 group-hover:pl-[14px] transition-all duration-300">
           <ArrowURPrimary color={arrowColor} hoverColor={arrowHoverColor} />
         </div>
       </button>

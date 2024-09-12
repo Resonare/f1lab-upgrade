@@ -58,11 +58,8 @@ const PriceCard = ({
         </div>
       </div>
 
-      <PrimaryButton
-        type="dark"
-        className="max-sm:hidden"
-      >
-        Консультация
+      <PrimaryButton type="dark" className="max-sm:hidden">
+        Заказать
       </PrimaryButton>
 
       <PrimaryButton
