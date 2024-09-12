@@ -1,6 +1,5 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
-import PrimaryButton from "../buttons/PrimaryButton";
 import Condition from "../misc/Condition";
 
 import { ThemeContext } from "../../store/theme-context";
@@ -11,23 +10,50 @@ const TariffInfo = ({
   mainCondition,
   mainConditionIcon,
   conditions,
+  yearly,
+  setYearly,
   children,
 }) => {
   const { bgColor } = useContext(ThemeContext);
 
-  const dummyAddToCartHandler = () => {};
+  const handleMonthlyClick = () => {
+    setYearly(false);
+  };
+
+  const handleYearlyClick = () => {
+    setYearly(true);
+  };
 
   return (
     <div
       className={`${bgColor} w-[40%] h-full p-30 border-dashed flex flex-col justify-between`}
     >
+      <div>
+        <img src="/images/confirm-circle.svg" alt="" />
+      </div>
       <div className="flex flex-col gap-30">
-        <div>
-          <img src="/images/confirm-circle.svg" alt="" />
-        </div>
-        <div className="flex flex-col gap-5">
-          <p className="font-title text-[28px] leading-loose">{title}</p>
-          <p className="font-title text-[40px] leading-[44px]">{price}</p>
+        <div className="flex flex-col">
+          <p className="font-title text-[28px] leading-[44px]">{title}</p>
+          {yearly && (
+            <p className="font-extended font-bold text-gray-200 text-[22px] line-through leading-[26px]">
+              {price}
+            </p>
+          )}
+          <div className="flex justify-between">
+            <p className="h-fit font-title text-[40px] leading-[44px]">
+              {price}
+            </p>
+            {yearly && (
+              <div className="w-[45%] flex justify-start gap-15 text-f1-dark">
+                <p className="h-fit text-[40px] font-title leading-[44px]">
+                  -15%
+                </p>
+                <p className="h-fit font-text font-light text-base leading-tight">
+                  при оплате за 12 месяцев
+                </p>
+              </div>
+            )}
+          </div>
         </div>
         <div className="text-gray-300 text-base font-text font-light leading-tight">
           {children}
@@ -53,20 +79,28 @@ const TariffInfo = ({
         </div>
       </div>
 
-      <div className="w-fit p-5 bg-gray-400 rounded-[10px] gap-5 flex">
-        <div className="flex items-center p-15 bg-f1-light rounded-[5px]">
-          <div className="h-fit text-base font-title leading-[18px]">
+      <div className="bg-gray-400 w-fit p-5 rounded-[10px] gap-5 flex">
+        <div
+          className={`${
+            !yearly ? `bg-f1-light text-gray-400` : `bg-gray-300 text-gray-100`
+          } cursor-pointer flex items-center p-15 rounded-[5px] transition-all`}
+          onClick={handleMonthlyClick}
+        >
+          <p className="h-fit text-base font-title leading-[18px]">
             Ежемесячно
-          </div>
+          </p>
         </div>
-        <div className="flex gap-15 items-center px-15 py-5 bg-gray-300 rounded-[5px]">
-          <div className="h-fit text-gray-100 text-base font-subtitle leading-[18px]">
-            За год
-          </div>
+        <div
+          className={`${
+            yearly ? `bg-f1-light text-gray-400` : `bg-gray-300 text-gray-100`
+          } cursor-pointer flex gap-15 items-center px-15 py-5 rounded-[5px] transition-all`}
+          onClick={handleYearlyClick}
+        >
+          <p className="h-fit text-base font-subtitle leading-[18px]">За год</p>
           <div className="bg-gray-100 p-15 rounded-sm">
-            <div className="text-base font-title leading-[18px]">
+            <p className="text-gray-400 text-base font-title leading-[18px]">
               Экономия 15%
-            </div>
+            </p>
           </div>
         </div>
       </div>

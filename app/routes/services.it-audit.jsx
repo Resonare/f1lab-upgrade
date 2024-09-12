@@ -7,9 +7,9 @@ import Prices from "../components/consulting/Prices";
 import Pockets from "../components/consulting/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
 import RecallModal from "../components/modals/RecallModal";
+import TariffModal from "../components/modals/TariffModal";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
-import TariffModal from "../components/modals/TariffModal";
 
 export const meta = () => {
   return [
@@ -30,7 +30,7 @@ export default function ITAudit() {
       <Pockets />
       <TailwindCrutch />
       {/* <RecallModal /> */}
-      {/* <TariffModal /> */}
+      <TariffModal />
     </div>
   );
 }
