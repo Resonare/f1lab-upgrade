@@ -21,7 +21,7 @@ const CaseCard = ({
     <div
       className={`${row} ${col} ${
         maxLgHidden ? "max-lg:hidden" : ""
-      } bg-gray-400`}
+      } group bg-gray-400`}
     >
       <div
         className={`${bgColor} ${className} h-full border-dashed sm:rounded-xl cursor-pointer`}
@@ -29,7 +29,7 @@ const CaseCard = ({
         <div className="sm:group hover:sm:bg-striped h-full xl:p-30 p-15 gap-60 hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] flex flex-col max-sm:justify-between transition-all duration-300">
           <div className="flex justify-between">
             <img src={`${logoPath}`} alt="" />
-            <ArrowURSecondary className="px-5 sm:opacity-0 group-hover:sm:p-0 group-hover:sm:opacity-100" />
+            <ArrowURSecondary className="py-5 group-hover:p-5 group-hover:self-start sm:opacity-0 group-hover:sm:p-0 group-hover:sm:opacity-100" />
           </div>
           <div className="gap-15 group-hover:sm:gap-5 flex flex-col transition-all duration-300">
             <p className="sm:text-base text-gray-400 sm:font-light font-[350] font-text sm:leading-relaxed leading-tight">

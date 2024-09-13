@@ -1,8 +1,6 @@
-const ArrowURSecondary = ({ className }) => {
+const ArrowURSecondary = ({ className = "" }) => {
   return (
-    <span
-      className={`p-[14px] group-hover:p-5 group-hover:self-start transition-all duration-300 ${className}`}
-    >
+    <span className={`transition-all duration-300 ${className}`}>
       <svg
         width="16"
         height="16"
@@ -15,14 +13,14 @@ const ArrowURSecondary = ({ className }) => {
             id="Vector 2608"
             d="M14 2L2 13.9139"
             stroke="#22282E"
-            strokeWidth="3"
+            strokeWidth="2"
             strokeLinecap="round"
           />
           <path
             id="Rectangle 1723"
             d="M2 2H13.9999V14"
             stroke="#22282E"
-            strokeWidth="3"
+            strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
           />

@@ -4,7 +4,55 @@ import PriceCard from "../cards/PriceCard";
 import Condition from "../misc/Condition";
 import Carousel from "../misc/Carousel";
 
-const Cases = () => {
+const Prices = ({ onTariffModalOpen }) => {
+  const tariffsData = [
+    {
+      title: "Аудит S",
+      price: "7 200 ₽",
+      yearlyPrice: "6 120 ₽",
+      mainCondition: "1-5 рабочих мест",
+      mainConditionIcon: "desktop-icon.svg",
+      conditions: [
+        "12 часов удаленной поддержки",
+        "2 экстренных выезда",
+        "2 профилактических выезда",
+      ],
+      description: `Идеально подходит для стартапов и компаний с 
+        небольшим числом сотрудников, которым необходима 
+        надежная и доступная поддержка для IT инфраструктуры.`,
+    },
+    {
+      title: "Аудит S",
+      price: "7 200 ₽",
+      yearlyPrice: "6 120 ₽",
+      mainCondition: "1-5 рабочих мест",
+      mainConditionIcon: "desktop-icon.svg",
+      conditions: [
+        "12 часов удаленной поддержки",
+        "2 экстренных выезда",
+        "2 профилактических выезда",
+      ],
+      description: `Идеально подходит для стартапов и компаний с 
+        небольшим числом сотрудников, которым необходима 
+        надежная и доступная поддержка для IT инфраструктуры.`,
+    },
+    {
+      title: "Аудит S",
+      price: "7 200 ₽",
+      yearlyPrice: "6 120 ₽",
+      mainCondition: "1-5 рабочих мест",
+      mainConditionIcon: "desktop-icon.svg",
+      conditions: [
+        "12 часов удаленной поддержки",
+        "2 экстренных выезда",
+        "2 профилактических выезда",
+      ],
+      description: `Идеально подходит для стартапов и компаний с 
+        небольшим числом сотрудников, которым необходима 
+        надежная и доступная поддержка для IT инфраструктуры.`,
+    },
+  ];
+
   return (
     <>
       <Section className="max-sm:hidden" id="" rowsAmount={4}>
@@ -18,55 +66,28 @@ const Cases = () => {
         <PriceCard
           row="row-start-1"
           col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-          title="Аудит S"
-          price="7 200 ₽"
-          mainCondition="1-5 рабочих мест"
-          mainConditionIcon="desktop-icon.svg"
-          conditions={[
-            "12 часов удаленной поддержки",
-            "2 экстренных выезда",
-            "2 профилактических выезда",
-          ]}
+          {...tariffsData[0]}
+          onOrder={() => onTariffModalOpen(tariffsData[0])}
         >
-          Идеально подходит для стартапов и компаний с небольшим числом
-          сотрудников, которым необходима надежная и доступная поддержка для IT
-          инфраструктуры.
+          {tariffsData[0].description}
         </PriceCard>
 
         <PriceCard
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-          title="Аудит S"
-          price="7 200 ₽"
-          mainCondition="1-5 рабочих мест"
-          mainConditionIcon="desktop-icon.svg"
-          conditions={[
-            "12 часов удаленной поддержки",
-            "2 экстренных выезда",
-            "2 профилактических выезда",
-          ]}
+          {...tariffsData[1]}
+          onOrder={() => onTariffModalOpen(tariffsData[1])}
         >
-          Идеально подходит для стартапов и компаний с небольшим числом
-          сотрудников, которым необходима надежная и доступная поддержка для IT
-          инфраструктуры.
+          {tariffsData[1].description}
         </PriceCard>
 
         <PriceCard
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-          title="Аудит S"
-          price="7 200 ₽"
-          mainCondition="1-5 рабочих мест"
-          mainConditionIcon="desktop-icon.svg"
-          conditions={[
-            "12 часов удаленной поддержки",
-            "2 экстренных выезда",
-            "2 профилактических выезда",
-          ]}
+          {...tariffsData[2]}
+          onOrder={() => onTariffModalOpen(tariffsData[2])}
         >
-          Идеально подходит для стартапов и компаний с небольшим числом
-          сотрудников, которым необходима надежная и доступная поддержка для IT
-          инфраструктуры.
+          {tariffsData[2].description}
         </PriceCard>
       </Section>
 
@@ -77,57 +98,28 @@ const Cases = () => {
           <PriceCard
             row="row-start-1"
             col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-            title="Аудит S"
-            price="7 200 ₽"
-            mainCondition="1-5 рабочих мест"
-            mainConditionIcon="desktop-icon.svg"
-            conditions={[
-              "12 часов удаленной поддержки",
-              "2 экстренных выезда",
-              "2 профилактических выезда",
-            ]}
-            className="border-r"
+            {...tariffsData[0]}
+            onOrder={() => onTariffModalOpen(tariffsData[0])}
           >
-            Идеально подходит для стартапов и компаний с небольшим числом
-            сотрудников, которым необходима надежная и доступная поддержка для
-            IT инфраструктуры.
+            {tariffsData[0].description}
           </PriceCard>
 
           <PriceCard
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-            title="Аудит S"
-            price="7 200 ₽"
-            mainCondition="1-5 рабочих мест"
-            mainConditionIcon="desktop-icon.svg"
-            conditions={[
-              "12 часов удаленной поддержки",
-              "2 экстренных выезда",
-              "2 профилактических выезда",
-            ]}
-            className="border-r"
+            {...tariffsData[1]}
+            onOrder={() => onTariffModalOpen(tariffsData[1])}
           >
-            Идеально подходит для стартапов и компаний с небольшим числом
-            сотрудников, которым необходима надежная и доступная поддержка для
-            IT инфраструктуры.
+            {tariffsData[1].description}
           </PriceCard>
 
           <PriceCard
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-            title="Аудит S"
-            price="7 200 ₽"
-            mainCondition="1-5 рабочих мест"
-            mainConditionIcon="desktop-icon.svg"
-            conditions={[
-              "12 часов удаленной поддержки",
-              "2 экстренных выезда",
-              "2 профилактических выезда",
-            ]}
+            {...tariffsData[2]}
+            onOrder={() => onTariffModalOpen(tariffsData[2])}
           >
-            Идеально подходит для стартапов и компаний с небольшим числом
-            сотрудников, которым необходима надежная и доступная поддержка для
-            IT инфраструктуры.
+            {tariffsData[2].description}
           </PriceCard>
         </Carousel>
       </div>
@@ -135,4 +127,4 @@ const Cases = () => {
   );
 };
 
-export default Cases;
+export default Prices;

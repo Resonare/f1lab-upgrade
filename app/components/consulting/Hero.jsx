@@ -8,7 +8,7 @@ import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const Hero = () => {
+const Hero = ({}) => {
   const themeContext = useContext(ThemeContext);
 
   const content = {
@@ -18,6 +18,7 @@ const Hero = () => {
       "ИТ-аудит предоставит полный отчёт о состоянии и отказоустойчивости вашей ИТ-среды.",
     ],
   };
+
   const dummyAddToCartHandler = () => {};
 
   return (

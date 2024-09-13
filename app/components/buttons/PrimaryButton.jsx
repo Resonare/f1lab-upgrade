@@ -6,6 +6,7 @@ const PrimaryButton = ({
   type = "accent",
   className = "",
   fullHeight = false,
+  onClick,
   children,
   ...otherAttributes
 }) => {
@@ -33,7 +34,11 @@ const PrimaryButton = ({
   }
 
   return (
-    <div {...otherAttributes} className={`${className} ${row} ${col} w-full`}>
+    <div
+      {...otherAttributes}
+      className={`${className} ${row} ${col} w-full select-none`}
+      onClick={onClick}
+    >
       <button
         className={`${buttonColor} ${
           fullHeight === "true" ||

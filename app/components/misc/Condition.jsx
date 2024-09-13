@@ -1,7 +1,11 @@
-const Condition = ({className, icon, children }) => {
+const Condition = ({ className = "", icon, iconClassName = "", children }) => {
   return (
     <div className="flex gap-10 justify-start">
-      <img src={`/images/icons/${icon}`} alt="" />
+      <img
+        className={`w-20 ${iconClassName}`}
+        src={`/images/icons/${icon}`}
+        alt=""
+      />
       <p className={className}>{children}</p>
     </div>
   );

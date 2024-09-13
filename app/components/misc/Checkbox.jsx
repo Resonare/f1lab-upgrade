@@ -1,26 +1,31 @@
-import { useState } from "react";
-
-const Checkbox = ({ name = "", id = "" }) => {
-  const [checked, setChecked] = useState(false);
-
-  const handleClick = () => {
-    console.log("test")
-    setChecked((prevChecked) => !prevChecked);
+const Checkbox = ({ name = "", setValues, value, error }) => {
+  const handleClick = (event) => {
+    console.log({
+      [name]: !value,
+    });
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: !value,
+    }));
   };
 
   return (
     <div
-      className="flex items-center justify-center cursor-pointer bg-[transparent] rounded-[5px] border-[2px] border-gray-400 w-[24px] h-[24px]"
+      className={`${
+        error ? `border-alert` : `border-gray-400`
+      } flex items-center justify-center cursor-pointer bg-[transparent] rounded-[5px] border-[2px] w-[24px] h-[24px]`}
       onClick={handleClick}
     >
       <input
         name={name}
-        id={id}
         className="hidden pointer-events-none"
         type="checkbox"
-        onChange={handleClick}
       />
-      <span className={`${!checked && `hidden`} p-[3px] pointer-events-none`}>
+      <span
+        className={`${
+          !value && `opacity-0`
+        } p-[3px] pointer-events-none transition-all`}
+      >
         <svg
           width="100%"
           height="100%"
@@ -29,9 +34,9 @@ const Checkbox = ({ name = "", id = "" }) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
+            className={`${error ? `stroke-alert` : `stroke-gray-400`}`}
             id="Vector_2"
             d="M14.5 1L5.83333 12L1.5 8.7"
-            stroke="#22282E"
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"

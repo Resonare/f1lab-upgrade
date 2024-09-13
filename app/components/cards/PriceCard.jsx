@@ -14,6 +14,7 @@ const PriceCard = ({
   mainCondition,
   mainConditionIcon,
   conditions,
+  onOrder,
   className = "",
   children,
 }) => {
@@ -41,6 +42,7 @@ const PriceCard = ({
           <Condition
             className="text-gray-400 sm:text-2xl text-base font-extended font-bold sm:leading-[29px] leading-[18px]"
             icon={mainConditionIcon}
+            iconClassName="w-30"
           >
             {mainCondition}
           </Condition>
@@ -58,13 +60,14 @@ const PriceCard = ({
         </div>
       </div>
 
-      <PrimaryButton type="dark" className="max-sm:hidden">
+      <PrimaryButton type="dark" className="max-sm:hidden" onClick={onOrder}>
         Заказать
       </PrimaryButton>
 
       <PrimaryButton
         className="sm:hidden [&>button]:py-10 [&>button]:pl-20 [&>button]:pr-10"
         type="accent"
+        onClick={onOrder}
       >
         Заказать
       </PrimaryButton>
