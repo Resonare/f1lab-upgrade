@@ -8,7 +8,7 @@ import Cases from "../components/consulting/Cases";
 import Prices from "../components/consulting/Prices";
 import Pockets from "../components/consulting/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
-import RecallModal from "../components/modals/RecallModal";
+import RecallModal from "../components/modals/recall/RecallModal";
 import TariffModal from "../components/modals/tariff/TariffModal";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
@@ -23,6 +23,7 @@ export const meta = () => {
 export default function ITAudit() {
   const [tariffModalOpened, setTariffModalOpened] = useState(false);
   const [tariffModalData, setTariffModalData] = useState({});
+
   const [recallModalOpened, setRecallModalOpened] = useState(false);
 
   const handleTariffModalOpen = (tariffData) => {
@@ -36,21 +37,34 @@ export default function ITAudit() {
     document.body.style.overflow = "auto";
   };
 
+  const handleRecallModalOpen = () => {
+    setRecallModalOpened(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const handleRecallModalClose = () => {
+    setRecallModalOpened(false);
+    document.body.style.overflow = "auto";
+  };
+
   return (
     <div className="flex flex-col lg:gap-200 sm:gap-[82px]">
-      <Hero />
+      <Hero onRecallModalOpen={handleRecallModalOpen} />
       <Scenarios />
-      <Offers />
-      <Process />
+      <Offers onRecallModalOpen={handleRecallModalOpen} />
+      <Process onRecallModalOpen={handleRecallModalOpen} />
       <Cases />
       <Prices onTariffModalOpen={handleTariffModalOpen} />
       <Pockets />
       <TailwindCrutch />
-      {/* <RecallModal /> */}
       <TariffModal
         opened={tariffModalOpened}
         onTariffModalClose={handleTariffModalClose}
         tariffModalData={tariffModalData}
+      />
+      <RecallModal
+        opened={recallModalOpened}
+        onRecallModalClose={handleRecallModalClose}
       />
     </div>
   );

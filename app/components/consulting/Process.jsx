@@ -6,7 +6,7 @@ import PrimaryButton from "../buttons/PrimaryButton";
 import Carousel from "../misc/Carousel";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-const Process = () => {
+const Process = ({ onRecallModalOpen }) => {
   //REDO NEEDED
   const tags = {
     siemCons: (
@@ -132,7 +132,11 @@ const Process = () => {
         </StepCard>
 
         <div className="sticky top-0 max-lg:pt-100 col-start-1 max-lg:col-end-5 lg:row-start-2 row-start-7 lg:row-end-3 lg:h-full h-fit">
-          <PrimaryButton type="dark" className="lg:absolute lg:bottom-[-60px]">
+          <PrimaryButton
+            type="dark"
+            className="lg:absolute lg:bottom-[-60px]"
+            onClick={onRecallModalOpen}
+          >
             Консультация
           </PrimaryButton>
         </div>
@@ -231,7 +235,7 @@ const Process = () => {
             <div className="flex flex-col gap-15">
               <img src="/images/misc/moving-scheme.gif" alt="" />
 
-              <SecondaryButton variant="light">
+              <SecondaryButton variant="light" onClick={onRecallModalOpen}>
                 <p className="text-gray-400 text-base font-subtitle">Начать</p>
               </SecondaryButton>
             </div>

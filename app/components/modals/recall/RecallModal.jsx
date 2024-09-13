@@ -2,18 +2,19 @@ import { useContext, useState } from "react";
 
 import BlurCurtain from "../BlurCurtain";
 import BackgroundGrid from "../../BackgroundGrid";
-import TariffInfo from "./TariffInfo";
 import Result from "../Result";
 import Cancel from "../Cancel";
 import Form from "../Form";
 import Input from "../../misc/Input";
 
 import { ThemeContext } from "../../../store/theme-context";
+import RecallInfo from "./RecallInfo";
 
 const INITIAL_ERRORS = {
   name: "",
   phone: "",
   email: "",
+  details: "",
   policy: false,
 };
 
@@ -21,6 +22,7 @@ const INITIAL_VALUES = {
   name: "",
   phone: "",
   email: "",
+  details: "",
   policy: false,
 };
 
@@ -55,6 +57,7 @@ const validateForm = (values, setErrors) => {
     currentErrors.name ||
     currentErrors.phone ||
     currentErrors.email ||
+    currentErrors.details ||
     currentErrors.policy
   ) {
     setErrors({ ...currentErrors });
@@ -65,7 +68,7 @@ const validateForm = (values, setErrors) => {
   }
 };
 
-const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
+const RecallModal = ({ opened, onRecallModalClose }) => {
   const { bgColor } = useContext(ThemeContext);
 
   const [errors, setErrors] = useState(INITIAL_ERRORS);
@@ -73,9 +76,6 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
 
   //States: false - submit failed, true - submit succeed, null - not submitted
   const [success, setSuccess] = useState(null);
-
-  //Variants: monthly, yearly
-  const [yearly, setYearly] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -97,24 +97,11 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
       <div className="m-auto h-full max-w-[1920px]">
         <BackgroundGrid />
 
-        <div className={`pr-120 py-90 h-full`}>
+        <div className={`px-120 py-90 h-full`}>
           <div
-            className={`${bgColor} relative flex pl-120 bg-striped h-full border-[1px] border-dashed border-gray-200`}
+            className={`${bgColor} relative flex bg-striped h-full border-[1px] border-dashed border-gray-200`}
           >
-            <TariffInfo
-              title={tariffModalData.title}
-              price={tariffModalData.price}
-              yearlyPrice={tariffModalData.yearlyPrice}
-              mainCondition={tariffModalData.mainCondition}
-              mainConditionIcon={tariffModalData.mainConditionIcon}
-              conditions={tariffModalData.conditions}
-              yearly={yearly}
-              setYearly={setYearly}
-              submitted={success !== null}
-              opened={opened}
-            >
-              {tariffModalData.description}
-            </TariffInfo>
+            <RecallInfo success={success} />
 
             <Form
               className={`${success !== null && `hidden`}`}
@@ -122,6 +109,8 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
               values={values}
               setValues={setValues}
               errors={errors}
+              attachmable
+              showContacts
             >
               <Input
                 className="border-b-0"
@@ -151,18 +140,27 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
                 value={values.email}
                 error={errors.email}
               />
+              <Input
+              className="h-[150px]"
+                name="details"
+                placeholder="Важные детали проекта: требования, сроки и ньюансы"
+                type="textarea"
+                setValues={setValues}
+                value={values.details}
+                error={errors.details}
+              />
             </Form>
 
             <Result
               className={`${success === null && `hidden`}`}
               success={success}
               phone={values.phone}
-              onClose={onTariffModalClose}
+              onClose={onRecallModalClose}
             />
 
             <Cancel
               className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
-              onClick={onTariffModalClose}
+              onClick={onRecallModalClose}
             />
           </div>
         </div>
@@ -171,4 +169,4 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
   );
 };
 
-export default TariffModal;
+export default RecallModal;

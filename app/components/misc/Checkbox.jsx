@@ -1,8 +1,5 @@
 const Checkbox = ({ name = "", setValues, value, error }) => {
-  const handleClick = (event) => {
-    console.log({
-      [name]: !value,
-    });
+  const handleClick = () => {
     setValues((prevValues) => ({
       ...prevValues,
       [name]: !value,

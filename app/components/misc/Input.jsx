@@ -21,7 +21,7 @@ const Input = ({
   const handleChange = (event) => {
     setValues((prevValue) => ({
       ...prevValue,
-      [name]: event.target.value.trim(),
+      [name]: event.target.value,
     }));
   };
 
@@ -52,7 +52,7 @@ const Input = ({
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
     >
-      <div className="flex flex-col">
+      <div className="flex flex-col h-full">
         <div className="absolute left-30 top-0 pointer-events-none h-full">
           <div
             className={`${
@@ -69,7 +69,7 @@ const Input = ({
         <input
           className={`${
             error ? `text-alert` : `text-gray-400`
-          } pointer-events-none focus:outline-none bg-[transparent]`}
+          } h-full pointer-events-none focus:outline-none bg-[transparent]`}
           value={value}
           onChange={handleChange}
           onFocus={handleFocus}
