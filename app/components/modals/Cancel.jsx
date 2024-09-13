@@ -14,17 +14,17 @@ const Cancel = ({ className, onClick }) => {
               id="Vector"
               d="M35.1666 2.33301L1.83325 35.6663"
               stroke="#22282E"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
             <path
               id="Vector_2"
               d="M1.83325 2.33301L35.1666 35.6663"
               stroke="#22282E"
-              stroke-width="3"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="3"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </g>
         </svg>

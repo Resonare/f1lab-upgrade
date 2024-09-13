@@ -14,6 +14,7 @@ const TariffInfo = ({
   yearly,
   setYearly,
   submitted,
+  opened,
   children,
 }) => {
   const { bgColor } = useContext(ThemeContext);
@@ -64,26 +65,28 @@ const TariffInfo = ({
         <div className="text-gray-300 text-base font-text font-light leading-tight">
           {children}
         </div>
-        <div className="flex flex-col gap-30">
-          <Condition
-            className="text-gray-400 text-[22px] font-extended font-bold leading-relaxed"
-            icon={mainConditionIcon}
-            iconClassName="w-30"
-          >
-            {mainCondition}
-          </Condition>
-          <div className="flex flex-col gap-15">
-            {conditions?.map((condition, index) => (
-              <Condition
-                key={index}
-                className="text-xl font-light font-text leading-relaxed"
-                icon="add-circle-icon.svg"
-              >
-                {condition}
-              </Condition>
-            ))}
+        {opened && (
+          <div className="flex flex-col gap-30">
+            <Condition
+              className="text-gray-400 text-[22px] font-extended font-bold leading-relaxed"
+              icon={mainConditionIcon}
+              iconClassName="w-30"
+            >
+              {mainCondition}
+            </Condition>
+            <div className="flex flex-col gap-15">
+              {conditions?.map((condition, index) => (
+                <Condition
+                  key={index}
+                  className="text-xl font-light font-text leading-relaxed"
+                  icon="add-circle-icon.svg"
+                >
+                  {condition}
+                </Condition>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       <div className="bg-gray-400 w-fit p-5 rounded-[10px] gap-5 flex select-none">

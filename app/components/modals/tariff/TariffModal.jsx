@@ -88,7 +88,9 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
   };
 
   return (
-    <BlurCurtain className={`${!opened && `fixed bottom-[-100%]`} bottom-0`}>
+    <BlurCurtain
+      className={`${!opened && `fixed bottom-[-100%]`} left-0 bottom-0`}
+    >
       <BackgroundGrid />
 
       <div className={`pr-120 py-90 h-full`}>
@@ -105,6 +107,7 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
             yearly={yearly}
             setYearly={setYearly}
             submitted={success !== null}
+            opened={opened}
           >
             {tariffModalData.description}
           </TariffInfo>

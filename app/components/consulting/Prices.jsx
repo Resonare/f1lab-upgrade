@@ -1,7 +1,6 @@
 import Section from "../../layout/Section";
 import SectionTitle from "../SectionTitle";
 import PriceCard from "../cards/PriceCard";
-import Condition from "../misc/Condition";
 import Carousel from "../misc/Carousel";
 
 const Prices = ({ onTariffModalOpen }) => {
