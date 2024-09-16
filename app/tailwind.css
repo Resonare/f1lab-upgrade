@@ -17,8 +17,30 @@
     font-display: swap;
     src: url(./fonts/RFDewiExpanded-Bold.ttf);
   }
+
   @font-face {
-    font-family: "RFDewiExpanded-Light";
+    font-family: "RFDewiExpanded";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url(./fonts/RFDewiExpanded-Ultrabold.ttf);
+  }
+  @font-face {
+    font-family: "RFDewiExpanded";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(./fonts/RFDewiExpanded-Bold.ttf);
+  }
+  @font-face {
+    font-family: "RFDewiExpanded";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(./fonts/RFDewiExpanded-Semibold.ttf);
+  }
+  @font-face {
+    font-family: "RFDewiExpanded";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -64,6 +86,15 @@
   @font-face {
     font-family: "Bahnschrift";
     src: url(./fonts/bahnschrift.ttf);
+  }
+
+  input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type=number] {
+    -moz-appearance: textfield;
   }
 }
 

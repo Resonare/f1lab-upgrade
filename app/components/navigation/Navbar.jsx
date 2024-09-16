@@ -8,6 +8,7 @@ import BurgerMenu from "./BurgerMenu";
 import BreadCrumbs from "./Breadcrumbs";
 import ServicesNavigation from "./ServicesNavigation";
 import BurgerDropdown from "./BurgerDropdown";
+import Connection from "./Connection";
 
 import { ThemeContext } from "../../store/theme-context";
 import { NavbarContext } from "../../store/navbar-context";
@@ -99,6 +100,7 @@ const Navbar = ({ navsChangeHandler }) => {
         </div>
       ))}
       <BurgerDropdown navs={navs} />
+      <Connection />
     </NavbarContext.Provider>
   );
 };

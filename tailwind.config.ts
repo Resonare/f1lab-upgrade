@@ -44,6 +44,7 @@ export default {
     fontFamily: {
       title: "RFDewiExpanded-Ultrabold",
       subtitle: "RFDewiExpanded-Bold",
+      expanded: "RFDewiExpanded",
       extended: "RFDewiExtended",
       text: "Bahnschrift",
       "button-md": "RFDewiExpanded",

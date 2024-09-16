@@ -5,7 +5,7 @@ import BackgroundGrid from "../../BackgroundGrid";
 import Result from "../Result";
 import Cancel from "../Cancel";
 import Form from "../Form";
-import Input from "../../misc/Input";
+import FormInput from "../../misc/FormInput";
 
 import { ThemeContext } from "../../../store/theme-context";
 import RecallInfo from "./RecallInfo";
@@ -112,7 +112,7 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
               attachmable
               showContacts
             >
-              <Input
+              <FormInput
                 className="border-b-0"
                 name="name"
                 placeholder="Ваше имя"
@@ -121,7 +121,7 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
                 value={values.name}
                 error={errors.name}
               />
-              <Input
+              <FormInput
                 className="border-b-0"
                 name="phone"
                 placeholder="Телефон"
@@ -131,7 +131,7 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
                 value={values.phone}
                 error={errors.phone}
               />
-              <Input
+              <FormInput
                 name="email"
                 placeholder="E-mail"
                 type="email"
@@ -140,7 +140,7 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
                 value={values.email}
                 error={errors.email}
               />
-              <Input
+              <FormInput
               className="h-[150px]"
                 name="details"
                 placeholder="Важные детали проекта: требования, сроки и ньюансы"

@@ -2,7 +2,7 @@ import { useState, useContext, useRef } from "react";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const Input = ({
+const FormInput = ({
   className = "",
   name = "",
   placeholder = "Placeholder",
@@ -84,4 +84,4 @@ const Input = ({
   );
 };
 
-export default Input;
+export default FormInput;

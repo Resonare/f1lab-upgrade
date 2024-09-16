@@ -45,7 +45,7 @@ const SecondaryButton = ({
       break;
     case "light":
       buttonStyle =
-        "flex group h-[52px] justify-between text-gray-400 bg-f1-light pl-20 pr-10 py-5 hover:bg-gray-100 hover:text-f1-light transition-all duration-500";
+        "flex group h-[52px] justify-between text-gray-400 bg-f1-light pl-20 pr-10 py-5 hover:bg-gray-100 transition-all duration-500";
       arrowColor = "#22282E";
       arrowHoverColor = "#00FFC5";
       break;
@@ -61,7 +61,7 @@ const SecondaryButton = ({
           className={`${row} ${col} ${buttonStyle} ${className} max-sm:${bgColor} group flex items-center justify-between max-sm:border-x border-dashed w-full`}
           onClick={onClick}
         >
-          <span className="place-self-center">{children}</span>
+          <span className="place-self-center font-expanded text-base font-bold">{children}</span>
           <div className="p-[7px] group-hover:pt-0 group-hover:pb-[14px] group-hover:pr-0 group-hover:pl-[14px] transition-all duration-300">
             <ArrowURSecondary color={arrowColor} hoverColor={arrowHoverColor} />
           </div>

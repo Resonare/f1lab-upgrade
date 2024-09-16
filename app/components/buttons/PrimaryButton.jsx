@@ -47,7 +47,7 @@ const PrimaryButton = ({
             : ""
         } group flex items-center justify-between py-15 pl-30 pr-15 w-full sm:text-xl text-base font-subtitle leading-normal transition-all duration-300`}
       >
-        <div>{children}</div>
+        <p>{children}</p>
         <div className="p-[7px] group-hover:pt-0 group-hover:pb-[14px] group-hover:pr-0 group-hover:pl-[14px] transition-all duration-300">
           <ArrowURPrimary color={arrowColor} hoverColor={arrowHoverColor} />
         </div>

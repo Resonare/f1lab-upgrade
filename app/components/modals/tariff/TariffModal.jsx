@@ -6,7 +6,7 @@ import TariffInfo from "./TariffInfo";
 import Result from "../Result";
 import Cancel from "../Cancel";
 import Form from "../Form";
-import Input from "../../misc/Input";
+import FormInput from "../../misc/FormInput";
 
 import { ThemeContext } from "../../../store/theme-context";
 
@@ -123,7 +123,7 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
               setValues={setValues}
               errors={errors}
             >
-              <Input
+              <FormInput
                 className="border-b-0"
                 name="name"
                 placeholder="Ваше имя"
@@ -132,7 +132,7 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
                 value={values.name}
                 error={errors.name}
               />
-              <Input
+              <FormInput
                 className="border-b-0"
                 name="phone"
                 placeholder="Телефон"
@@ -142,7 +142,7 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
                 value={values.phone}
                 error={errors.phone}
               />
-              <Input
+              <FormInput
                 name="email"
                 placeholder="E-mail"
                 type="email"
