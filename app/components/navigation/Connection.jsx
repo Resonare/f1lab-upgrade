@@ -4,11 +4,50 @@ import ArrowConnect from "../misc/ArrowConnect";
 import SecondaryButton from "../buttons/SecondaryButton";
 import NumberInput from "../misc/NumberInput";
 
+const INITIAL_VALUES = {
+  first: "",
+  second: "",
+  third: "",
+};
+
+const INITIAL_ERRORS = {
+  first: "",
+  second: "",
+  third: "",
+};
+
+const ERROR_EMPTY_FIELD_MESSAGE = "Заполните поле";
+
 const Connection = () => {
   const [opened, setOpened] = useState(false);
 
+  const [values, setValues] = useState(INITIAL_VALUES);
+  const [errors, setErrors] = useState(INITIAL_ERRORS);
+
   const handleOpen = () => {
     setOpened((prevOpened) => !prevOpened);
+  };
+
+  const handleConnect = () => {
+    setErrors(INITIAL_ERRORS);
+
+    if (!values.first)
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        first: ERROR_EMPTY_FIELD_MESSAGE,
+      }));
+
+    if (!values.second)
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        second: ERROR_EMPTY_FIELD_MESSAGE,
+      }));
+
+    if (!values.third)
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        third: ERROR_EMPTY_FIELD_MESSAGE,
+      }));
   };
 
   return (
@@ -40,21 +79,50 @@ const Connection = () => {
           Введите 9 цифр, которые назовет оператор:
         </p>
         <div className="flex gap-10">
-          <NumberInput placeholder="000" min="0" max="999" maxLength="3" />
+          <NumberInput
+            value={values.first}
+            error={errors.first}
+            setValues={setValues}
+            name="first"
+            placeholder="000"
+            min="0"
+            max="999"
+            maxLength="3"
+          />
           <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-loose">
             -
           </p>
-          <NumberInput placeholder="000" min="0" max="999" maxLength="3" />
+          <NumberInput
+            value={values.second}
+            error={errors.second}
+            setValues={setValues}
+            name="second"
+            placeholder="000"
+            min="0"
+            max="999"
+            maxLength="3"
+          />
           <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-loose">
             -
           </p>
-          <NumberInput placeholder="000" min="0" max="999" maxLength="3" />
+          <NumberInput
+            value={values.third}
+            error={errors.third}
+            setValues={setValues}
+            name="third"
+            placeholder="000"
+            min="0"
+            max="999"
+            maxLength="3"
+          />
         </div>
         <p className="w-[370px] text-gray-200 font-text font-light text-base leading-tight">
           После ввода, на ваш компьютер скачается файл, который предоставит
           специалисту доступ к вашей системе для решения задачи
         </p>
-        <SecondaryButton variant="light">Предоставить доступ</SecondaryButton>
+        <SecondaryButton variant="light" onClick={handleConnect}>
+          Предоставить доступ
+        </SecondaryButton>
         <div className="flex justify-end">
           <div className="flex items-center gap-10">
             <p className="uppercase pt-5 text-gray-300 text-sm font-bold font-text leading-[18px] tracking-wide">

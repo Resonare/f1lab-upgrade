@@ -47,7 +47,7 @@ const FormInput = ({
       className={`${className} ${value && bgColor} ${
         error ? `border-alert` : `border-gray-200`
       } ${
-        focused || value ? `pb-10 pt-30` : `py-20`
+        focused || value ? `pb-10 pt-40` : `py-[25px]`
       } has-[:focus]:${bgColor} relative px-30 text-gray-300 text-xl font-text font-normal leading-7 border-[1px] border-dashed cursor-text transition-all`}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
@@ -69,7 +69,10 @@ const FormInput = ({
         <input
           className={`${
             error ? `text-alert` : `text-gray-400`
-          } h-full pointer-events-none focus:outline-none bg-[transparent]`}
+          } pointer-events-none focus:outline-none bg-[transparent]`}
+          cols="5"
+          rows="10"
+          wrap="soft"
           value={value}
           onChange={handleChange}
           onFocus={handleFocus}

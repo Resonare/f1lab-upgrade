@@ -141,7 +141,7 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
                 error={errors.email}
               />
               <FormInput
-              className="h-[150px]"
+                className="h-[150px]"
                 name="details"
                 placeholder="Важные детали проекта: требования, сроки и ньюансы"
                 type="textarea"

@@ -1,26 +1,43 @@
-import { useState } from "react";
-
-const NumberInput = ({ placeholder, min, max, maxLength }) => {
-  const [value, setValue] = useState("");
-
+const NumberInput = ({
+  value,
+  setValues,
+  error,
+  name,
+  placeholder,
+  min,
+  max,
+  maxLength,
+}) => {
   const handleChange = (event) => {
-    setValue((prevValue) =>
+    //Validation
+    setValues((prevValues) =>
       (event.target.value + "").length > parseInt(maxLength) ||
       event.target.value < parseFloat(min) ||
       event.target.value > parseFloat(max)
-        ? prevValue
-        : event.target.value
+        ? prevValues
+        : { ...prevValues, [name]: event.target.value }
     );
   };
 
   return (
-    <div className="text-gray-100 font-text leading-relaxed font-light text-xl">
+    <div className="flex text-gray-100 font-text leading-relaxed font-light text-xl border-gray-300 focus:border-gray-200">
       <input
-        className="w-90 h-full outline-none text-center focus:border-gray-200 bg-[transparent] border-dashed border-gray-300 border"
+        className={`${
+          error && `text-alert placeholder:text-alert border-alert`
+        } w-90 h-full outline-none text-center bg-[transparent] border-dashed placeholder:text-gray-300 focus:placeholder:text-[transparent] border`}
         type="number"
+        name={name}
+        placeholder={placeholder}
         value={value}
         onChange={handleChange}
       />
+      <div
+        className={`${
+          error ? `bg-alert` : `hidden`
+        } w-fit max-w-200 px-15 py-[4px] text-[16px] font-text font-light flex items-center`}
+      >
+        {error}
+      </div>
     </div>
   );
 };
