@@ -1,14 +1,15 @@
 import { useContext, useState } from "react";
+import { useLocation } from "@remix-run/react";
 
 import BlurCurtain from "../BlurCurtain";
 import BackgroundGrid from "../../BackgroundGrid";
 import Result from "../Result";
 import Cancel from "../Cancel";
-import Form from "../Form";
+import ModalForm from "../ModalForm";
 import FormInput from "../../misc/FormInput";
 
 import { ThemeContext } from "../../../store/theme-context";
-import RecallInfo from "./RecallInfo";
+import CallMeBackInfo from "./CallMeBackInfo";
 
 const INITIAL_ERRORS = {
   name: "",
@@ -26,49 +27,8 @@ const INITIAL_VALUES = {
   policy: false,
 };
 
-const isPhone = (phone) => {
-  const regexp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/g;
-  return regexp.test(phone);
-};
-
-const isEmail = (email) => {
-  const regexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
-  return regexp.test(email);
-};
-
-const validateForm = (values, setErrors) => {
-  const currentErrors = { ...INITIAL_ERRORS };
-
-  if (values.name.length <= 0) currentErrors.name = "Введите имя";
-  else if (values.name.length > 100)
-    currentErrors.name = "Введено слишком длинное имя";
-
-  if (values.email.length <= 0) currentErrors.email = "Введите Email";
-  else if (!isEmail(values.email))
-    currentErrors.email = "Введён некорректный Email";
-
-  if (values.phone.length <= 0) currentErrors.phone = "Введите номер телефона";
-  else if (!isPhone(values.phone))
-    currentErrors.phone = "Введён некорректный номер телефона";
-
-  if (!values.policy) currentErrors.policy = true;
-
-  if (
-    currentErrors.name ||
-    currentErrors.phone ||
-    currentErrors.email ||
-    currentErrors.details ||
-    currentErrors.policy
-  ) {
-    setErrors({ ...currentErrors });
-    return false;
-  } else {
-    setErrors(INITIAL_ERRORS);
-    return true;
-  }
-};
-
-const RecallModal = ({ opened, onRecallModalClose }) => {
+const CallMeBackModal = ({ opened, onCallMeBackModalClose }) => {
+  const location = useLocation();
   const { bgColor } = useContext(ThemeContext);
 
   const [errors, setErrors] = useState(INITIAL_ERRORS);
@@ -76,17 +36,6 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
 
   //States: false - submit failed, true - submit succeed, null - not submitted
   const [success, setSuccess] = useState(null);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (!validateForm(values, setErrors)) return;
-
-    //values: values, yearly, tariffModalData.title
-    //do smth with backend
-
-    setSuccess(true);
-  };
 
   return (
     <BlurCurtain
@@ -101,15 +50,18 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
           <div
             className={`${bgColor} relative flex bg-striped h-full border-[1px] border-dashed border-gray-200`}
           >
-            <RecallInfo success={success} />
+            <CallMeBackInfo success={success} />
 
-            <Form
+            <ModalForm
               className={`${success !== null && `hidden`}`}
-              onSubmit={handleSubmit}
+              method="post"
+              action="/services"
               values={values}
               setValues={setValues}
               errors={errors}
-              attachmable
+              setErrors={setErrors}
+              setSuccess={setSuccess}
+              attachable={false}
               showContacts
             >
               <FormInput
@@ -143,24 +95,36 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
               <FormInput
                 className="h-[150px]"
                 name="details"
-                placeholder="Важные детали проекта: требования, сроки и ньюансы"
+                placeholder="Важные детали проекта: требования, сроки и нюансы"
                 type="textarea"
                 setValues={setValues}
                 value={values.details}
                 error={errors.details}
               />
-            </Form>
+              <FormInput
+                className="hidden"
+                name="path"
+                type="text"
+                value={location.pathname}
+              />
+              <FormInput
+                className="hidden"
+                name="request-type"
+                type="text"
+                value="consultation-request"
+              />
+            </ModalForm>
 
             <Result
               className={`${success === null && `hidden`}`}
               success={success}
               phone={values.phone}
-              onClose={onRecallModalClose}
+              onClose={onCallMeBackModalClose}
             />
 
             <Cancel
               className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
-              onClick={onRecallModalClose}
+              onClick={onCallMeBackModalClose}
             />
           </div>
         </div>
@@ -169,4 +133,4 @@ const RecallModal = ({ opened, onRecallModalClose }) => {
   );
 };
 
-export default RecallModal;
+export default CallMeBackModal;

@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { ThemeContext } from "../../../store/theme-context";
 import Contacts from "../Contacts";
 
-const RecallInfo = ({ success }) => {
+const CallMeBackInfo = ({ success }) => {
   const { bgColor } = useContext(ThemeContext);
 
   return (
@@ -45,4 +45,4 @@ const RecallInfo = ({ success }) => {
   );
 };
 
-export default RecallInfo;
+export default CallMeBackInfo;

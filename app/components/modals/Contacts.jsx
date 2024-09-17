@@ -13,7 +13,7 @@ const Contacts = () => {
         className="text-sm font-text font-bold uppercase leading-[18px]"
         icon="phone.svg"
       >
-        +7 (423) 202-52-96
+        +7 (423) 202-52-55
       </Condition>
       <Condition
         className="text-sm font-text font-bold uppercase leading-[18px] cursor-pointer select-none"

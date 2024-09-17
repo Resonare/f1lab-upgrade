@@ -6,7 +6,7 @@ import PrimaryButton from "../buttons/PrimaryButton";
 import Carousel from "../misc/Carousel";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-const Process = ({ onRecallModalOpen }) => {
+const Process = ({ onCallMeBackModalOpen }) => {
   //REDO NEEDED
   const tags = {
     siemCons: (
@@ -135,7 +135,7 @@ const Process = ({ onRecallModalOpen }) => {
           <PrimaryButton
             type="dark"
             className="lg:absolute lg:bottom-[-60px]"
-            onClick={onRecallModalOpen}
+            onClick={onCallMeBackModalOpen}
           >
             Консультация
           </PrimaryButton>
@@ -235,7 +235,7 @@ const Process = ({ onRecallModalOpen }) => {
             <div className="flex flex-col gap-15">
               <img src="/images/misc/moving-scheme.gif" alt="" />
 
-              <SecondaryButton variant="light" onClick={onRecallModalOpen}>
+              <SecondaryButton variant="light" onClick={onCallMeBackModalOpen}>
                 <p className="text-gray-400 text-base font-subtitle">Начать</p>
               </SecondaryButton>
             </div>

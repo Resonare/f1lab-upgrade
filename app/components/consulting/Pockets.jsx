@@ -4,7 +4,7 @@ import SectionTitle from "../SectionTitle";
 import Tag from "../misc/Tag";
 import PocketColumn from "../misc/PocketColumn";
 
-const Pockets = ({ onRecallModalOpen }) => {
+const Pockets = ({ onCallMeBackModalOpen }) => {
   const firstPocketTags = [
     <Tag key={0} className="bg-f1-light">
       IT-Аудит
@@ -33,7 +33,7 @@ const Pockets = ({ onRecallModalOpen }) => {
         description="Предназначен для компаний, которые хотят оценить текущее состояние своей IT-инфраструктуры, выявить уязвимости и получить рекомендации по улучшению. Включает базовую поддержку для обеспечения стабильной работы IT-систем."
         price="7 200 ₽"
         tags={firstPocketTags}
-        onRecallModalOpen={onRecallModalOpen}
+        onCallMeBackModalOpen={onCallMeBackModalOpen}
       >
         <PocketColumn title="Разъясним">
           Неясность состояния IT-инфраструктуры
@@ -61,7 +61,7 @@ const Pockets = ({ onRecallModalOpen }) => {
         description="Подходит для компаний, планирующих миграцию в облако и нуждающихся в комплексной защите данных. Включает услуги по развертыванию и мониторингу облачной инфраструктуры, а также меры по защите от киберугроз."
         price="7 200 ₽"
         tags={firstPocketTags}
-        onRecallModalOpen={onRecallModalOpen}
+        onCallMeBackModalOpen={onCallMeBackModalOpen}
       >
         <PocketColumn title="Решим">
           Все сложности миграции данных в облако

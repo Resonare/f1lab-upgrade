@@ -1,22 +1,93 @@
+import { useFetcher } from "@remix-run/react";
+
 import PrimaryButton from "../buttons/PrimaryButton";
 import Checkbox from "../misc/Checkbox";
 import Paperclip from "../misc/Paperclip";
 import Contacts from "./Contacts";
 
-const Form = ({
-  onSubmit,
+const INITIAL_ERRORS = {
+  name: "",
+  phone: "",
+  email: "",
+  details: "",
+  policy: false,
+};
+
+const isPhone = (phone) => {
+  const regexp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/g;
+  return regexp.test(phone);
+};
+
+const isEmail = (email) => {
+  const regexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
+  return regexp.test(email);
+};
+
+const validateForm = (values, setErrors) => {
+  const currentErrors = { ...INITIAL_ERRORS };
+
+  if (values.name.length <= 0) currentErrors.name = "Введите имя";
+  else if (values.name.length > 100)
+    currentErrors.name = "Введено слишком длинное имя";
+
+  if (values.email.length <= 0) currentErrors.email = "Введите Email";
+  else if (!isEmail(values.email))
+    currentErrors.email = "Введён некорректный Email";
+
+  if (values.phone.length <= 0) currentErrors.phone = "Введите номер телефона";
+  else if (!isPhone(values.phone))
+    currentErrors.phone = "Введён некорректный номер телефона";
+
+  if (!values.policy) currentErrors.policy = true;
+
+  if (
+    currentErrors.name ||
+    currentErrors.phone ||
+    currentErrors.email ||
+    currentErrors.details ||
+    currentErrors.policy
+  ) {
+    setErrors({ ...currentErrors });
+    return false;
+  } else {
+    setErrors(INITIAL_ERRORS);
+    return true;
+  }
+};
+
+const ModalForm = ({
+  method = "POST",
+  action = "",
   values,
   setValues,
   errors,
+  setErrors,
+  setSuccess,
   className,
-  attachmable = false,
+  attachable = false,
   showContacts = false,
   children,
 }) => {
+  const fetcher = useFetcher();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!validateForm(values, setErrors)) return;
+
+    const formData = new FormData(event.target);
+
+    fetcher.submit(formData, { method: "POST", action: "/services" });
+
+    fetcher.data?.success ? setSuccess(true) : setSuccess(false);
+  };
+
   return (
-    <form
+    <fetcher.Form
       className={`${className} grow p-30 flex flex-col justify-between`}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
+      method={method}
+      action={action}
       noValidate
     >
       <div className="flex flex-col gap-5">
@@ -46,7 +117,7 @@ const Form = ({
             </div>
           </div>
 
-          {attachmable && (
+          {attachable && (
             <div className="flex gap-10 items-center">
               <Paperclip />
               <p className="font-text text-[14px] text-gray-300 font-bold leading-tight uppercase">
@@ -64,8 +135,8 @@ const Form = ({
           <PrimaryButton>Заказать звонок</PrimaryButton>
         </div>
       </div>
-    </form>
+    </fetcher.Form>
   );
 };
 
-export default Form;
+export default ModalForm;

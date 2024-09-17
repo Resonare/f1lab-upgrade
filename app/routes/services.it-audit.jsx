@@ -8,8 +8,8 @@ import Cases from "../components/consulting/Cases";
 import Prices from "../components/consulting/Prices";
 import Pockets from "../components/consulting/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
-import RecallModal from "../components/modals/recall/RecallModal";
-import TariffModal from "../components/modals/tariff/TariffModal";
+import CallMeBackModal from "../components/modals/callMeBack/CallMeBackModal";
+import PlanModal from "../components/modals/plan/PlanModal";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
 
@@ -21,54 +21,54 @@ export const meta = () => {
 };
 
 export default function ITAudit() {
-  const [tariffModalOpened, setTariffModalOpened] = useState(false);
-  const [tariffModalData, setTariffModalData] = useState({});
+  const [planModalOpened, setPlanModalOpened] = useState(false);
+  const [planModalData, setPlanModalData] = useState({});
 
-  const [recallModalOpened, setRecallModalOpened] = useState(false);
+  const [callMeBackModalOpened, setCallMeBackModalOpened] = useState(false);
 
-  const handleTariffModalOpen = (tariffData) => {
-    setTariffModalOpened(true);
-    setTariffModalData(tariffData);
+  const handlePlanModalOpen = (planData) => {
+    setPlanModalOpened(true);
+    setPlanModalData(planData);
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = "calc(100vw - 100%)";
   };
 
-  const handleTariffModalClose = () => {
-    setTariffModalOpened(false);
+  const handlePlanModalClose = () => {
+    setPlanModalOpened(false);
     document.body.style.overflow = "auto";
     document.body.style.paddingRight = "0px";
   };
 
-  const handleRecallModalOpen = () => {
-    setRecallModalOpened(true);
+  const handleCallMeBackModalOpen = () => {
+    setCallMeBackModalOpened(true);
     document.body.style.overflow = "hidden";
     document.body.style.paddingRight = "calc(100vw - 100%)";
   };
 
-  const handleRecallModalClose = () => {
-    setRecallModalOpened(false);
+  const handleCallMeBackModalClose = () => {
+    setCallMeBackModalOpened(false);
     document.body.style.overflow = "auto";
     document.body.style.paddingRight = "0px";
   };
 
   return (
     <div className="flex flex-col lg:gap-200 sm:gap-[82px]">
-      <Hero onRecallModalOpen={handleRecallModalOpen} />
+      <Hero onCallMeBackModalOpen={handleCallMeBackModalOpen} />
       <Scenarios />
-      <Offers onRecallModalOpen={handleRecallModalOpen} />
-      <Process onRecallModalOpen={handleRecallModalOpen} />
+      <Offers onCallMeBackModalOpen={handleCallMeBackModalOpen} />
+      <Process onCallMeBackModalOpen={handleCallMeBackModalOpen} />
       <Cases />
-      <Prices onTariffModalOpen={handleTariffModalOpen} />
-      <Pockets onRecallModalOpen={handleRecallModalOpen} />
+      <Prices onPlanModalOpen={handlePlanModalOpen} />
+      <Pockets onCallMeBackModalOpen={handleCallMeBackModalOpen} />
       <TailwindCrutch />
-      <TariffModal
-        opened={tariffModalOpened}
-        onTariffModalClose={handleTariffModalClose}
-        tariffModalData={tariffModalData}
+      <PlanModal
+        opened={planModalOpened}
+        onPlanModalClose={handlePlanModalClose}
+        planModalData={planModalData}
       />
-      <RecallModal
-        opened={recallModalOpened}
-        onRecallModalClose={handleRecallModalClose}
+      <CallMeBackModal
+        opened={callMeBackModalOpened}
+        onCallMeBackModalClose={handleCallMeBackModalClose}
       />
     </div>
   );

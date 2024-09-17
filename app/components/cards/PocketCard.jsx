@@ -13,7 +13,7 @@ const PocketCard = ({
   description,
   price,
   tags,
-  onRecallModalOpen,
+  onCallMeBackModalOpen,
   children,
 }) => {
   const { bgColor } = useContext(ThemeContext);
@@ -25,7 +25,7 @@ const PocketCard = ({
       <div className="absolute top-0 pt-30 h-full w-full">
         <PrimaryButton
           className="h-60 sticky top-[50svh]"
-          onClick={onRecallModalOpen}
+          onClick={onCallMeBackModalOpen}
         >
           Консультация
         </PrimaryButton>

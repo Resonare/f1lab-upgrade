@@ -8,7 +8,7 @@ import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const Hero = ({ onRecallModalOpen }) => {
+const Hero = ({ onCallMeBackModalOpen }) => {
   const themeContext = useContext(ThemeContext);
 
   const content = {
@@ -65,7 +65,7 @@ const Hero = ({ onRecallModalOpen }) => {
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"
           fullHeight="true"
-          onClick={onRecallModalOpen}
+          onClick={onCallMeBackModalOpen}
         >
           Консультация
         </PrimaryButton>
@@ -89,7 +89,7 @@ const Hero = ({ onRecallModalOpen }) => {
           className="h-full max-lg:grow sm:hidden"
           type="dark"
           fullHeight="true"
-          onClick={onRecallModalOpen}
+          onClick={onCallMeBackModalOpen}
         >
           Консультация
         </PrimaryButton>

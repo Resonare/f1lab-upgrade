@@ -4,15 +4,15 @@ import Condition from "../../misc/Condition";
 
 import { ThemeContext } from "../../../store/theme-context";
 
-const TariffInfo = ({
+const PlanInfo = ({
   title,
   price,
-  yearlyPrice,
+  annualPrice,
   mainCondition,
   mainConditionIcon,
   conditions,
-  yearly,
-  setYearly,
+  annual,
+  setannual,
   submitted,
   opened,
   children,
@@ -20,11 +20,11 @@ const TariffInfo = ({
   const { bgColor } = useContext(ThemeContext);
 
   const handleMonthlyClick = () => {
-    setYearly(false);
+    setannual(false);
   };
 
-  const handleYearlyClick = () => {
-    setYearly(true);
+  const handleannualClick = () => {
+    setannual(true);
   };
 
   return (
@@ -39,18 +39,18 @@ const TariffInfo = ({
           <p className="font-title text-[28px] leading-[44px]">{title}</p>
           <p
             className={`${
-              !yearly && `opacity-0 mt-[-22px]`
+              !annual && `opacity-0 mt-[-22px]`
             } font-extended font-bold text-gray-200 text-[22px] line-through leading-[26px] transition-all`}
           >
             {price}
           </p>
           <div className={`flex justify-between transition-all`}>
             <p className="h-fit font-title text-[40px] leading-[44px]">
-              {yearly ? yearlyPrice : price}
+              {annual ? annualPrice : price}
             </p>
             <div
               className={`${
-                !yearly && ` opacity-0`
+                !annual && ` opacity-0`
               } w-[45%] flex justify-start gap-15 text-f1-dark transition-all`}
             >
               <p className="h-fit text-[40px] font-title leading-[44px]">
@@ -91,8 +91,8 @@ const TariffInfo = ({
 
       <div className="bg-gray-400 w-fit p-5 rounded-[10px] gap-5 flex select-none">
         <div
-          className={`${submitted && yearly && `hidden`} ${
-            !yearly
+          className={`${submitted && annual && `hidden`} ${
+            !annual
               ? `bg-f1-light text-gray-400`
               : `bg-gray-300 hover:bg-gray-200 text-gray-100`
           } h-60 cursor-pointer flex items-center p-15 rounded-[5px] transition-all`}
@@ -103,12 +103,12 @@ const TariffInfo = ({
           </p>
         </div>
         <div
-          className={`${submitted && !yearly && `hidden`} ${
-            yearly
+          className={`${submitted && !annual && `hidden`} ${
+            annual
               ? `bg-f1-light text-gray-400`
               : `bg-gray-300 hover:bg-gray-200 text-gray-100`
           } h-60 cursor-pointer flex gap-15 items-center px-15 py-5 rounded-[5px] transition-all`}
-          onClick={handleYearlyClick}
+          onClick={handleannualClick}
         >
           <p className="h-fit text-base font-subtitle leading-[18px]">За год</p>
           <div className="bg-gray-100 p-15 rounded-sm h-full">
@@ -122,4 +122,4 @@ const TariffInfo = ({
   );
 };
 
-export default TariffInfo;
+export default PlanInfo;

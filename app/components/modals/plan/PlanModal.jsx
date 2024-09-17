@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
+import { useLocation } from "@remix-run/react";
 
 import BlurCurtain from "../BlurCurtain";
 import BackgroundGrid from "../../BackgroundGrid";
-import TariffInfo from "./TariffInfo";
+import PlanInfo from "./PlanInfo";
 import Result from "../Result";
 import Cancel from "../Cancel";
-import Form from "../Form";
+import ModalForm from "../ModalForm";
 import FormInput from "../../misc/FormInput";
 
 import { ThemeContext } from "../../../store/theme-context";
@@ -24,48 +25,8 @@ const INITIAL_VALUES = {
   policy: false,
 };
 
-const isPhone = (phone) => {
-  const regexp = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/g;
-  return regexp.test(phone);
-};
-
-const isEmail = (email) => {
-  const regexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
-  return regexp.test(email);
-};
-
-const validateForm = (values, setErrors) => {
-  const currentErrors = { ...INITIAL_ERRORS };
-
-  if (values.name.length <= 0) currentErrors.name = "Введите имя";
-  else if (values.name.length > 100)
-    currentErrors.name = "Введено слишком длинное имя";
-
-  if (values.email.length <= 0) currentErrors.email = "Введите Email";
-  else if (!isEmail(values.email))
-    currentErrors.email = "Введён некорректный Email";
-
-  if (values.phone.length <= 0) currentErrors.phone = "Введите номер телефона";
-  else if (!isPhone(values.phone))
-    currentErrors.phone = "Введён некорректный номер телефона";
-
-  if (!values.policy) currentErrors.policy = true;
-
-  if (
-    currentErrors.name ||
-    currentErrors.phone ||
-    currentErrors.email ||
-    currentErrors.policy
-  ) {
-    setErrors({ ...currentErrors });
-    return false;
-  } else {
-    setErrors(INITIAL_ERRORS);
-    return true;
-  }
-};
-
-const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
+const PlanModal = ({ opened, planModalData, onPlanModalClose }) => {
+  const location = useLocation();
   const { bgColor } = useContext(ThemeContext);
 
   const [errors, setErrors] = useState(INITIAL_ERRORS);
@@ -74,19 +35,8 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
   //States: false - submit failed, true - submit succeed, null - not submitted
   const [success, setSuccess] = useState(null);
 
-  //Variants: monthly, yearly
-  const [yearly, setYearly] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (!validateForm(values, setErrors)) return;
-
-    //values: values, yearly, tariffModalData.title
-    //do smth with backend
-
-    setSuccess(true);
-  };
+  //Variants: monthly, annual
+  const [annual, setannual] = useState(false);
 
   return (
     <BlurCurtain
@@ -101,27 +51,30 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
           <div
             className={`${bgColor} relative flex pl-120 bg-striped h-full border-[1px] border-dashed border-gray-200`}
           >
-            <TariffInfo
-              title={tariffModalData.title}
-              price={tariffModalData.price}
-              yearlyPrice={tariffModalData.yearlyPrice}
-              mainCondition={tariffModalData.mainCondition}
-              mainConditionIcon={tariffModalData.mainConditionIcon}
-              conditions={tariffModalData.conditions}
-              yearly={yearly}
-              setYearly={setYearly}
+            <PlanInfo
+              title={planModalData.title}
+              price={planModalData.price}
+              annualPrice={planModalData.annualPrice}
+              mainCondition={planModalData.mainCondition}
+              mainConditionIcon={planModalData.mainConditionIcon}
+              conditions={planModalData.conditions}
+              annual={annual}
+              setannual={setannual}
               submitted={success !== null}
               opened={opened}
             >
-              {tariffModalData.description}
-            </TariffInfo>
+              {planModalData.description}
+            </PlanInfo>
 
-            <Form
+            <ModalForm
               className={`${success !== null && `hidden`}`}
-              onSubmit={handleSubmit}
+              method="post"
+              action="/services"
               values={values}
               setValues={setValues}
               errors={errors}
+              setErrors={setErrors}
+              setSuccess={setSuccess}
             >
               <FormInput
                 className="border-b-0"
@@ -151,18 +104,42 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
                 value={values.email}
                 error={errors.email}
               />
-            </Form>
+              <FormInput
+                className="hidden"
+                name="plan-title"
+                type="text"
+                value={planModalData.title}
+              />
+              <FormInput
+                className="hidden"
+                name="payment-period"
+                type="text"
+                value={annual ? "год" : "месяц"}
+              />
+              <FormInput
+                className="hidden"
+                name="path"
+                type="text"
+                value={location.pathname}
+              />
+              <FormInput
+                className="hidden"
+                name="request-type"
+                type="text"
+                value="service-request"
+              />
+            </ModalForm>
 
             <Result
               className={`${success === null && `hidden`}`}
               success={success}
               phone={values.phone}
-              onClose={onTariffModalClose}
+              onClose={onPlanModalClose}
             />
 
             <Cancel
               className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
-              onClick={onTariffModalClose}
+              onClick={onPlanModalClose}
             />
           </div>
         </div>
@@ -171,4 +148,4 @@ const TariffModal = ({ opened, tariffModalData, onTariffModalClose }) => {
   );
 };
 
-export default TariffModal;
+export default PlanModal;

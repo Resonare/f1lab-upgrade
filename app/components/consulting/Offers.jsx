@@ -4,7 +4,7 @@ import PrimaryButton from "../buttons/PrimaryButton";
 import SectionTitle from "../SectionTitle";
 import ImageCard from "../cards/ImageCard";
 
-const Offers = ({ onRecallModalOpen }) => {
+const Offers = ({ onCallMeBackModalOpen }) => {
   return (
     <Section rowsAmount={3} inverseColor={true}>
       <SectionTitle
@@ -79,7 +79,7 @@ const Offers = ({ onRecallModalOpen }) => {
         row="row-start-4"
         col="xl:col-start-2 lg:col-start-2 col-start-1 xl:col-end-3 lg:col-end-3 col-end-6"
         className="max-sm:hidden"
-        onClick={onRecallModalOpen}
+        onClick={onCallMeBackModalOpen}
       >
         Консультация
       </PrimaryButton>
@@ -89,7 +89,7 @@ const Offers = ({ onRecallModalOpen }) => {
         row="row-start-10"
         col="col-start-1 col-end-5"
         className="sm:hidden pt-30"
-        onClick={onRecallModalOpen}
+        onClick={onCallMeBackModalOpen}
       >
         Консультация
       </PrimaryButton>

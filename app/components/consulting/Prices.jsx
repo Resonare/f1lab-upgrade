@@ -3,12 +3,12 @@ import SectionTitle from "../SectionTitle";
 import PriceCard from "../cards/PriceCard";
 import Carousel from "../misc/Carousel";
 
-const Prices = ({ onTariffModalOpen }) => {
-  const tariffsData = [
+const Prices = ({ onPlanModalOpen }) => {
+  const plansData = [
     {
       title: "Аудит S",
       price: "7 200 ₽",
-      yearlyPrice: "6 120 ₽",
+      annualPrice: "6 120 ₽",
       mainCondition: "1-5 рабочих мест",
       mainConditionIcon: "desktop-icon.svg",
       conditions: [
@@ -16,14 +16,14 @@ const Prices = ({ onTariffModalOpen }) => {
         "2 экстренных выезда",
         "2 профилактических выезда",
       ],
-      description: `Идеально подходит для стартапов и компаний с 
-        небольшим числом сотрудников, которым необходима 
+      description: `Идеально подходит для стартапов и компаний с
+        небольшим числом сотрудников, которым необходима
         надежная и доступная поддержка для IT инфраструктуры.`,
     },
     {
-      title: "Аудит S",
+      title: "Аудит M",
       price: "7 200 ₽",
-      yearlyPrice: "6 120 ₽",
+      annualPrice: "6 120 ₽",
       mainCondition: "1-5 рабочих мест",
       mainConditionIcon: "desktop-icon.svg",
       conditions: [
@@ -31,14 +31,14 @@ const Prices = ({ onTariffModalOpen }) => {
         "2 экстренных выезда",
         "2 профилактических выезда",
       ],
-      description: `Идеально подходит для стартапов и компаний с 
-        небольшим числом сотрудников, которым необходима 
+      description: `Идеально подходит для стартапов и компаний с
+        небольшим числом сотрудников, которым необходима
         надежная и доступная поддержка для IT инфраструктуры.`,
     },
     {
-      title: "Аудит S",
+      title: "Аудит L",
       price: "7 200 ₽",
-      yearlyPrice: "6 120 ₽",
+      annualPrice: "6 120 ₽",
       mainCondition: "1-5 рабочих мест",
       mainConditionIcon: "desktop-icon.svg",
       conditions: [
@@ -46,8 +46,8 @@ const Prices = ({ onTariffModalOpen }) => {
         "2 экстренных выезда",
         "2 профилактических выезда",
       ],
-      description: `Идеально подходит для стартапов и компаний с 
-        небольшим числом сотрудников, которым необходима 
+      description: `Идеально подходит для стартапов и компаний с
+        небольшим числом сотрудников, которым необходима
         надежная и доступная поддержка для IT инфраструктуры.`,
     },
   ];
@@ -65,28 +65,28 @@ const Prices = ({ onTariffModalOpen }) => {
         <PriceCard
           row="row-start-1"
           col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-          {...tariffsData[0]}
-          onOrder={() => onTariffModalOpen(tariffsData[0])}
+          {...plansData[0]}
+          onOrder={() => onPlanModalOpen(plansData[0])}
         >
-          {tariffsData[0].description}
+          {plansData[0].description}
         </PriceCard>
 
         <PriceCard
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-          {...tariffsData[1]}
-          onOrder={() => onTariffModalOpen(tariffsData[1])}
+          {...plansData[1]}
+          onOrder={() => onPlanModalOpen(plansData[1])}
         >
-          {tariffsData[1].description}
+          {plansData[1].description}
         </PriceCard>
 
         <PriceCard
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-          {...tariffsData[2]}
-          onOrder={() => onTariffModalOpen(tariffsData[2])}
+          {...plansData[2]}
+          onOrder={() => onPlanModalOpen(plansData[2])}
         >
-          {tariffsData[2].description}
+          {plansData[2].description}
         </PriceCard>
       </Section>
 
@@ -97,28 +97,28 @@ const Prices = ({ onTariffModalOpen }) => {
           <PriceCard
             row="row-start-1"
             col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-            {...tariffsData[0]}
-            onOrder={() => onTariffModalOpen(tariffsData[0])}
+            {...plansData[0]}
+            onOrder={() => onPlanModalOpen(plansData[0])}
           >
-            {tariffsData[0].description}
+            {plansData[0].description}
           </PriceCard>
 
           <PriceCard
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-            {...tariffsData[1]}
-            onOrder={() => onTariffModalOpen(tariffsData[1])}
+            {...plansData[1]}
+            onOrder={() => onPlanModalOpen(plansData[1])}
           >
-            {tariffsData[1].description}
+            {plansData[1].description}
           </PriceCard>
 
           <PriceCard
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-            {...tariffsData[2]}
-            onOrder={() => onTariffModalOpen(tariffsData[2])}
+            {...plansData[2]}
+            onOrder={() => onPlanModalOpen(plansData[2])}
           >
-            {tariffsData[2].description}
+            {plansData[2].description}
           </PriceCard>
         </Carousel>
       </div>
