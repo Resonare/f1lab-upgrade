@@ -30,21 +30,25 @@ export default function ITAudit() {
     setTariffModalOpened(true);
     setTariffModalData(tariffData);
     document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = "calc(100vw - 100%)";
   };
 
   const handleTariffModalClose = () => {
     setTariffModalOpened(false);
     document.body.style.overflow = "auto";
+    document.body.style.paddingRight = "0px";
   };
 
   const handleRecallModalOpen = () => {
     setRecallModalOpened(true);
     document.body.style.overflow = "hidden";
+    document.body.style.paddingRight = "calc(100vw - 100%)";
   };
 
   const handleRecallModalClose = () => {
     setRecallModalOpened(false);
     document.body.style.overflow = "auto";
+    document.body.style.paddingRight = "0px";
   };
 
   return (

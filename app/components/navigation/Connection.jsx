@@ -17,7 +17,7 @@ const Connection = () => {
         !opened
           ? `hover:top-[calc(100%-45px-10px)] top-[calc(100%-45px)]`
           : `top-full -translate-y-full`
-      } bg-gray-400 fixed border-dashed border-l border-t border-gray-200 right-0 overflow-hidden transition-all duration-500`}
+      } bg-gray-400 fixed border-dashed border-l border-t border-gray-300 right-0 overflow-hidden transition-all duration-500`}
     >
       <div
         className={`${
