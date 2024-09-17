@@ -52,7 +52,7 @@ const Navbar = ({ navsChangeHandler }) => {
         <div className="shrink max-lg:min-w-[210px] min-w-[150px] grow justify-start items-center lg:flex-wrap hidden md:flex">
           <BreadCrumbs navs={navs} />
         </div>
-        <div className="px-60 justify-end gap-30 text-sm text-gray-400 font-title hidden lg:flex">
+        <div className="pl-60 pr-30 justify-end gap-30 text-sm text-gray-400 font-title hidden lg:flex">
           {navs.map((nav) => (
             <div key={nav.link}>
               {nav.items.length !== 0 && (
@@ -91,7 +91,7 @@ const Navbar = ({ navsChangeHandler }) => {
           ))}
         </div>
         <div className="h-[70px] flex-wrap lg:h-90 flex content-center justify-end">
-          <SecondaryButton variant="light">Связаться с нами</SecondaryButton>
+          <SecondaryButton className="max-lg:hidden text-sm" variant="light">Связаться с нами</SecondaryButton>
           {/* <ShoppingCart className="max-sm:hidden border-r border-l px-20 lg:px-30" /> */}
           <BurgerMenu />
         </div>

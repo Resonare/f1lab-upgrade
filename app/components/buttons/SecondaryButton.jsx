@@ -25,7 +25,7 @@ const SecondaryButton = ({
 
   switch (variant) {
     case "shaded":
-      buttonStyle = `flex group h-[52px] text-md justify-between border-y ${
+      buttonStyle = `flex group h-[52px] justify-between border-y ${
         borderX ? "border-x" : ""
       } border-dashed border-gray-200 pl-20 pr-10 py-5 sm:bg-striped bg-striped-25 hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500`;
       arrowColor = "#22282E";
@@ -58,10 +58,10 @@ const SecondaryButton = ({
     <>
       {!link && (
         <button
-          className={`${row} ${col} ${buttonStyle} ${className} max-sm:${bgColor} group flex items-center justify-between max-sm:border-x border-dashed w-full`}
+          className={`text-base ${row} ${col} ${buttonStyle} ${className} max-sm:${bgColor} gap-15 group flex items-center justify-between max-sm:border-x border-dashed w-full`}
           onClick={onClick}
         >
-          <span className="place-self-center font-expanded text-base font-bold">{children}</span>
+          <span className="place-self-center font-expanded font-bold">{children}</span>
           <div className="p-[7px] group-hover:pt-0 group-hover:pb-[14px] group-hover:pr-0 group-hover:pl-[14px] transition-all duration-300">
             <ArrowURSecondary color={arrowColor} hoverColor={arrowHoverColor} />
           </div>
