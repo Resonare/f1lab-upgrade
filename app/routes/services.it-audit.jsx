@@ -59,7 +59,7 @@ export default function ITAudit() {
       <Process onRecallModalOpen={handleRecallModalOpen} />
       <Cases />
       <Prices onTariffModalOpen={handleTariffModalOpen} />
-      <Pockets />
+      <Pockets onRecallModalOpen={handleRecallModalOpen} />
       <TailwindCrutch />
       <TariffModal
         opened={tariffModalOpened}
