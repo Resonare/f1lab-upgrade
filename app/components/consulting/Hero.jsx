@@ -79,10 +79,10 @@ const Hero = ({ onRecallModalOpen }) => {
               100 000 ₽
             </div>
           </div>
-          <ShoppingCart
+          {/* <ShoppingCart
             className="max-sm:w-90 border-y max-sm:border-l p-15 lg:h-full h-fit lg:hidden"
             addHandler={dummyAddToCartHandler}
-          />
+          /> */}
         </div>
 
         <PrimaryButton
@@ -96,10 +96,10 @@ const Hero = ({ onRecallModalOpen }) => {
       </div>
       <div className="row-start-4 max-lg:mt-60 col-start-2 col-end-5 lg:col-end-2 max-lg:hidden">
         <div className="h-full flex">
-          <ShoppingCart
+          {/* <ShoppingCart
             className="border-x border-b p-15"
             addHandler={dummyAddToCartHandler}
-          />
+          /> */}
         </div>
       </div>
       <div className="md:row-start-2 row-start-4 md:row-end-4 md:col-start-3 col-start-1 col-end-5 lg:row-start-1 lg:row-end-4 lg:col-start-3 lg:col-end-5 max-md:hidden max-sm:block md:h-[calc(100svh-290px)] max-lg:h-[34svh] max-sm:h-full">

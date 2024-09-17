@@ -28,7 +28,7 @@ const Connection = () => {
         <p
           className={`${
             opened ? `text-gray-200` : `text-gray-100`
-          } text-base font-expanded font-semibold leading-4`}
+          } text-base font-expanded font-semibold leading-4 select-none`}
         >
           Подключение специалиста
         </p>

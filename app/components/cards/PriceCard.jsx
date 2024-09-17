@@ -73,10 +73,10 @@ const PriceCard = ({
       </PrimaryButton>
 
       <div className="absolute top-0 right-0">
-        <ShoppingCart
+        {/* <ShoppingCart
           className="border-l border-b p-15"
           addHandler={dummyAddToCartHandler}
-        />
+        /> */}
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ const NumberInput = ({ placeholder, min, max, maxLength }) => {
   return (
     <div className="text-gray-100 font-text leading-relaxed font-light text-xl">
       <input
-        className="w-90 h-full outline-none focus:border-gray-200 bg-[transparent] border-dashed border-gray-300 border"
+        className="w-90 h-full outline-none text-center focus:border-gray-200 bg-[transparent] border-dashed border-gray-300 border"
         type="number"
         value={value}
         onChange={handleChange}

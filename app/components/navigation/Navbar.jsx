@@ -14,6 +14,7 @@ import { ThemeContext } from "../../store/theme-context";
 import { NavbarContext } from "../../store/navbar-context";
 
 import { navData } from "../../store/data";
+import SecondaryButton from "../buttons/SecondaryButton";
 
 const Navbar = ({ navsChangeHandler }) => {
   const { bgColor } = useContext(ThemeContext);
@@ -89,8 +90,9 @@ const Navbar = ({ navsChangeHandler }) => {
             </div>
           ))}
         </div>
-        <div className="h-[70px] lg:h-90 flex justify-end">
-          <ShoppingCart className="max-sm:hidden border-r border-l px-20 lg:px-30" />
+        <div className="h-[70px] flex-wrap lg:h-90 flex content-center justify-end">
+          <SecondaryButton variant="light">Связаться с нами</SecondaryButton>
+          {/* <ShoppingCart className="max-sm:hidden border-r border-l px-20 lg:px-30" /> */}
           <BurgerMenu />
         </div>
       </nav>
