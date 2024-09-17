@@ -24,8 +24,6 @@ export default function ITAudit() {
   const [planModalOpened, setPlanModalOpened] = useState(false);
   const [planModalData, setPlanModalData] = useState({});
 
-  const [callMeBackModalOpened, setCallMeBackModalOpened] = useState(false);
-
   const handlePlanModalOpen = (planData) => {
     setPlanModalOpened(true);
     setPlanModalData(planData);
@@ -39,37 +37,22 @@ export default function ITAudit() {
     document.body.style.paddingRight = "0px";
   };
 
-  const handleCallMeBackModalOpen = () => {
-    setCallMeBackModalOpened(true);
-    document.body.style.overflow = "hidden";
-    document.body.style.paddingRight = "calc(100vw - 100%)";
-  };
-
-  const handleCallMeBackModalClose = () => {
-    setCallMeBackModalOpened(false);
-    document.body.style.overflow = "auto";
-    document.body.style.paddingRight = "0px";
-  };
-
   return (
     <div className="flex flex-col lg:gap-200 sm:gap-[82px]">
-      <Hero onCallMeBackModalOpen={handleCallMeBackModalOpen} />
+      <Hero />
       <Scenarios />
-      <Offers onCallMeBackModalOpen={handleCallMeBackModalOpen} />
-      <Process onCallMeBackModalOpen={handleCallMeBackModalOpen} />
+      <Offers />
+      <Process />
       <Cases />
       <Prices onPlanModalOpen={handlePlanModalOpen} />
-      <Pockets onCallMeBackModalOpen={handleCallMeBackModalOpen} />
+      <Pockets />
       <TailwindCrutch />
       <PlanModal
         opened={planModalOpened}
         onPlanModalClose={handlePlanModalClose}
         planModalData={planModalData}
       />
-      <CallMeBackModal
-        opened={callMeBackModalOpened}
-        onCallMeBackModalClose={handleCallMeBackModalClose}
-      />
+      <CallMeBackModal />
     </div>
   );
 }

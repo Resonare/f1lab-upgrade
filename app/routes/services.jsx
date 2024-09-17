@@ -39,8 +39,8 @@ export async function action({ request }) {
 
   // Send data to Telegram
   const botToken = "7403741250:AAFP7UrOk9BxkZOyCptBNvuoaGzcyyTqYQA";
-  // const chatId = "-4193890886"; группа
-  const chatId = "-4531891237";
+  const chatId = "-4193890886";
+  // const chatId = "-4531891237";
 
   const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
     message

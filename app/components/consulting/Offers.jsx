@@ -1,10 +1,12 @@
+import useModalStore from "../../store/modal";
+
 import Section from "../../layout/Section";
 import ContentCard from "../cards/ContentCard";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SectionTitle from "../SectionTitle";
 import ImageCard from "../cards/ImageCard";
 
-const Offers = ({ onCallMeBackModalOpen }) => {
+const Offers = () => {
   return (
     <Section rowsAmount={3} inverseColor={true}>
       <SectionTitle
@@ -79,7 +81,7 @@ const Offers = ({ onCallMeBackModalOpen }) => {
         row="row-start-4"
         col="xl:col-start-2 lg:col-start-2 col-start-1 xl:col-end-3 lg:col-end-3 col-end-6"
         className="max-sm:hidden"
-        onClick={onCallMeBackModalOpen}
+        onClick={useModalStore((state) => state.showCallMeBackModal)}
       >
         Консультация
       </PrimaryButton>
@@ -89,7 +91,7 @@ const Offers = ({ onCallMeBackModalOpen }) => {
         row="row-start-10"
         col="col-start-1 col-end-5"
         className="sm:hidden pt-30"
-        onClick={onCallMeBackModalOpen}
+        onClick={useModalStore((state) => state.showCallMeBackModal)}
       >
         Консультация
       </PrimaryButton>

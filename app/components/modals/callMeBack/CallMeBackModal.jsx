@@ -10,6 +10,7 @@ import FormInput from "../../misc/FormInput";
 
 import { ThemeContext } from "../../../store/theme-context";
 import CallMeBackInfo from "./CallMeBackInfo";
+import useModalStore from "../../../store/modal";
 
 const INITIAL_ERRORS = {
   name: "",
@@ -27,7 +28,7 @@ const INITIAL_VALUES = {
   policy: false,
 };
 
-const CallMeBackModal = ({ opened, onCallMeBackModalClose }) => {
+const CallMeBackModal = () => {
   const location = useLocation();
   const { bgColor } = useContext(ThemeContext);
 
@@ -37,10 +38,12 @@ const CallMeBackModal = ({ opened, onCallMeBackModalClose }) => {
   //States: false - submit failed, true - submit succeed, null - not submitted
   const [success, setSuccess] = useState(null);
 
+  const isActive = useModalStore((state) => state.callMeBackModalIsActive);
+
   return (
     <BlurCurtain
       className={`${
-        !opened && `fixed bottom-[-100%]`
+        !isActive && `fixed bottom-[-100%]`
       } text-gray-400 left-0 bottom-0`}
     >
       <div className="m-auto h-full max-w-[1920px]">
@@ -119,12 +122,12 @@ const CallMeBackModal = ({ opened, onCallMeBackModalClose }) => {
               className={`${success === null && `hidden`}`}
               success={success}
               phone={values.phone}
-              onClose={onCallMeBackModalClose}
+              onClose={useModalStore((state) => state.closeCallMeBackModal)}
             />
 
             <Cancel
               className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
-              onClick={onCallMeBackModalClose}
+              onClick={useModalStore((state) => state.closeCallMeBackModal)}
             />
           </div>
         </div>

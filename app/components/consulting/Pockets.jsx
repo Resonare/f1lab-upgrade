@@ -1,10 +1,12 @@
+import useModalStore from "../../store/modal";
+
 import Section from "../../layout/Section";
 import PocketCard from "../cards/PocketCard";
 import SectionTitle from "../SectionTitle";
 import Tag from "../misc/Tag";
 import PocketColumn from "../misc/PocketColumn";
 
-const Pockets = ({ onCallMeBackModalOpen }) => {
+const Pockets = () => {
   const firstPocketTags = [
     <Tag key={0} className="bg-f1-light">
       IT-Аудит
@@ -33,7 +35,9 @@ const Pockets = ({ onCallMeBackModalOpen }) => {
         description="Предназначен для компаний, которые хотят оценить текущее состояние своей IT-инфраструктуры, выявить уязвимости и получить рекомендации по улучшению. Включает базовую поддержку для обеспечения стабильной работы IT-систем."
         price="7 200 ₽"
         tags={firstPocketTags}
-        onCallMeBackModalOpen={onCallMeBackModalOpen}
+        onCallMeBackModalOpen={useModalStore(
+          (state) => state.showCallMeBackModal
+        )}
       >
         <PocketColumn title="Разъясним">
           Неясность состояния IT-инфраструктуры
@@ -61,7 +65,9 @@ const Pockets = ({ onCallMeBackModalOpen }) => {
         description="Подходит для компаний, планирующих миграцию в облако и нуждающихся в комплексной защите данных. Включает услуги по развертыванию и мониторингу облачной инфраструктуры, а также меры по защите от киберугроз."
         price="7 200 ₽"
         tags={firstPocketTags}
-        onCallMeBackModalOpen={onCallMeBackModalOpen}
+        onCallMeBackModalOpen={useModalStore(
+          (state) => state.showCallMeBackModal
+        )}
       >
         <PocketColumn title="Решим">
           Все сложности миграции данных в облако

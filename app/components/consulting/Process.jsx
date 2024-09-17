@@ -1,3 +1,5 @@
+import useModalStore from "../../store/modal";
+
 import Section from "../../layout/Section";
 import Tag from "../misc/Tag";
 import StepCard from "../cards/StepCard";
@@ -6,7 +8,7 @@ import PrimaryButton from "../buttons/PrimaryButton";
 import Carousel from "../misc/Carousel";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-const Process = ({ onCallMeBackModalOpen }) => {
+const Process = () => {
   //REDO NEEDED
   const tags = {
     siemCons: (
@@ -135,7 +137,7 @@ const Process = ({ onCallMeBackModalOpen }) => {
           <PrimaryButton
             type="dark"
             className="lg:absolute lg:bottom-[-60px]"
-            onClick={onCallMeBackModalOpen}
+            onClick={useModalStore((state) => state.showCallMeBackModal)}
           >
             Консультация
           </PrimaryButton>
@@ -235,7 +237,10 @@ const Process = ({ onCallMeBackModalOpen }) => {
             <div className="flex flex-col gap-15">
               <img src="/images/misc/moving-scheme.gif" alt="" />
 
-              <SecondaryButton variant="light" onClick={onCallMeBackModalOpen}>
+              <SecondaryButton
+                variant="light"
+                onClick={useModalStore((state) => state.showCallMeBackModal)}
+              >
                 <p className="text-gray-400 text-base font-subtitle">Начать</p>
               </SecondaryButton>
             </div>

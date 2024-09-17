@@ -1,5 +1,7 @@
 import { useContext } from "react";
 
+import useModalStore from "../../store/modal";
+
 import Section from "../../layout/Section";
 import PrimaryButton from "../buttons/PrimaryButton";
 import ContentCard from "../cards/ContentCard";
@@ -8,7 +10,7 @@ import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const Hero = ({ onCallMeBackModalOpen }) => {
+const Hero = () => {
   const themeContext = useContext(ThemeContext);
 
   const content = {
@@ -65,7 +67,7 @@ const Hero = ({ onCallMeBackModalOpen }) => {
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"
           fullHeight="true"
-          onClick={onCallMeBackModalOpen}
+          onClick={useModalStore((state) => state.showCallMeBackModal)}
         >
           Консультация
         </PrimaryButton>
@@ -89,7 +91,7 @@ const Hero = ({ onCallMeBackModalOpen }) => {
           className="h-full max-lg:grow sm:hidden"
           type="dark"
           fullHeight="true"
-          onClick={onCallMeBackModalOpen}
+          onClick={useModalStore((state) => state.showCallMeBackModal)}
         >
           Консультация
         </PrimaryButton>
