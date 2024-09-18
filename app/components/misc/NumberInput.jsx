@@ -23,7 +23,6 @@ const NumberInput = ({
         .querySelector("input")
         .focus();
     } else if (event.target.value.length == 0) {
-      console.log(event.target.parentNode?.previousSibling?.previousSibling);
       event.target.parentNode?.previousSibling?.previousSibling
         .querySelector("input")
         .focus();
