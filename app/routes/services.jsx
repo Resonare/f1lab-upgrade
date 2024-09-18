@@ -39,8 +39,8 @@ export async function action({ request }) {
   }
 
   // Send data to Telegram
-  const botToken = process.env.TG_TOKEN;
-  const chatId = process.env.TG_CHAT_ID;
+  const botToken = import.meta.env.VITE_TG_TOKEN;
+  const chatId = import.meta.env.VITE_TG_CHAT_ID;
 
   const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
     message
