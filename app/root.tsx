@@ -10,6 +10,8 @@ import {
 import "./tailwind.css";
 
 import Navbar from "~/components/navigation/Navbar";
+import CallMeBackModal from "~/components/modals/callMeBack/CallMeBackModal";
+import PlanModal from "~/components/modals/plan/PlanModal";
 import BackgroundGrid from "~/components/BackgroundGrid";
 
 import { ThemeContext } from "~/store/theme-context";
@@ -85,6 +87,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Navbar navsChangeHandler={navsChangeHandler} />
           </header>
           <div>{children}</div>
+          <PlanModal />
+          <CallMeBackModal />
           <BackgroundGrid />
           <ScrollRestoration />
           <Scripts />

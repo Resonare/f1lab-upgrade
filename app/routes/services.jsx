@@ -1,7 +1,5 @@
 import { Outlet } from "@remix-run/react";
 
-import CallMeBackModal from "../components/modals/callMeBack/CallMeBackModal";
-import PlanModal from "../components/modals/plan/PlanModal";
 import SidebarButtons from "../components/navigation/SidebarButtons";
 
 export async function action({ request }) {
@@ -68,8 +66,6 @@ export default function Services() {
     <>
       <SidebarButtons />
       <Outlet />
-      <PlanModal />
-      <CallMeBackModal />
     </>
   );
 }
