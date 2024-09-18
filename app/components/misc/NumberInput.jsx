@@ -11,12 +11,23 @@ const NumberInput = ({
   const handleChange = (event) => {
     //Validation
     setValues((prevValues) =>
-      (event.target.value + "").length > parseInt(maxLength) ||
-      event.target.value < parseFloat(min) ||
-      event.target.value > parseFloat(max)
+      event.target.value.length > parseInt(maxLength) ||
+      parseFloat(event.target.value) < parseFloat(min) ||
+      parseFloat(event.target.value) > parseFloat(max)
         ? prevValues
         : { ...prevValues, [name]: event.target.value }
     );
+
+    if (event.target.value.length > parseInt(maxLength) - 1) {
+      event.target.parentNode?.nextSibling?.nextSibling
+        .querySelector("input")
+        .focus();
+    } else if (event.target.value.length == 0) {
+      console.log(event.target.parentNode?.previousSibling?.previousSibling);
+      event.target.parentNode?.previousSibling?.previousSibling
+        .querySelector("input")
+        .focus();
+    }
   };
 
   return (
