@@ -3,7 +3,7 @@ import SectionTitle from "../SectionTitle";
 import PriceCard from "../cards/PriceCard";
 import Carousel from "../misc/Carousel";
 
-const Prices = ({ onPlanModalOpen }) => {
+const Prices = () => {
   const plansData = [
     {
       title: "Аудит S",
@@ -51,10 +51,9 @@ const Prices = ({ onPlanModalOpen }) => {
         надежная и доступная поддержка для IT инфраструктуры.`,
     },
   ];
-
   return (
     <>
-      <Section className="max-sm:hidden" id="" rowsAmount={4}>
+      <Section className="max-sm:hidden" id="prices" rowsAmount={4}>
         <SectionTitle
           row="row-start-1"
           col="col-start-1 lg:col-end-2 col-end-3"
@@ -65,8 +64,7 @@ const Prices = ({ onPlanModalOpen }) => {
         <PriceCard
           row="row-start-1"
           col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-          {...plansData[0]}
-          onOrder={() => onPlanModalOpen(plansData[0])}
+          plan={plansData[0]}
         >
           {plansData[0].description}
         </PriceCard>
@@ -74,8 +72,7 @@ const Prices = ({ onPlanModalOpen }) => {
         <PriceCard
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-          {...plansData[1]}
-          onOrder={() => onPlanModalOpen(plansData[1])}
+          plan={plansData[1]}
         >
           {plansData[1].description}
         </PriceCard>
@@ -83,8 +80,7 @@ const Prices = ({ onPlanModalOpen }) => {
         <PriceCard
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-          {...plansData[2]}
-          onOrder={() => onPlanModalOpen(plansData[2])}
+          plan={plansData[2]}
         >
           {plansData[2].description}
         </PriceCard>
@@ -97,8 +93,7 @@ const Prices = ({ onPlanModalOpen }) => {
           <PriceCard
             row="row-start-1"
             col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-            {...plansData[0]}
-            onOrder={() => onPlanModalOpen(plansData[0])}
+            plan={plansData[0]}
           >
             {plansData[0].description}
           </PriceCard>
@@ -106,8 +101,7 @@ const Prices = ({ onPlanModalOpen }) => {
           <PriceCard
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-            {...plansData[1]}
-            onOrder={() => onPlanModalOpen(plansData[1])}
+            plan={plansData[1]}
           >
             {plansData[1].description}
           </PriceCard>
@@ -115,8 +109,7 @@ const Prices = ({ onPlanModalOpen }) => {
           <PriceCard
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-            {...plansData[2]}
-            onOrder={() => onPlanModalOpen(plansData[2])}
+            plan={plansData[2]}
           >
             {plansData[2].description}
           </PriceCard>

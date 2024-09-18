@@ -38,12 +38,12 @@ const CallMeBackModal = () => {
   //States: false - submit failed, true - submit succeed, null - not submitted
   const [success, setSuccess] = useState(null);
 
-  const isActive = useModalStore((state) => state.callMeBackModalIsActive);
+  const { callMeBackModalIsActive, closeCallMeBackModal } = useModalStore();
 
   return (
     <BlurCurtain
       className={`${
-        !isActive && `fixed bottom-[-100%]`
+        !callMeBackModalIsActive && `fixed bottom-[-100%]`
       } text-gray-400 left-0 bottom-0`}
     >
       <div className="m-auto h-full max-w-[1920px]">
@@ -122,12 +122,12 @@ const CallMeBackModal = () => {
               className={`${success === null && `hidden`}`}
               success={success}
               phone={values.phone}
-              onClose={useModalStore((state) => state.closeCallMeBackModal)}
+              onClose={closeCallMeBackModal}
             />
 
             <Cancel
               className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
-              onClick={useModalStore((state) => state.closeCallMeBackModal)}
+              onClick={closeCallMeBackModal}
             />
           </div>
         </div>

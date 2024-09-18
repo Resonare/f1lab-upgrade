@@ -8,10 +8,10 @@ const SidebarWhyButton = () => {
   const { bgColor } = useContext(ThemeContext);
 
   const sideButtons = [
-    { text: "Зачем?", to: "#why" },
-    { text: "Как?", to: "#how" },
-    { text: "Примеры", to: "#examples" },
-    { text: "Сколько?", to: "#how-much" },
+    { text: "Зачем?", to: "#scenarios" },
+    { text: "Как?", to: "#offers" },
+    { text: "Примеры", to: "#cases" },
+    { text: "Сколько?", to: "#prices" },
   ];
 
   return (

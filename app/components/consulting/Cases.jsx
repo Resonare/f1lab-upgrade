@@ -72,7 +72,7 @@ const Cases = () => {
   }
 
   return (
-    <div id="">
+    <div id="cases">
       <Section rowsAmount={4} className="max-sm:hidden">
         <SectionTitle
           row="row-start-1"

@@ -5,7 +5,7 @@ import SectionTitle from "../SectionTitle";
 
 const Scenarios = () => {
   return (
-    <div id="why">
+    <div id="scenarios">
       <Section rowsAmount={3}>
         <SectionTitle row="row-start-1" col="col-start-1 col-end-5">
           Сценарии применения

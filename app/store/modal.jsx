@@ -15,11 +15,11 @@ const useModalStore = create((set) => ({
       return { callMeBackModalIsActive: false };
     }),
   planModalIsActive: false,
-  showPlanModal: () =>
+  showPlanModal: (data) =>
     set(() => {
       document.body.style.overflow = "hidden";
       document.body.style.paddingRight = "calc(100vw - 100%)";
-      return { planModalIsActive: true };
+      return { selectedPlan: data, planModalIsActive: true };
     }),
   closePlanModal: () =>
     set(() => {
@@ -27,6 +27,7 @@ const useModalStore = create((set) => ({
       document.body.style.paddingRight = "0px";
       return { planModalIsActive: false };
     }),
+  selectedPlan: {},
 }));
 
 export default useModalStore;

@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { useLocation } from "@remix-run/react";
 
+import useModalStore from "../../../store/modal";
+
 import BlurCurtain from "../BlurCurtain";
 import BackgroundGrid from "../../BackgroundGrid";
 import PlanInfo from "./PlanInfo";
@@ -25,8 +27,9 @@ const INITIAL_VALUES = {
   policy: false,
 };
 
-const PlanModal = ({ opened, planModalData, onPlanModalClose }) => {
+const PlanModal = () => {
   const location = useLocation();
+  const { planModalIsActive, closePlanModal, selectedPlan } = useModalStore();
   const { bgColor } = useContext(ThemeContext);
 
   const [errors, setErrors] = useState(INITIAL_ERRORS);
@@ -41,7 +44,7 @@ const PlanModal = ({ opened, planModalData, onPlanModalClose }) => {
   return (
     <BlurCurtain
       className={`${
-        !opened && `fixed bottom-[-100%]`
+        !planModalIsActive && `fixed bottom-[-100%]`
       } text-gray-400 left-0 bottom-0`}
     >
       <div className="m-auto h-full max-w-[1920px]">
@@ -52,18 +55,18 @@ const PlanModal = ({ opened, planModalData, onPlanModalClose }) => {
             className={`${bgColor} relative flex pl-120 bg-striped h-full border-[1px] border-dashed border-gray-200`}
           >
             <PlanInfo
-              title={planModalData.title}
-              price={planModalData.price}
-              annualPrice={planModalData.annualPrice}
-              mainCondition={planModalData.mainCondition}
-              mainConditionIcon={planModalData.mainConditionIcon}
-              conditions={planModalData.conditions}
+              title={selectedPlan.title}
+              price={selectedPlan.price}
+              annualPrice={selectedPlan.annualPrice}
+              mainCondition={selectedPlan.mainCondition}
+              mainConditionIcon={selectedPlan.mainConditionIcon}
+              conditions={selectedPlan.conditions}
               annual={annual}
               setannual={setannual}
               submitted={success !== null}
-              opened={opened}
+              opened={planModalIsActive}
             >
-              {planModalData.description}
+              {selectedPlan.description}
             </PlanInfo>
 
             <ModalForm
@@ -108,7 +111,7 @@ const PlanModal = ({ opened, planModalData, onPlanModalClose }) => {
                 className="hidden"
                 name="plan-title"
                 type="text"
-                value={planModalData.title}
+                value={selectedPlan.title}
               />
               <FormInput
                 className="hidden"
@@ -134,12 +137,12 @@ const PlanModal = ({ opened, planModalData, onPlanModalClose }) => {
               className={`${success === null && `hidden`}`}
               success={success}
               phone={values.phone}
-              onClose={onPlanModalClose}
+              onClose={closePlanModal}
             />
 
             <Cancel
               className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
-              onClick={onPlanModalClose}
+              onClick={closePlanModal}
             />
           </div>
         </div>

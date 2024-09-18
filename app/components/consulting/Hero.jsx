@@ -12,6 +12,7 @@ import { ThemeContext } from "../../store/theme-context";
 
 const Hero = () => {
   const themeContext = useContext(ThemeContext);
+  const { showCallMeBackModal } = useModalStore();
 
   const content = {
     header: "ИТ‑аудит с применимыми рекомендациями",
@@ -67,7 +68,7 @@ const Hero = () => {
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"
           fullHeight="true"
-          onClick={useModalStore((state) => state.showCallMeBackModal)}
+          onClick={showCallMeBackModal}
         >
           Консультация
         </PrimaryButton>
@@ -91,7 +92,7 @@ const Hero = () => {
           className="h-full max-lg:grow sm:hidden"
           type="dark"
           fullHeight="true"
-          onClick={useModalStore((state) => state.showCallMeBackModal)}
+          onClick={showCallMeBackModal}
         >
           Консультация
         </PrimaryButton>

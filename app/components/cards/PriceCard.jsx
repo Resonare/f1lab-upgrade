@@ -1,24 +1,18 @@
 import { useContext } from "react";
 
+import useModalStore from "../../store/modal";
+
 import PrimaryButton from "../buttons/PrimaryButton";
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 import Condition from "../misc/Condition";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const PriceCard = ({
-  row = "",
-  col = "",
-  title,
-  price,
-  mainCondition,
-  mainConditionIcon,
-  conditions,
-  onOrder,
-  className = "",
-  children,
-}) => {
+const PriceCard = ({ row = "", col = "", plan, className = "", children }) => {
+  const { showPlanModal } = useModalStore();
   const { bgColor } = useContext(ThemeContext);
+
+  const { title, price, mainCondition, mainConditionIcon, conditions } = plan;
 
   const dummyAddToCartHandler = () => {};
 
@@ -60,14 +54,18 @@ const PriceCard = ({
         </div>
       </div>
 
-      <PrimaryButton type="dark" className="max-sm:hidden" onClick={onOrder}>
+      <PrimaryButton
+        type="dark"
+        className="max-sm:hidden"
+        onClick={() => showPlanModal(plan)}
+      >
         Заказать
       </PrimaryButton>
 
       <PrimaryButton
         className="sm:hidden [&>button]:py-10 [&>button]:pl-20 [&>button]:pr-10"
         type="accent"
-        onClick={onOrder}
+        onClick={() => showPlanModal(plan)}
       >
         Заказать
       </PrimaryButton>

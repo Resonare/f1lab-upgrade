@@ -9,6 +9,7 @@ import Carousel from "../misc/Carousel";
 import SecondaryButton from "../buttons/SecondaryButton";
 
 const Process = () => {
+  const { showCallMeBackModal } = useModalStore();
   //REDO NEEDED
   const tags = {
     siemCons: (
@@ -137,7 +138,7 @@ const Process = () => {
           <PrimaryButton
             type="dark"
             className="lg:absolute lg:bottom-[-60px]"
-            onClick={useModalStore((state) => state.showCallMeBackModal)}
+            onClick={showCallMeBackModal}
           >
             Консультация
           </PrimaryButton>
@@ -237,10 +238,7 @@ const Process = () => {
             <div className="flex flex-col gap-15">
               <img src="/images/misc/moving-scheme.gif" alt="" />
 
-              <SecondaryButton
-                variant="light"
-                onClick={useModalStore((state) => state.showCallMeBackModal)}
-              >
+              <SecondaryButton variant="light" onClick={showCallMeBackModal}>
                 <p className="text-gray-400 text-base font-subtitle">Начать</p>
               </SecondaryButton>
             </div>

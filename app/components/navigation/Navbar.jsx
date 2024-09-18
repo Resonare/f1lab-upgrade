@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import { NavLink } from "@remix-run/react";
 import PropTypes from "prop-types";
 
+import useModalStore from "../../store/modal";
+
 import ShoppingCart from "../shoppingCart/ShoppingCart";
 import BurgerMenu from "./BurgerMenu";
 import BreadCrumbs from "./Breadcrumbs";
@@ -17,6 +19,7 @@ import { navData } from "../../store/data";
 import SecondaryButton from "../buttons/SecondaryButton";
 
 const Navbar = ({ navsChangeHandler }) => {
+  const { showCallMeBackModal } = useModalStore();
   const { bgColor } = useContext(ThemeContext);
 
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
@@ -91,7 +94,13 @@ const Navbar = ({ navsChangeHandler }) => {
           ))}
         </div>
         <div className="h-[70px] flex-wrap lg:h-90 flex content-center justify-end">
-          <SecondaryButton className="max-lg:hidden text-sm" variant="light">Связаться с нами</SecondaryButton>
+          <SecondaryButton
+            className="max-lg:hidden text-sm"
+            variant="light"
+            onClick={showCallMeBackModal}
+          >
+            Связаться с нами
+          </SecondaryButton>
           {/* <ShoppingCart className="max-sm:hidden border-r border-l px-20 lg:px-30" /> */}
           <BurgerMenu />
         </div>

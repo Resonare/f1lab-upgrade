@@ -1,5 +1,7 @@
 import { Outlet } from "@remix-run/react";
 
+import CallMeBackModal from "../components/modals/callMeBack/CallMeBackModal";
+import PlanModal from "../components/modals/plan/PlanModal";
 import SidebarButtons from "../components/navigation/SidebarButtons";
 
 export async function action({ request }) {
@@ -22,7 +24,6 @@ export async function action({ request }) {
 
     message = `${data.requestType}\nСтраница: ${data.path}\nИмя: ${data.name}\nEmail: ${data.email}\nТелефон: ${data.phone}\nДетали: ${data.details}`;
   } else if (requestType === "service-request") {
-    console.log(formData.get("payment-period"));
     data = {
       requestType: "Запрос услуги",
       plan: formData.get("plan-title"),
@@ -38,9 +39,8 @@ export async function action({ request }) {
   }
 
   // Send data to Telegram
-  const botToken = "7403741250:AAFP7UrOk9BxkZOyCptBNvuoaGzcyyTqYQA";
-  const chatId = "-4193890886";
-  // const chatId = "-4531891237";
+  const botToken = process.env.TG_TOKEN;
+  const chatId = process.env.TG_CHAT_ID;
 
   const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(
     message
@@ -48,6 +48,9 @@ export async function action({ request }) {
 
   // Send the request to Telegram API
   const response = await fetch(telegramUrl);
+
+  //const response = true;
+  //return response;
 
   if (response.ok) {
     return { success: true };
@@ -65,6 +68,8 @@ export default function Services() {
     <>
       <SidebarButtons />
       <Outlet />
+      <PlanModal />
+      <CallMeBackModal />
     </>
   );
 }

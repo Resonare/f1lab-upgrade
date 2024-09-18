@@ -31,23 +31,27 @@ const Connection = () => {
   const handleConnect = () => {
     setErrors(INITIAL_ERRORS);
 
-    if (!values.first)
+    const { first, second, third } = values;
+
+    if (!first)
       setErrors((prevErrors) => ({
         ...prevErrors,
         first: ERROR_EMPTY_FIELD_MESSAGE,
       }));
 
-    if (!values.second)
+    if (!second)
       setErrors((prevErrors) => ({
         ...prevErrors,
         second: ERROR_EMPTY_FIELD_MESSAGE,
       }));
 
-    if (!values.third)
+    if (!third)
       setErrors((prevErrors) => ({
         ...prevErrors,
         third: ERROR_EMPTY_FIELD_MESSAGE,
       }));
+
+    window.open(`https://go.pro32connect.ru/invite/${first + second + third}`);
   };
 
   return (
@@ -58,7 +62,7 @@ const Connection = () => {
           : `top-full -translate-y-full`
       } max-sm:hidden bg-gray-400 fixed border-dashed border-l border-t border-gray-300 right-0 overflow-hidden transition-all duration-500`}
     >
-      <div
+      <button
         className={`${
           !opened && `hover:pb-15`
         } group flex justify-between items-center gap-60 cursor-pointer py-5 px-15`}
@@ -72,7 +76,7 @@ const Connection = () => {
           Подключение специалиста
         </p>
         <ArrowConnect className={`h-[35px] w-[35px]`} opened={opened} />
-      </div>
+      </button>
 
       <div className={`${!opened && ``} flex p-30 flex-col gap-15`}>
         <p className="text-gray-100 w-[370px] text-[22px] font-bold font-extended leading-tight">
