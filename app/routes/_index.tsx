@@ -1,3 +1,5 @@
+import Hero from "../components/home/Hero";
+
 import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
@@ -9,8 +11,9 @@ export const meta: MetaFunction = () => {
 
 export default function Services() {
   return (
-    <div className="text-5xl font-title p-100 h-[calc(100svh-90px)]">
-      Главная
+    <div className="overflow-x-auto pt-180 overflow-y-hidden whitespace-nowrap text-5xl font-title h-[calc(100svh-180px)]">
+      <Hero />
+      <Hero />
     </div>
   );
 }
