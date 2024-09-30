@@ -12,9 +12,9 @@ const Offers = () => {
   return (
     <Section rowsAmount={3} inverseColor={true} id="offers">
       <SectionTitle
+        className="text-f1-light"
         row="row-start-1"
         col="sm:col-start-2 col-start-1 lg:col-end-5 sm:col-end-4 col-end-5"
-        inverseColor={true}
       >
         Что мы предлагаем?
       </SectionTitle>

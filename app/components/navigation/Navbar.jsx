@@ -18,7 +18,7 @@ import { NavbarContext } from "../../store/navbar-context";
 import { navData } from "../../store/data";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-const Navbar = ({ navsChangeHandler }) => {
+const Navbar = ({ navsChangeHandler, inverseColor = true }) => {
   const { showCallMeBackModal } = useModalStore();
   const { bgColor } = useContext(ThemeContext);
 
@@ -39,80 +39,99 @@ const Navbar = ({ navsChangeHandler }) => {
   });
 
   return (
-    <NavbarContext.Provider
-      value={{
-        showServicesDropdown: showServicesDropdown,
-        showServicesDropdownHandler: showServicesDropdownHandler,
-        closeServicesDropdownHandler: closeServicesDropdownHandler,
-      }}
-    >
-      <nav
-        className={`fixed w-full h-[70px] lg:h-90 xl:px-120 lg:px-60 sm:px-[44.1px] px-15 ${bgColor} border-dashed border-b border-gray-200 justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
+    <>
+      {inverseColor && (
+        <div className="bg-gray-400 absolute top-0 left-0 w-[100svw] h-[70px] lg:h-90"></div>
+      )}
+
+      <NavbarContext.Provider
+        value={{
+          showServicesDropdown: showServicesDropdown,
+          showServicesDropdownHandler: showServicesDropdownHandler,
+          closeServicesDropdownHandler: closeServicesDropdownHandler,
+        }}
       >
-        <div className="h-full shrink-0 pr-15 mr-30 border-dashed sm:border-r border-gray-200 items-center flex">
-          <img className="max-sm:h-[65%]" src="/images/logo.svg" alt="" />
-        </div>
-        <div className="shrink max-lg:min-w-[210px] min-w-[150px] grow justify-start items-center lg:flex-wrap hidden md:flex">
-          <BreadCrumbs navs={navs} />
-        </div>
-        <div className="pl-60 pr-30 justify-end gap-30 text-sm text-gray-400 font-title hidden lg:flex">
-          {navs.map((nav) => (
-            <div key={nav.link}>
-              {nav.items.length !== 0 && (
-                <>
-                  <button
-                    onClick={showServicesDropdownHandler}
-                    className="flex justify-between items-center gap-5 hover:underline hover:underline-offset-4 "
-                  >
-                    {nav.title}
-                    <img
-                      src={
-                        !showServicesDropdown
-                          ? "/images/arrow-down.svg"
-                          : "/images/arrow-up.svg"
-                      }
-                      alt=""
-                    />
-                  </button>
-                </>
-              )}
-              {nav.items.length === 0 && (
-                <>
-                  <NavLink
-                    to={nav.link}
-                    key={nav.title}
-                    className="hover:underline hover:underline-offset-4"
-                    onClick={() => {
-                      setShowServicesDropdown(false);
-                    }}
-                  >
-                    {nav.title}
-                  </NavLink>
-                </>
-              )}
-            </div>
-          ))}
-        </div>
-        <div className="h-[70px] flex-wrap lg:h-90 flex content-center justify-end">
-          <SecondaryButton
-            className="max-lg:hidden text-sm"
-            variant="light"
-            onClick={showCallMeBackModal}
+        <nav
+          className={`translate-x-[-50%] left-[50%] fixed w-full h-[70px] lg:h-90 xl:px-120 lg:px-60 sm:px-[44.1px] px-15 ${
+            !inverseColor && bgColor
+          } ${
+            inverseColor ? `border-gray-300` : `border-gray-200`
+          } border-dashed border-b justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
+        >
+          <div
+            className={`${
+              inverseColor ? `border-gray-300` : `border-gray-200`
+            } h-full shrink-0 pr-15 mr-30 border-dashed sm:border-r items-center flex`}
           >
-            Связаться с нами
-          </SecondaryButton>
-          {/* <ShoppingCart className="max-sm:hidden border-r border-l px-20 lg:px-30" /> */}
-          <BurgerMenu />
-        </div>
-      </nav>
-      {navs.map((nav) => (
-        <div key={nav.link}>
-          {nav.items.length !== 0 && <ServicesNavigation items={nav.items} />}
-        </div>
-      ))}
-      <BurgerDropdown navs={navs} />
-      <Connection />
-    </NavbarContext.Provider>
+            <img className="max-sm:h-[65%]" src="/images/logo.svg" alt="" />
+          </div>
+          <div className="shrink max-lg:min-w-[210px] min-w-[150px] grow justify-start items-center lg:flex-wrap hidden md:flex">
+            <BreadCrumbs navs={navs} inverseColor={inverseColor} />
+          </div>
+          <div
+            className={`${
+              inverseColor ? `text-gray-100` : `text-gray-400`
+            } pl-60 pr-30 justify-end gap-30 text-sm font-expanded font-bold hidden lg:flex`}
+          >
+            {navs.map((nav) => (
+              <div key={nav.link}>
+                {nav.items.length !== 0 && (
+                  <>
+                    <button
+                      onClick={showServicesDropdownHandler}
+                      className="flex justify-between items-center gap-5 hover:underline hover:underline-offset-4 "
+                    >
+                      {nav.title}
+                      <img
+                        className={`${inverseColor && `invert`}`}
+                        src={
+                          !showServicesDropdown
+                            ? "/images/arrow-down.svg"
+                            : "/images/arrow-up.svg"
+                        }
+                        alt=""
+                      />
+                    </button>
+                  </>
+                )}
+                {nav.items.length === 0 && (
+                  <>
+                    <NavLink
+                      to={nav.link}
+                      key={nav.title}
+                      className="hover:underline hover:underline-offset-4"
+                      onClick={() => {
+                        setShowServicesDropdown(false);
+                      }}
+                    >
+                      {nav.title}
+                    </NavLink>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+          <div className="h-[70px] flex-wrap lg:h-90 flex content-center justify-end">
+            <SecondaryButton
+              className="max-lg:hidden text-sm"
+              variant="light"
+              onClick={showCallMeBackModal}
+            >
+              Связаться с нами
+            </SecondaryButton>
+            {/* <ShoppingCart className="max-sm:hidden border-r border-l px-20 lg:px-30" /> */}
+            <BurgerMenu />
+          </div>
+        </nav>
+        {navs.map((nav) => (
+          <div key={nav.link}>
+            {nav.items.length !== 0 && <ServicesNavigation items={nav.items} />}
+          </div>
+        ))}
+        <BurgerDropdown navs={navs} />
+        <Connection />
+      </NavbarContext.Provider>
+    </>
   );
 };
 

@@ -1,4 +1,5 @@
 import Hero from "../components/home/Hero";
+import Why from "../components/home/Why";
 
 import type { MetaFunction } from "@remix-run/node";
 
@@ -11,9 +12,9 @@ export const meta: MetaFunction = () => {
 
 export default function Services() {
   return (
-    <div className="overflow-x-auto pt-180 overflow-y-hidden whitespace-nowrap text-5xl font-title h-[calc(100svh-180px)]">
+    <div className="flex flex-col">
       <Hero />
-      <Hero />
+      <Why />
     </div>
   );
 }

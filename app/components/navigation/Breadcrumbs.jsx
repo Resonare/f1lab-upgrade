@@ -4,7 +4,7 @@ import { Fragment } from "react/jsx-runtime";
 
 import { NavbarContext } from "../../store/navbar-context";
 
-const BreadCrumbs = ({ navs }) => {
+const BreadCrumbs = ({ navs, inverseColor = false }) => {
   const { closeServicesDropdownHandler } = useContext(NavbarContext);
   const location = useLocation();
   const { pathname } = location;
@@ -16,7 +16,7 @@ const BreadCrumbs = ({ navs }) => {
       className={`${
         segments.filter((s) => s.length > 0).length > 0
           ? "text-gray-200"
-          : "text-gray-400"
+          : `${inverseColor ? `text-gray-200` : `text-gray-400`}`
       } text-sm font-text hover:underline hover:underline-offset-4`}
       to="/"
       onClick={closeServicesDropdownHandler}
@@ -59,14 +59,20 @@ const BreadCrumbs = ({ navs }) => {
       return (
         <Fragment key={i}>
           <div className="px-5 shrink-0">
-            <img src="/images/arrow-right.svg" alt="" />
+            <img
+              className={`${inverseColor && `invert`}`}
+              src="/images/arrow-right.svg"
+              alt=""
+            />
           </div>
           <NavLink
             to={`${segments[0]}${url}`}
             onClick={closeServicesDropdownHandler}
             className={
               currentSegment === navItem.link
-                ? "text-gray-400 text-sm font-text"
+                ? `${
+                    inverseColor ? `text-gray-200` : `text-gray-400`
+                  } text-sm font-text`
                 : "text-gray-200 text-sm font-text hover:underline hover:underline-offset-4"
             }
           >

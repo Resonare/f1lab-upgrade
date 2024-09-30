@@ -1,24 +1,12 @@
-const SectionTitle = ({
-  row,
-  col,
-  inverseColor = false,
-  className = "",
-  children,
-}) => {
-  //Computing title color depending on color inversion flag
-  let titleColor = "";
-  if (inverseColor) {
-    titleColor = "text-f1-light";
-  } else {
-    titleColor = "text-gray-400";
-  }
-
+const SectionTitle = ({ row, col, className = "", children }) => {
   return (
-    <p
-      className={`${titleColor} ${row} ${col} ${className} sm:pb-100 sm:pb-30 font-bold font-title sm:text-[40px] text-2xl`}
-    >
-      {children}
-    </p>
+    <div className={`${row} ${col} text-gray-400`}>
+      <p
+        className={`${className} sm:pb-30 font-bold font-title sm:text-[40px] text-2xl`}
+      >
+        {children}
+      </p>
+    </div>
   );
 };
 

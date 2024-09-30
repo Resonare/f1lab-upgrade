@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const VerticalCarousel = ({
   className,
-  textSize = 56,
   words,
   duration = 4000,
 }) => {
@@ -10,8 +9,8 @@ const VerticalCarousel = ({
 
   const handleTimeout = () => {
     setTranslate((prevTranslate) => {
-      return prevTranslate < words.length * textSize
-        ? prevTranslate + textSize
+      return prevTranslate < words.length * 91.2
+        ? prevTranslate + 91.2
         : 0;
     });
   };
@@ -25,18 +24,18 @@ const VerticalCarousel = ({
 
   return (
     <div
-      className={`${className} text-[${textSize}px] h-[${textSize}px] w-fit overflow-hidden`}
+      className={`${className} text-[56px] h-[86px] py-15 overflow-hidden`}
     >
       <div
-        className={`${translate != 0 && `transition-all`} flex flex-col`}
+        className={`${translate != 0 && `transition-all`} flex gap-20 flex-col`}
         style={{
           transform: `translateY(-${translate}px)`,
         }}
       >
         {words.map((word, index) => (
-          <span key={index}>{word}</span>
+          <span className="bg-gray-400 pb-15 px-30 rounded-[15px] w-fit" key={index}>{word}</span>
         ))}
-        <span>{words[0]}</span>
+        <span className="bg-gray-400 pb-15 px-30 rounded-[15px] w-fit">{words[0]}</span>
       </div>
     </div>
   );
