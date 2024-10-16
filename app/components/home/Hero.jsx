@@ -7,14 +7,14 @@ const Hero = () => {
   return (
     <div>
       <div
-        className="bg-f1-light absolute left-0 z-[-10] w-[100svw] h-[747px]"
+        className="bg-f1-light absolute left-0 z-[-10] w-[100svw] h-[755px]"
         // style={{ height: `${contentContainerRef.current.style.height}px`}}
       ></div>
       <Section
         id="testr"
         className="text-5xl font-title pt-180 pb-60 whitespace-normal inline-block w-full h-fit"
       >
-        <div className="row-start-1 col-start-1 col-end-4 text-[56px]">
+        <div className="text-gray-400 row-start-1 col-start-1 col-end-4 text-[56px]">
           <div className="flex items-center">
             IT-
             <VerticalCarousel
@@ -32,9 +32,11 @@ const Hero = () => {
           свой бизнес
         </ContentCard>
 
-        <PrimaryButton row="row-start-4 col-start-1" type="dark">
-          Консультация
-        </PrimaryButton>
+        <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between max-lg:mt-120 max-md:mt-60 max-sm:mt-30">
+          <PrimaryButton row="h-full" type="dark-to-light">
+            Консультация
+          </PrimaryButton>
+        </div>
 
         {/* <div className="row-start-5 col-start-1 col-end-5 flex items-end">
           <div className="w-full flex items-center justify-between">

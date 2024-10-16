@@ -14,17 +14,23 @@ const PocketCard = ({
   price,
   tags,
   onCallMeBackModalOpen,
+  inverseColor = false,
   children,
 }) => {
   const { bgColor } = useContext(ThemeContext);
 
   return (
     <div
-      className={`${bgColor} ${row} ${col} relative border-dashed border-t mx-[0.8px] `}
+      className={`${
+        inverseColor ? `bg-gray-400 text-gray-100` : `${bgColor} text-gray-400`
+      } ${
+        inverseColor && `border-gray-300`
+      } ${row} ${col} relative border-dashed border-t ml-[0.5px] mr-[1px] `}
     >
       <div className="absolute top-0 pt-30 h-full w-full">
         <PrimaryButton
           className="h-60 sticky top-[50svh]"
+          type={`${inverseColor ? `accent-to-light` : `accent`}`}
           onClick={onCallMeBackModalOpen}
         >
           Консультация
@@ -36,18 +42,24 @@ const PocketCard = ({
           <p className="font-text text-sm uppercase leading-[18px] tracking-wide">
             {subTitle}
           </p>
-          <p className="max-sm:hidden text-[26px] font-bold font-extended leading-30">
+          <p className="max-sm:hidden text-[26px] font-bold font-extended leading-[30px]">
             {whenTitle}
           </p>
 
           <div className="sm:hidden text-2xl flex font-normal items-center font-text leading-[1.75rem]">
-            <div className="flex flex-wrap items-center gap-x-5 gap-y-[1px] w-full text-f1-light">
-              <p className="text-gray-400">Пакет:</p>
+            <div
+              className={`flex flex-wrap items-center gap-x-5 gap-y-[1px] w-full`}
+            >
+              <p>Пакет:</p>
               {namesArray != undefined ? (
                 namesArray.map((name, index) => {
                   return (
                     <div
-                      className="px-15 py-5 bg-gray-400 rounded-xl"
+                      className={`${
+                        inverseColor
+                          ? `bg-f1-light text-gray-400`
+                          : `bg-gray-400 text-f1-light`
+                      } px-15 py-5 rounded-xl`}
                       key={index}
                     >
                       {name}
@@ -55,7 +67,15 @@ const PocketCard = ({
                   );
                 })
               ) : (
-                <p className="px-15 py-5 bg-gray-400 rounded-xl">{name}</p>
+                <p
+                  className={`${
+                    inverseColor
+                      ? `bg-f1-light text-gray-400`
+                      : `bg-gray-400 text-f1-light`
+                  } px-15 py-5 rounded-xl`}
+                >
+                  {name}
+                </p>
               )}
             </div>
           </div>
@@ -65,7 +85,13 @@ const PocketCard = ({
           <div className="flex flex-col gap-15">
             <p className="max-sm:hidden text-2xl font-normal font-text leading-7">
               Пакет:
-              <span className="ml-5 text-f1-light px-15 py-5 bg-gray-400 rounded-xl">
+              <span
+                className={`${
+                  inverseColor
+                    ? `bg-f1-light text-gray-400`
+                    : `text-f1-light bg-gray-400`
+                } ml-5 px-15 py-5 rounded-xl`}
+              >
                 {name}
               </span>
             </p>

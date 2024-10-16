@@ -1,5 +1,9 @@
 import Hero from "../components/home/Hero";
 import Why from "../components/home/Why";
+import Cases from "../components/home/Cases";
+import Pockets from "../components/home/Pockets";
+
+import { getAll as getAllServiceCases } from "../data/cases.server";
 
 import type { MetaFunction } from "@remix-run/node";
 
@@ -15,6 +19,13 @@ export default function Services() {
     <div className="flex flex-col">
       <Hero />
       <Why />
+      <Cases />
+      <Pockets />
     </div>
   );
+}
+
+export async function loader() {
+  const serviceCasesData = await getAllServiceCases();
+  return serviceCasesData;
 }
