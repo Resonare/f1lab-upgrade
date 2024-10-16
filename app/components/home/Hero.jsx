@@ -6,10 +6,7 @@ import PrimaryButton from "../buttons/PrimaryButton";
 const Hero = () => {
   return (
     <div>
-      <div
-        className="bg-f1-light absolute left-0 z-[-10] w-[100svw] h-[755px]"
-        // style={{ height: `${contentContainerRef.current.style.height}px`}}
-      ></div>
+      <div className="bg-f1-light absolute left-0 z-[-10] w-[100svw] h-[774.5px]"></div>
       <Section
         id="testr"
         className="text-5xl font-title pt-180 pb-60 whitespace-normal inline-block w-full h-fit"
@@ -37,16 +34,6 @@ const Hero = () => {
             Консультация
           </PrimaryButton>
         </div>
-
-        {/* <div className="row-start-5 col-start-1 col-end-5 flex items-end">
-          <div className="w-full flex items-center justify-between">
-            <img src="/images/logo/dv-logo.png" alt="" />
-            <img src="/images/logo/onduline-logo.svg" alt="" />
-            <img src="/images/logo/dv-logo.png" alt="" />
-            <img src="/images/logo/dv-logo.png" alt="" />
-            <img src="/images/logo/dv-logo.png" alt="" />
-          </div>
-        </div> */}
       </Section>
     </div>
   );
