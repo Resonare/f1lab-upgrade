@@ -28,11 +28,11 @@ const Offers = () => {
       />
 
       <ContentCard
+        className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="sm:row-start-2 row-start-3"
         col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
         iconPath="audit/audit-offer-icon1.svg"
         inverseColor={true}
-        borderLeft={true}
       >
         Исчерпывающую информацию для принятия управленческих решений
       </ContentCard>
@@ -48,11 +48,11 @@ const Offers = () => {
       />
 
       <ContentCard
+        className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-2 row-start-6"
         col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
         iconPath="audit/audit-offer-icon2.svg"
         inverseColor={true}
-        borderRight={true}
       >
         Располагаем ресурсами и компетенциями для решения выявленных проблем
       </ContentCard>
@@ -68,11 +68,11 @@ const Offers = () => {
       />
 
       <ContentCard
+        className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="sm:row-start-3 row-start-9"
         col="sm:col-start-3 col-start-2 lg:col-end-4 col-end-5"
         iconPath="audit/audit-offer-icon3.svg"
         inverseColor={true}
-        borderLeft={true}
       >
         Только понятные, полезные и применимые рекомендации исходя из целей и
         ограничений бизнеса

@@ -2,7 +2,7 @@ import { useFetcher } from "@remix-run/react";
 
 import PrimaryButton from "../buttons/PrimaryButton";
 import Checkbox from "../misc/Checkbox";
-import Paperclip from "../misc/Paperclip";
+import Paperclip from "../misc/svg/Paperclip";
 import Contacts from "./Contacts";
 
 const INITIAL_ERRORS = {

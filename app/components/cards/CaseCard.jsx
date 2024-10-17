@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import ArrowURSecondary from "../misc/ArrowURSecondary";
+import ArrowURSecondary from "../misc/svg/ArrowURSecondary";
 import Tag from "../misc/Tag";
 
 import { ThemeContext } from "../../store/theme-context";

@@ -1,6 +1,6 @@
-import { colors } from "../../../tailwind.config";
+import { colors } from "../../../../tailwind.config";
 
-const ArrowBack = ({ color }) => {
+const ArrowTertiary = ({ color }) => {
   const colorMatch = colors;
 
   return (
@@ -15,13 +15,13 @@ const ArrowBack = ({ color }) => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M18.2295 9.95557L1.31973 9.95547"
+          d="M1.95996 9.95557L18.8697 9.95547"
           stroke={colorMatch[color] || colorMatch.gray["400"]}
           strokeWidth="2"
           strokeLinecap="round"
         />
         <path
-          d="M9.78516 1.51465L1.29992 9.99988L9.7852 18.4852"
+          d="M10.4043 1.51465L18.8895 9.99988L10.4042 18.4852"
           stroke={colorMatch[color] || colorMatch.gray["400"]}
           strokeWidth="2"
           strokeLinecap="round"
@@ -32,4 +32,4 @@ const ArrowBack = ({ color }) => {
   );
 };
 
-export default ArrowBack;
+export default ArrowTertiary;

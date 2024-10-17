@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 
 import { ServicesDropdownContext } from "../../store/navbar-context";
-import ArrowTertiary from "../misc/ArrowTertiary";
+import ArrowTertiary from "../misc/svg/ArrowTertiary";
 
 const ServicesNavigationItem = ({ item }) => {
   const {

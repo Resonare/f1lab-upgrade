@@ -1,6 +1,6 @@
 import { NavLink } from "@remix-run/react";
 import { useContext } from "react";
-import ArrowBack from "../misc/ArrowBack";
+import ArrowBack from "../misc/svg/ArrowBack";
 
 import { NavbarContext } from "../../store/navbar-context";
 

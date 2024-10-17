@@ -30,11 +30,10 @@ const Hero = () => {
         {content.header}
       </div>
       <ContentCard
+        className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
         row="row-start-2"
         col="col-start-1 max-md:col-end-3 max-sm:col-end-5"
         bg={themeContext.bgColor}
-        transparentOnMobile={true}
-        className="max-sm:px-0"
       >
         {content.cards[0]}
       </ContentCard>
@@ -47,11 +46,10 @@ const Hero = () => {
         </div>
       </div>
       <ContentCard
+        className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
         row="row-start-3"
         col="col-start-2 max-md:col-start-3 max-sm:col-start-1 max-md:col-end-5"
         bg={themeContext.bgColor}
-        transparentOnMobile={true}
-        className="max-sm:px-0"
       >
         {content.cards[1]}
       </ContentCard>

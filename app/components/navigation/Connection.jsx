@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import ArrowConnect from "../misc/ArrowConnect";
+import ArrowConnect from "../misc/svg/ArrowConnect";
 import SecondaryButton from "../buttons/SecondaryButton";
 import NumberInput from "../misc/NumberInput";
 

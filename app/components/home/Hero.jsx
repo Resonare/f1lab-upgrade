@@ -24,7 +24,7 @@ const Hero = () => {
 
         <div className="h-90 col-start-1 col-end-5 row-start-2"></div>
 
-        <ContentCard row="row-start-3" col="col-start-1">
+        <ContentCard className="border-t" row="row-start-3" col="col-start-1">
           Мы позаботимся о технической стороне, чтобы вы могли смело развивать
           свой бизнес
         </ContentCard>

@@ -1,4 +1,4 @@
-import ArrowURPrimary from "../misc/ArrowURPrimary";
+import ArrowURPrimary from "../misc/svg/ArrowURPrimary";
 
 const PrimaryButton = ({
   row = "",

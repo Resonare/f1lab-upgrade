@@ -3,6 +3,7 @@ import Why from "../components/home/Why";
 import Cases from "../components/home/Cases";
 import Pockets from "../components/home/Pockets";
 import Benefits from "../components/home/Benefits";
+import Solutions from "../components/home/Solutions";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
 
@@ -20,6 +21,7 @@ export default function Services() {
     <div className="flex flex-col">
       <Hero />
       <Why />
+      <Solutions />
       <Benefits />
       <Cases />
       <Pockets />

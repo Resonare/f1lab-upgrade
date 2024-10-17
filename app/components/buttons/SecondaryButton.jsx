@@ -1,6 +1,6 @@
 import { NavLink } from "@remix-run/react";
 import { useContext } from "react";
-import ArrowURSecondary from "../misc/ArrowURSecondary";
+import ArrowURSecondary from "../misc/svg/ArrowURSecondary";
 
 import { NavbarContext } from "../../store/navbar-context";
 import { ThemeContext } from "../../store/theme-context";
