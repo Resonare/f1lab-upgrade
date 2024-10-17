@@ -15,7 +15,7 @@ const Why = () => {
 
       <SolutionsCarousel className="col-start-1 col-end-5 row-start-2">
         <ContentCard
-          className="basis-3/12 gap-30"
+          className="basis-3/12 gap-30 border-y border-l border-gray-300"
           iconPath="home/solutions-icon1.svg"
         >
           <div className="flex flex-col gap-15">
@@ -30,7 +30,7 @@ const Why = () => {
         </ContentCard>
 
         <ContentCard
-          className="basis-3/12 gap-30 border-t-[0px]"
+          className="basis-3/12 gap-30 border-y border-l border-gray-300"
           iconPath="home/solutions-icon1.svg"
         >
           <div className="flex flex-col gap-15">
@@ -40,6 +40,38 @@ const Why = () => {
             <p className="text-gray-100 text-xl font-light font-text">
               Решение технических проблем и предотвращение угроз безопасности
               данных — не ваша работа, а наша.
+            </p>
+          </div>
+        </ContentCard>
+
+        <ContentCard
+          className="basis-3/12 gap-30 border-y border-l border-gray-300"
+          iconPath="home/solutions-icon1.svg"
+        >
+          <div className="flex flex-col gap-15">
+            <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-[35px]">
+              С нами приятно иметь дело
+            </p>
+            <p className="text-gray-100 text-xl font-light font-text">
+              Профессионализм, порядочность, исполнительность, пунктуальность,
+              доброжелательность - те качества, которые в F1Lab ценятся превыше
+              всего.
+            </p>
+          </div>
+        </ContentCard>
+
+        <ContentCard
+          className="basis-3/12 gap-30 border-y border-l border-gray-300"
+          iconPath="home/solutions-icon1.svg"
+        >
+          <div className="flex flex-col gap-15">
+            <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-[35px]">
+              С нами приятно иметь дело
+            </p>
+            <p className="text-gray-100 text-xl font-light font-text">
+              Профессионализм, порядочность, исполнительность, пунктуальность,
+              доброжелательность - те качества, которые в F1Lab ценятся превыше
+              всего.
             </p>
           </div>
         </ContentCard>

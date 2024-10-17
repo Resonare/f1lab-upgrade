@@ -1,18 +1,26 @@
 import Section from "../../layout/Section";
 import SectionTitle from "../SectionTitle";
 import CaseCard from "../cards/CaseCard";
+import BackgroundGrid from "../BackgroundGrid";
 
 const Hero = () => {
   return (
     <div>
-      <div className="bg-f1-light absolute left-0 z-[-10] w-[100svw] h-[606px]"></div>
+      <div className="absolute h-[606px] w-full z-[-1] flex justify-end items-end">
+        <BackgroundGrid
+          inverseColor={true}
+          customLinesColor="border-gray-250"
+          customBgColor="bg-f1-light"
+        />
+      </div>
+
       <Section className="py-60">
         <div className="col-start-1 col-end-5 flex items-stretch [&>div>div]:h-full">
           <div className="flex flex-col justify-between basis-4/12">
             <SectionTitle className="md:pb-60">
               Передать задачи
               <br />
-              <span className="text-[#606467]">
+              <span className="text-gray-300">
                 по обслуживанию и модернизации IT инфраструктуры
               </span>
               <br />
@@ -28,7 +36,7 @@ const Hero = () => {
 
           <div className="flex flex-col basis-4/12 justify-between">
             <CaseCard
-              className="border-l border-y"
+              className="border-l border-y border-gray-250"
               customBgColor="bg-f1-light"
               hoverDisabled={true}
             >
@@ -65,7 +73,7 @@ const Hero = () => {
 
           <div className="flex flex-col basis-4/12 justify-between">
             <CaseCard
-              className="border-x border-t"
+              className="border-x border-t border-gray-250"
               customBgColor="bg-f1-light"
               hoverDisabled={true}
             >
@@ -97,7 +105,7 @@ const Hero = () => {
             </CaseCard>
 
             <CaseCard
-              className="border"
+              className="border border-gray-250"
               customBgColor="bg-f1-light"
               hoverDisabled={true}
             >

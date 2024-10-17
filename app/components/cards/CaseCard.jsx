@@ -11,7 +11,6 @@ const CaseCard = ({
   tags = [],
   logoPath,
   className = "",
-  maxLgHidden = false,
   currentLocation = "",
   hoverDisabled = false,
   customBgColor = "",
@@ -20,11 +19,7 @@ const CaseCard = ({
   const { bgColor } = useContext(ThemeContext);
 
   return (
-    <div
-      className={`${row} ${col} ${
-        maxLgHidden ? `max-lg:hidden` : ``
-      } group bg-gray-400`}
-    >
+    <div className={`${row} ${col} group bg-gray-400`}>
       <div
         className={`${customBgColor ? customBgColor : bgColor} ${className} ${
           !hoverDisabled && `cursor-pointer`

@@ -1,11 +1,21 @@
 import { useRef, useState } from "react";
 
-const SolutionsCarousel = ({ className, children }) => {
+const SolutionsCarousel = ({cardsOnPage = 4, className, children }) => {
   const [curPage, setCurPage] = useState(0);
 
-  const handleNextPage = () => {};
+  const pagesAmount = Math.ceil(children.length / cardsOnPage);
 
-  const handlePrevPage = () => {};
+  //Function makes counter equal to min if greater than max and equal to max if smaller than min
+  const handleOverflow = (counter, min, max) =>
+    counter > max ? min : counter < min ? max : counter;
+
+  const handleNext = () => {
+    setCurPage((prevPage) => handleOverflow(prevPage + 1, 0, pagesAmount - 1));
+  };
+
+  const handlePrev = () => {
+    setCurPage((prevPage) => handleOverflow(prevPage - 1, 0, pagesAmount - 1));
+  };
 
   return (
     <>

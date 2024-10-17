@@ -57,7 +57,7 @@ const Cases = () => {
       row: "row-start-3",
       col: "col-start-2",
       border: "max-lg:hidden border-y border-l",
-      maxLgHidden: true,
+      className: "max-lg:hidden",
     };
   }
 
@@ -67,7 +67,7 @@ const Cases = () => {
       row: "row-start-3",
       col: "col-start-3",
       border: `border-y border-x`,
-      maxLgHidden: true,
+      className: "max-lg:hidden",
     };
   }
 
@@ -90,7 +90,7 @@ const Cases = () => {
             currentLocation={currentLocation}
             row={serviceCase.row}
             col={serviceCase.col}
-            className={`${serviceCase.border}`}
+            className={`${serviceCase.border} ${serviceCase.className}`}
           >
             {serviceCase.description}
           </CaseCard>
