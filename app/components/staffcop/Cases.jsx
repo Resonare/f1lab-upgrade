@@ -73,13 +73,13 @@ const Cases = () => {
 
   return (
     <div id="cases">
-      <Section className="max-sm:hidden my-60">
+      <Section className="max-sm:hidden">
         <SectionTitle
           row="row-start-1"
-          col="md:col-start-2 col-start-1 col-end-4"
+          col="md:col-start-2 col-start-1 lg:col-end-5 md:col-end-4 col-end-5"
           className="md:pb-60"
         >
-          Кейсы: как мы решаем задачи наших клиентов
+          Примеры кейсов со Staffcop
         </SectionTitle>
 
         {serviceCases.map((serviceCase) => (

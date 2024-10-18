@@ -8,17 +8,24 @@ import Condition from "../misc/Condition";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const PriceCard = ({ row = "", col = "", plan, className = "", children }) => {
+const PriceCard = ({
+  row = "",
+  col = "",
+  plan,
+  buttonTitle = "Заказать",
+  className = "",
+  children,
+}) => {
   const { showPlanModal } = useModalStore();
   const { bgColor } = useContext(ThemeContext);
 
-  const { title, price, mainCondition, mainConditionIcon, conditions } = plan;
+  const { title, price, mainConditions, mainConditionIcons, conditions } = plan;
 
   const dummyAddToCartHandler = () => {};
 
   return (
     <div
-      className={`${row} ${col} ${className} max-sm:${bgColor} relative xl:p-30 p-15 border-y border-dashed flex flex-col sm:gap-60 gap-30`}
+      className={`${row} ${col} ${className} max-sm:${bgColor} relative xl:p-30 p-15 border-dashed flex flex-col sm:gap-60 gap-30 justify-between`}
     >
       <div className="flex flex-col gap-30">
         <div className="flex flex-col gap-15">
@@ -33,13 +40,18 @@ const PriceCard = ({ row = "", col = "", plan, className = "", children }) => {
           <p className="sm:text-gray-300 text-gray-400 sm:text-lg text-sm font-text font-normal sm:leading-snug leading-tight">
             {children}
           </p>
-          <Condition
-            className="text-gray-400 sm:text-2xl text-base font-extended font-bold sm:leading-[29px] leading-[18px]"
-            icon={mainConditionIcon}
-            iconClassName="w-30"
-          >
-            {mainCondition}
-          </Condition>
+          <div className="flex flex-col gap-15">
+            {mainConditions.map((condition, index) => (
+              <Condition
+                key={index}
+                className="text-gray-400 sm:text-2xl text-base font-extended font-bold sm:leading-[29px] leading-[18px]"
+                icon={mainConditionIcons[index]}
+                iconClassName="w-30"
+              >
+                {condition}
+              </Condition>
+            ))}
+          </div>
           <div className="flex flex-col gap-15">
             {conditions.map((condition, index) => (
               <Condition
@@ -59,7 +71,7 @@ const PriceCard = ({ row = "", col = "", plan, className = "", children }) => {
         className="max-sm:hidden"
         onClick={() => showPlanModal(plan)}
       >
-        Заказать
+        {buttonTitle}
       </PrimaryButton>
 
       <PrimaryButton
@@ -67,7 +79,7 @@ const PriceCard = ({ row = "", col = "", plan, className = "", children }) => {
         type="accent"
         onClick={() => showPlanModal(plan)}
       >
-        Заказать
+        {buttonTitle}
       </PrimaryButton>
 
       <div className="absolute top-0 right-0">

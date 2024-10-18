@@ -7,7 +7,6 @@ import SectionTitle from "../SectionTitle";
 import PrimaryButton from "../buttons/PrimaryButton";
 import ContentCard from "../cards/ContentCard";
 import SchemaCanvas from "./SchemaCanvas";
-import ShoppingCart from "../shoppingCart/ShoppingCart";
 
 import { ThemeContext } from "../../store/theme-context";
 
@@ -16,10 +15,11 @@ const Hero = () => {
   const { showCallMeBackModal } = useModalStore();
 
   const content = {
-    header: "ИТ‑аудит с применимыми рекомендациями",
+    header:
+      "Staffcop — система расследования инцидентов внутренней безопасности",
     cards: [
-      "Хотите убедиться, что ваша ИТ-инфраструктура соответствует целям вашего бизнеса и не создает ненужных рисков?",
-      "ИТ-аудит предоставит полный отчёт о состоянии и отказоустойчивости вашей ИТ-среды.",
+      "Хотите защитить свою компанию от утечек данных и повысить продуктивность сотрудников?",
+      "F1 Lab — официальный партнер Staffcop. Подберем лицензию под задачи, осуществим установку, настройку и обучение для полного контроля над информационной безопасностью.",
     ],
   };
 
@@ -28,11 +28,12 @@ const Hero = () => {
   return (
     <Section hero={true}>
       <SectionTitle
-        className="xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px] leading-[60px]"
+        className="xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px]"
         col="col-start-1 col-end-3"
       >
         {content.header}
       </SectionTitle>
+
       <ContentCard
         className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
         row="row-start-2"
@@ -84,10 +85,6 @@ const Hero = () => {
               100 000 ₽
             </div>
           </div>
-          {/* <ShoppingCart
-            className="max-sm:w-90 border-y max-sm:border-l p-15 lg:h-full h-fit lg:hidden"
-            addHandler={dummyAddToCartHandler}
-          /> */}
         </div>
 
         <PrimaryButton
@@ -100,15 +97,14 @@ const Hero = () => {
         </PrimaryButton>
       </div>
       <div className="row-start-4 max-lg:mt-60 col-start-2 col-end-5 lg:col-end-2 max-lg:hidden">
-        <div className="h-full flex">
-          {/* <ShoppingCart
-            className="border-x border-b p-15"
-            addHandler={dummyAddToCartHandler}
-          /> */}
-        </div>
+        <div className="h-full flex"></div>
       </div>
-      <div className="md:row-start-2 row-start-4 md:row-end-4 md:col-start-3 col-start-1 col-end-5 lg:row-start-1 lg:row-end-4 lg:col-start-3 lg:col-end-5 max-md:hidden max-sm:block md:h-[calc(100svh-290px)] max-lg:h-[34svh] max-sm:h-full">
-        <SchemaCanvas />
+      <div className="row-start-1 row-end-5 col-start-3 col-end-5 h-[calc(100svh-290px)]">
+        <img
+          className="w-full aspect-square"
+          src="/images/staffcop/hero-banner.png"
+          alt=""
+        />
       </div>
     </Section>
   );

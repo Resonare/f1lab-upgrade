@@ -13,10 +13,10 @@ const ContentCard = ({
       className={`${row} ${col} ${bg && bg} ${
         inverseColor && `border-gray-300 max-sm:bg-gray-400`
       } ${
-        iconPath ? `sm:min-h-[280px] sm:justify-between` : `justify-center`
+        iconPath ? `sm:min-h-[280px] sm:justify-start` : `justify-center`
       } ${
         !notInGrid && `sm:mx-[1.2px]`
-      } xl:p-30 sm:p-15 p-0 max-sm:p-10 mt-[-1px] border-dashed flex flex-col ${className}`}
+      } xl:p-30 sm:p-15 p-0 max-sm:p-10 mt-[-1px] border-dashed flex flex-col gap-60 ${className}`}
     >
       {iconPath ? (
         <div className="max-sm:hidden">

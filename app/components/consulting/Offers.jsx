@@ -10,7 +10,7 @@ const Offers = () => {
   const { showCallMeBackModal } = useModalStore();
 
   return (
-    <Section rowsAmount={3} inverseColor={true} id="offers">
+    <Section inverseColor={true} id="offers">
       <SectionTitle
         className="text-f1-light"
         row="row-start-1"

@@ -18,7 +18,7 @@ const Pockets = () => {
   ];
 
   return (
-    <Section id="" inverseColor={true} rowsAmount={3}>
+    <Section id="" inverseColor={true}>
       <SectionTitle
         className="text-gray-100 flex justify-center"
         col="col-start-1"

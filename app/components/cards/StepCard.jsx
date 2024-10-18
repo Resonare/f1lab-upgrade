@@ -25,9 +25,15 @@ const StepCard = ({
         {upperLabels.map((label, index) => (
           <div
             key={index}
-            className="bg-f1-light rounded-[15px] xl:px-15 px-10 py-5"
+            className={`${
+              index == 0 ? `bg-gray-400` : `bg-f1-light`
+            } rounded-[15px] xl:px-15 px-10 py-5`}
           >
-            <p className="uppercase text-gray-400 text-sm font-bold font-text">
+            <p
+              className={`${
+                index == 0 ? `text-f1-light` : `text-gray-400`
+              } uppercase text-sm font-bold font-text`}
+            >
               {label}
             </p>
           </div>
@@ -46,7 +52,7 @@ const StepCard = ({
         <div
           className={`${
             tags.length == 0 ? "mt-30" : ""
-          } sm:text-xl text-[1rem] text-gray-300 font-light font-text sm:leading-relaxed leading-tight`}
+          } sm:text-xl text-[1rem] text-gray-300 font-light font-text`}
         >
           {children}
         </div>

@@ -133,7 +133,7 @@ export const navData = [
         textColor: "text-security",
         items: [
           {
-            link: "dlp",
+            link: "staffcop",
             title: "Защита от утечек и контроль действий сотрудников",
             bgColor: "bg-security",
             textColor: "text-security",

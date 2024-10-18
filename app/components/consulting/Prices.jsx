@@ -9,8 +9,8 @@ const Prices = () => {
       title: "Аудит S",
       price: "7 200 ₽",
       annualPrice: "6 120 ₽",
-      mainCondition: "1-5 рабочих мест",
-      mainConditionIcon: "desktop-icon.svg",
+      mainConditions: ["1-5 рабочих мест"],
+      mainConditionIcons: ["desktop-icon.svg"],
       conditions: [
         "12 часов удаленной поддержки",
         "2 экстренных выезда",
@@ -24,8 +24,8 @@ const Prices = () => {
       title: "Аудит M",
       price: "7 200 ₽",
       annualPrice: "6 120 ₽",
-      mainCondition: "1-5 рабочих мест",
-      mainConditionIcon: "desktop-icon.svg",
+      mainConditions: ["1-5 рабочих мест"],
+      mainConditionIcons: ["desktop-icon.svg"],
       conditions: [
         "12 часов удаленной поддержки",
         "2 экстренных выезда",
@@ -39,8 +39,8 @@ const Prices = () => {
       title: "Аудит L",
       price: "7 200 ₽",
       annualPrice: "6 120 ₽",
-      mainCondition: "1-5 рабочих мест",
-      mainConditionIcon: "desktop-icon.svg",
+      mainConditions: ["1-5 рабочих мест"],
+      mainConditionIcons: ["desktop-icon.svg"],
       conditions: [
         "12 часов удаленной поддержки",
         "2 экстренных выезда",
@@ -53,7 +53,7 @@ const Prices = () => {
   ];
   return (
     <>
-      <Section className="max-sm:hidden" id="prices" rowsAmount={4}>
+      <Section className="max-sm:hidden" id="prices">
         <SectionTitle
           row="row-start-1"
           col="col-start-1 lg:col-end-2 col-end-3"
@@ -62,6 +62,7 @@ const Prices = () => {
         </SectionTitle>
 
         <PriceCard
+          className="border-y"
           row="row-start-1"
           col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
           plan={plansData[0]}
@@ -70,6 +71,7 @@ const Prices = () => {
         </PriceCard>
 
         <PriceCard
+          className="border-y"
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
           plan={plansData[1]}
@@ -78,6 +80,7 @@ const Prices = () => {
         </PriceCard>
 
         <PriceCard
+          className="border-y"
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
           plan={plansData[2]}
@@ -91,6 +94,7 @@ const Prices = () => {
 
         <Carousel className="border-x">
           <PriceCard
+            className="border-y"
             row="row-start-1"
             col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
             plan={plansData[0]}
@@ -99,6 +103,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
+            className="border-y"
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
             plan={plansData[1]}
@@ -107,6 +112,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
+            className="border-y"
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
             plan={plansData[2]}

@@ -72,8 +72,8 @@ const Cases = () => {
   }
 
   return (
-    <div id="cases">
-      <Section rowsAmount={4} className="max-sm:hidden">
+    <>
+      <Section id="cases" className="max-sm:hidden">
         <SectionTitle
           row="row-start-1"
           col="md:col-start-2 col-start-1 lg:col-end-5 md:col-end-4 col-end-5"
@@ -178,7 +178,7 @@ const Cases = () => {
           className="h-fit"
         ></ReviewCard>
       </div>
-    </div>
+    </>
   );
 };
 

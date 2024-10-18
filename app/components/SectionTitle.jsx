@@ -1,4 +1,4 @@
-const SectionTitle = ({ row, col, className = "", children }) => {
+const SectionTitle = ({ row = "", col = "", className = "", children }) => {
   return (
     <div className={`${row} ${col} text-gray-400`}>
       <p
