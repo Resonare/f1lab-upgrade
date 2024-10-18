@@ -1,21 +1,27 @@
+import useModalStore from "../../store/modal";
+
 import VerticalCarousel from "../misc/VerticalCarousel";
 import ContentCard from "../cards/ContentCard";
 import Section from "../../layout/Section";
 import PrimaryButton from "../buttons/PrimaryButton";
 import BackgroundGrid from "../BackgroundGrid";
-import HomeAnimation from "../misc/animations/HomeAnimation";
+import Animation from "../misc/animations/Animation";
+
+import homeAnimationJson from "../misc/animations/home-animation.json";
 
 const Hero = () => {
+  const { showCallMeBackModal } = useModalStore();
+
   return (
     <div className="h-fit">
-      <div className="absolute h-[750px] w-full z-[-1] flex justify-end items-end">
+      <div className="absolute h-[750px] w-full z-[-1] flex justify-end">
         <BackgroundGrid
           inverseColor={true}
           customLinesColor="border-gray-250"
           customBgColor="bg-f1-light"
         />
-        <div className="xl:px-120 lg:px-60 sm:px-[44.1px] px-15">
-          <HomeAnimation />
+        <div className="xl:px-120 lg:px-60 sm:px-[44.1px] px-15 pt-[70px] lg:pt-90 h-full">
+          <Animation data={homeAnimationJson} width="2000px" />
         </div>
       </div>
       <Section className="text-5xl font-title pt-180 pb-60 whitespace-normal inline-block w-full h-fit">
@@ -42,7 +48,11 @@ const Hero = () => {
         </ContentCard>
 
         <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between max-lg:mt-120 max-md:mt-60 max-sm:mt-30">
-          <PrimaryButton row="h-full" type="dark-to-light">
+          <PrimaryButton
+            row="h-full"
+            type="dark-to-light"
+            onClick={showCallMeBackModal}
+          >
             Консультация
           </PrimaryButton>
         </div>

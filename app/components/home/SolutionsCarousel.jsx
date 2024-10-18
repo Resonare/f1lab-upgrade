@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-const SolutionsCarousel = ({cardsOnPage = 4, className, children }) => {
+const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
   const [curPage, setCurPage] = useState(0);
 
   const pagesAmount = Math.ceil(children.length / cardsOnPage);
@@ -17,11 +17,56 @@ const SolutionsCarousel = ({cardsOnPage = 4, className, children }) => {
     setCurPage((prevPage) => handleOverflow(prevPage - 1, 0, pagesAmount - 1));
   };
 
+  const getPageIndicators = () => {
+    const pageIndicators = [];
+
+    for (let i = 0; i < pagesAmount; i++) {
+      pageIndicators.push(
+        <div
+          key={i}
+          className={`${
+            i == curPage ? `text-f1-light` : `text-gray-200`
+          } flex-1 flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}
+        >
+          <p>•</p>
+        </div>
+      );
+    }
+
+    return pageIndicators;
+  };
+
+  const getCurContent = () => {
+    const curContent = children.slice(
+      curPage * cardsOnPage,
+      curPage * cardsOnPage + cardsOnPage
+    );
+
+    return curContent.map((content, index) => (
+      <div key={index} className="basis-3/12 [&>div]:h-full">
+        {content}
+      </div>
+    ));
+  };
+
+  let content = getCurContent();
+
   return (
     <>
-      <div className={`${className} bg-gray-400 flex`}>{children}</div>
+      <div
+        className={`${className} ${
+          content.length != cardsOnPage ? `border-x` : `border-l`
+        } border-y border-gray-300 border-dashed bg-gray-400 flex`}
+      >
+        {content}
+      </div>
 
-      <div className="col-start-3">
+      <div className="col-start-1 flex">{getPageIndicators()}</div>
+
+      <div
+        className="col-start-3 py-15 px-5 cursor-pointer hover:pl-0 hover:pr-10 transition-all"
+        onClick={handlePrev}
+      >
         <svg
           width="100%"
           height="100%"
@@ -36,7 +81,10 @@ const SolutionsCarousel = ({cardsOnPage = 4, className, children }) => {
         </svg>
       </div>
 
-      <div className="col-start-4">
+      <div
+        className="col-start-4 cursor-pointer hover:pr-0 hover:pl-10 transition-all"
+        onClick={handleNext}
+      >
         <svg
           width="100%"
           height="100%"

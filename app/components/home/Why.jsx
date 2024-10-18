@@ -1,11 +1,14 @@
 import Section from "../../layout/Section";
 import SectionTitle from "../SectionTitle";
 import ContentCard from "../cards/ContentCard";
+import Animation from "../misc/animations/Animation";
+
+import whyAnimationJson from "../misc/animations/why-animation.json";
 
 const Why = () => {
   return (
     <Section
-      className="text-5xl font-title pb-60 whitespace-normal inline-block w-full h-fit"
+      className="text-5xl font-title whitespace-normal inline-block w-full h-fit"
       inverseColor={true}
     >
       <SectionTitle
@@ -15,8 +18,8 @@ const Why = () => {
         Почему F1lab?
       </SectionTitle>
 
-      <div className="col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex">
-        <img src="" alt="" />
+      <div className="h-[360px] col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">
+        <Animation data={whyAnimationJson} />
       </div>
 
       <div className="col-start-1 col-end-5 row-start-3 flex">
