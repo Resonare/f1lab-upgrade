@@ -29,7 +29,7 @@ const Animation = ({ data, width }) => {
     <div
       className={`${
         !loaded && `opacity-0`
-      } transition-all duration-500 h-full [&>div]:h-full [&_svg]:w-[2000px] [&_svg]:h-full`}
+      } transition-all duration-500 h-full [&>div]:h-full [&_svg]:w-full [&_svg]:h-full`}
     >
       {View}
     </div>

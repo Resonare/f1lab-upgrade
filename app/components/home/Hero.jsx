@@ -13,18 +13,18 @@ const Hero = () => {
   const { showCallMeBackModal } = useModalStore();
 
   return (
-    <div className="h-fit">
-      <div className="absolute h-[750px] w-full z-[-1] flex justify-end">
+    <div className="relative h-[750px]">
+      <div className="bg-f1-light h-full w-[100svw] -z-[9] absolute left-1/2 translate-x-[-50%]">
         <BackgroundGrid
-          inverseColor={true}
+          className="-z-[9] absolute left-1/2 translate-x-[-50%] h-[750px]"
           customLinesColor="border-gray-250"
-          customBgColor="bg-f1-light"
+          hFull={false}
         />
-        <div className="xl:px-120 lg:px-60 sm:px-[44.1px] px-15 pt-[70px] lg:pt-90 h-full">
-          <Animation data={homeAnimationJson} width="2000px" />
+        <div className="h-[750px] w-full absolute left-1/2 translate-x-[-50%] xl:px-120 lg:px-60 sm:px-[44.1px] px-15 pt-[70px] lg:pt-90 max-w-[1921px]">
+          <Animation data={homeAnimationJson} width="3000px" />
         </div>
       </div>
-      <Section className="text-5xl font-title pt-180 pb-60 whitespace-normal inline-block w-full h-fit">
+      <Section className="2xl:border-gray-250 text-5xl font-title pt-180 pb-60 whitespace-normal inline-block w-full h-fit">
         <div className="text-gray-400 row-start-1 col-start-1 col-end-4 text-[56px]">
           <div className="flex items-center">
             IT-

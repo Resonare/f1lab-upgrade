@@ -6,7 +6,7 @@ import BackgroundGrid from "../BackgroundGrid";
 const Hero = () => {
   return (
     <div>
-      <div className="absolute h-[606px] w-full z-[-1] flex justify-end items-end">
+      {/* <div className="absolute h-[606px] w-full z-[-1] flex justify-end items-end">
         <BackgroundGrid
           inverseColor={true}
           customLinesColor="border-gray-250"
@@ -120,7 +120,7 @@ const Hero = () => {
             </CaseCard>
           </div>
         </div>
-      </Section>
+      </Section> */}
     </div>
   );
 };
