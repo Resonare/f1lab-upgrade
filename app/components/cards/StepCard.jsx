@@ -9,17 +9,18 @@ const StepCard = ({
   tags = [],
   upperLabels = [],
   inverseColor = false,
+  className = "",
   children,
 }) => {
   const { bgColor } = useContext(ThemeContext);
 
   return (
     <div
-      className={`${row} ${col} max-sm:${bgColor} ${
+      className={`${className} ${row} ${col} max-sm:${bgColor} ${
         inverseColor ? "bg-gray-400 max-sm:bg-gray-400" : ""
       } ${
         upperLabels.length == 0 ? "" : "gap-15"
-      } sm:gap-60 xl:p-30 p-15 mt-[-1px] sm:mx-[1px] border-y border-dashed flex flex-col w-fit`}
+      } lg:gap-60 sm:gap-30 xl:p-30 p-15 mt-[-1px] sm:mx-[1px] border-y border-dashed flex flex-col w-fit`}
     >
       <div className="flex flex-wrap gap-[2px]">
         {upperLabels.map((label, index) => (
@@ -40,7 +41,7 @@ const StepCard = ({
         ))}
       </div>
       <div
-        className={`${tags.length == 0 ? "" : "gap-30"} flex flex-col w-fit`}
+        className={`${tags.length == 0 ? "" : "lg:gap-30 gap-15"} flex flex-col w-fit`}
       >
         <p
           className={`${

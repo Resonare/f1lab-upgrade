@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../store/theme-context";
+
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
@@ -9,6 +12,8 @@ import Carousel from "../misc/Carousel";
 import SecondaryButton from "../buttons/SecondaryButton";
 
 const Process = () => {
+  const { bgColor } = useContext(ThemeContext);
+
   const { showCallMeBackModal } = useModalStore();
   //REDO NEEDED
   const tags = {
@@ -47,6 +52,7 @@ const Process = () => {
         </SectionTitle>
 
         <StepCard
+          className={`${bgColor}`}
           row="row-start-2"
           col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
           title="Определение целей и объема аудита"
@@ -65,6 +71,7 @@ const Process = () => {
         </StepCard>
 
         <StepCard
+          className={`${bgColor}`}
           row="row-start-3"
           col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
           title="Инвентаризация оборудования, ПО и сетей"
@@ -82,6 +89,7 @@ const Process = () => {
         </StepCard>
 
         <StepCard
+          className={`${bgColor}`}
           row="row-start-4"
           col="xl:col-start-4 lg:col-start-4 col-start-1 xl:col-end-5 lg:col-end-5 col-end-3"
           title="Оценка производительности, безопасности и соответствия нормативным требованиям"
@@ -99,6 +107,7 @@ const Process = () => {
         </StepCard>
 
         <StepCard
+          className={`${bgColor}`}
           row="row-start-5"
           col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
           title="Проведение тестов на уязвимости и отказоустойчивость "
@@ -116,6 +125,7 @@ const Process = () => {
         </StepCard>
 
         <StepCard
+          className={`${bgColor}`}
           row="row-start-6"
           col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
           title="Составление отчета с результатами и рекомендациями по улучшению."
@@ -134,7 +144,7 @@ const Process = () => {
           безопасности и соответствия нормативным требованиям IT инфраструктуры.
         </StepCard>
 
-        <div className="sticky top-0 max-lg:pt-100 col-start-1 max-lg:col-end-5 lg:row-start-2 row-start-7 lg:row-end-3 lg:h-full h-fit">
+        <div className="sticky top-0 lg:mt-0 md:mt-60 sm:mt-30 col-start-1 max-lg:col-end-5 lg:row-start-2 row-start-7 lg:row-end-3 lg:h-full h-fit">
           <PrimaryButton
             type="dark"
             className="lg:absolute lg:bottom-[-60px]"

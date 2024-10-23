@@ -23,7 +23,7 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
+        className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-2 row-start-3"
         col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
         iconPath="audit/audit-scenario-icon1.svg"
@@ -41,7 +41,7 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
+        className={`${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
         row="sm:row-start-2 row-start-6"
         col="sm:col-start-3 col-start-1 xl:col-end-4 lg:col-end-4 sm:col-end-5 col-end-4"
         iconPath="audit/audit-scenario-icon2.svg"
@@ -59,7 +59,7 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
+        className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-3 row-start-9"
         col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
         iconPath="audit/audit-scenario-icon3.svg"
@@ -77,7 +77,7 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
+        className={`${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
         row="sm:row-start-3 row-start-12"
         col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
         iconPath="audit/audit-scenario-icon4.svg"
