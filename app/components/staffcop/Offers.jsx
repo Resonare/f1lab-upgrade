@@ -14,7 +14,7 @@ const Offers = () => {
       <SectionTitle
         className="text-f1-light"
         row="row-start-1"
-        col="sm:col-start-2 col-start-1 lg:col-end-5 sm:col-end-4 col-end-5"
+        col="md:col-start-2 col-start-1 md:col-end-4 col-end-5"
       >
         Что мы предлагаем?
       </SectionTitle>
@@ -30,7 +30,7 @@ const Offers = () => {
       <ContentCard
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="sm:row-start-2 row-start-3"
-        col="lg:col-start-1 sm:col-start-1 col-start-2 sm:col-end-2 col-end-5"
+        col="sm:col-start-1 col-start-2 lg:col-end-2 sm:col-end-3 col-end-5"
         iconPath="staffcop/offer-icon1.svg"
         inverseColor={true}
       >
@@ -50,7 +50,7 @@ const Offers = () => {
       <ContentCard
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="sm:row-start-2 row-start-3"
-        col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
+        col="lg:col-start-2 sm:col-start-3 col-start-2 lg:col-end-3 col-end-5"
         iconPath="staffcop/offer-icon2.svg"
         inverseColor={true}
       >
@@ -70,8 +70,8 @@ const Offers = () => {
 
       <ContentCard
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
-        row="sm:row-start-2 row-start-3"
-        col="lg:col-start-3 sm:col-start-1 col-start-2 sm:col-end-4 col-end-5"
+        row="lg:row-start-2 row-start-3"
+        col="lg:col-start-3 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
         iconPath="staffcop/offer-icon3.svg"
         inverseColor={true}
       >
@@ -92,7 +92,7 @@ const Offers = () => {
       <ContentCard
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-3 row-start-6"
-        col="lg:col-start-2 sm:col-start-3 col-start-1 sm:col-end-3 col-end-4"
+        col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
         iconPath="staffcop/offer-icon3.svg"
         inverseColor={true}
       >
@@ -112,8 +112,8 @@ const Offers = () => {
 
       <ContentCard
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
-        row="sm:row-start-3 row-start-9"
-        col="sm:col-start-3 col-start-2 lg:col-end-4 col-end-5"
+        row="lg:row-start-3 sm:row-start-4 row-start-9"
+        col="lg:col-start-3 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
         iconPath="staffcop/offer-icon3.svg"
         inverseColor={true}
       >
@@ -130,11 +130,11 @@ const Offers = () => {
         imagePath="staffcop/offer-icon4.svg"
         inverseColor={true}
       />
-
+      
       <ContentCard
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
-        row="sm:row-start-3 row-start-9"
-        col="sm:col-start-4 col-start-2 lg:col-end-5 col-end-5"
+        row="lg:row-start-3 sm:row-start-4 row-start-9"
+        col="lg:col-start-4 sm:col-start-3 col-start-2 col-end-5"
         iconPath="staffcop/offer-icon4.svg"
         inverseColor={true}
       >
@@ -144,8 +144,8 @@ const Offers = () => {
 
       <PrimaryButton
         type="light"
-        row="row-start-4"
-        col="col-start-1 xl:col-end-3 lg:col-end-3 col-end-6"
+        row="lg:row-start-4 sm:row-start-5"
+        col="col-start-1 lg:col-end-3 col-end-5"
         className="max-sm:hidden"
         onClick={showCallMeBackModal}
       >

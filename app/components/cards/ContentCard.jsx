@@ -11,7 +11,7 @@ const ContentCard = ({
   return (
     <div
       className={`${row} ${col} ${bg && bg} ${
-        inverseColor && `border-gray-300 max-sm:bg-gray-400`
+        inverseColor && `border-gray-300 bg-gray-400`
       } ${
         iconPath ? `sm:min-h-[280px] sm:justify-start` : `justify-center`
       } ${
