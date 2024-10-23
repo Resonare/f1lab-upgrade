@@ -23,9 +23,9 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
+        className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-2 row-start-3"
-        col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
+        col="sm:col-start-1 col-start-2 lg:col-end-2 sm:col-end-3 col-end-5"
         iconPath="staffcop/scenario-icon1.svg"
       >
         Отследить передачу конфиденциальной информации через мессенджеры или
@@ -42,9 +42,9 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
+        className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-2 row-start-3"
-        col="sm:col-start-2 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
+        col="lg:col-start-2 sm:col-start-3 lg:col-end-2 col-end-5"
         iconPath="staffcop/scenario-icon2.svg"
       >
         Обеспечить контроль за выполнением задач сотрудниками при удаленной
@@ -61,9 +61,9 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
-        row="sm:row-start-2 row-start-6"
-        col="sm:col-start-3 col-start-1 xl:col-end-4 lg:col-end-4 sm:col-end-5 col-end-4"
+        className={`${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
+        row="lg:row-start-2 sm:row-start-3 row-start-6"
+        col="lg:col-start-3 col-start-1 lg:col-end-4 sm:col-end-3 col-end-4"
         iconPath="staffcop/scenario-icon3.svg"
       >
         Оценить эффективность работы персонала, учитывая рабочее время и
@@ -80,9 +80,9 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
+        className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-3 row-start-9"
-        col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
+        col="lg:col-start-2 sm:col-start-3 col-start-2 lg:col-end-3 col-end-5"
         iconPath="staffcop/scenario-icon4.svg"
       >
         Собрать доказательную базу по недобросовестному сотруднику
@@ -98,8 +98,8 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
-        row="sm:row-start-3 row-start-9"
+        className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
+        row="lg:row-start-3 sm:row-start-4 row-start-9"
         col="lg:col-start-3 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
         iconPath="staffcop/scenario-icon5.svg"
       >
@@ -117,8 +117,8 @@ const Scenarios = () => {
       />
 
       <ContentCard
-        className={`max-sm:${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
-        row="sm:row-start-3 row-start-12"
+        className={`${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
+        row="lg:row-start-3 sm:row-start-4 row-start-12"
         col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
         iconPath="staffcop/scenario-icon6.svg"
       >
