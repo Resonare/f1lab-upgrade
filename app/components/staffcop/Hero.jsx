@@ -29,7 +29,8 @@ const Hero = () => {
     <Section hero={true}>
       <SectionTitle
         className="xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px]"
-        col="col-start-1 col-end-3"
+        row="row-start-1"
+        col="col-start-1 lg:col-end-3 col-end-5"
       >
         {content.header}
       </SectionTitle>
@@ -66,7 +67,7 @@ const Hero = () => {
           <div className=""></div>
         </div>
       </div>
-      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between max-lg:mt-120 max-md:mt-60 max-sm:mt-30">
+      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between max-lg:mt-60 max-sm:mt-30">
         <PrimaryButton
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"
@@ -99,9 +100,9 @@ const Hero = () => {
       <div className="row-start-4 max-lg:mt-60 col-start-2 col-end-5 lg:col-end-2 max-lg:hidden">
         <div className="h-full flex"></div>
       </div>
-      <div className="row-start-1 row-end-5 col-start-3 col-end-5 h-[calc(100svh-290px)]">
+      <div className="max-md:h-[400px] lg:row-start-1 md:row-start-2 sm:row-start-4 lg:row-end-5 md:row-end-4 sm:row-end-5 md:col-start-3 sm:col-start-1 col-end-5">
         <img
-          className="w-full aspect-square"
+          className="w-full h-full object-cover"
           src="/images/staffcop/hero-banner.png"
           alt=""
         />

@@ -48,7 +48,7 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
   return (
     <>
       {inverseColor && (
-        <div className="bg-gray-400 absolute top-0 left-0 w-[100svw] h-[70px] lg:h-90"></div>
+        <div className="bg-gray-400 absolute top-0 left-0 w-[100svw] lg:h-90 h-[70px]"></div>
       )}
 
       <NavbarContext.Provider
