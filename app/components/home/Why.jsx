@@ -8,7 +8,7 @@ import whyAnimationJson from "../misc/animations/why-animation.json";
 const Why = () => {
   return (
     <Section
-      className="text-5xl font-title whitespace-normal inline-block w-full h-fit"
+      className="mt-[-1px] text-5xl font-title whitespace-normal inline-block w-full h-fit"
       inverseColor={true}
     >
       <SectionTitle
@@ -22,7 +22,7 @@ const Why = () => {
         <Animation data={whyAnimationJson} />
       </div>
 
-      <div className="col-start-1 col-end-5 row-start-3 flex">
+      <div className="col-start-1 col-end-5 row-start-3 flex max-md:flex-col">
         <ContentCard
           className="bg-gray-400 border-y border-r mr-[-1px] ml-[1px] gap-60 basis-4/12"
           iconPath="home/why-icon1.svg"

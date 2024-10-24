@@ -78,7 +78,7 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
           <div
             className={`${
               inverseColor ? `text-gray-100` : `text-gray-400`
-            } pl-60 pr-30 justify-end gap-30 text-sm font-expanded font-bold hidden lg:flex`}
+            } xl:pl-60 pl-15 pr-30 justify-end gap-30 text-sm font-expanded font-bold hidden lg:flex`}
           >
             {navs.map((nav) => (
               <div key={nav.link}>
@@ -127,7 +127,7 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
               Связаться с нами
             </SecondaryButton>
             {/* <ShoppingCart className="max-sm:hidden border-r border-l px-20 lg:px-30" /> */}
-            <BurgerMenu />
+            <BurgerMenu inverseColor={inverseColor} />
           </div>
         </nav>
         {navs.map((nav) => (

@@ -7,7 +7,7 @@ import {
 
 import { ThemeContext } from "../../store/theme-context";
 
-const BurgerMenu = () => {
+const BurgerMenu = ({ inverseColor = false }) => {
   const themeContext = useContext(ThemeContext);
   const image = "/images/burger-menu.svg";
 
@@ -57,11 +57,38 @@ const BurgerMenu = () => {
         }}
       >
         <button
-          className={`max-sm:border-l border-r border-dashed border-gray-200 ${buttonBgColor} hover:bg-f1-light h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
+          className={`${
+            inverseColor ? `border-gray-300` : `border-gray-200`
+          } max-lg:border-l border-r border-dashed ${buttonBgColor} hover:bg-f1-light h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
           onClick={showMenuHandler}
         >
           <div className={`px-20`}>
-            <img src={image} alt="" />
+            <svg
+              width="32"
+              height="30"
+              viewBox="0 0 32 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                className={inverseColor ? `stroke-gray-100` : `stroke-gray-300`}
+                d="M1 5H31"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                className={inverseColor ? `stroke-gray-100` : `stroke-gray-300`}
+                d="M1 15H31"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                className={inverseColor ? `stroke-gray-100` : `stroke-gray-300`}
+                d="M1 25H31"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
           </div>
         </button>
       </ServicesDropdownContext.Provider>

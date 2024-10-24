@@ -17,7 +17,7 @@ const Section = ({
       {inverseColor ? <BackgroundGrid inverseColor={inverseColor} /> : null}
       <div
         className={`${
-          inverseColor ? `sm:py-100` : ``
+          inverseColor ? `sm:py-60` : ``
         } grid sm:grid-cols-4 xl:px-120 lg:px-60 sm:px-[44.1px] px-15 max-sm:pt-60 max-sm:pb-15`}
       >
         {children}

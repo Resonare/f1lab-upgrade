@@ -12,8 +12,6 @@ const CaseCard = ({
   logoPath,
   className = "",
   currentLocation = "",
-  hoverDisabled = false,
-  customBgColor = "",
   children,
 }) => {
   const { bgColor } = useContext(ThemeContext);
@@ -21,15 +19,10 @@ const CaseCard = ({
   return (
     <div className={`${row} ${col} group bg-gray-400`}>
       <div
-        className={`${customBgColor ? customBgColor : bgColor} ${className} ${
-          !hoverDisabled && `cursor-pointer`
-        } h-full border-dashed sm:rounded-xl`}
+        className={`${bgColor} ${className} cursor-pointer h-full border-dashed sm:rounded-xl`}
       >
         <div
-          className={`${
-            !hoverDisabled &&
-            `hover:sm:bg-striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px]`
-          } sm:group h-full xl:p-30 p-15 gap-60 flex flex-col max-sm:justify-between transition-all duration-300`}
+          className={`hover:sm:bg-striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] sm:group h-full xl:p-30 p-15 gap-60 flex flex-col max-sm:justify-between transition-all duration-300`}
         >
           {logoPath && (
             <div className="flex justify-between">
@@ -38,9 +31,7 @@ const CaseCard = ({
             </div>
           )}
           <div
-            className={`${
-              !hoverDisabled && `group-hover:sm:gap-5`
-            } gap-15 flex flex-col transition-all duration-300`}
+            className={`group-hover:sm:gap-5 gap-15 flex flex-col transition-all duration-300`}
           >
             <div className="sm:text-base text-gray-400 sm:font-light font-[350] font-text sm:leading-relaxed leading-tight">
               {children}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLottie } from "lottie-react";
 
-const Animation = ({ data, width }) => {
+const Animation = ({ data, hero = false }) => {
   const [loaded, setLoaded] = useState(false);
 
   const options = {
@@ -14,12 +14,23 @@ const Animation = ({ data, width }) => {
 
   const { View, animationContainerRef } = useLottie(options);
 
-  if (width) {
+  if (hero) {
     useEffect(() => {
       if (animationContainerRef.current) {
         const svgElement = animationContainerRef.current.querySelector("svg");
         if (svgElement) {
-          svgElement.style.width = width;
+          const classes = [
+            "w-full",
+            "h-full",
+            "xl:translate-x-[-120px]",
+            "lg:translate-x-[-60px]",
+            "sm:translate-x-[-44.1px]",
+            "translate-x-[-15px]",
+          ];
+
+          svgElement.classList.add(...classes);
+
+          svgElement.style = {};
         }
       }
     }, [animationContainerRef]);
@@ -29,7 +40,7 @@ const Animation = ({ data, width }) => {
     <div
       className={`${
         !loaded && `opacity-0`
-      } transition-all duration-500 h-full [&>div]:h-full [&_svg]:w-full [&_svg]:h-full`}
+      } transition-all duration-500 overflow-hidden h-full [&>div]:h-full `}
     >
       {View}
     </div>

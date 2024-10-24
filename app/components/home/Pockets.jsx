@@ -20,8 +20,8 @@ const Pockets = () => {
   return (
     <Section id="" inverseColor={true}>
       <SectionTitle
-        className="text-gray-100 flex justify-center"
-        col="col-start-1"
+        className="text-gray-100 flex lg:justify-center"
+        col="col-start-1 lg:col-end-2 col-end-4"
       >
         Решения под ключ с пакетами услуг
       </SectionTitle>

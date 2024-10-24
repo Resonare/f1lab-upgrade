@@ -29,7 +29,9 @@ const Cases = () => {
       ...serviceCases[1],
       row: "row-start-2",
       col: "col-start-3 col-end-5 lg:col-start-2 lg:col-end-2",
-      border: `border-t border-l ${serviceCases.length < 4 ? "border-b" : ""}`,
+      border: `border-t border-l max-lg:border-r ${
+        serviceCases.length < 4 ? "border-b" : ""
+      }`,
     };
   }
 
@@ -38,7 +40,9 @@ const Cases = () => {
       ...serviceCases[2],
       row: "lg:row-start-2 row-start-3",
       col: "col-start-1 col-end-3 lg:col-start-3 lg:col-end-3",
-      border: `border-t border-x  ${serviceCases.length < 4 ? "border-b" : ""}`,
+      border: `lg:border-t border-x  ${
+        serviceCases.length < 4 ? `lg:border-b` : ``
+      }`,
     };
   }
 
@@ -76,7 +80,7 @@ const Cases = () => {
       <Section className="max-sm:hidden my-60">
         <SectionTitle
           row="row-start-1"
-          col="md:col-start-2 col-start-1 col-end-4"
+          col="col-start-2 col-end-5"
           className="md:pb-60"
         >
           Кейсы: как мы решаем задачи наших клиентов
