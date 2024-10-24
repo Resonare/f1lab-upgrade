@@ -52,7 +52,7 @@ const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
   let content = getCurContent();
 
   return (
-    <div className={`${className} grid grid-cols-4`}>
+    <div className={`${className} border-dashed border-gray-300 grid grid-cols-4`}>
       <div
         className={` ${
           content.length != cardsOnPage ? `border-x` : `border-l`

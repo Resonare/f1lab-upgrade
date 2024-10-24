@@ -5,6 +5,7 @@ import SectionTitle from "../SectionTitle";
 import ContentCard from "../cards/ContentCard";
 import SolutionsCarousel from "./SolutionsCarousel";
 import SwitchButton from "../buttons/SwitchButton";
+import Carousel from "../misc/Carousel";
 
 const Why = () => {
   const [sortingByIndustry, setSortingByIndustry] = useState(true);
@@ -20,9 +21,10 @@ const Why = () => {
   const carouselContent = [
     <ContentCard
       key={0}
-      className="gap-30 border-r border-gray-300"
+      className="bg-gray-400 gap-30 border-r max-sm:mr-[1px] border-gray-300"
       iconPath="home/solutions-icon1.svg"
       notInGrid={true}
+      hideIconOnMobile={false}
     >
       <div className="flex flex-col gap-15">
         <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-[35px]">
@@ -36,9 +38,10 @@ const Why = () => {
     </ContentCard>,
     <ContentCard
       key={1}
-      className="ml-[-1px] gap-30 border-r border-gray-300"
+      className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
       iconPath="home/solutions-icon1.svg"
       notInGrid={true}
+      hideIconOnMobile={false}
     >
       <div className="flex flex-col gap-15">
         <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-[35px]">
@@ -52,9 +55,10 @@ const Why = () => {
     </ContentCard>,
     <ContentCard
       key={2}
-      className="ml-[-1px] gap-30 border-r border-gray-300"
+      className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
       iconPath="home/solutions-icon1.svg"
       notInGrid={true}
+      hideIconOnMobile={false}
     >
       <div className="flex flex-col gap-15">
         <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-[35px]">
@@ -69,9 +73,10 @@ const Why = () => {
     </ContentCard>,
     <ContentCard
       key={3}
-      className="ml-[-1px] gap-30 border-r border-gray-300"
+      className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
       iconPath="home/solutions-icon1.svg"
       notInGrid={true}
+      hideIconOnMobile={false}
     >
       <div className="flex flex-col gap-15">
         <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-[35px]">
@@ -86,9 +91,10 @@ const Why = () => {
     </ContentCard>,
     <ContentCard
       key={4}
-      className="gap-30 border-r border-gray-300"
+      className="bg-gray-400 gap-30 sm:border-r border-gray-300"
       iconPath="home/solutions-icon1.svg"
       notInGrid={true}
+      hideIconOnMobile={false}
     >
       <div className="flex flex-col gap-15">
         <p className="text-gray-100 text-[28px] font-extrabold font-expanded leading-[35px]">
@@ -105,43 +111,145 @@ const Why = () => {
 
   return (
     <Section
-      className="text-5xl font-title whitespace-normal inline-block w-full h-fit"
+      className="text-5xl font-title whitespace-normal w-full h-fit"
       inverseColor={true}
     >
-      <SectionTitle className="text-gray-100 flex" col="col-start-1 col-end-5">
+      <SectionTitle
+        className="sm:text-gray-100 text-f1-light max-sm:font-extended sm:justify-center max-sm:pb-30 flex"
+        col="col-start-1 col-end-5"
+      >
         Решения
       </SectionTitle>
 
-      <div className="col-start-1 lg:col-end-2 col-end-3 row-start-2 flex gap-5 mb-30 p-5">
+      <div className="col-start-1 lg:col-end-2 sm:col-end-3 col-end-2 row-start-2 flex gap-5 mb-30 p-5">
         <SwitchButton
+          className="max-sm:w-1/2"
           selected={sortingByIndustry}
           onClick={handleSortByIndustry}
         >
-          По задачам
+          По отраслям
         </SwitchButton>
 
-        <SwitchButton selected={!sortingByIndustry} onClick={handleSortByTask}>
+        <SwitchButton
+          className="max-sm:w-1/2"
+          selected={!sortingByIndustry}
+          onClick={handleSortByTask}
+        >
           По задачам
         </SwitchButton>
       </div>
 
-      <SolutionsCarousel className="max-lg:hidden col-start-1 col-end-5 row-start-3">
+      <SolutionsCarousel className="max-lg:hidden border-t col-start-1 col-end-5 row-start-3">
         {carouselContent}
       </SolutionsCarousel>
 
       <SolutionsCarousel
         cardsOnPage={3}
-        className="lg:hidden max-md:hidden col-start-1 col-end-5 row-start-3"
+        className="lg:hidden max-md:hidden border-t col-start-1 col-end-5 row-start-3"
       >
         {carouselContent}
       </SolutionsCarousel>
 
       <SolutionsCarousel
         cardsOnPage={1}
-        className="md:hidden max-sm:hidden col-start-1 col-end-5 row-start-3"
+        className="md:hidden max-sm:hidden border-t col-start-1 col-end-5 row-start-3"
       >
         {carouselContent}
       </SolutionsCarousel>
+
+      <Carousel
+        inverseColor={true}
+        className="w-full col-start-1 cold-end-5 row-start-3 sm:hidden overflow-hidden [&>div:first-child]:border-b"
+      >
+        <ContentCard
+          key={0}
+          className="bg-gray-400 gap-30 border-r max-sm:mr-[1px] border-gray-300"
+          iconPath="home/solutions-icon1-mobile.svg"
+          notInGrid={true}
+          hideIconOnMobile={false}
+        >
+          <div className="flex flex-col gap-15">
+            <p className="text-gray-100 text-[22px] font-bold font-extended leading-[26px]">
+              Прочный фундамент для бизнеса
+            </p>
+            <p className="text-gray-100 text-xl font-light font-text">
+              Уже 15 лет мы предоставляем компаниям прочную ИТ-основу, на
+              которую можно опереться.
+            </p>
+          </div>
+        </ContentCard>
+        <ContentCard
+          key={1}
+          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
+          iconPath="home/solutions-icon1-mobile.svg"
+          notInGrid={true}
+          hideIconOnMobile={false}
+        >
+          <div className="flex flex-col gap-15">
+            <p className="text-gray-100 text-[22px] font-bold font-extended leading-[26px]">
+              Техническая сторона — наша забота
+            </p>
+            <p className="text-gray-100 text-xl font-light font-text">
+              Решение технических проблем и предотвращение угроз безопасности
+              данных — не ваша работа, а наша.
+            </p>
+          </div>
+        </ContentCard>
+        <ContentCard
+          key={2}
+          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
+          iconPath="home/solutions-icon1-mobile.svg"
+          notInGrid={true}
+          hideIconOnMobile={false}
+        >
+          <div className="flex flex-col gap-15">
+            <p className="text-gray-100 text-[22px] font-bold font-extended leading-[26px]">
+              С нами приятно иметь дело
+            </p>
+            <p className="text-gray-100 text-xl font-light font-text">
+              Профессионализм, порядочность, исполнительность, пунктуальность,
+              доброжелательность - те качества, которые в F1Lab ценятся превыше
+              всего.
+            </p>
+          </div>
+        </ContentCard>
+        <ContentCard
+          key={3}
+          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
+          iconPath="home/solutions-icon1-mobile.svg"
+          notInGrid={true}
+          hideIconOnMobile={false}
+        >
+          <div className="flex flex-col gap-15">
+            <p className="text-gray-100 text-[22px] font-bold font-extended leading-[26px]">
+              С нами приятно иметь дело
+            </p>
+            <p className="text-gray-100 text-xl font-light font-text">
+              Профессионализм, порядочность, исполнительность, пунктуальность,
+              доброжелательность - те качества, которые в F1Lab ценятся превыше
+              всего.
+            </p>
+          </div>
+        </ContentCard>
+        <ContentCard
+          key={4}
+          className="bg-gray-400 gap-30 sm:border-r border-gray-300"
+          iconPath="home/solutions-icon1-mobile.svg"
+          notInGrid={true}
+          hideIconOnMobile={false}
+        >
+          <div className="flex flex-col gap-15">
+            <p className="text-gray-100 text-[22px] font-bold font-extended leading-[26px]">
+              С нами приятно иметь дело
+            </p>
+            <p className="text-gray-100 text-xl font-light font-text">
+              Профессионализм, порядочность, исполнительность, пунктуальность,
+              доброжелательность - те качества, которые в F1Lab ценятся превыше
+              всего.
+            </p>
+          </div>
+        </ContentCard>
+      </Carousel>
     </Section>
   );
 };

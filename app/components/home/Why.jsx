@@ -12,20 +12,21 @@ const Why = () => {
       inverseColor={true}
     >
       <SectionTitle
-        className="text-gray-100 flex justify-center"
+        className="sm:text-gray-100 text-f1-light max-sm:font-extended flex sm:justify-center max-sm:pb-30"
         col="col-start-1 col-end-5"
       >
         Почему F1lab?
       </SectionTitle>
 
-      <div className="h-[360px] col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">
+      <div className="sm:h-[360px] h-200 col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">
         <Animation data={whyAnimationJson} />
       </div>
 
       <div className="col-start-1 col-end-5 row-start-3 flex max-md:flex-col">
         <ContentCard
-          className="bg-gray-400 border-y border-r mr-[-1px] ml-[1px] gap-60 basis-4/12"
+          className="bg-gray-400 border-y border-r sm:mr-[-1px] ml-[1px] basis-4/12"
           iconPath="home/why-icon1.svg"
+          hideIconOnMobile={false}
           inverseColor={true}
         >
           <div className="flex flex-col gap-15">
@@ -40,8 +41,9 @@ const Why = () => {
         </ContentCard>
 
         <ContentCard
-          className="bg-gray-400 border-y border-r mr-[-1px] ml-[1px] gap-60 basis-4/12"
+          className="bg-gray-400 sm:border-y border-b border-r max-sm:border-t sm:mr-[-1px] ml-[1px] basis-4/12"
           iconPath="home/why-icon2.svg"
+          hideIconOnMobile={false}
           inverseColor={true}
         >
           <div className="flex flex-col gap-15">
@@ -56,8 +58,9 @@ const Why = () => {
         </ContentCard>
 
         <ContentCard
-          className="bg-gray-400 border-y gap-60 basis-4/12"
+          className="bg-gray-400 border-y max-sm:border-x basis-4/12"
           iconPath="home/why-icon3.svg"
+          hideIconOnMobile={false}
           inverseColor={true}
         >
           <div className="flex flex-col gap-15">

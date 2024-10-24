@@ -158,11 +158,9 @@ const Process = () => {
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
         <SectionTitle>Процесс проведения аудита</SectionTitle>
 
-        <Carousel
-          className="border-x [&>*]:border-r [&>*]:border-t [&>*]:mt-[0.1px]"
-          lastIndicatorIsLight={true}
-        >
+        <Carousel lastIndicatorIsLight={true}>
           <StepCard
+            className="border-r"
             title="Определение целей и объема аудита"
             tags={[
               tags.zabbix,
@@ -179,6 +177,7 @@ const Process = () => {
           </StepCard>
 
           <StepCard
+            className="border-r"
             title="Инвентаризация оборудования, ПО и сетей"
             tags={[
               tags.zabbix,
@@ -194,6 +193,7 @@ const Process = () => {
           </StepCard>
 
           <StepCard
+            className="border-r"
             title="Оценка производительности, безопасности и соответствия нормативным требованиям"
             tags={[
               tags.zabbix,
@@ -209,6 +209,7 @@ const Process = () => {
           </StepCard>
 
           <StepCard
+            className="border-r"
             title="Проведение тестов на уязвимости и отказоустойчивость"
             tags={[
               tags.zabbix,
@@ -224,6 +225,7 @@ const Process = () => {
           </StepCard>
 
           <StepCard
+            className="border-r"
             title="Составление отчета с результатами и рекомендациями по улучшению"
             tags={[
               tags.zabbix,

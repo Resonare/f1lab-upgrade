@@ -20,7 +20,9 @@ const Cases = () => {
       ...serviceCases[0],
       row: "row-start-2",
       col: "col-start-1 col-end-3 lg:col-end-1",
-      border: `border-t border-l ${serviceCases.length < 4 ? "border-b" : ""}`,
+      border: `sm:border-t sm:border-l ${
+        serviceCases.length < 4 ? "sm:border-b" : ""
+      }`,
     };
   }
 
@@ -29,8 +31,8 @@ const Cases = () => {
       ...serviceCases[1],
       row: "row-start-2",
       col: "col-start-3 col-end-5 lg:col-start-2 lg:col-end-2",
-      border: `border-t border-l max-lg:border-r ${
-        serviceCases.length < 4 ? "border-b" : ""
+      border: `sm:border-t sm:border-l max-lg:border-r ${
+        serviceCases.length < 4 ? "sm:border-b" : ""
       }`,
     };
   }
@@ -40,7 +42,7 @@ const Cases = () => {
       ...serviceCases[2],
       row: "lg:row-start-2 row-start-3",
       col: "col-start-1 col-end-3 lg:col-start-3 lg:col-end-3",
-      border: `lg:border-t border-x  ${
+      border: `lg:border-t sm:border-x  ${
         serviceCases.length < 4 ? `lg:border-b` : ``
       }`,
     };
@@ -51,7 +53,7 @@ const Cases = () => {
       ...serviceCases[3],
       row: "row-start-3",
       col: "lg:col-start-1 col-start-3 lg:col-end-1 col-end-5",
-      border: "border-t lg:border-l border-x",
+      border: "sm:border-t lg:border-l sm:border-x",
     };
   }
 
@@ -60,7 +62,7 @@ const Cases = () => {
       ...serviceCases[4],
       row: "row-start-3",
       col: "col-start-2",
-      border: "max-lg:hidden border-y border-l",
+      border: "sm:border-y sm:border-l",
       className: "max-lg:hidden",
     };
   }
@@ -70,7 +72,7 @@ const Cases = () => {
       ...serviceCases[5],
       row: "row-start-3",
       col: "col-start-3",
-      border: `border-y border-x`,
+      border: `sm:border-y sm:border-x`,
       className: "max-lg:hidden",
     };
   }
@@ -141,10 +143,18 @@ const Cases = () => {
         </SecondaryButton>
       </Section>
 
-      <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
-        <SectionTitle>Примеры кейсов с аудитом</SectionTitle>
+      <Section className="sm:hidden flex flex-col gap-30 " inverseColor={true}>
+        <SectionTitle
+          className="text-gray-100 text-2xl font-extended leading-[28px] mb-30"
+          col="col-start-1 col-end-5"
+        >
+          Кейсы: как мы решаем задачи наших клиентов
+        </SectionTitle>
 
-        <Carousel>
+        <Carousel
+          className="w-full col-start-1 col-end-5 row-start-2 sm:hidden overflow-hidden [&>div:first-child]:border-b"
+          inverseColor={true}
+        >
           {serviceCases.map((serviceCase) => (
             <CaseCard
               key={serviceCase.id}
@@ -153,7 +163,8 @@ const Cases = () => {
               currentLocation={currentLocation}
               row={serviceCase.row}
               col={serviceCase.col}
-              className={`${serviceCase.border}`}
+              className={`${serviceCase.border} ${serviceCase.className}`}
+              inverseColor={true}
             >
               {serviceCase.description}
             </CaseCard>
@@ -161,15 +172,18 @@ const Cases = () => {
         </Carousel>
 
         <SecondaryButton
-          row="row-start-4"
+          row="row-start-3"
           col="col-start-1 max-lg:col-end-5"
-          variant="shaded"
-          className="text-base font-subtitle"
+          variant="info"
+          className="text-base font-subtitle border-y border-gray-300 text-gray-100 bg-gray-400 "
         >
           Все кейсы
         </SecondaryButton>
 
         <ReviewCard
+          className="text-gray-100"
+          row="row-start-4"
+          col="col-start-1 col-end-5"
           reviewPaths={[
             "test-review.png",
             "test-review.png",
@@ -179,9 +193,8 @@ const Cases = () => {
             "test-review.png",
             "test-review.png",
           ]}
-          className="h-fit"
         ></ReviewCard>
-      </div>
+      </Section>
     </div>
   );
 };

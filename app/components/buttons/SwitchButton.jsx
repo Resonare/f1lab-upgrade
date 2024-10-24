@@ -1,7 +1,7 @@
-const SwitchButton = ({ selected, onClick, children }) => {
+const SwitchButton = ({ className, selected, onClick, children }) => {
   return (
     <div
-      className={`${
+      className={`${className} ${
         !selected
           ? `bg-gray-300 hover:bg-gray-250 cursor-pointer`
           : `bg-f1-light`

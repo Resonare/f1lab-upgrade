@@ -14,33 +14,33 @@ const Animation = ({ data, hero = false }) => {
 
   const { View, animationContainerRef } = useLottie(options);
 
-  if (hero) {
-    useEffect(() => {
-      if (animationContainerRef.current) {
-        const svgElement = animationContainerRef.current.querySelector("svg");
-        if (svgElement) {
-          const classes = [
-            "w-full",
-            "h-full",
-            "xl:translate-x-[-120px]",
-            "lg:translate-x-[-60px]",
-            "sm:translate-x-[-44.1px]",
-            "translate-x-[-15px]",
-          ];
+  useEffect(() => {
+    if (animationContainerRef.current) {
+      const svgElement = animationContainerRef.current.querySelector("svg");
+      if (svgElement) {
+        const classes = hero
+          ? [
+              "w-full",
+              "h-full",
+              "xl:translate-x-[-120px]",
+              "lg:translate-x-[-60px]",
+              "sm:translate-x-[-44.1px]",
+              "translate-x-[-15px]",
+            ]
+          : ["w-full", "h-[200px]", "sm:h-full"];
 
-          svgElement.classList.add(...classes);
+        svgElement.classList.add(...classes);
 
-          svgElement.style = {};
-        }
+        svgElement.style = {};
       }
-    }, [animationContainerRef]);
-  }
+    }
+  }, [animationContainerRef]);
 
   return (
     <div
       className={`${
         !loaded && `opacity-0`
-      } transition-all duration-500 overflow-hidden h-full [&>div]:h-full `}
+      } transition-all duration-500 overflow-hidden w-full h-full [&>div]:h-full `}
     >
       {View}
     </div>

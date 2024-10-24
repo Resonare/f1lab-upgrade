@@ -92,9 +92,9 @@ const Prices = () => {
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
         <SectionTitle>Понятные цены</SectionTitle>
 
-        <Carousel className="border-x">
+        <Carousel className="[&>div:first-child]:border-b">
           <PriceCard
-            className="border-y"
+            className="border-r"
             row="row-start-1"
             col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
             plan={plansData[0]}
@@ -103,7 +103,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
-            className="border-y"
+            className="border-r"
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
             plan={plansData[1]}
@@ -112,7 +112,6 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
-            className="border-y"
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
             plan={plansData[2]}

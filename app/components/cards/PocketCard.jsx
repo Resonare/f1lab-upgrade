@@ -25,7 +25,7 @@ const PocketCard = ({
         inverseColor ? `bg-gray-400 text-gray-100` : `${bgColor} text-gray-400`
       } ${
         inverseColor && `border-gray-300`
-      } ${row} ${col} relative border-dashed border-t ml-[0.5px] mr-[1px] `}
+      } ${row} ${col} max-sm:border-b relative border-dashed border-t ml-[0.5px] mr-[1px] `}
     >
       <div className="absolute top-0 pt-30 h-full w-full">
         <PrimaryButton
@@ -96,7 +96,7 @@ const PocketCard = ({
               </span>
             </p>
 
-            <p className="sm:hidden text-xl font-extended font-bold leading-normal">
+            <p className="sm:hidden text-xl font-expanded font-bold leading-[24px]">
               {whenTitle}
             </p>
 

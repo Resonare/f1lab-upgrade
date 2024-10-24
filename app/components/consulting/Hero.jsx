@@ -28,7 +28,7 @@ const Hero = () => {
   return (
     <Section hero={true}>
       <SectionTitle
-        className="xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px] leading-[60px]"
+        className="xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px]"
         col="col-start-1 col-end-3"
       >
         {content.header}

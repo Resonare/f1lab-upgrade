@@ -12,6 +12,7 @@ const CaseCard = ({
   logoPath,
   className = "",
   currentLocation = "",
+  inverseColor = false,
   children,
 }) => {
   const { bgColor } = useContext(ThemeContext);
@@ -19,7 +20,9 @@ const CaseCard = ({
   return (
     <div className={`${row} ${col} group bg-gray-400`}>
       <div
-        className={`${bgColor} ${className} cursor-pointer h-full border-dashed sm:rounded-xl`}
+        className={`${
+          inverseColor ? `bg-gray-400` : bgColor
+        } ${className} cursor-pointer h-full border-dashed sm:rounded-xl`}
       >
         <div
           className={`hover:sm:bg-striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] sm:group h-full xl:p-30 p-15 gap-60 flex flex-col max-sm:justify-between transition-all duration-300`}
@@ -33,7 +36,11 @@ const CaseCard = ({
           <div
             className={`group-hover:sm:gap-5 gap-15 flex flex-col transition-all duration-300`}
           >
-            <div className="sm:text-base text-gray-400 sm:font-light font-[350] font-text sm:leading-relaxed leading-tight">
+            <div
+              className={`${
+                inverseColor ? `text-gray-100` : `text-gray-400`
+              } sm:text-base sm:font-light font-[350] font-text sm:leading-relaxed leading-tight`}
+            >
               {children}
             </div>
 

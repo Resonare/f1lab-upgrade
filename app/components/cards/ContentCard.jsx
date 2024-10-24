@@ -5,6 +5,7 @@ const ContentCard = ({
   iconPath,
   inverseColor = false,
   notInGrid = false,
+  hideIconOnMobile = true,
   className = "",
   children,
 }) => {
@@ -12,14 +13,12 @@ const ContentCard = ({
     <div
       className={`${row} ${col} ${bg && bg} ${
         inverseColor && `border-gray-300 bg-gray-400`
-      } ${
-        iconPath ? `sm:min-h-[280px] sm:justify-start` : `justify-center`
-      } ${
+      } ${iconPath ? `sm:min-h-[280px] sm:justify-start` : `justify-center`} ${
         !notInGrid && `sm:mx-[1.2px]`
-      } xl:p-30 sm:p-15 p-0 max-sm:p-10 mt-[-1px] border-dashed flex flex-col gap-60 ${className}`}
+      } xl:p-30 p-15 mt-[-1px] border-dashed flex flex-col sm:gap-60 gap-40 ${className}`}
     >
       {iconPath ? (
-        <div className="max-sm:hidden">
+        <div className={`${hideIconOnMobile && `max-sm:hidden`}`}>
           <img src={`/images/${iconPath}`} alt="" />
         </div>
       ) : null}

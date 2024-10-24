@@ -1,6 +1,11 @@
 import { useRef, useState } from "react";
 
-const Carousel = ({ className, lastIndicatorIsLight = false, children }) => {
+const Carousel = ({
+  className,
+  lastIndicatorIsLight = false,
+  inverseColor = false,
+  children,
+}) => {
   const [curPage, setCurPage] = useState(0);
   const carouselRef = useRef();
 
@@ -21,10 +26,10 @@ const Carousel = ({ className, lastIndicatorIsLight = false, children }) => {
           key={i}
           className={`${
             i == curPage
-              ? "text-gray-400"
+              ? "text-gray-100"
               : i == children.length - 1 && lastIndicatorIsLight
               ? "text-f1-light"
-              : "text-gray-200"
+              : "text-gray-300"
           } flex-1 flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}
         >
           <p>•</p>
@@ -36,9 +41,11 @@ const Carousel = ({ className, lastIndicatorIsLight = false, children }) => {
   };
 
   return (
-    <div>
+    <div className={`${className} border-gray-300 border-dashed`}>
       <div
-        className={`${className} mx-[0.3px] border-dashed overflow-x-scroll flex [&>*]:min-w-[300px] [&>*]:snap-center snap-x-mandatory`}
+        className={`${
+          inverseColor && `border-gray-300`
+        } border-t mx-[0.8px] border-dashed overflow-x-scroll flex [&>*]:min-w-[300px] [&>*]:snap-center snap-x-mandatory`}
         onScroll={scrollHandle}
         ref={carouselRef}
       >
