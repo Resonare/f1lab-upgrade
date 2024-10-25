@@ -1,14 +1,15 @@
 import { useState } from "react";
 
 import SecondaryButton from "../buttons/SecondaryButton";
-import ArrowNext from "../misc/reviewButtons/ArrowPrev";
-import ArrowPrev from "../misc/reviewButtons/ArrowNext";
+import ArrowPrev from "../misc/reviewButtons/ArrowPrev";
+import ArrowNext from "../misc/reviewButtons/ArrowNext";
 
 const ReviewCard = ({
   row = "",
   col = "",
   reviewPaths,
   reviewsOnPage = 1,
+  inverseColor = false,
   className,
 }) => {
   const [curPage, setCurPage] = useState(0);
@@ -34,7 +35,13 @@ const ReviewCard = ({
         <div
           key={i}
           className={`${
-            i == curPage ? "text-gray-400" : "text-gray-200"
+            i == curPage
+              ? inverseColor
+                ? `text-gray-100`
+                : `text-gray-400`
+              : inverseColor
+              ? `text-gray-300`
+              : `text-gray-200`
           } flex-1 flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}
         >
           <p>•</p>
@@ -95,12 +102,28 @@ const ReviewCard = ({
 
           <div className="flex flex-col lg:gap-10">
             <div className="sm:hidden flex">
-              <div className="flex-1 flex lg:gap-15 gap-60 border-r border-b border-dashed">
-                <ArrowPrev className="p-20" onClick={handlePrev} />
+              <div
+                className={`${
+                  inverseColor && `border-gray-300`
+                } flex-1 flex justify-center lg:gap-15 gap-60 border-r border-b border-dashed`}
+              >
+                <ArrowNext
+                  className="p-20 w-5/6"
+                  color={inverseColor ? `fill-gray-100` : undefined}
+                  onClick={handlePrev}
+                />
               </div>
               <div className="flex-1"></div>
-              <div className="flex-1 flex lg:gap-15 gap-60 border-l border-b border-dashed">
-                <ArrowNext className="p-20" onClick={handleNext} />
+              <div
+                className={`${
+                  inverseColor && `border-gray-300`
+                } flex-1 flex justify-center lg:gap-15 gap-60 border-l border-b border-dashed`}
+              >
+                <ArrowPrev
+                  className="p-20 w-5/6"
+                  color={inverseColor ? `fill-gray-100` : undefined}
+                  onClick={handleNext}
+                />
               </div>
             </div>
 
@@ -108,12 +131,14 @@ const ReviewCard = ({
               {getPageIndicators()}
             </div>
             <div className="flex lg:gap-15 gap-60 max-sm:hidden">
-              <ArrowPrev
+              <ArrowNext
                 className="p-15 lg:pl-40 pl-20 hover:pl-15 hover:pr-20 lg:hover:pr-40 w-full"
+                color={inverseColor ? `fill-gray-100` : undefined}
                 onClick={handlePrev}
               />
-              <ArrowNext
+              <ArrowPrev
                 className="p-15 lg:pr-40 pr-20 hover:pr-15 hover:pl-20 lg:hover:pl-40 w-full"
+                color={inverseColor ? `fill-gray-100` : undefined}
                 onClick={handleNext}
               />
             </div>
@@ -121,8 +146,11 @@ const ReviewCard = ({
 
           <div className="sm:hidden">
             <SecondaryButton
-              variant="shaded"
-              className="text-base font-subtitle"
+              variant={inverseColor ? `info` : `shaded`}
+              className={`${
+                inverseColor &&
+                ` border-y border-gray-300 text-gray-100 bg-gray-400`
+              } text-base font-subtitle`}
             >
               Все отзывы
             </SecondaryButton>

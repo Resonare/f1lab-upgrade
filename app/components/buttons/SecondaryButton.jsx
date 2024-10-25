@@ -40,8 +40,8 @@ const SecondaryButton = ({
     case "info":
       buttonStyle =
         "flex group h-[52px] justify-between text-f1-light bg-gray-400 pl-20 pr-10 py-5 hover:bg-gray-100 hover:text-gray-400 transition-all duration-500";
-      arrowColor = "#00FFC5";
-      arrowHoverColor = "stroke-gray-400";
+      arrowColor = "stroke-gray-100";
+      arrowHoverColor = "group-hover:stroke-gray-400";
       break;
     case "light":
       buttonStyle =

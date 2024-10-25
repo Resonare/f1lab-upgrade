@@ -20,7 +20,7 @@ const Cases = () => {
       ...serviceCases[0],
       row: "row-start-2",
       col: "col-start-1 col-end-3 lg:col-end-1",
-      border: `sm:border-t sm:border-l ${
+      border: `sm:border-t sm:border-l max-sm:border-r ${
         serviceCases.length < 4 ? "sm:border-b" : ""
       }`,
     };
@@ -181,7 +181,7 @@ const Cases = () => {
         </SecondaryButton>
 
         <ReviewCard
-          className="text-gray-100"
+          className="text-gray-100 mt-30"
           row="row-start-4"
           col="col-start-1 col-end-5"
           reviewPaths={[
@@ -193,6 +193,7 @@ const Cases = () => {
             "test-review.png",
             "test-review.png",
           ]}
+          inverseColor={true}
         ></ReviewCard>
       </Section>
     </div>

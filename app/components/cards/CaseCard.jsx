@@ -20,17 +20,26 @@ const CaseCard = ({
   return (
     <div className={`${row} ${col} group bg-gray-400`}>
       <div
-        className={`${
-          inverseColor ? `bg-gray-400` : bgColor
-        } ${className} cursor-pointer h-full border-dashed sm:rounded-xl`}
+        className={`${inverseColor ? `bg-gray-400` : bgColor} ${className} ${
+          inverseColor && `border-gray-300`
+        } cursor-pointer h-full border-dashed sm:rounded-xl`}
       >
         <div
           className={`hover:sm:bg-striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] sm:group h-full xl:p-30 p-15 gap-60 flex flex-col max-sm:justify-between transition-all duration-300`}
         >
           {logoPath && (
             <div className="flex justify-between">
-              <img src={`${logoPath}`} alt="" />
-              <ArrowURSecondary className="py-5 group-hover:p-5 group-hover:self-start sm:opacity-0 group-hover:sm:p-0 group-hover:sm:opacity-100" />
+              <img
+                className={inverseColor ? `invert` : ``}
+                src={`${logoPath}`}
+                alt=""
+              />
+              <ArrowURSecondary
+                hoverColor={
+                  inverseColor ? "stroke-gray-200" : "stroke-gray-400"
+                }
+                className="py-5 group-hover:p-5 group-hover:self-start sm:opacity-0 group-hover:sm:p-0 group-hover:sm:opacity-100"
+              />
             </div>
           )}
           <div
@@ -46,7 +55,11 @@ const CaseCard = ({
 
             {tags.length != 0 && (
               <div className="flex flex-col gap-5">
-                <p className="font-text font-normal text-sm leading-tight">
+                <p
+                  className={`${
+                    inverseColor && `text-gray-100`
+                  } font-text font-normal text-sm leading-tight`}
+                >
                   Услуги в кейсе
                 </p>
                 <div className="flex flex-wrap gap-5">
