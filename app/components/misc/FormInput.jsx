@@ -45,24 +45,22 @@ const FormInput = ({
   return (
     <div
       className={`${className} ${value && bgColor} ${
-        error ? `border-alert` : `border-gray-200`
-      } ${
-        focused || value ? `pb-10 pt-40` : `py-[25px]`
-      } has-[:focus]:${bgColor} relative px-30 text-gray-300 text-xl font-text font-normal leading-7 border-[1px] border-dashed cursor-text transition-all`}
+        focused || value ? `pb-10 sm:pt-40 pt-20` : `py-[15px]`
+      } has-[:focus]:${bgColor} border-gray-200 border-x border-t relative sm:px-30 px-15 text-gray-300 text-xl font-text font-normal leading-7 border-dashed cursor-text transition-all`}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
     >
       <div className="flex flex-col h-full">
-        <div className="absolute left-30 top-0 pointer-events-none h-full">
+        <div className="absolute sm:left-30 left-15 top-0 pointer-events-none h-full">
           <div
             className={`${
-              (focused || value) && `pt-10 text-sm leading-tight`
-            } pt-20 h-full flex gap-5 pointer-events-none transition-all`}
+              (focused || value) && `mt-[-10px] text-sm leading-tight`
+            } content-center flex-wrap h-full flex align-center gap-5 pointer-events-none transition-all`}
           >
-            <div>
+            <p className={`h-fit`}>
               {placeholder}
               <span className={`${!required && `hidden`} text-alert`}>*</span>
-            </div>
+            </p>
             <span className={`${!error && `hidden`} text-alert`}>{error}</span>
           </div>
         </div>

@@ -46,12 +46,14 @@ const CallMeBackModal = () => {
         !callMeBackModalIsActive && `fixed bottom-[-100%]`
       } text-gray-400 left-0 bottom-0`}
     >
-      <div className="m-auto h-full max-w-[1920px]">
+      <div className="m-auto h-full max-w-[1920px] overflow-y-scroll">
         <BackgroundGrid />
 
-        <div className={`px-120 py-90 h-full`}>
+        <div
+          className={`xl:px-120 lg:py-90 lg:px-60 sm:py-[70px] sm:px-[44.1px] h-fit`}
+        >
           <div
-            className={`${bgColor} relative flex bg-striped h-full border-[1px] border-dashed border-gray-200`}
+            className={`${bgColor} relative flex max-lg:flex-col bg-striped h-full border-[1px] border-dashed border-gray-200`}
           >
             <CallMeBackInfo success={success} />
 
@@ -65,10 +67,10 @@ const CallMeBackModal = () => {
               setErrors={setErrors}
               setSuccess={setSuccess}
               attachable={false}
-              showContacts
+              showContacts={false}
             >
               <FormInput
-                className="border-b-0"
+                // className="border-b-0"
                 name="name"
                 placeholder="Ваше имя"
                 required
@@ -77,7 +79,7 @@ const CallMeBackModal = () => {
                 error={errors.name}
               />
               <FormInput
-                className="border-b-0"
+                // className="border-b-0"
                 name="phone"
                 placeholder="Телефон"
                 type="tel"
@@ -87,6 +89,7 @@ const CallMeBackModal = () => {
                 error={errors.phone}
               />
               <FormInput
+                // className="border-b-0"
                 name="email"
                 placeholder="E-mail"
                 type="email"
@@ -96,7 +99,7 @@ const CallMeBackModal = () => {
                 error={errors.email}
               />
               <FormInput
-                className="h-[150px]"
+                className="lg:h-[150px] sm:h-[120px] h-[70px] border-b"
                 name="details"
                 placeholder="Важные детали проекта: требования, сроки и нюансы"
                 type="textarea"
@@ -126,7 +129,7 @@ const CallMeBackModal = () => {
             />
 
             <Cancel
-              className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
+              className="w-40 h-40 absolute sm:top-30 top-15 sm:right-30 right-15 cursor-pointer select-none"
               onClick={closeCallMeBackModal}
             />
           </div>

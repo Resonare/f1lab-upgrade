@@ -2,7 +2,7 @@ import Condition from "../misc/Condition";
 
 const Contacts = () => {
   return (
-    <div className="flex justify-between">
+    <div className="flex flex-wrap lg:gap-30 justify-between">
       <Condition
         className="text-sm font-text font-bold uppercase leading-[18px]"
         icon="mail.svg"

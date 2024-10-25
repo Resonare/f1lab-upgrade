@@ -84,22 +84,22 @@ const ModalForm = ({
 
   return (
     <fetcher.Form
-      className={`${className} grow p-30 flex flex-col justify-between`}
+      className={`${className} grow lg:p-30 lg:gap-5 sm:gap-15 gap-30 p-20 flex flex-col justify-between`}
       onSubmit={handleSubmit}
       method={method}
       action={action}
       noValidate
     >
       <div className="flex flex-col gap-5">
-        <p className="text-[28px] font-title leading-loose">
+        <p className="lg:text-[28px] sm:text-[22px] text-xl lg:font-expanded lg:font-extrabold font-extended font-bold lg:leading-loose leading-relaxed">
           Давайте уточним детали
         </p>
-        <p className="text-xl text-gray-300 font-text font-light leading-relaxed">
+        <p className="sm:text-xl text-sm text-gray-300 font-text sm:font-light font-normal sm:leading-relaxed leading-tight">
           Заполните форму и мы свяжемся с вами в течение 15 минут
         </p>
       </div>
       <div className="flex flex-col gap-30">
-        <div className="">{children}</div>
+        <div className="flex flex-col gap-0">{children}</div>
 
         <div className="flex justify-between items-start">
           <div className={`${errors.policy && `text-alert`} flex gap-15`}>
@@ -128,11 +128,18 @@ const ModalForm = ({
         </div>
       </div>
 
-      <div className="flex flex-col gap-30">
+      <div className="flex flex-col lg:gap-30 gap-15">
         {showContacts && <Contacts />}
 
         <div className="h-[68px] flex items-center">
           <PrimaryButton>Заказать звонок</PrimaryButton>
+        </div>
+
+        <div className="lg:hidden flex flex-col gap-20">
+          <p className="font-extended font-bold text-[22px] leading-6">
+            Контакты:
+          </p>
+          <Contacts />
         </div>
       </div>
     </fetcher.Form>
