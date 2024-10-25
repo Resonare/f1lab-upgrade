@@ -10,6 +10,9 @@ import SectionTitle from "../SectionTitle";
 import PrimaryButton from "../buttons/PrimaryButton";
 import Carousel from "../misc/Carousel";
 import SecondaryButton from "../buttons/SecondaryButton";
+import Animation from "../misc/animations/Animation";
+
+import animationData from "../misc/animations/circles-animation.json";
 
 const Process = () => {
   const { bgColor } = useContext(ThemeContext);
@@ -248,10 +251,10 @@ const Process = () => {
             inverseColor={true}
           >
             <div className="flex flex-col gap-15">
-              <img src="/images/misc/moving-scheme.gif" alt="" />
+              <Animation data={animationData} height="h-[300px]" />
 
               <SecondaryButton variant="light" onClick={showCallMeBackModal}>
-                <p className="text-gray-400 text-base font-subtitle">Начать</p>
+                <p className="text-base font-subtitle">Начать</p>
               </SecondaryButton>
             </div>
           </StepCard>

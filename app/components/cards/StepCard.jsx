@@ -16,32 +16,36 @@ const StepCard = ({
 
   return (
     <div
-      className={`${className} ${row} ${col} max-sm:${bgColor} ${
-        inverseColor ? "bg-gray-400 max-sm:bg-gray-400" : ""
+      className={`${className} ${row} ${col} ${
+        inverseColor ? `bg-gray-400 max-sm:bg-gray-400` : `max-sm:${bgColor}`
       } ${
         upperLabels.length == 0 ? "" : "gap-15"
       } lg:gap-60 sm:gap-30 xl:p-30 p-15 mt-[-1px] sm:mx-[1px] border-y border-dashed flex flex-col w-fit`}
     >
-      <div className="flex flex-wrap gap-[2px]">
-        {upperLabels.map((label, index) => (
-          <div
-            key={index}
-            className={`${
-              index == 0 ? `bg-gray-400` : `bg-f1-light`
-            } rounded-[15px] xl:px-15 px-10 py-5`}
-          >
-            <p
+      {upperLabels.length != 0 ? (
+        <div className="flex flex-wrap gap-[2px]">
+          {upperLabels.map((label, index) => (
+            <div
+              key={index}
               className={`${
-                index == 0 ? `text-f1-light` : `text-gray-400`
-              } uppercase text-sm font-bold font-text`}
+                index == 0 ? `bg-gray-400` : `bg-f1-light`
+              } rounded-[15px] xl:px-15 px-10 py-5`}
             >
-              {label}
-            </p>
-          </div>
-        ))}
-      </div>
+              <p
+                className={`${
+                  index == 0 ? `text-f1-light` : `text-gray-400`
+                } uppercase text-sm font-bold font-text`}
+              >
+                {label}
+              </p>
+            </div>
+          ))}
+        </div>
+      ) : null}
       <div
-        className={`${tags.length == 0 ? "" : "lg:gap-30 gap-15"} flex flex-col w-fit`}
+        className={`${
+          tags.length == 0 ? "" : "lg:gap-30 gap-15"
+        } flex h-full flex-col w-fit justify-between`}
       >
         <p
           className={`${
@@ -58,7 +62,9 @@ const StepCard = ({
           {children}
         </div>
 
-        <div className="flex flex-wrap gap-5">{tags}</div>
+        {tags.length != 0 ? (
+          <div className="flex flex-wrap gap-5">{tags}</div>
+        ) : null}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLottie } from "lottie-react";
 
-const Animation = ({ data, hero = false }) => {
+const Animation = ({ data, hero = false, height = "h-[200px]" }) => {
   const [loaded, setLoaded] = useState(false);
 
   const options = {
@@ -27,7 +27,7 @@ const Animation = ({ data, hero = false }) => {
               "sm:translate-x-[-44.1px]",
               "translate-x-[-15px]",
             ]
-          : ["w-full", "h-[200px]", "sm:h-full"];
+          : ["w-full", height, "sm:h-full"];
 
         svgElement.classList.add(...classes);
 

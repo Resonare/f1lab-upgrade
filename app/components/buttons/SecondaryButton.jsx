@@ -45,9 +45,9 @@ const SecondaryButton = ({
       break;
     case "light":
       buttonStyle =
-        "flex group h-[52px] justify-between text-gray-400 bg-f1-light pl-20 pr-10 py-5 hover:bg-gray-100 transition-all duration-500";
-      arrowColor = "#22282E";
-      arrowHoverColor = "stroke-f1-light";
+        "flex group h-[52px] justify-between text-gray-400 bg-f1-light pl-20 pr-10 py-5 hover:bg-gray-400 hover:text-f1-light transition-all duration-500";
+      arrowColor = "stroke-gray-400";
+      arrowHoverColor = "group-hover:stroke-f1-light";
       break;
     default:
       buttonStyle =
@@ -58,7 +58,7 @@ const SecondaryButton = ({
     <>
       {!link && (
         <button
-          className={`text-base ${row} ${col} ${buttonStyle} ${className} max-sm:${bgColor} gap-15 group flex items-center justify-between max-sm:border-x border-dashed w-full`}
+          className={`text-base ${row} ${col} ${buttonStyle} ${className} gap-15 group flex items-center justify-between border-dashed w-full`}
           onClick={onClick}
         >
           <span className="place-self-center font-expanded font-bold">
