@@ -13,6 +13,7 @@ const PriceCard = ({
   col = "",
   plan,
   buttonTitle = "Заказать",
+  priceClassName = "",
   className = "",
   children,
 }) => {
@@ -25,14 +26,16 @@ const PriceCard = ({
 
   return (
     <div
-      className={`${row} ${col} ${className} max-sm:${bgColor} relative xl:p-30 p-15 border-dashed flex flex-col sm:gap-60 gap-30 justify-between`}
+      className={`${row} ${col} ${className} max-sm:${bgColor} xl:p-30 p-15 border-dashed flex flex-col sm:gap-60 gap-30 justify-between`}
     >
       <div className="flex flex-col gap-30">
         <div className="flex flex-col gap-15">
           <p className="font-bold font-extended text-gray-400 sm:text-[26px] text-2xl leading-[30px]">
             {title}
           </p>
-          <p className="font-title text-gray-400 text-[40px] leading-[44px]">
+          <p
+            className={`${priceClassName} font-title text-gray-400 text-[40px] leading-[44px]`}
+          >
             {price}
           </p>
         </div>
@@ -82,12 +85,12 @@ const PriceCard = ({
         {buttonTitle}
       </PrimaryButton>
 
-      <div className="absolute top-0 right-0">
-        {/* <ShoppingCart
+      {/* <div className="absolute top-0 right-0">
+        <ShoppingCart
           className="border-l border-b p-15"
           addHandler={dummyAddToCartHandler}
-        /> */}
-      </div>
+        />
+      </div> */}
     </div>
   );
 };

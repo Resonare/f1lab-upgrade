@@ -21,16 +21,24 @@ const Carousel = ({
     const pageIndicators = [];
 
     for (let i = 0; i < children.length; i++) {
+      let indicatorColorClasses = `text-f1-light`;
+
+      if (i == curPage) {
+        //If current page
+        indicatorColorClasses = inverseColor
+          ? `text-gray-100`
+          : `text-gray-400`;
+      } else if (!(i == children.length - 1 && lastIndicatorIsLight)) {
+        //Not selected and not last (if last indicator must be light)
+        indicatorColorClasses = inverseColor
+          ? `text-gray-300`
+          : `text-gray-200`;
+      }
+
       pageIndicators.push(
         <div
           key={i}
-          className={`${
-            i == curPage
-              ? "text-gray-100"
-              : i == children.length - 1 && lastIndicatorIsLight
-              ? "text-f1-light"
-              : "text-gray-300"
-          } flex-1 flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}
+          className={`${indicatorColorClasses} flex-1 flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}
         >
           <p>•</p>
         </div>

@@ -43,6 +43,7 @@ const Hero = () => {
       >
         {content.cards[0]}
       </ContentCard>
+
       <div className="row-start-2 row-end-3 col-start-2 col-end-3 flex items-end overflow-auto">
         <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
           <div className=""></div>
@@ -51,6 +52,7 @@ const Hero = () => {
           <div className=""></div>
         </div>
       </div>
+
       <ContentCard
         className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
         row="row-start-3"
@@ -59,6 +61,7 @@ const Hero = () => {
       >
         {content.cards[1]}
       </ContentCard>
+
       <div className="row-start-3 row-end-4 col-start-1 col-end-2 flex items-end justify-end">
         <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
           <div className=""></div>
@@ -67,6 +70,7 @@ const Hero = () => {
           <div className=""></div>
         </div>
       </div>
+
       <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between max-lg:mt-60 max-sm:mt-30">
         <PrimaryButton
           className="h-full max-lg:grow max-sm:hidden"
@@ -97,10 +101,12 @@ const Hero = () => {
           Консультация
         </PrimaryButton>
       </div>
+
       <div className="row-start-4 max-lg:mt-60 col-start-2 col-end-5 lg:col-end-2 max-lg:hidden">
         <div className="h-full flex"></div>
       </div>
-      <div className="max-md:h-[400px] lg:row-start-1 md:row-start-2 sm:row-start-4 lg:row-end-5 md:row-end-4 sm:row-end-5 md:col-start-3 sm:col-start-1 col-end-5">
+
+      <div className="max-md:h-[400px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 sm:row-end-5 md:col-start-3 col-start-1 col-end-5">
         <img
           className="w-full h-full object-cover"
           src="/images/staffcop/hero-banner.png"

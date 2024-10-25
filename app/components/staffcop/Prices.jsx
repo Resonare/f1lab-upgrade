@@ -68,18 +68,65 @@ const Prices = () => {
       description: `Версия Staffcop Enterprise с сертификатом ФСТЭК № 4234 от 15 апреля 2020 года, переоформлен 04 июля 2022г.`,
     },
   ];
+
   return (
-    <Section id="prices">
-      <div className="max-lg:hidden col-start-1 col-end-5">
-        <div
-          className={`${bgColor} [&>div]:basis-4/12 border-y border-x border-dashed flex`}
-        >
-          <SectionTitle className="basis-4/12">
-            Лицензии под любые задачи
+    <>
+      <Section id="prices" className="max-sm:hidden">
+        <div className="max-lg:hidden col-start-1 col-end-5">
+          <div
+            className={`${bgColor} [&>div]:basis-4/12 border-y border-x border-dashed flex`}
+          >
+            <SectionTitle className="basis-4/12">
+              Лицензии под любые задачи
+            </SectionTitle>
+
+            <PriceCard
+              className="border-l ml-[-1px]"
+              plan={plansData[0]}
+              buttonTitle={plansData[0].buttonTitle}
+            >
+              {plansData[0].description}
+            </PriceCard>
+
+            <PriceCard
+              className="border-l"
+              plan={plansData[1]}
+              buttonTitle={plansData[1].buttonTitle}
+            >
+              {plansData[1].description}
+            </PriceCard>
+          </div>
+
+          <div
+            className={`${bgColor} [&>div]:basis-4/12 border-b border-x border-dashed flex justify-start`}
+          >
+            <PriceCard
+              className="border-r"
+              plan={plansData[2]}
+              buttonTitle={plansData[2].buttonTitle}
+            >
+              {plansData[2].description}
+            </PriceCard>
+
+            <PriceCard
+              className="border-r"
+              plan={plansData[3]}
+              buttonTitle={plansData[3].buttonTitle}
+            >
+              {plansData[3].description}
+            </PriceCard>
+          </div>
+        </div>
+
+        <div className="grid lg:hidden col-start-1 col-end-5">
+          <SectionTitle row="row-start-1" col="col-start-1 col-end-3">
+            Понятные цены
           </SectionTitle>
 
           <PriceCard
-            className="border-l ml-[-1px]"
+            className="border-y"
+            row="row-start-1"
+            col="col-start-3 col-end-5"
             plan={plansData[0]}
             buttonTitle={plansData[0].buttonTitle}
           >
@@ -87,19 +134,19 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
-            className="border-l"
+            className="border-y"
+            row="row-start-2"
+            col="col-start-1 col-end-3"
             plan={plansData[1]}
             buttonTitle={plansData[1].buttonTitle}
           >
             {plansData[1].description}
           </PriceCard>
-        </div>
 
-        <div
-          className={`${bgColor} [&>div]:basis-4/12 border-b border-x border-dashed flex justify-start`}
-        >
           <PriceCard
-            className="border-r"
+            className="border-y"
+            row="row-start-2"
+            col="col-start-3 col-end-5"
             plan={plansData[2]}
             buttonTitle={plansData[2].buttonTitle}
           >
@@ -108,60 +155,58 @@ const Prices = () => {
 
           <PriceCard
             className="border-r"
+            row="row-start-3"
+            col="col-start-1 col-end-5"
             plan={plansData[3]}
             buttonTitle={plansData[3].buttonTitle}
           >
             {plansData[3].description}
           </PriceCard>
         </div>
+      </Section>
+
+      <div id="prices" className="sm:hidden flex flex-col gap-30 pt-60 px-15">
+        <SectionTitle>Понятные цены</SectionTitle>
+
+        <Carousel className="w-full">
+          <PriceCard
+            className="border-b border-r"
+            priceClassName="text-[25px]"
+            plan={plansData[0]}
+            buttonTitle="Заказать"
+          >
+            {plansData[0].description}
+          </PriceCard>
+
+          <PriceCard
+            className="border-b border-r"
+            priceClassName="text-[25px]"
+            plan={plansData[1]}
+            buttonTitle="Заказать"
+          >
+            {plansData[1].description}
+          </PriceCard>
+
+          <PriceCard
+            className="border-b border-r"
+            priceClassName="text-[25px]"
+            plan={plansData[2]}
+            buttonTitle="Заказать"
+          >
+            {plansData[2].description}
+          </PriceCard>
+
+          <PriceCard
+            className="border-b"
+            priceClassName="text-[25px]"
+            plan={plansData[3]}
+            buttonTitle="Заказать"
+          >
+            {plansData[3].description}
+          </PriceCard>
+        </Carousel>
       </div>
-
-      <div className="grid lg:hidden col-start-1 col-end-5">
-        <SectionTitle row="row-start-1" col="col-start-1 col-end-3">
-          Понятные цены
-        </SectionTitle>
-
-        <PriceCard
-          className="border-y"
-          row="row-start-1"
-          col="col-start-3 col-end-5"
-          plan={plansData[0]}
-          buttonTitle={plansData[0].buttonTitle}
-        >
-          {plansData[0].description}
-        </PriceCard>
-
-        <PriceCard
-          className="border-y"
-          row="row-start-2"
-          col="col-start-1 col-end-3"
-          plan={plansData[1]}
-          buttonTitle={plansData[1].buttonTitle}
-        >
-          {plansData[1].description}
-        </PriceCard>
-
-        <PriceCard
-          className="border-y"
-          row="row-start-2"
-          col="col-start-3 col-end-5"
-          plan={plansData[2]}
-          buttonTitle={plansData[2].buttonTitle}
-        >
-          {plansData[2].description}
-        </PriceCard>
-
-        <PriceCard
-          className="border-r"
-          row="row-start-3"
-          col="col-start-1 col-end-5"
-          plan={plansData[3]}
-          buttonTitle={plansData[3].buttonTitle}
-        >
-          {plansData[3].description}
-        </PriceCard>
-      </div>
-    </Section>
+    </>
   );
 };
 
