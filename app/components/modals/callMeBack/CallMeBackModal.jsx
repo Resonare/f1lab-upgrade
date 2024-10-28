@@ -50,15 +50,15 @@ const CallMeBackModal = () => {
         <BackgroundGrid />
 
         <div
-          className={`xl:px-120 lg:py-90 lg:px-60 sm:py-[70px] sm:px-[44.1px] h-fit`}
+          className={`xl:px-120 lg:py-90 lg:px-60 sm:py-[70px] sm:px-[44.1px] py-30 px-15 h-fit`}
         >
           <div
             className={`${bgColor} relative flex max-lg:flex-col bg-striped h-full border-[1px] border-dashed border-gray-200`}
           >
-            <CallMeBackInfo success={success} />
+            <CallMeBackInfo success={!success} />
 
             <ModalForm
-              className={`${success !== null && `hidden`}`}
+              className={`${!success !== null && `hidden`}`}
               method="post"
               action="/services"
               values={values}
@@ -122,7 +122,7 @@ const CallMeBackModal = () => {
             </ModalForm>
 
             <Result
-              className={`${success === null && `hidden`}`}
+              className={`${!success === null && `hidden`}`}
               success={success}
               phone={values.phone}
               onClose={closeCallMeBackModal}

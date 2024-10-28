@@ -7,12 +7,13 @@ import { ThemeContext } from "../../store/theme-context";
 
 const SecondaryButton = ({
   variant,
-  borderX,
   link,
   to,
   onClick,
   row = "",
   col = "",
+  customIcon,
+  titleClassName = "",
   className = "",
   children,
 }) => {
@@ -25,9 +26,7 @@ const SecondaryButton = ({
 
   switch (variant) {
     case "shaded":
-      buttonStyle = `flex group h-[52px] justify-between border-y ${
-        borderX ? "border-x" : ""
-      } border-dashed border-gray-200 pl-20 pr-10 py-5 sm:bg-striped bg-striped-25 hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500`;
+      buttonStyle = `flex group h-[52px] justify-between border-y border-dashed border-gray-200 pl-20 pr-10 py-5 sm:bg-striped bg-striped-25 hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500`;
       arrowColor = "#22282E";
       arrowHoverColor = "stroke-gray-400";
       break;
@@ -61,26 +60,44 @@ const SecondaryButton = ({
           className={`text-base ${row} ${col} ${buttonStyle} ${className} gap-15 group flex items-center justify-between border-dashed w-full`}
           onClick={onClick}
         >
-          <span className="place-self-center font-expanded font-bold">
+          <span
+            className={`${titleClassName} place-self-center font-expanded font-bold`}
+          >
             {children}
           </span>
-          <div className="p-[7px] group-hover:pt-0 group-hover:pb-[14px] group-hover:pr-0 group-hover:pl-[14px] transition-all duration-300">
-            <ArrowURSecondary color={arrowColor} hoverColor={arrowHoverColor} />
+          <div
+            className={`${
+              !customIcon &&
+              `group-hover:pt-0 group-hover:pb-[14px] group-hover:pr-0 group-hover:pl-[14px]`
+            } p-[7px] transition-all duration-300`}
+          >
+            {customIcon ? (
+              <img src={customIcon} alt="" />
+            ) : (
+              <ArrowURSecondary
+                color={arrowColor}
+                hoverColor={arrowHoverColor}
+              />
+            )}
           </div>
         </button>
       )}
       {link && (
         <NavLink
-          className={`${buttonStyle} min-w-full`}
+          className={`${className} ${buttonStyle} min-w-full`}
           to={to}
           onClick={showServicesDropdownHandler}
         >
           <span className="place-self-center">{children}</span>
-          <ArrowURSecondary
-            className="flex items-center"
-            color={arrowColor}
-            hoverColor={arrowHoverColor}
-          />
+          {customIcon ? (
+            <img src={customIcon} alt="" />
+          ) : (
+            <ArrowURSecondary
+              className="flex items-center"
+              color={arrowColor}
+              hoverColor={arrowHoverColor}
+            />
+          )}
         </NavLink>
       )}
     </>

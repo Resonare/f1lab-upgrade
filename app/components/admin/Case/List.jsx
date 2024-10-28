@@ -75,10 +75,10 @@ export default function ListCases({ serviceCases = [], branches = [] }) {
       )}
       <div className="mt-30">
         <SecondaryButton
+          className="border-x"
           onClick={() => {
             setAddServiceCase(true);
           }}
-          borderX
           variant="shaded"
         >
           Добавить

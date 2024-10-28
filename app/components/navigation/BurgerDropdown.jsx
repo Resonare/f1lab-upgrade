@@ -80,8 +80,8 @@ const BurgerDropdown = ({ navs }) => {
                 <div key={nav.link}>
                   <SecondaryButton
                     key={nav.link}
+                    className="border-x"
                     variant="shaded"
-                    borderX
                     link
                     to={nav.link}
                   >
@@ -140,8 +140,8 @@ const BurgerDropdown = ({ navs }) => {
                 </div>
               ))}
             <BackButton
+              className="border-x"
               textColor={`text-${themeContext.bgColor?.substring(3)}`}
-              borderX
               onClick={() => {
                 setServiceState({
                   activeEl: "menu",
@@ -165,9 +165,9 @@ const BurgerDropdown = ({ navs }) => {
             {serviceState.items.map((nav) => (
               <div key={nav.link}>
                 <SecondaryButton
+                  className="border-x"
                   key={nav.link}
                   variant="shaded"
-                  borderX
                   link
                   to={"services/" + nav.link}
                 >
@@ -176,6 +176,7 @@ const BurgerDropdown = ({ navs }) => {
               </div>
             ))}
             <BackButton
+              className="border-x"
               onClick={() => {
                 setServiceState({
                   activeEl: "area",
@@ -184,7 +185,6 @@ const BurgerDropdown = ({ navs }) => {
                   items: navs[1].items[0].items,
                 });
               }}
-              borderX
             />
           </div>
         </div>

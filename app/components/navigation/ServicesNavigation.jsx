@@ -76,7 +76,6 @@ const ServicesNavigation = ({ items }) => {
               <SecondaryButton
                 key={service.link}
                 variant="shaded"
-                borderX={false}
                 link
                 to={`/services/${service.link}`}
               >

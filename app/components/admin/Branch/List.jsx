@@ -68,10 +68,10 @@ export default function ListBranches({ branches = [] }) {
       )}
       <div className="mt-30">
         <SecondaryButton
+          className="border-x"
           onClick={() => {
             setAddBranch(true);
           }}
-          borderX
           variant="shaded"
         >
           Добавить

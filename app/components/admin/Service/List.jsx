@@ -69,10 +69,10 @@ export default function ListServices({ services = [], branches = [] }) {
       )}
       <div className="mt-30">
         <SecondaryButton
+          className="border-x"
           onClick={() => {
             setAddService(true);
           }}
-          borderX
           variant="shaded"
         >
           Добавить

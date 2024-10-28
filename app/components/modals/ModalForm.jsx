@@ -135,7 +135,7 @@ const ModalForm = ({
           <PrimaryButton>Заказать звонок</PrimaryButton>
         </div>
 
-        <div className="lg:hidden flex flex-col gap-20">
+        <div className="lg:hidden flex flex-col sm:gap-20 gap-30">
           <p className="font-extended font-bold text-[22px] leading-6">
             Контакты:
           </p>
