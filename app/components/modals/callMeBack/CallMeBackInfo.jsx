@@ -25,11 +25,13 @@ const CallMeBackInfo = ({ success }) => {
 
   return (
     <div
-      className={`${bgColor} max-sm:hidden xl:w-[40%] lg:w-[50%] lg:p-30 sm:p-20 p-15 border-dashed flex flex-col justify-between transition-all`}
+      className={`${bgColor} ${
+        success !== null && `hidden`
+      } xl:w-[40%] lg:w-[50%] lg:p-30 sm:p-20 p-15 border-dashed flex flex-col justify-between transition-all`}
     >
       <div className="flex flex-col lg:gap-60 gap-30">
         {success ? (
-          <h1 className="max-md:w-[80%] max-sm:mt-40 sm:font-expanded font-extended sm:font-extrabold font-bold lg:text-[44px] sm:text-[40px] text-2xl sm:leading-[44px] leading-[30px]">
+          <h1 className="max-lg:w-[80%] max-sm:mt-40 sm:font-expanded font-extended sm:font-extrabold font-bold lg:text-[44px] sm:text-[40px] text-2xl sm:leading-[44px] leading-[30px]">
             Мы уже в предвкушении обсуждения!
           </h1>
         ) : (
@@ -42,7 +44,7 @@ const CallMeBackInfo = ({ success }) => {
           <p className="font-extended font-bold text-[22px] leading-6">
             Что обсудим:
           </p>
-          <div className="flex flex-col gap-15 font-text font-light text-20 lg:leading-6 leading-4">
+          <div className="flex flex-col gap-15 font-text sm:font-light sm:text-20 text-sm lg:leading-6 leading-tight">
             <p className="flex">
               {circleOrPoint} Текущие задачи и проблемы в IT-инфраструктуре
             </p>

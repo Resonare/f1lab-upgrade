@@ -134,13 +134,6 @@ const ModalForm = ({
         <div className="h-[68px] flex items-center">
           <PrimaryButton>Заказать звонок</PrimaryButton>
         </div>
-
-        <div className="lg:hidden flex flex-col sm:gap-20 gap-30">
-          <p className="font-extended font-bold text-[22px] leading-6">
-            Контакты:
-          </p>
-          <Contacts />
-        </div>
       </div>
     </fetcher.Form>
   );

@@ -10,6 +10,8 @@ import Result from "../Result";
 import Cancel from "../Cancel";
 import ModalForm from "../ModalForm";
 import FormInput from "../../misc/FormInput";
+import PrimaryButton from "../../buttons/PrimaryButton";
+import Contacts from "../Contacts";
 
 import { ThemeContext } from "../../../store/theme-context";
 
@@ -39,7 +41,7 @@ const PlanModal = () => {
   const [success, setSuccess] = useState(null);
 
   //Variants: monthly, annual
-  const [annual, setannual] = useState(false);
+  const [annual, setAnnual] = useState(false);
 
   return (
     <BlurCurtain
@@ -47,23 +49,33 @@ const PlanModal = () => {
         !planModalIsActive && `fixed bottom-[-100%]`
       } text-gray-400 left-0 bottom-0`}
     >
-      <div className="m-auto h-full max-w-[1920px]">
+      <div className="m-auto h-full max-w-[1920px] max-2xl:overflow-y-scroll">
         <BackgroundGrid />
 
-        <div className={`pr-120 py-90 h-full`}>
+        <div
+          className={`xl:pr-120 lg:py-90 lg:pr-60 sm:py-[70px] lg:pl-0 sm:px-[44.1px] py-30 px-15`}
+        >
           <div
-            className={`${bgColor} relative flex pl-120 bg-striped h-full border-[1px] border-dashed border-gray-200`}
+            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col xl:pl-120 lg:pl-60 max-md:pl-0 bg-striped h-full border-[1px] border-dashed border-gray-200`}
           >
+            <Result
+              className={`${success === null && `hidden`} max-sm:h-fit sm:hidden`}
+              success={success}
+              phone={values.phone}
+              onClose={closePlanModal}
+              showContacts={false}
+            />
+
             <PlanInfo
               title={selectedPlan.title}
               price={selectedPlan.price}
               annualPrice={selectedPlan.annualPrice}
-              mainCondition={selectedPlan.mainCondition}
-              mainConditionIcon={selectedPlan.mainConditionIcon}
+              mainConditions={selectedPlan.mainConditions}
+              mainConditionIcons={selectedPlan.mainConditionIcons}
               conditions={selectedPlan.conditions}
               annual={annual}
-              setannual={setannual}
-              submitted={success !== null}
+              setAnnual={setAnnual}
+              success={success}
               opened={planModalIsActive}
             >
               {selectedPlan.description}
@@ -99,6 +111,7 @@ const PlanModal = () => {
                 error={errors.phone}
               />
               <FormInput
+                className="border-b"
                 name="email"
                 placeholder="E-mail"
                 type="email"
@@ -111,7 +124,7 @@ const PlanModal = () => {
                 className="hidden"
                 name="plan-title"
                 type="text"
-                value={selectedPlan.title}
+                value={selectedPlan.title ? selectedPlan.title : ""}
               />
               <FormInput
                 className="hidden"
@@ -134,11 +147,29 @@ const PlanModal = () => {
             </ModalForm>
 
             <Result
-              className={`${success === null && `hidden`}`}
+              className={`${success === null && `hidden`} max-sm:hidden`}
               success={success}
               phone={values.phone}
               onClose={closePlanModal}
             />
+
+            <div
+              className={`${bgColor} sm:hidden flex flex-col sm:gap-15 gap-30 p-15 h-full justify-between`}
+            >
+              <PrimaryButton
+                className={success === null && `hidden`}
+                onClick={closePlanModal}
+              >
+                Жду звонка
+              </PrimaryButton>
+
+              <div className="flex flex-col gap-20">
+                <p className="font-extended font-bold text-[22px] leading-6">
+                  Контакты:
+                </p>
+                <Contacts />
+              </div>
+            </div>
 
             <Cancel
               className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"

@@ -10,7 +10,7 @@ const Checkbox = ({ name = "", setValues, value, error }) => {
     <div
       className={`${
         error ? `border-alert` : `border-gray-400`
-      } flex items-center justify-center cursor-pointer bg-[transparent] rounded-[5px] border-[2px] w-[24px] h-[24px]`}
+      } flex items-center justify-center cursor-pointer bg-[transparent] rounded-[5px] border-[2px] min-w-[24px] w-[24px] h-[24px]`}
       onClick={handleClick}
     >
       <input

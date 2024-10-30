@@ -20,7 +20,7 @@ const Cases = () => {
       ...serviceCases[0],
       row: "row-start-2",
       col: "col-start-1 col-end-3 lg:col-end-1",
-      border: `sm:border-t sm:border-l max-sm:border-b`,
+      border: `sm:border-t sm:border-l lg:border-b max-sm:border-b`,
     };
   }
 
@@ -29,7 +29,7 @@ const Cases = () => {
       ...serviceCases[1],
       row: "row-start-2",
       col: "col-start-3 col-end-5 lg:col-start-2 lg:col-end-2",
-      border: `sm:border-t sm:border-r border-l border-b`,
+      border: `sm:border-t lg:border-r-0 sm:border-r border-l border-b`,
     };
   }
 
@@ -38,7 +38,7 @@ const Cases = () => {
       ...serviceCases[2],
       row: "lg:row-start-2 row-start-3",
       col: "col-start-1 col-end-3 lg:col-start-3 lg:col-end-3",
-      border: `sm:border-t sm:border-r border-l max-sm:border-b`,
+      border: `sm:border-t sm:border-r lg:border-b border-l max-sm:border-b`,
     };
   }
 

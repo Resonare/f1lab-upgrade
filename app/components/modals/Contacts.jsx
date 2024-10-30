@@ -1,14 +1,22 @@
+import { useContext } from "react";
+
 import Condition from "../misc/Condition";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-const Contacts = () => {
+import { ThemeContext } from "../../store/theme-context";
+
+const Contacts = ({ className = "" }) => {
+  const { bgColor } = useContext(ThemeContext);
+
   const dummyClickHandler = (event) => {
     event.preventDefault();
   };
 
   return (
     <>
-      <div className="max-sm:hidden flex flex-wrap lg:gap-30 justify-between">
+      <div
+        className={`${className} max-sm:hidden flex flex-wrap lg:gap-30 justify-between`}
+      >
         <Condition
           className="text-sm font-text font-bold uppercase leading-[18px]"
           icon="mail.svg"
@@ -35,7 +43,7 @@ const Contacts = () => {
         </Condition>
       </div>
 
-      <div className="sm:hidden flex flex-col gap-15">
+      <div className={`${className} sm:hidden flex flex-col gap-15`}>
         <SecondaryButton
           className="uppercase border-x"
           customIcon="/images/icons/mail.svg"

@@ -50,7 +50,7 @@ const Offers = () => {
       <ContentCard
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-2 row-start-6"
-        col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 col-end-4"
+        col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
         iconPath="staffcop/offer-icon2.svg"
         inverseColor={true}
       >
@@ -70,7 +70,7 @@ const Offers = () => {
 
       <ContentCard
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
-        row="lg:row-start-2 row-start-9"
+        row="lg:row-start-2 sm:row-start-3 row-start-9"
         col="lg:col-start-3 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
         iconPath="staffcop/offer-icon3.svg"
         inverseColor={true}
@@ -134,7 +134,7 @@ const Offers = () => {
       <ContentCard
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[19]"
-        col="lg:col-start-4 sm:col-start-3 col-start-1 col-end-4"
+        col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
         iconPath="staffcop/offer-icon4.svg"
         inverseColor={true}
       >

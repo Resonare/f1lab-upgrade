@@ -7,6 +7,8 @@ import Result from "../Result";
 import Cancel from "../Cancel";
 import ModalForm from "../ModalForm";
 import FormInput from "../../misc/FormInput";
+import PrimaryButton from "../../buttons/PrimaryButton";
+import Contacts from "../Contacts";
 
 import { ThemeContext } from "../../../store/theme-context";
 import CallMeBackInfo from "./CallMeBackInfo";
@@ -47,18 +49,18 @@ const CallMeBackModal = () => {
       } text-gray-400 left-0 bottom-0`}
     >
       <div className="m-auto h-full max-w-[1920px] overflow-y-scroll">
-        <BackgroundGrid />
+        <BackgroundGrid className="flex" />
 
         <div
-          className={`xl:px-120 lg:py-90 lg:px-60 sm:py-[70px] sm:px-[44.1px] py-30 px-15 h-fit`}
+          className={`xl:px-120 lg:py-90 lg:px-60 sm:py-[70px] sm:px-[44.1px] py-30 px-15`}
         >
           <div
-            className={`${bgColor} relative flex max-lg:flex-col bg-striped h-full border-[1px] border-dashed border-gray-200`}
+            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col bg-striped h-full border-[1px] border-dashed border-gray-200`}
           >
-            <CallMeBackInfo success={!success} />
+            <CallMeBackInfo success={success} />
 
             <ModalForm
-              className={`${!success !== null && `hidden`}`}
+              className={`${success !== null && `hidden`}`}
               method="post"
               action="/services"
               values={values}
@@ -122,11 +124,33 @@ const CallMeBackModal = () => {
             </ModalForm>
 
             <Result
-              className={`${!success === null && `hidden`}`}
+              className={`${
+                success === null && `hidden`
+              } max-sm:justify-between max-sm:h-[calc(100svh-30px*2)] max-sm:pb-0`}
               success={success}
               phone={values.phone}
               onClose={closeCallMeBackModal}
             />
+
+            <div
+              className={`${bgColor} ${
+                success !== null ? `hidden` : `sm:hidden`
+              } flex flex-col sm:gap-15 gap-30 p-15 h-full justify-between`}
+            >
+              <PrimaryButton
+                className={success === null && `hidden`}
+                onClick={closeCallMeBackModal}
+              >
+                Жду звонка
+              </PrimaryButton>
+
+              <div className="flex flex-col gap-20">
+                <p className="font-extended font-bold text-[22px] leading-6">
+                  Контакты:
+                </p>
+                <Contacts />
+              </div>
+            </div>
 
             <Cancel
               className="w-40 h-40 absolute sm:top-30 top-15 sm:right-30 right-15 cursor-pointer select-none"

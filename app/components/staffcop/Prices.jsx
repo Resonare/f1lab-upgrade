@@ -118,9 +118,9 @@ const Prices = () => {
           </div>
         </div>
 
-        <div className="grid lg:hidden col-start-1 col-end-5">
+        <div className="grid grid-cols-4 lg:hidden col-start-1 col-end-5">
           <SectionTitle row="row-start-1" col="col-start-1 col-end-3">
-            Понятные цены
+          Лицензии под любые задачи
           </SectionTitle>
 
           <PriceCard

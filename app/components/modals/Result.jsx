@@ -5,72 +5,86 @@ import Contacts from "./Contacts";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const Result = ({ phone, className, success, onClose }) => {
+const Result = ({
+  phone,
+  className,
+  success,
+  showContacts = true,
+  onClose,
+}) => {
   const { bgColor } = useContext(ThemeContext);
+
+  const successCircleBig = (
+    <svg
+      className="max-lg:hidden"
+      width="102"
+      height="102"
+      viewBox="0 0 102 102"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g id="add-circle--button-remove-cross-add-buttons-plus-circle-+-mathematics-math">
+        <path
+          id="Vector"
+          d="M51 101C78.6146 101 101 78.6146 101 51C101 23.3858 78.6146 1 51 1C23.3858 1 1 23.3858 1 51C1 78.6146 23.3858 101 51 101Z"
+          stroke="#01CA9A"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          id="Vector_2"
+          d="M70.1952 36.1895L43.8704 69.0954L30.708 59.2236"
+          stroke="#01CA9A"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+    </svg>
+  );
+
+  const successCircleSmall = (
+    <svg
+      className="lg:hidden"
+      width="50"
+      height="50"
+      viewBox="0 0 50 50"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clipPath="url(#clip0_3709_13369)">
+        <path
+          d="M24.8437 49.375C38.2196 49.375 49.0625 38.5321 49.0625 25.1562C49.0625 11.7806 38.2196 0.9375 24.8437 0.9375C11.4681 0.9375 0.625 11.7806 0.625 25.1562C0.625 38.5321 11.4681 49.375 24.8437 49.375Z"
+          stroke="#01CA9A"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M34.1422 17.9844L21.3912 33.9232L15.0156 29.1416"
+          stroke="#01CA9A"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_3709_13369">
+          <rect width="50" height="50" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  );
 
   return (
     <div
-      className={`${className} max-lg:h-[550px] xl:w-auto lg:w-[50%] w-full max-sm:h-[calc(100svh-30px*2)] sm:grow sm:p-30 pt-15 flex flex-col max-sm:gap-30 sm:justify-between`}
+      className={`${className} max-lg:h-[550px] xl:w-auto lg:w-[50%] w-full sm:grow md:p-30 sm:p-15 pt-15 max-sm:pb-30 flex flex-col max-sm:gap-30 sm:justify-between`}
     >
       <div className={`${!success && `hidden`} max-sm:px-15`}>
-        <svg
-          className="max-sm:hidden"
-          width="102"
-          height="102"
-          viewBox="0 0 102 102"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g id="add-circle--button-remove-cross-add-buttons-plus-circle-+-mathematics-math">
-            <path
-              id="Vector"
-              d="M51 101C78.6146 101 101 78.6146 101 51C101 23.3858 78.6146 1 51 1C23.3858 1 1 23.3858 1 51C1 78.6146 23.3858 101 51 101Z"
-              stroke="#01CA9A"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              id="Vector_2"
-              d="M70.1952 36.1895L43.8704 69.0954L30.708 59.2236"
-              stroke="#01CA9A"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </g>
-        </svg>
+        {successCircleBig}
 
-        <svg
-          className="sm:hidden"
-          width="50"
-          height="50"
-          viewBox="0 0 50 50"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g clipPath="url(#clip0_3709_13369)">
-            <path
-              d="M24.8437 49.375C38.2196 49.375 49.0625 38.5321 49.0625 25.1562C49.0625 11.7806 38.2196 0.9375 24.8437 0.9375C11.4681 0.9375 0.625 11.7806 0.625 25.1562C0.625 38.5321 11.4681 49.375 24.8437 49.375Z"
-              stroke="#01CA9A"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M34.1422 17.9844L21.3912 33.9232L15.0156 29.1416"
-              stroke="#01CA9A"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </g>
-          <defs>
-            <clipPath id="clip0_3709_13369">
-              <rect width="50" height="50" fill="white" />
-            </clipPath>
-          </defs>
-        </svg>
+        {successCircleSmall}
       </div>
 
       <div className={`${success && `hidden`} max-sm:px-15`}>
@@ -144,24 +158,21 @@ const Result = ({ phone, className, success, onClose }) => {
         </p>
       </div>
 
-      <div
-        className={`${bgColor} flex flex-col gap-15 max-sm:p-15 max-sm:h-full max-sm:justify-between`}
-      >
-        <PrimaryButton className="max-sm:hidden" onClick={onClose}>
-          Жду звонка
-        </PrimaryButton>
+      {showContacts && (
+        <div
+          className={`max-sm:${bgColor} flex flex-col gap-15 max-sm:p-15 max-sm:h-full max-sm:justify-between`}
+        >
+          <PrimaryButton className="max-lg:hidden" onClick={onClose}>
+            Жду звонка
+          </PrimaryButton>
 
-        <div className="lg:hidden flex flex-col gap-20">
-          <p className="font-extended font-bold text-[22px] leading-6">
-            Контакты:
-          </p>
-          <Contacts />
+          <Contacts className="lg:hidden" />
+
+          <PrimaryButton className="lg:hidden" onClick={onClose}>
+            Жду звонка
+          </PrimaryButton>
         </div>
-
-        <PrimaryButton className="sm:hidden" onClick={onClose}>
-          Жду звонка
-        </PrimaryButton>
-      </div>
+      )}
     </div>
   );
 };

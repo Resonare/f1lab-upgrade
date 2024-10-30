@@ -34,7 +34,7 @@ const PriceCard = ({
             {title}
           </p>
           <p
-            className={`${priceClassName} font-title text-gray-400 text-[40px] leading-[44px]`}
+            className={`${priceClassName} font-title text-gray-400 md:text-[40px] sm:text-[30px] leading-[44px]`}
           >
             {price}
           </p>
