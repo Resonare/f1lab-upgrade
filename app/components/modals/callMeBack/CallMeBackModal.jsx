@@ -48,7 +48,7 @@ const CallMeBackModal = () => {
         !callMeBackModalIsActive && `fixed bottom-[-100%]`
       } text-gray-400 left-0 bottom-0`}
     >
-      <div className="m-auto h-full max-w-[1920px] overflow-y-scroll">
+      <div className="m-auto h-full max-w-[1920px] overflow-auto">
         <BackgroundGrid className="flex" />
 
         <div

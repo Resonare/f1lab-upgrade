@@ -22,6 +22,7 @@ const PlanInfo = ({
 
   const handleMonthlyClick = () => {
     setAnnual(false);
+    console.log("test");
   };
 
   const handleAnnualClick = () => {
@@ -93,9 +94,6 @@ const PlanInfo = ({
 
   return (
     <div
-      onClick={() => {
-        setAnnual(true);
-      }}
       className={`${bgColor} xl:w-[40%] lg:w-[56%] w-full grow md:p-30 p-15 border-dashed flex flex-col gap-30 justify-between`}
     >
       <div className={`${success !== null && `max-sm:hidden`}`}>
@@ -120,19 +118,19 @@ const PlanInfo = ({
             <div
               className={`flex max-sm:flex-col justify-between transition-all`}
             >
-              <p className="h-fit font-expanded font-extrabold sm:text-[40px] text-[28px] sm:leading-[44px] leading-[28px]">
+              <p className="min-w-[180px] h-fit font-expanded font-extrabold sm:text-[40px] text-[28px] sm:leading-[44px] leading-[28px]">
                 {annual ? annualPrice : price}
               </p>
               {annualPrice && (
                 <div
                   className={`${
                     !annual && ` opacity-0`
-                  } sm:w-[45%] max-sm:pt-5 flex justify-start sm:gap-15 gap-5 text-f1-dark transition-all`}
+                  } max-sm:pt-5 flex justify-start sm:gap-15 gap-5 text-f1-dark transition-all`}
                 >
                   <p className="h-fit sm:text-[40px] text-sm font-title sm:leading-[44px]">
                     -15%
                   </p>
-                  <p className="md:w-[200px] sm:w-[130px] h-fit font-text font-light text-base leading-tight">
+                  <p className="h-fit sm:w-1/2 font-text font-light text-base leading-tight">
                     при оплате за 12 месяцев
                   </p>
                 </div>
@@ -146,7 +144,7 @@ const PlanInfo = ({
 
           {annualPrice && !success && (
             <PlanAnnualSwitch
-              className="lg:hidden"
+              className="lg:hidden md:flex hidden"
               submitted={success !== null}
               annual={annual}
               handleAnnualClick={handleAnnualClick}
@@ -185,7 +183,7 @@ const PlanInfo = ({
       </div>
 
       <PlanAnnualSwitch
-        className={`${(!annualPrice || success) && `hidden`} max-lg:hidden`}
+        className={`${(!annualPrice || success) && `hidden`} lg:flex md:hidden`}
         submitted={success !== null}
         annual={annual}
         handleAnnualClick={handleAnnualClick}

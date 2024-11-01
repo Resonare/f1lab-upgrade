@@ -49,7 +49,7 @@ const PlanModal = () => {
         !planModalIsActive && `fixed bottom-[-100%]`
       } text-gray-400 left-0 bottom-0`}
     >
-      <div className="m-auto h-full max-w-[1920px] max-2xl:overflow-y-scroll">
+      <div className="m-auto h-full max-w-[1920px] overflow-auto">
         <BackgroundGrid />
 
         <div
