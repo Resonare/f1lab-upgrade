@@ -22,7 +22,6 @@ const PlanInfo = ({
 
   const handleMonthlyClick = () => {
     setAnnual(false);
-    console.log("test");
   };
 
   const handleAnnualClick = () => {

@@ -51,7 +51,7 @@ const Process = () => {
     <>
       <Section className="max-sm:hidden">
         <SectionTitle row="row-start-1" col="col-start-1 col-end-5">
-          Процесс проведения аудита
+          Этапы оказания техподдержки
         </SectionTitle>
 
         <StepCard

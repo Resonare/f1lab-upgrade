@@ -70,7 +70,7 @@ const Scenarios = () => {
         Нехватка ИТ‑компетенций при наличии сложных инфраструктур
       </ContentCard>
 
-      <div className="sm:row-start-3 row-start-10 lg:col-start-4 sm:col-start-3 col-end-5 px-120">
+      <div className="max-sm:hidden bg-gray-400 xl:px-[110px] lg:px-90 md:px-200 sm:px-100 border-y border-dashed sm:row-start-3 row-start-10 lg:col-start-4 sm:col-start-3 col-end-5">
         <Animation data={scenariosAnimationJson} />
       </div>
     </Section>

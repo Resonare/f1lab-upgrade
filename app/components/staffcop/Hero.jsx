@@ -70,7 +70,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between max-lg:mt-60 max-sm:mt-30">
+      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between sm:mt-60 mt-30">
         <PrimaryButton
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"
@@ -85,7 +85,7 @@ const Hero = () => {
             <div className="text-sm font-text font-normal">
               Средняя стоимость аудита
             </div>
-            <div className="font-subtitle text-[26px] leading-[30px]">
+            <div className="font-extended font-bold text-[26px] leading-[30px]">
               100 000 ₽
             </div>
           </div>
