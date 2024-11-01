@@ -1,14 +1,14 @@
-import Icon from "../schemaConnectionBlocks/Icon";
-import RightLeft from "../schemaConnectionBlocks/RightLeft";
-import Empty from "../schemaConnectionBlocks/Empty";
-import TopBottom from "../schemaConnectionBlocks/TopBottom";
-import RightBottom from "../schemaConnectionBlocks/RightBottom";
-import LeftRightBottom from "../schemaConnectionBlocks/LeftRightBottom";
-import TopRight from "../schemaConnectionBlocks/TopRight";
-import TopRightLeft from "../schemaConnectionBlocks/TopRightLeft";
-import BottomRightLeft from "../schemaConnectionBlocks/BottomRightLeft";
-import BottomLeft from "../schemaConnectionBlocks/BottomLeft";
-import TopBottomLeft from "../schemaConnectionBlocks/TopBottomLeft";
+import Icon from "./schemaConnectionBlocks/Icon";
+import RightLeft from "./schemaConnectionBlocks/RightLeft";
+import Empty from "./schemaConnectionBlocks/Empty";
+import TopBottom from "./schemaConnectionBlocks/TopBottom";
+import RightBottom from "./schemaConnectionBlocks/RightBottom";
+import LeftRightBottom from "./schemaConnectionBlocks/LeftRightBottom";
+import TopRight from "./schemaConnectionBlocks/TopRight";
+import TopRightLeft from "./schemaConnectionBlocks/TopRightLeft";
+import BottomRightLeft from "./schemaConnectionBlocks/BottomRightLeft";
+import BottomLeft from "./schemaConnectionBlocks/BottomLeft";
+import TopBottomLeft from "./schemaConnectionBlocks/TopBottomLeft";
 
 const SchemaCanvas = () => {
   return (

@@ -6,7 +6,6 @@ import Section from "../../layout/Section";
 import SectionTitle from "../SectionTitle";
 import PrimaryButton from "../buttons/PrimaryButton";
 import ContentCard from "../cards/ContentCard";
-import SchemaCanvas from "./SchemaCanvas";
 
 import { ThemeContext } from "../../store/theme-context";
 

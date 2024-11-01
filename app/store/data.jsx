@@ -33,7 +33,7 @@ export const navData = [
             items: [],
           },
           {
-            link: "remote-support",
+            link: "it-support",
             title: "Удалённая техподдержка",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
