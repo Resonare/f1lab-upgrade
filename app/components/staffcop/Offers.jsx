@@ -132,7 +132,7 @@ const Offers = () => {
       />
       
       <ContentCard
-        className="border-y max-sm:border-x max-sm:ml-[-1px]"
+        className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[19]"
         col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
         iconPath="staffcop/offer-icon4.svg"

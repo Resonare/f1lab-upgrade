@@ -65,7 +65,7 @@ const Hero = () => {
           <div className=""></div>
         </div>
       </div>
-      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between max-lg:mt-120 max-md:mt-60 max-sm:mt-30">
+      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between lg:mt-0 sm:mt-60 mt-30">
         <PrimaryButton
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"
@@ -80,7 +80,7 @@ const Hero = () => {
             <div className="text-sm font-text font-normal">
               Средняя стоимость аудита
             </div>
-            <div className="font-subtitle text-[26px] leading-[30px]">
+            <div className="font-extended font-bold text-[26px] leading-[30px]">
               100 000 ₽
             </div>
           </div>
@@ -107,7 +107,8 @@ const Hero = () => {
           /> */}
         </div>
       </div>
-      <div className="md:row-start-2 row-start-4 md:row-end-4 md:col-start-3 col-start-1 col-end-5 lg:row-start-1 lg:row-end-4 lg:col-start-3 lg:col-end-5 max-md:hidden max-sm:block md:h-[calc(100svh-290px)] max-lg:h-[34svh] max-sm:h-full">
+
+      <div className="lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
         <SchemaCanvas />
       </div>
     </Section>
