@@ -1,3 +1,5 @@
+import { LazyImage } from "../LazyImage";
+
 const ContentCard = ({
   row,
   col,
@@ -19,7 +21,7 @@ const ContentCard = ({
     >
       {iconPath ? (
         <div className={`${hideIconOnMobile && `max-sm:hidden`}`}>
-          <img src={`/images/${iconPath}`} alt="" />
+          <LazyImage src={`/images/${iconPath}`} alt="" />
         </div>
       ) : null}
       <div

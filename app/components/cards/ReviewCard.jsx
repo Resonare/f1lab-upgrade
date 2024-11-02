@@ -3,6 +3,7 @@ import { useState } from "react";
 import SecondaryButton from "../buttons/SecondaryButton";
 import ArrowPrev from "../misc/reviewButtons/ArrowPrev";
 import ArrowNext from "../misc/reviewButtons/ArrowNext";
+import { LazyImage } from "../LazyImage";
 
 const ReviewCard = ({
   row = "",
@@ -65,10 +66,12 @@ const ReviewCard = ({
           reviewsOnPage <= 1 ? "w-full" : "max-w-[400px]"
         } bg-[white] h-[400px] flex justify-center items-center`}
       >
-        <img
+        <LazyImage
           src={`/images/reviews/${reviewPath}`}
           className="max-h-[400px]"
-        ></img>
+          alt=""
+          loading="lazy"
+        ></LazyImage>
       </div>
     ));
   };

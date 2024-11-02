@@ -4,6 +4,7 @@ import ArrowURSecondary from "../misc/svg/ArrowURSecondary";
 
 import { NavbarContext } from "../../store/navbar-context";
 import { ThemeContext } from "../../store/theme-context";
+import { LazyImage } from "../LazyImage";
 
 const SecondaryButton = ({
   variant,
@@ -72,7 +73,7 @@ const SecondaryButton = ({
             } p-[7px] transition-all duration-300`}
           >
             {customIcon ? (
-              <img src={customIcon} alt="" />
+              <LazyImage src={customIcon} alt="" />
             ) : (
               <ArrowURSecondary
                 color={arrowColor}
@@ -90,7 +91,7 @@ const SecondaryButton = ({
         >
           <span className="place-self-center">{children}</span>
           {customIcon ? (
-            <img src={customIcon} alt="" />
+            <LazyImage src={customIcon} alt="" />
           ) : (
             <ArrowURSecondary
               className="flex items-center"

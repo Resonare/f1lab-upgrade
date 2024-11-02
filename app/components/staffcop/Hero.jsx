@@ -8,6 +8,7 @@ import PrimaryButton from "../buttons/PrimaryButton";
 import ContentCard from "../cards/ContentCard";
 
 import { ThemeContext } from "../../store/theme-context";
+import { LazyImage } from "../LazyImage";
 
 const Hero = () => {
   const themeContext = useContext(ThemeContext);
@@ -106,7 +107,7 @@ const Hero = () => {
       </div>
 
       <div className="max-md:h-[400px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 sm:row-end-5 md:col-start-3 col-start-1 col-end-5">
-        <img
+        <LazyImage
           className="w-full h-full object-cover"
           src="/images/staffcop/hero-banner.png"
           alt=""

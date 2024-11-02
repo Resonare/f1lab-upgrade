@@ -1,49 +1,14 @@
-import { useState, useEffect } from "react";
-import { useLottie } from "lottie-react";
+import { useState, useEffect, lazy, Suspense } from "react";
 
-const Animation = ({ data, hero = false, height = "h-[200px]" }) => {
-  const [loaded, setLoaded] = useState(false);
+const AnimationLazy = lazy(() => import("./AnimationLazy"));
 
-  const options = {
-    animationData: data,
-    loop: true,
-    onDOMLoaded: () => {
-      setLoaded(true);
-    },
-  };
-
-  const { View, animationContainerRef } = useLottie(options);
-
-  useEffect(() => {
-    if (animationContainerRef.current) {
-      const svgElement = animationContainerRef.current.querySelector("svg");
-      if (svgElement) {
-        const classes = hero
-          ? [
-              "w-full",
-              "h-full",
-              "xl:translate-x-[-120px]",
-              "lg:translate-x-[-60px]",
-              "sm:translate-x-[-44.1px]",
-              "translate-x-[-15px]",
-            ]
-          : ["w-full", height, "sm:h-full"];
-
-        svgElement.classList.add(...classes);
-
-        svgElement.style = {};
-      }
-    }
-  }, [animationContainerRef]);
-
+const Animation = (props) => {
   return (
-    <div
-      className={`${
-        !loaded && `opacity-0`
-      } transition-all duration-500 overflow-hidden w-full h-full [&>div]:h-full `}
+    <Suspense
+      fallback={<div className={`w-full ${props.height || "h-[200px]"}`} />}
     >
-      {View}
-    </div>
+      <AnimationLazy {...props} />
+    </Suspense>
   );
 };
 

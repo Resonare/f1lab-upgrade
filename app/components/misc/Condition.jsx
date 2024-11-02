@@ -1,7 +1,9 @@
+import { LazyImage } from "../LazyImage";
+
 const Condition = ({ className = "", icon, iconClassName = "", children }) => {
   return (
     <div className="flex gap-10 justify-start">
-      <img
+      <LazyImage
         className={`w-20 ${iconClassName}`}
         src={`/images/icons/${icon}`}
         alt=""

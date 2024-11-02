@@ -1,3 +1,5 @@
+import { LazyImage } from "../LazyImage";
+
 const ImageCard = ({
   row = "",
   col = "",
@@ -11,7 +13,7 @@ const ImageCard = ({
         inverseColor ? "border-gray-300" : ""
       } ${className} p-10 border-dashed`}
     >
-      <img src={`/images/${imagePath}`} alt="" />
+      <LazyImage src={`/images/${imagePath}`} alt="" />
     </div>
   );
 };

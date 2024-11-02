@@ -15,6 +15,84 @@ import PlanModal from "~/components/modals/plan/PlanModal";
 import BackgroundGrid from "~/components/BackgroundGrid";
 
 import { ThemeContext } from "~/store/theme-context";
+import { LinksFunction } from "@remix-run/node";
+
+import { CriticalSVGs } from "./components/CriticalSVGs";
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: "preload",
+      href: "/fonts/Bahnschrift.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/RFDewiExpanded-Bold.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/RFDewiExpanded-Light.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/RFDewiExpanded-Semibold.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/RFDewiExpanded-Ultrabold.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/RFDewiExtended-Bold.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "/fonts/RFDewiExtended-Light.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "./fonts/RFDewiExtended-Regular.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "./fonts/RFDewiExtended-Semibold.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+    {
+      rel: "preload",
+      href: "./fonts/RFDewiExtended-Ultrabold.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+    },
+  ];
+};
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const themeContext = useContext(ThemeContext);
@@ -77,11 +155,61 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <CriticalSVGs />
         <Links />
+        <style>
+          {`
+                    .content-wrapper {
+                      visibility: hidden;
+                    }
+
+                    .fonts-loaded .content-wrapper {
+                      visibility: visible;
+                      animation: fadeIn 0.2s ease-in;
+                    }
+
+                    @keyframes fadeIn {
+                      from { opacity: 0; }
+                      to { opacity: 1; }
+                    }
+
+                    #font-loader {
+                      position: fixed;
+                      inset: 0;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    }
+
+                    .fonts-loaded #font-loader {
+                      display: none;
+                    }
+                  `}
+        </style>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+                    (function() {
+                      if (document.fonts) {
+                        document.fonts.ready.then(function() {
+                          document.documentElement.classList.add('fonts-loaded');
+                        });
+
+                        // Fallback
+                        setTimeout(function() {
+                          document.documentElement.classList.add('fonts-loaded');
+                        }, 4000);
+                      } else {
+                        document.documentElement.classList.add('fonts-loaded');
+                      }
+                    })();
+                  `,
+          }}
+        />
       </head>
       <ThemeContext.Provider value={{ bgColor: bgColor }}>
         <body
-          className={`${bgColor} max-w-[1923px] mx-auto transition-full duration-300`}
+          className={`content-wrapper ${bgColor} max-w-[1923px] mx-auto transition-full duration-300 `}
         >
           <header className="fixed top-0 left-0 w-full z-10">
             <Navbar navsChangeHandler={navsChangeHandler} />

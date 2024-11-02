@@ -3,6 +3,7 @@ import { useLocation, Link, NavLink } from "@remix-run/react";
 import { Fragment } from "react/jsx-runtime";
 
 import { NavbarContext } from "../../store/navbar-context";
+import { LazyImage } from "../LazyImage";
 
 const BreadCrumbs = ({ navs, inverseColor = false }) => {
   const { closeServicesDropdownHandler } = useContext(NavbarContext);
@@ -59,7 +60,7 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
       return (
         <Fragment key={i}>
           <div className="px-5 shrink-0">
-            <img
+            <LazyImage
               className={`${inverseColor && `invert`}`}
               src="/images/arrow-right.svg"
               alt=""

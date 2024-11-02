@@ -1,7 +1,9 @@
+import { LazyImage } from "../../LazyImage";
+
 const Icon = ({ name }) => {
   return (
     <div className="">
-      <img src={`/images/schema-icons/${name}.svg`} alt="" />
+      <LazyImage src={`/images/schema-icons/${name}.svg`} alt="" />
     </div>
   );
 };

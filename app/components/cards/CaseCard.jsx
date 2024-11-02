@@ -4,6 +4,7 @@ import ArrowURSecondary from "../misc/svg/ArrowURSecondary";
 import Tag from "../misc/Tag";
 
 import { ThemeContext } from "../../store/theme-context";
+import { LazyImage } from "../LazyImage";
 
 const CaseCard = ({
   row = "",
@@ -29,7 +30,7 @@ const CaseCard = ({
         >
           {logoPath && (
             <div className="flex justify-between">
-              <img
+              <LazyImage
                 className={inverseColor ? `invert` : ``}
                 src={`${logoPath}`}
                 alt=""

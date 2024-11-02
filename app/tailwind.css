@@ -8,14 +8,14 @@
     font-style: normal;
     font-weight: 900;
     font-display: swap;
-    src: url(./fonts/RFDewiExpanded-Ultrabold.ttf);
+    src: url(/fonts/RFDewiExpanded-Ultrabold.woff2) format("woff2");
   }
   @font-face {
     font-family: "RFDewiExpanded-Bold";
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(./fonts/RFDewiExpanded-Bold.ttf);
+    src: url(/fonts/RFDewiExpanded-Bold.woff2) format("woff2");
   }
 
   @font-face {
@@ -23,28 +23,28 @@
     font-style: normal;
     font-weight: 900;
     font-display: swap;
-    src: url(./fonts/RFDewiExpanded-Ultrabold.ttf);
+    src: url(/fonts/RFDewiExpanded-Ultrabold.woff2) format("woff2");
   }
   @font-face {
     font-family: "RFDewiExpanded";
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(./fonts/RFDewiExpanded-Bold.ttf);
+    src: url(/fonts/RFDewiExpanded-Bold.woff2) format("woff2");
   }
   @font-face {
     font-family: "RFDewiExpanded";
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url(./fonts/RFDewiExpanded-Semibold.ttf);
+    src: url(/fonts/RFDewiExpanded-Semibold.woff2) format("woff2");
   }
   @font-face {
     font-family: "RFDewiExpanded";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(./fonts/RFDewiExpanded-Light.ttf);
+    src: url(/fonts/RFDewiExpanded-Light.woff2) format("woff2");
   }
 
   @font-face {
@@ -52,40 +52,40 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(./fonts/RFDewiExtended-Ultrabold.ttf);
+    src: url(/fonts/RFDewiExtended-Ultrabold.woff2) format("woff2");
   }
   @font-face {
     font-family: "RFDewiExtended";
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(./fonts/RFDewiExtended-Bold.ttf);
+    src: url(/fonts/RFDewiExtended-Bold.woff2) format("woff2");
   }
   @font-face {
     font-family: "RFDewiExtended";
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url(./fonts/RFDewiExtended-Semibold.ttf);
+    src: url(/fonts/RFDewiExtended-Semibold.woff2) format("woff2");
   }
   @font-face {
     font-family: "RFDewiExtended";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
-    src: url(./fonts/RFDewiExtended-Regular.ttf);
+    src: url(/fonts/RFDewiExtended-Regular.woff2) format("woff2");
   }
   @font-face {
     font-family: "RFDewiExtended";
     font-style: normal;
     font-weight: 300;
     font-display: swap;
-    src: url(./fonts/RFDewiExtended-Light.ttf);
+    src: url(/fonts/RFDewiExtended-Light.woff2) format("woff2");
   }
 
   @font-face {
     font-family: "Bahnschrift";
-    src: url(./fonts/bahnschrift.ttf);
+    src: url(/fonts/Bahnschrift.woff2) format("woff2");
   }
 
   input[type="number"]::-webkit-inner-spin-button,

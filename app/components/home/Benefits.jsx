@@ -2,6 +2,7 @@ import Section from "../../layout/Section";
 import SectionTitle from "../SectionTitle";
 import ContentCard from "../cards/ContentCard";
 import BackgroundGrid from "../BackgroundGrid";
+import { LazyImage } from "../LazyImage";
 
 const Hero = () => {
   return (
@@ -27,7 +28,7 @@ const Hero = () => {
               выгодно
             </SectionTitle>
 
-            <img
+            <LazyImage
               className="w-[160px] max-sm:hidden"
               src="/images/misc/dollar-icon.svg"
               alt=""
