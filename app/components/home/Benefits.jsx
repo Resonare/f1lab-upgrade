@@ -82,6 +82,16 @@ const Hero = () => {
                   </p>
                 </div>
               </ContentCard>
+              <ContentCard className="bg-gray-400 rounded-[15px]">
+                <div className="flex flex-col gap-15 text-gray-100">
+                  <p className="text-[28px] font-extrabold font-expanded leading-loose line-through">
+                    ОТПУСК И БОЛЬНИЧНЫЕ
+                  </p>
+                  <p className="text-xl font-light font-text leading-relaxed">
+                    Без вынужденного прерывания бизнес-процессов
+                  </p>
+                </div>
+              </ContentCard>
             </div>
 
             <div className="flex flex-col basis-1/2 gap-[3px] justify-between">

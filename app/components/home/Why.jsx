@@ -15,7 +15,7 @@ const Why = () => {
         className="sm:text-gray-100 text-f1-light max-sm:font-extended flex sm:justify-center max-sm:pb-30"
         col="col-start-1 col-end-5"
       >
-        Почему F1lab?
+        Почему F1LAB?
       </SectionTitle>
 
       <div className="sm:h-[360px] h-200 col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">
@@ -31,11 +31,11 @@ const Why = () => {
         >
           <div className="flex flex-col gap-15">
             <p className="text-[22px] font-extended font-bold">
-              Прочный фундамент для бизнеса
+              Прочная основа для бизнеса
             </p>
             <p>
-              Уже 15 лет мы предоставляем компаниям прочную ИТ-основу, на
-              которую можно опереться.
+              Уже 15 лет мы предоставляем компаниям прочную ИТ-платформу,
+              которая поддерживает бизнес и помогает ему расти.
             </p>
           </div>
         </ContentCard>
@@ -48,11 +48,11 @@ const Why = () => {
         >
           <div className="flex flex-col gap-15">
             <p className="text-[22px] font-extended font-bold">
-              Техническая сторона — наша забота
+              Ваш бизнес - наша поддержка
             </p>
             <p>
-              Решение технических проблем и предотвращение угроз безопасности
-              данных — не ваша работа, а наша.
+              Решение технических задач и предотвращение угроз безопасности —
+              наша забота.
             </p>
           </div>
         </ContentCard>
@@ -68,9 +68,8 @@ const Why = () => {
               С нами приятно иметь дело
             </p>
             <p>
-              Профессионализм, порядочность, исполнительность, пунктуальность,
-              доброжелательность - те качества, которые в F1Lab ценятся превыше
-              всего.
+              Профессионализм, порядочность, исполнительность,
+              доброжелательность - те качества, которые мы ценим превыше всего.
             </p>
           </div>
         </ContentCard>

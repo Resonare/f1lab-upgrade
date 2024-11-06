@@ -199,11 +199,11 @@ export const navData = [
     textColor: "text-white",
     items: [],
   },
-  {
+  /*{
     link: "admin",
     title: "Админка",
     bgColor: "bg-gray-100",
     textColor: "text-white",
     items: [],
-  },
+    }, */
 ];

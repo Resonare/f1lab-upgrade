@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 const TRANSLATE_MODIFIER = 91.2;
 const MOBILE_TRANSLATE_MODIFIER = 63.2;
 
-const VerticalCarousel = ({ className, words, duration = 4000 }) => {
+const VerticalCarousel = ({ className, words, duration = 2500 }) => {
   const [translate, setTranslate] = useState(0);
 
   const handleTimeout = () => {

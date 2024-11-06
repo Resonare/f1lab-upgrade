@@ -34,11 +34,12 @@ const Hero = () => {
             IT-
             <VerticalCarousel
               className="text-f1-light"
-              words={["консалтинг", "аутсорсинг", "аутсстаффинг"]}
+              words={["консалтинг", "менеджмент", "безопасность", "аутсорсинг"]}
             />
           </div>
           <p className="mt-[-10px]">
-            для малого и среднего бизнеса с подходом крупных лидеров
+            для малого и среднего бизнеса, вдохновлённый практиками ведущих
+            компаний
           </p>
         </div>
 
@@ -49,8 +50,8 @@ const Hero = () => {
           row="row-start-3"
           col="col-start-1 lg:col-end-2 sm:col-end-3 col-end-5"
         >
-          Мы позаботимся о технической стороне, чтобы вы могли смело развивать
-          свой бизнес
+          Мы позаботимся о технической стороне, чтобы вы сосредоточились на
+          бизнесе
         </ContentCard>
 
         <div className="md:row-start-4 col-start-1 lg:col-end-2 sm:col-end-3 col-end-5 flex max-sm:flex-col max-sm:gap-15 justify-between">
