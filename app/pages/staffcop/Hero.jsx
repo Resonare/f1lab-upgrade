@@ -3,12 +3,12 @@ import { useContext } from "react";
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import PrimaryButton from "../buttons/PrimaryButton";
-import ContentCard from "../cards/ContentCard";
+import SectionTitle from "../../components/SectionTitle";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import ContentCard from "../../components/cards/ContentCard";
 
 import { ThemeContext } from "../../store/theme-context";
-import { LazyImage } from "../LazyImage";
+import { LazyImage } from "../../components/LazyImage";
 
 const Hero = () => {
   const themeContext = useContext(ThemeContext);

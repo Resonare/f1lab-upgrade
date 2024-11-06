@@ -1,9 +1,9 @@
-import Hero from "../components/home/Hero";
-import Why from "../components/home/Why";
-import Cases from "../components/home/Cases";
-import Pockets from "../components/home/Pockets";
-import Benefits from "../components/home/Benefits";
-import Solutions from "../components/home/Solutions";
+import Hero from "../pages/home/Hero";
+import Why from "../pages/home/Why";
+import Cases from "../pages/home/Cases";
+import Pockets from "../pages/home/Pockets";
+import Benefits from "../pages/home/Benefits";
+import Solutions from "../pages/home/Solutions";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
 

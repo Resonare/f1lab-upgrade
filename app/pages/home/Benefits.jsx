@@ -1,8 +1,8 @@
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import ContentCard from "../cards/ContentCard";
-import BackgroundGrid from "../BackgroundGrid";
-import { LazyImage } from "../LazyImage";
+import SectionTitle from "../../components/SectionTitle";
+import ContentCard from "../../components/cards/ContentCard";
+import BackgroundGrid from "../../components/BackgroundGrid";
+import { LazyImage } from "../../components/LazyImage";
 
 const Hero = () => {
   return (
@@ -36,7 +36,7 @@ const Hero = () => {
           </div>
 
           <div className="flex max-sm:flex-col max-sm:gap-[3px] items-stretch xl:basis-2/3 basis-1/2 [&>div>div]:h-full">
-            <div className="flex flex-col basis-1/2 justify-between">
+            <div className="flex flex-col gap-[3px] basis-1/2 justify-between">
               <ContentCard className="bg-gray-400 rounded-[15px]">
                 <div className="flex flex-col gap-15 text-gray-100">
                   <p className="text-[28px] font-extrabold font-expanded leading-loose">

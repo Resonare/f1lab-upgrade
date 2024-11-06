@@ -2,12 +2,9 @@ import { useContext } from "react";
 import { ThemeContext } from "../../store/theme-context";
 
 import Section from "../../layout/Section";
-import ContentCard from "../cards/ContentCard";
-import ImageCard from "../cards/ImageCard";
-import SectionTitle from "../SectionTitle";
-import Animation from "../misc/animations/Animation";
-
-import scenariosAnimationJson from "../misc/animations/scenarios-animation.json";
+import ContentCard from "../../components/cards/ContentCard";
+import ImageCard from "../../components/cards/ImageCard";
+import SectionTitle from "../../components/SectionTitle";
 
 const Scenarios = () => {
   const { bgColor } = useContext(ThemeContext);
@@ -22,16 +19,16 @@ const Scenarios = () => {
         row="row-start-2"
         col="col-start-1"
         className="sm:hidden border-r border-y"
-        imagePath="it-support/scenario-icon1.svg"
+        imagePath="audit/audit-scenario-icon1.svg"
       />
 
       <ContentCard
         className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-2 row-start-3"
         col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
-        iconPath="it-support/scenario-icon1.svg"
+        iconPath="audit/audit-scenario-icon1.svg"
       >
-        Несоответствие прежних ИТ‑процессов новым масштабным задачам
+        Понять текущее состояние IT-инфраструктуры и выявить слабые места
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-4"></div>
@@ -47,9 +44,9 @@ const Scenarios = () => {
         className={`${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
         row="sm:row-start-2 row-start-6"
         col="sm:col-start-3 col-start-1 xl:col-end-4 lg:col-end-4 sm:col-end-5 col-end-4"
-        iconPath="it-support/scenario-icon2.svg"
+        iconPath="audit/audit-scenario-icon2.svg"
       >
-        Оптимизировать производительность и снизить затраты на обслуживание
+        Подготовиться к внедрению новых технологий и ит-решений
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-7"></div>
@@ -58,21 +55,35 @@ const Scenarios = () => {
         row="row-start-8"
         col="col-start-1"
         className="sm:hidden border-r border-y"
-        imagePath="it-support/scenario-icon3.svg"
+        imagePath="audit/audit-scenario-icon3.svg"
       />
 
       <ContentCard
         className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-3 row-start-9"
         col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
-        iconPath="it-support/scenario-icon3.svg"
+        iconPath="audit/audit-scenario-icon3.svg"
       >
-        Нехватка ИТ‑компетенций при наличии сложных инфраструктур
+        Проверить соответствие стандартам безопасности и требованиям отрасли
       </ContentCard>
 
-      <div className="max-sm:hidden bg-gray-400 xl:px-[110px] lg:px-90 md:px-200 sm:px-100 border-y border-dashed sm:row-start-3 row-start-10 lg:col-start-4 sm:col-start-3 col-end-5">
-        <Animation data={scenariosAnimationJson} />
-      </div>
+      <div className="sm:hidden h-15 row-start-10"></div>
+
+      <ImageCard
+        row="row-start-11"
+        col="col-start-4"
+        className="sm:hidden border-l border-y"
+        imagePath="audit/audit-scenario-icon4.svg"
+      />
+
+      <ContentCard
+        className={`${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
+        row="sm:row-start-3 row-start-12"
+        col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
+        iconPath="audit/audit-scenario-icon4.svg"
+      >
+        Оптимизировать затраты на ит-инфраструктуру
+      </ContentCard>
     </Section>
   );
 };

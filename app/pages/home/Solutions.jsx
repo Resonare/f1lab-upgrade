@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import ContentCard from "../cards/ContentCard";
-import SolutionsCarousel from "./SolutionsCarousel";
-import SwitchButton from "../buttons/SwitchButton";
-import Carousel from "../misc/Carousel";
+import SectionTitle from "../../components/SectionTitle";
+import ContentCard from "../../components/cards/ContentCard";
+import SolutionsCarousel from "../../components/SolutionsCarousel";
+import SwitchButton from "../../components/buttons/SwitchButton";
+import Carousel from "../../components/misc/Carousel";
 
 const Why = () => {
   const [sortingByIndustry, setSortingByIndustry] = useState(true);

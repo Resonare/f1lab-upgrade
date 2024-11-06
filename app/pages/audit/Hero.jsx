@@ -3,11 +3,11 @@ import { useContext } from "react";
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import PrimaryButton from "../buttons/PrimaryButton";
-import ContentCard from "../cards/ContentCard";
-import SchemaCanvas from "../heroSchema/SchemaCanvas";
-import ShoppingCart from "../shoppingCart/ShoppingCart";
+import SectionTitle from "../../components/SectionTitle";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import ContentCard from "../../components/cards/ContentCard";
+import SchemaCanvas from "../../components/heroSchema/SchemaCanvas";
+import ShoppingCart from "../../components/shoppingCart/ShoppingCart";
 
 import { ThemeContext } from "../../store/theme-context";
 
@@ -16,9 +16,10 @@ const Hero = () => {
   const { showCallMeBackModal } = useModalStore();
 
   const content = {
-    header: "Быстрая IT-техподдержка для вашего бизнеса",
+    header: "ИТ‑аудит с применимыми рекомендациями",
     cards: [
-      "Круглосуточный мониторинг и поддержка для обеспечения стабильной работы и минимизации времени простоя",
+      "Хотите убедиться, что ваша ИТ-инфраструктура соответствует целям вашего бизнеса и не создает ненужных рисков?",
+      "ИТ-аудит предоставит полный отчёт о состоянии и отказоустойчивости вашей ИТ-среды.",
     ],
   };
 
@@ -28,30 +29,43 @@ const Hero = () => {
     <Section hero={true}>
       <SectionTitle
         className="xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px]"
-        col="col-start-1 lg:col-end-3 col-end-5"
+        col="col-start-1 col-end-3"
       >
         {content.header}
       </SectionTitle>
-
+      <ContentCard
+        className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
+        row="row-start-2"
+        col="col-start-1 max-md:col-end-3 max-sm:col-end-5"
+        bg={themeContext.bgColor}
+      >
+        {content.cards[0]}
+      </ContentCard>
+      <div className="row-start-2 row-end-3 col-start-2 col-end-3 flex items-end overflow-auto">
+        <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
+          <div className=""></div>
+          <div className=""></div>
+          <div className="lg:border-t lg:border-r lg:border-dashed lg:rounded-tr-2xl"></div>
+          <div className=""></div>
+        </div>
+      </div>
       <ContentCard
         className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
         row="row-start-3"
         col="col-start-2 max-md:col-start-3 max-sm:col-start-1 max-md:col-end-5"
         bg={themeContext.bgColor}
       >
-        {content.cards[0]}
+        {content.cards[1]}
       </ContentCard>
-
       <div className="row-start-3 row-end-4 col-start-1 col-end-2 flex items-end justify-end">
         <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
           <div className=""></div>
+          <div className="lg:border-b lg:border-l lg:border-dashed lg:rounded-bl-2xl"></div>
           <div className=""></div>
           <div className=""></div>
-          <div className="lg:border-t lg:border-l lg:border-dashed lg:rounded-tl-2xl"></div>
         </div>
       </div>
-
-      <div className="md:row-start-4 row-start-5 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between lg:mt-0 sm:mt-60 mt-30">
+      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between lg:mt-0 sm:mt-60 mt-30">
         <PrimaryButton
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"
@@ -70,6 +84,10 @@ const Hero = () => {
               100 000 ₽
             </div>
           </div>
+          {/* <ShoppingCart
+            className="max-sm:w-90 border-y max-sm:border-l p-15 lg:h-full h-fit lg:hidden"
+            addHandler={dummyAddToCartHandler}
+          /> */}
         </div>
 
         <PrimaryButton
@@ -80,6 +98,14 @@ const Hero = () => {
         >
           Консультация
         </PrimaryButton>
+      </div>
+      <div className="row-start-4 max-lg:mt-60 col-start-2 col-end-5 lg:col-end-2 max-lg:hidden">
+        <div className="h-full flex">
+          {/* <ShoppingCart
+            className="border-x border-b p-15"
+            addHandler={dummyAddToCartHandler}
+          /> */}
+        </div>
       </div>
 
       <div className="lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">

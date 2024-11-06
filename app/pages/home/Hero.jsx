@@ -1,13 +1,13 @@
 import useModalStore from "../../store/modal";
 
-import VerticalCarousel from "../misc/VerticalCarousel";
-import ContentCard from "../cards/ContentCard";
+import VerticalCarousel from "../../components/misc/VerticalCarousel";
+import ContentCard from "../../components/cards/ContentCard";
 import Section from "../../layout/Section";
-import PrimaryButton from "../buttons/PrimaryButton";
-import BackgroundGrid from "../BackgroundGrid";
-import Animation from "../misc/animations/Animation";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import BackgroundGrid from "../../components/BackgroundGrid";
+import Animation from "../../components/misc/animations/Animation";
 
-import homeAnimationJson from "../misc/animations/home-animation.json";
+import homeAnimationJson from "../../components/misc/animations/home-animation.json";
 
 const Hero = () => {
   const { showCallMeBackModal } = useModalStore();

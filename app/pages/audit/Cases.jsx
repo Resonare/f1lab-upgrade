@@ -1,11 +1,11 @@
 import { useLoaderData, useLocation } from "@remix-run/react";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import CaseCard from "../cards/CaseCard";
-import ReviewCard from "../cards/ReviewCard";
-import SecondaryButton from "../buttons/SecondaryButton";
-import Carousel from "../misc/Carousel";
+import SectionTitle from "../../components/SectionTitle";
+import CaseCard from "../../components/cards/CaseCard";
+import ReviewCard from "../../components/cards/ReviewCard";
+import SecondaryButton from "../../components/buttons/SecondaryButton";
+import Carousel from "../../components/misc/Carousel";
 
 const Cases = () => {
   const serviceCases = useLoaderData();
@@ -20,7 +20,7 @@ const Cases = () => {
       ...serviceCases[0],
       row: "row-start-2",
       col: "col-start-1 col-end-3 lg:col-end-1",
-      border: `sm:border-t sm:border-l lg:border-b max-sm:border-b`,
+      border: `sm:border-t sm:border-l`,
     };
   }
 
@@ -29,7 +29,7 @@ const Cases = () => {
       ...serviceCases[1],
       row: "row-start-2",
       col: "col-start-3 col-end-5 lg:col-start-2 lg:col-end-2",
-      border: `sm:border-t lg:border-r-0 sm:border-r border-l border-b`,
+      border: `sm:border-t sm:border-x border-l ${serviceCases.length < 4 ? "sm:border-b" : ""}`,
     };
   }
 
@@ -38,7 +38,7 @@ const Cases = () => {
       ...serviceCases[2],
       row: "lg:row-start-2 row-start-3",
       col: "col-start-1 col-end-3 lg:col-start-3 lg:col-end-3",
-      border: `sm:border-t sm:border-r lg:border-b border-l max-sm:border-b`,
+      border: `sm:border-t sm:border-x border-l`,
     };
   }
 
@@ -47,7 +47,7 @@ const Cases = () => {
       ...serviceCases[3],
       row: "row-start-3",
       col: "lg:col-start-1 col-start-3 lg:col-end-1 col-end-5",
-      border: "sm:border-t lg:border-l border-x",
+      border: "sm:border-t lg:border-l sm:border-x",
     };
   }
 
@@ -56,7 +56,7 @@ const Cases = () => {
       ...serviceCases[4],
       row: "row-start-3",
       col: "col-start-2",
-      border: "sm:border-y border-l",
+      border: "sm:border-y sm:border-l",
       className: "max-lg:hidden",
     };
   }
@@ -66,20 +66,20 @@ const Cases = () => {
       ...serviceCases[5],
       row: "row-start-3",
       col: "col-start-3",
-      border: `sm:border-y border-x`,
+      border: `sm:border-y sm:border-x`,
       className: "max-lg:hidden",
     };
   }
 
   return (
-    <div id="cases">
-      <Section className="max-sm:hidden">
+    <>
+      <Section id="cases" className="max-sm:hidden">
         <SectionTitle
           row="row-start-1"
           col="md:col-start-2 col-start-1 lg:col-end-5 md:col-end-4 col-end-5"
           className="md:pb-60"
         >
-          Примеры кейсов со Staffcop
+          Примеры кейсов с аудитом
         </SectionTitle>
 
         {serviceCases.map((serviceCase) => (
@@ -138,9 +138,9 @@ const Cases = () => {
       </Section>
 
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
-        <SectionTitle>Примеры кейсов со Staffcop</SectionTitle>
+        <SectionTitle>Примеры кейсов с аудитом</SectionTitle>
 
-        <Carousel>
+        <Carousel className="[&>div:first-child]:border-b">
           {serviceCases.map((serviceCase) => (
             <CaseCard
               key={serviceCase.id}
@@ -178,7 +178,7 @@ const Cases = () => {
           className="h-fit"
         ></ReviewCard>
       </div>
-    </div>
+    </>
   );
 };
 

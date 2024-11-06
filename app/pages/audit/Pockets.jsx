@@ -1,10 +1,10 @@
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import PocketCard from "../cards/PocketCard";
-import SectionTitle from "../SectionTitle";
-import Tag from "../misc/Tag";
-import PocketColumn from "../misc/PocketColumn";
+import PocketCard from "../../components/cards/PocketCard";
+import SectionTitle from "../../components/SectionTitle";
+import Tag from "../../components/misc/Tag";
+import PocketColumn from "../../components/misc/PocketColumn";
 
 const Pockets = () => {
   const { showCallMeBackModal } = useModalStore();

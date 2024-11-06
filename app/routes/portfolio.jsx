@@ -1,6 +1,6 @@
-import Hero from "../components/audit/Hero";
-import Scenarios from "../components/audit/Scenarios";
-import Offers from "../components/audit/Offers";
+import Hero from "../pages/audit/Hero";
+import Scenarios from "../pages/audit/Scenarios";
+import Offers from "../pages/audit/Offers";
 
 export const meta = () => {
   return [

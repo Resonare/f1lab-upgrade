@@ -1,10 +1,10 @@
-import Hero from "../components/it-support/Hero";
-import Scenarios from "../components/it-support/Scenarios";
-import Offers from "../components/it-support/Offers";
-import Process from "../components/it-support/Process";
-import Cases from "../components/it-support/Cases";
-import Prices from "../components/it-support/Prices";
-import Pockets from "../components/it-support/Pockets";
+import Hero from "../pages/it-support/Hero";
+import Scenarios from "../pages/it-support/Scenarios";
+import Offers from "../pages/it-support/Offers";
+import Process from "../pages/it-support/Process";
+import Cases from "../pages/it-support/Cases";
+import Prices from "../pages/it-support/Prices";
+import Pockets from "../pages/it-support/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";

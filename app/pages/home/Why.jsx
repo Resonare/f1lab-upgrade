@@ -1,9 +1,9 @@
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import ContentCard from "../cards/ContentCard";
-import Animation from "../misc/animations/Animation";
+import SectionTitle from "../../components/SectionTitle";
+import ContentCard from "../../components/cards/ContentCard";
+import Animation from "../../components/misc/animations/Animation";
 
-import whyAnimationJson from "../misc/animations/why-animation.json";
+import whyAnimationJson from "../../components/misc/animations/why-animation.json";
 
 const Why = () => {
   return (

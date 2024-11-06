@@ -1,28 +1,27 @@
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import PocketCard from "../cards/PocketCard";
-import SectionTitle from "../SectionTitle";
-import Tag from "../misc/Tag";
-import PocketColumn from "../misc/PocketColumn";
+import PocketCard from "../../components/cards/PocketCard";
+import SectionTitle from "../../components/SectionTitle";
+import Tag from "../../components/misc/Tag";
+import PocketColumn from "../../components/misc/PocketColumn";
 
 const Pockets = () => {
   const { showCallMeBackModal } = useModalStore();
   const firstPocketTags = [
-    <Tag key={0} className="bg-f1-light">
+    <Tag key={0} className="bg-f1-light text-gray-400">
       IT-Аудит
     </Tag>,
-    <Tag key={1} className="">
+    <Tag key={1} className="bg-consulting text-gray-400">
       Техподдержка
     </Tag>,
   ];
 
   return (
-    <Section id="">
+    <Section id="" inverseColor={true}>
       <SectionTitle
-        row="row-start-1"
-        col="col-start-1 max-lg:col-end-5"
-        className="md:pb-60 max-sm:pb-30"
+        className="text-gray-100 flex lg:justify-center"
+        col="col-start-1 lg:col-end-2 col-end-4"
       >
         Решения под ключ с пакетами услуг
       </SectionTitle>
@@ -37,6 +36,7 @@ const Pockets = () => {
         price="7 200 ₽"
         tags={firstPocketTags}
         onCallMeBackModalOpen={showCallMeBackModal}
+        inverseColor={true}
       >
         <PocketColumn title="Разъясним">
           Неясность состояния IT-инфраструктуры
@@ -65,6 +65,7 @@ const Pockets = () => {
         price="7 200 ₽"
         tags={firstPocketTags}
         onCallMeBackModalOpen={showCallMeBackModal}
+        inverseColor={true}
       >
         <PocketColumn title="Решим">
           Все сложности миграции данных в облако

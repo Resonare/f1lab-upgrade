@@ -1,10 +1,10 @@
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import ContentCard from "../cards/ContentCard";
-import PrimaryButton from "../buttons/PrimaryButton";
-import SectionTitle from "../SectionTitle";
-import ImageCard from "../cards/ImageCard";
+import ContentCard from "../../components/cards/ContentCard";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import SectionTitle from "../../components/SectionTitle";
+import ImageCard from "../../components/cards/ImageCard";
 
 const Offers = () => {
   const { showCallMeBackModal } = useModalStore();

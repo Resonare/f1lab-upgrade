@@ -1,27 +1,28 @@
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import PocketCard from "../cards/PocketCard";
-import SectionTitle from "../SectionTitle";
-import Tag from "../misc/Tag";
-import PocketColumn from "../misc/PocketColumn";
+import PocketCard from "../../components/cards/PocketCard";
+import SectionTitle from "../../components/SectionTitle";
+import Tag from "../../components/misc/Tag";
+import PocketColumn from "../../components/misc/PocketColumn";
 
 const Pockets = () => {
   const { showCallMeBackModal } = useModalStore();
   const firstPocketTags = [
-    <Tag key={0} className="bg-f1-light text-gray-400">
+    <Tag key={0} className="bg-f1-light">
       IT-Аудит
     </Tag>,
-    <Tag key={1} className="bg-consulting text-gray-400">
+    <Tag key={1} className="">
       Техподдержка
     </Tag>,
   ];
 
   return (
-    <Section id="" inverseColor={true}>
+    <Section id="">
       <SectionTitle
-        className="text-gray-100 flex lg:justify-center"
-        col="col-start-1 lg:col-end-2 col-end-4"
+        row="row-start-1"
+        col="col-start-1 max-lg:col-end-5"
+        className="md:pb-60 max-sm:pb-30"
       >
         Решения под ключ с пакетами услуг
       </SectionTitle>
@@ -30,13 +31,12 @@ const Pockets = () => {
         row="lg:row-start-1 row-start-2"
         col="lg:col-start-2 col-start-1 col-end-5"
         subTitle="IT-Аудит и Поддержка"
-        whenTitle="Когда нужно понять что не так с IT-инфраструктурой и исправить это"
+        whenTitle="Все включено"
         name="Рефлексия и рост"
         description="Предназначен для компаний, которые хотят оценить текущее состояние своей IT-инфраструктуры, выявить уязвимости и получить рекомендации по улучшению. Включает базовую поддержку для обеспечения стабильной работы IT-систем."
         price="7 200 ₽"
         tags={firstPocketTags}
         onCallMeBackModalOpen={showCallMeBackModal}
-        inverseColor={true}
       >
         <PocketColumn title="Разъясним">
           Неясность состояния IT-инфраструктуры
@@ -65,7 +65,6 @@ const Pockets = () => {
         price="7 200 ₽"
         tags={firstPocketTags}
         onCallMeBackModalOpen={showCallMeBackModal}
-        inverseColor={true}
       >
         <PocketColumn title="Решим">
           Все сложности миграции данных в облако

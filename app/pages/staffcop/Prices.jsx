@@ -1,9 +1,9 @@
 import { useContext } from "react";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import PriceCard from "../cards/PriceCard";
-import Carousel from "../misc/Carousel";
+import SectionTitle from "../../components/SectionTitle";
+import PriceCard from "../../components/cards/PriceCard";
+import Carousel from "../../components/misc/Carousel";
 
 import { ThemeContext } from "../../store/theme-context";
 

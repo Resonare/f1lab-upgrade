@@ -1,11 +1,11 @@
 import { useLoaderData, useLocation } from "@remix-run/react";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import CaseCard from "../cards/CaseCard";
-import ReviewCard from "../cards/ReviewCard";
-import SecondaryButton from "../buttons/SecondaryButton";
-import Carousel from "../misc/Carousel";
+import SectionTitle from "../../components/SectionTitle";
+import CaseCard from "../../components/cards/CaseCard";
+import ReviewCard from "../../components/cards/ReviewCard";
+import SecondaryButton from "../../components/buttons/SecondaryButton";
+import Carousel from "../../components/misc/Carousel";
 
 const Cases = () => {
   const serviceCases = useLoaderData();
@@ -20,7 +20,9 @@ const Cases = () => {
       ...serviceCases[0],
       row: "row-start-2",
       col: "col-start-1 col-end-3 lg:col-end-1",
-      border: `sm:border-t sm:border-l`,
+      border: `sm:border-t sm:border-l max-sm:border-r ${
+        serviceCases.length < 4 ? "sm:border-b" : ""
+      }`,
     };
   }
 
@@ -29,7 +31,9 @@ const Cases = () => {
       ...serviceCases[1],
       row: "row-start-2",
       col: "col-start-3 col-end-5 lg:col-start-2 lg:col-end-2",
-      border: `sm:border-t sm:border-x border-l ${serviceCases.length < 4 ? "sm:border-b" : ""}`,
+      border: `sm:border-t sm:border-l max-lg:border-r ${
+        serviceCases.length < 4 ? "sm:border-b" : ""
+      }`,
     };
   }
 
@@ -38,7 +42,9 @@ const Cases = () => {
       ...serviceCases[2],
       row: "lg:row-start-2 row-start-3",
       col: "col-start-1 col-end-3 lg:col-start-3 lg:col-end-3",
-      border: `sm:border-t sm:border-x border-l`,
+      border: `lg:border-t sm:border-x  ${
+        serviceCases.length < 4 ? `lg:border-b` : ``
+      }`,
     };
   }
 
@@ -72,14 +78,14 @@ const Cases = () => {
   }
 
   return (
-    <>
-      <Section id="cases" className="max-sm:hidden">
+    <div id="cases">
+      <Section className="max-sm:hidden my-60">
         <SectionTitle
           row="row-start-1"
-          col="md:col-start-2 col-start-1 lg:col-end-5 md:col-end-4 col-end-5"
+          col="col-start-2 col-end-5"
           className="md:pb-60"
         >
-          Примеры кейсов с аудитом
+          Кейсы: как мы решаем задачи наших клиентов
         </SectionTitle>
 
         {serviceCases.map((serviceCase) => (
@@ -137,10 +143,18 @@ const Cases = () => {
         </SecondaryButton>
       </Section>
 
-      <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
-        <SectionTitle>Примеры кейсов с аудитом</SectionTitle>
+      <Section className="sm:hidden flex flex-col gap-30 " inverseColor={true}>
+        <SectionTitle
+          className="text-gray-100 text-2xl font-extended leading-[28px] mb-30"
+          col="col-start-1 col-end-5"
+        >
+          Кейсы: как мы решаем задачи наших клиентов
+        </SectionTitle>
 
-        <Carousel className="[&>div:first-child]:border-b">
+        <Carousel
+          className="w-full col-start-1 col-end-5 row-start-2 sm:hidden overflow-hidden [&>div:first-child]:border-b"
+          inverseColor={true}
+        >
           {serviceCases.map((serviceCase) => (
             <CaseCard
               key={serviceCase.id}
@@ -149,7 +163,8 @@ const Cases = () => {
               currentLocation={currentLocation}
               row={serviceCase.row}
               col={serviceCase.col}
-              className={`${serviceCase.border}`}
+              className={`${serviceCase.border} ${serviceCase.className}`}
+              inverseColor={true}
             >
               {serviceCase.description}
             </CaseCard>
@@ -157,15 +172,18 @@ const Cases = () => {
         </Carousel>
 
         <SecondaryButton
-          row="row-start-4"
+          row="row-start-3"
           col="col-start-1 max-lg:col-end-5"
-          variant="shaded"
-          className="text-base font-subtitle"
+          variant="info"
+          className="text-base font-subtitle border-y border-gray-300 text-gray-100 bg-gray-400 "
         >
           Все кейсы
         </SecondaryButton>
 
         <ReviewCard
+          className="text-gray-100 mt-30"
+          row="row-start-4"
+          col="col-start-1 col-end-5"
           reviewPaths={[
             "test-review.png",
             "test-review.png",
@@ -175,10 +193,10 @@ const Cases = () => {
             "test-review.png",
             "test-review.png",
           ]}
-          className="h-fit"
+          inverseColor={true}
         ></ReviewCard>
-      </div>
-    </>
+      </Section>
+    </div>
   );
 };
 

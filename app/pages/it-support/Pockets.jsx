@@ -1,10 +1,10 @@
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import PocketCard from "../cards/PocketCard";
-import SectionTitle from "../SectionTitle";
-import Tag from "../misc/Tag";
-import PocketColumn from "../misc/PocketColumn";
+import PocketCard from "../../components/cards/PocketCard";
+import SectionTitle from "../../components/SectionTitle";
+import Tag from "../../components/misc/Tag";
+import PocketColumn from "../../components/misc/PocketColumn";
 
 const Pockets = () => {
   const { showCallMeBackModal } = useModalStore();
@@ -31,7 +31,7 @@ const Pockets = () => {
         row="lg:row-start-1 row-start-2"
         col="lg:col-start-2 col-start-1 col-end-5"
         subTitle="IT-Аудит и Поддержка"
-        whenTitle="Все включено"
+        whenTitle="Когда нужно понять что не так с IT-инфраструктурой и исправить это"
         name="Рефлексия и рост"
         description="Предназначен для компаний, которые хотят оценить текущее состояние своей IT-инфраструктуры, выявить уязвимости и получить рекомендации по улучшению. Включает базовую поддержку для обеспечения стабильной работы IT-систем."
         price="7 200 ₽"

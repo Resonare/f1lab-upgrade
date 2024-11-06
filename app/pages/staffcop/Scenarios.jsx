@@ -2,9 +2,9 @@ import { useContext } from "react";
 import { ThemeContext } from "../../store/theme-context";
 
 import Section from "../../layout/Section";
-import ContentCard from "../cards/ContentCard";
-import ImageCard from "../cards/ImageCard";
-import SectionTitle from "../SectionTitle";
+import ContentCard from "../../components/cards/ContentCard";
+import ImageCard from "../../components/cards/ImageCard";
+import SectionTitle from "../../components/SectionTitle";
 
 const Scenarios = () => {
   const { bgColor } = useContext(ThemeContext);

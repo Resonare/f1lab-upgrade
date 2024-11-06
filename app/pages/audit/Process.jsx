@@ -4,15 +4,15 @@ import { ThemeContext } from "../../store/theme-context";
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import Tag from "../misc/Tag";
-import StepCard from "../cards/StepCard";
-import SectionTitle from "../SectionTitle";
-import PrimaryButton from "../buttons/PrimaryButton";
-import Carousel from "../misc/Carousel";
-import SecondaryButton from "../buttons/SecondaryButton";
-import Animation from "../misc/animations/Animation";
+import Tag from "../../components/misc/Tag";
+import StepCard from "../../components/cards/StepCard";
+import SectionTitle from "../../components/SectionTitle";
+import PrimaryButton from "../../components/buttons/PrimaryButton";
+import Carousel from "../../components/misc/Carousel";
+import SecondaryButton from "../../components/buttons/SecondaryButton";
+import Animation from "../../components/misc/animations/Animation";
 
-import animationData from "../misc/animations/circles-animation.json";
+import animationData from "../../components/misc/animations/circles-animation.json";
 
 const Process = () => {
   const { bgColor } = useContext(ThemeContext);

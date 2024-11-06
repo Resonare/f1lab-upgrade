@@ -1,12 +1,12 @@
 import Section from "../../layout/Section";
-import SectionTitle from "../SectionTitle";
-import PriceCard from "../cards/PriceCard";
-import Carousel from "../misc/Carousel";
+import SectionTitle from "../../components/SectionTitle";
+import PriceCard from "../../components/cards/PriceCard";
+import Carousel from "../../components/misc/Carousel";
 
 const Prices = () => {
   const plansData = [
     {
-      title: "Аудит S",
+      title: "Техподдержка S",
       price: "7 200 ₽",
       annualPrice: "6 120 ₽",
       mainConditions: ["1-5 рабочих мест"],
@@ -21,7 +21,7 @@ const Prices = () => {
         надежная и доступная поддержка для IT инфраструктуры.`,
     },
     {
-      title: "Аудит M",
+      title: "Техподдержка M",
       price: "7 200 ₽",
       annualPrice: "6 120 ₽",
       mainConditions: ["1-5 рабочих мест"],
@@ -36,7 +36,7 @@ const Prices = () => {
         надежная и доступная поддержка для IT инфраструктуры.`,
     },
     {
-      title: "Аудит L",
+      title: "Техподдержка L",
       price: "7 200 ₽",
       annualPrice: "6 120 ₽",
       mainConditions: ["1-5 рабочих мест"],
