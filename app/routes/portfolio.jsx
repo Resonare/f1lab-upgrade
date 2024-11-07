@@ -1,6 +1,4 @@
-import Hero from "../pages/audit/Hero";
-import Scenarios from "../pages/audit/Scenarios";
-import Offers from "../pages/audit/Offers";
+import Cases from "../pages/portfolio/Cases";
 
 export const meta = () => {
   return [
@@ -11,10 +9,8 @@ export const meta = () => {
 
 export default function Portfolio() {
   return (
-    <div className="min-h-[calc(100svh-90px)]">
-      <Hero />
-      <Scenarios />
-      <Offers />
+    <div>
+      <Cases />
     </div>
   );
 }

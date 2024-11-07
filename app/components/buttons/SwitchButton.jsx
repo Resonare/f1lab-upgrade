@@ -1,17 +1,24 @@
-const SwitchButton = ({ className, selected, onClick, children }) => {
+const SwitchButton = ({
+  className,
+  selected,
+  selectedColor = "bg-f1-light",
+  textColor = "text-gray-100",
+  onClick,
+  children,
+}) => {
   return (
     <div
       className={`${className} ${
         !selected
           ? `bg-gray-300 hover:bg-gray-250 cursor-pointer`
-          : `bg-f1-light`
-      } px-15 py-15 rounded-[5px] justify-center items-center inline-flex transition`}
+          : selectedColor
+      } px-15 py-15 rounded-[5px] justify-center items-center flex transition`}
       onClick={onClick}
     >
       <p
         className={`${
-          !selected ? `text-gray-100` : `text-gray-400`
-        } text-sm font-bold font-expanded leading-none select-none`}
+          !selected ? textColor : `text-gray-400`
+        } text-nowrap text-sm font-bold font-expanded leading-none select-none`}
       >
         {children}
       </p>
