@@ -8,7 +8,7 @@ import SwitchButton from "../../components/buttons/SwitchButton";
 import CaseCard from "../../components/cards/CaseCard";
 
 const Cases = () => {
-  const { servicesData, casesData } = useLoaderData();
+  const casesData = useLoaderData();
 
   // Categories: all, consulting, security, cloud
   const [category, setCategory] = useState("all");
@@ -105,64 +105,36 @@ const Cases = () => {
         </SwitchButton>
       </Switch>
 
-      <div className="max-md:hidden row-start-4 col-start-1 col-end-5 flex">
-        {splitArrayIntoThree(cases).map((part, partIndex, parts) =>
-          partIndex != parts.length - 1 ? (
-            <div className="basis-1/3 [&>div>div]:border [&>div>div]:mt-[-1px] mr-[-1px]">
-              {part.map((caseData) => (
-                <CaseCard
-                  key={caseData.id}
-                  tags={caseData.services}
-                  logoPath={caseData.imageUrl}
-                >
-                  {caseData.description}
-                </CaseCard>
-              ))}
-            </div>
-          ) : (
-            <div className="basis-1/3 [&>div>div]:border [&>div>div]:mt-[-1px] grow">
-              {part.map((caseData) => (
-                <CaseCard
-                  key={caseData.id}
-                  tags={caseData.services}
-                  logoPath={caseData.imageUrl}
-                >
-                  {caseData.description}
-                </CaseCard>
-              ))}
-            </div>
-          )
-        )}
+      <div className="max-md:hidden row-start-4 col-start-1 col-end-5 flex [&>div:last-child]:grow [&>div:not(:last-child)]:mr-[-1px]">
+        {splitArrayIntoThree(cases).map((part) => (
+          <div className="basis-1/3 [&>div>div]:border [&>div>div]:mt-[-1px] mr-[-1px]">
+            {part.map((caseData) => (
+              <CaseCard
+                key={caseData.id}
+                tags={caseData.services}
+                logoPath={caseData.imageUrl}
+              >
+                {caseData.description}
+              </CaseCard>
+            ))}
+          </div>
+        ))}
       </div>
 
-      <div className="md:hidden row-start-4 col-start-1 col-end-5 flex">
-        {splitArrayIntoTwo(cases).map((part, partIndex, parts) =>
-          partIndex != parts.length - 1 ? (
-            <div className="basis-1/2 [&>div>div]:border [&>div>div]:mt-[-1px] mr-[-1px]">
-              {part.map((caseData) => (
-                <CaseCard
-                  key={caseData.id}
-                  tags={caseData.services}
-                  logoPath={caseData.imageUrl}
-                >
-                  {caseData.description}
-                </CaseCard>
-              ))}
-            </div>
-          ) : (
-            <div className="basis-1/2 [&>div>div]:border [&>div>div]:mt-[-1px] grow">
-              {part.map((caseData) => (
-                <CaseCard
-                  key={caseData.id}
-                  tags={caseData.services}
-                  logoPath={caseData.imageUrl}
-                >
-                  {caseData.description}
-                </CaseCard>
-              ))}
-            </div>
-          )
-        )}
+      <div className="md:hidden row-start-4 col-start-1 col-end-5 flex [&>div:last-child]:grow [&>div:not(:last-child)]:mr-[-1px]">
+        {splitArrayIntoTwo(cases).map((part) => (
+          <div className="basis-1/2 [&>div>div]:border [&>div>div]:mt-[-1px]">
+            {part.map((caseData) => (
+              <CaseCard
+                key={caseData.id}
+                tags={caseData.services}
+                logoPath={caseData.imageUrl}
+              >
+                {caseData.description}
+              </CaseCard>
+            ))}
+          </div>
+        ))}
       </div>
     </Section>
   );
