@@ -14,7 +14,7 @@ const Hero = () => {
 
   return (
     <div className="relative">
-      <div className="bg-f1-light h-full w-[100svw] -z-[9] absolute left-1/2 translate-x-[-50%]">
+      <div className="bg-f1-light h-full w-full -z-[9] absolute left-1/2 translate-x-[-50%]">
         <BackgroundGrid
           className="-z-[9] absolute left-1/2 translate-x-[-50%] h-full"
           customLinesColor="border-gray-250"
