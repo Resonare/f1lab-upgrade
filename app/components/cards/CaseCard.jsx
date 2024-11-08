@@ -12,6 +12,7 @@ const CaseCard = ({
   tags = [],
   logoPath,
   className = "",
+  outerClassName = "",
   currentLocation = "",
   inverseColor = false,
   children,
@@ -19,7 +20,7 @@ const CaseCard = ({
   const { bgColor } = useContext(ThemeContext);
 
   return (
-    <div className={`${row} ${col} group bg-gray-400`}>
+    <div className={`${row} ${col} ${outerClassName} group bg-gray-400`}>
       <div
         className={`${inverseColor ? `bg-gray-400` : bgColor} ${className} ${
           inverseColor && `border-gray-300`

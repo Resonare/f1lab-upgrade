@@ -11,7 +11,7 @@ const ReviewCard = ({
   reviewPaths,
   reviewsOnPage = 1,
   inverseColor = false,
-  className,
+  className = "",
 }) => {
   const [curPage, setCurPage] = useState(0);
   const pagesAmount = Math.ceil(reviewPaths.length / reviewsOnPage);
