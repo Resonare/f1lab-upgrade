@@ -20,9 +20,6 @@ const Cases = () => {
       ...serviceCases[0],
       row: "row-start-2",
       col: "col-start-1 col-end-3 lg:col-end-1",
-      border: `sm:border-t sm:border-l max-sm:border-r ${
-        serviceCases.length < 4 ? "sm:border-b" : ""
-      }`,
     };
   }
 
@@ -31,9 +28,6 @@ const Cases = () => {
       ...serviceCases[1],
       row: "row-start-2",
       col: "col-start-3 col-end-5 lg:col-start-2 lg:col-end-2",
-      border: `sm:border-t sm:border-l max-lg:border-r ${
-        serviceCases.length < 4 ? "sm:border-b" : ""
-      }`,
     };
   }
 
@@ -42,9 +36,6 @@ const Cases = () => {
       ...serviceCases[2],
       row: "lg:row-start-2 row-start-3",
       col: "col-start-1 col-end-3 lg:col-start-3 lg:col-end-3",
-      border: `lg:border-t sm:border-x  ${
-        serviceCases.length < 4 ? `lg:border-b` : ``
-      }`,
     };
   }
 
@@ -53,7 +44,6 @@ const Cases = () => {
       ...serviceCases[3],
       row: "row-start-3",
       col: "lg:col-start-1 col-start-3 lg:col-end-1 col-end-5",
-      border: "sm:border-t lg:border-l sm:border-x",
     };
   }
 
@@ -62,8 +52,6 @@ const Cases = () => {
       ...serviceCases[4],
       row: "row-start-3",
       col: "col-start-2",
-      border: "sm:border-y sm:border-l",
-      className: "max-lg:hidden",
     };
   }
 
@@ -72,8 +60,6 @@ const Cases = () => {
       ...serviceCases[5],
       row: "row-start-3",
       col: "col-start-3",
-      border: `sm:border-y sm:border-x`,
-      className: "max-lg:hidden",
     };
   }
 
@@ -90,19 +76,21 @@ const Cases = () => {
 
         {serviceCases.map((serviceCase) => (
           <CaseCard
+            className="border mr-[-1px]"
+            outerClassName="mt-[-1px] mb-[-1px]"
             key={serviceCase.id}
             tags={serviceCase.services}
             logoPath={serviceCase.imageUrl}
             currentLocation={currentLocation}
             row={serviceCase.row}
             col={serviceCase.col}
-            className={`${serviceCase.border} ${serviceCase.className}`}
           >
             {serviceCase.description}
           </CaseCard>
         ))}
 
         <ReviewCard
+          className="ml-[0.5px] mt-[-1px] max-lg:hidden"
           row="row-start-2 row-end-4"
           col="col-start-4 col-end-4"
           reviewPaths={[
@@ -114,7 +102,6 @@ const Cases = () => {
             "test-review.png",
             "test-review.png",
           ]}
-          className="max-lg:hidden"
         ></ReviewCard>
 
         <ReviewCard
@@ -155,15 +142,17 @@ const Cases = () => {
           className="w-full col-start-1 col-end-5 row-start-2 sm:hidden overflow-hidden [&>div:first-child]:border-b"
           inverseColor={true}
         >
-          {serviceCases.map((serviceCase) => (
+          {serviceCases.map((serviceCase, index) => (
             <CaseCard
+              className={`${index != serviceCases.length - 1 && `border-r`} ${
+                index != 0 && `border-l`
+              } mr-[-1px]`}
               key={serviceCase.id}
               tags={serviceCase.services}
               logoPath={serviceCase.imageUrl}
               currentLocation={currentLocation}
               row={serviceCase.row}
               col={serviceCase.col}
-              className={`${serviceCase.border} ${serviceCase.className}`}
               inverseColor={true}
             >
               {serviceCase.description}
