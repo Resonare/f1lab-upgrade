@@ -1,7 +1,7 @@
 const PlanAnnualSwitch = ({ className = "", children }) => {
   return (
     <div
-      className={`${className} bg-gray-400 w-fit p-5 sm:rounded-[10px] rounded-[15px] gap-5 flex select-none`}
+      className={`${className} flex flex-row gap-5 bg-gray-400 w-fit p-5 sm:rounded-[10px] rounded-[15px] select-none`}
     >
       {children}
     </div>

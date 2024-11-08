@@ -12,7 +12,7 @@ const SwitchButton = ({
         !selected
           ? `bg-gray-300 hover:bg-gray-250 cursor-pointer`
           : selectedColor
-      } px-15 py-15 rounded-[5px] justify-center items-center flex transition`}
+      } px-15 py-15 rounded-[5px] items-center flex transition`}
       onClick={onClick}
     >
       <p

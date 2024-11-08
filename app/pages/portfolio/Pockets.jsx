@@ -21,7 +21,7 @@ const Pockets = () => {
     <Section id="">
       <SectionTitle
         row="row-start-1"
-        col="col-start-1 max-lg:col-end-5"
+        col="col-start-1 lg:col-end-2 sm:col-end-4 col-end-5"
         className="md:pb-60 max-sm:pb-30 leading-[44px]"
       >
         Решения под ключ с пакетами услуг

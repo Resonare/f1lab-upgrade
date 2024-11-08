@@ -51,8 +51,15 @@ const Cases = () => {
     return [part1, part2, part3];
   };
 
+  const splitArrayIntoTwo = (array) => {
+    const part1 = array.slice(0, Math.ceil(array.length / 2));
+    const part2 = array.slice(Math.ceil(array.length / 2));
+
+    return [part1, part2];
+  };
+
   return (
-    <Section className="pb-200" hero={true}>
+    <Section className="lg:pb-200 pb-[82px]" hero={true}>
       <SectionTitle
         className="md:pb-15 xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px]"
         col="col-start-1 col-end-5"
@@ -60,11 +67,11 @@ const Cases = () => {
         Портфолио
       </SectionTitle>
 
-      <p className="mb-15 row-start-2 col-start-1 col-end-5 text-[26px] font-extended font-bold leading-[30px]">
+      <p className="text-gray-400 mb-15 row-start-2 col-start-1 col-end-5 text-[26px] font-extended font-bold leading-[30px]">
         Категория
       </p>
 
-      <Switch className="mb-[50px]">
+      <Switch className="mb-[50px] lg:flex-row flex-col col-start-1 col-end-5 lg:w-fit w-full">
         <SwitchButton
           selected={category == "all"}
           selectedColor="bg-gray-100"
@@ -98,7 +105,7 @@ const Cases = () => {
         </SwitchButton>
       </Switch>
 
-      <div className="row-start-4 col-start-1 col-end-5 flex">
+      <div className="max-md:hidden row-start-4 col-start-1 col-end-5 flex">
         {splitArrayIntoThree(cases).map((part, partIndex, parts) =>
           partIndex != parts.length - 1 ? (
             <div className="basis-1/3 [&>div>div]:border [&>div>div]:mt-[-1px] mr-[-1px]">
@@ -114,6 +121,36 @@ const Cases = () => {
             </div>
           ) : (
             <div className="basis-1/3 [&>div>div]:border [&>div>div]:mt-[-1px] grow">
+              {part.map((caseData) => (
+                <CaseCard
+                  key={caseData.id}
+                  tags={caseData.services}
+                  logoPath={caseData.imageUrl}
+                >
+                  {caseData.description}
+                </CaseCard>
+              ))}
+            </div>
+          )
+        )}
+      </div>
+
+      <div className="md:hidden row-start-4 col-start-1 col-end-5 flex">
+        {splitArrayIntoTwo(cases).map((part, partIndex, parts) =>
+          partIndex != parts.length - 1 ? (
+            <div className="basis-1/2 [&>div>div]:border [&>div>div]:mt-[-1px] mr-[-1px]">
+              {part.map((caseData) => (
+                <CaseCard
+                  key={caseData.id}
+                  tags={caseData.services}
+                  logoPath={caseData.imageUrl}
+                >
+                  {caseData.description}
+                </CaseCard>
+              ))}
+            </div>
+          ) : (
+            <div className="basis-1/2 [&>div>div]:border [&>div>div]:mt-[-1px] grow">
               {part.map((caseData) => (
                 <CaseCard
                   key={caseData.id}
