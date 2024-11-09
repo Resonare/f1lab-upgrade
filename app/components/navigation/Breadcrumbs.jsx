@@ -21,7 +21,6 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
           : `${inverseColor ? `text-gray-200` : `text-gray-400`}`
       } text-sm font-text hover:underline hover:underline-offset-4`}
       to="/"
-      viewTransition
       onClick={closeServicesDropdownHandler}
       key="homepage"
     >
