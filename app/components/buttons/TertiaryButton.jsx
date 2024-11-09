@@ -22,6 +22,7 @@ const TertiaryButton = ({ bg, textColor, link, to, onClick, children }) => {
       {link && (
         <NavLink
           className={`${buttonStyle} min-w-full`}
+          viewTransition
           to={to}
           onClick={showServicesDropdownHandler}
         >

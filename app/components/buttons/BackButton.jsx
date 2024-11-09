@@ -26,6 +26,7 @@ const BackButton = ({ bg, textColor, link, to, onClick, className = "" }) => {
         <NavLink
           className={`${buttonStyle} min-w-full`}
           to={to}
+          viewTransition
           onClick={showServicesDropdownHandler}
         >
           <ArrowBack color={textColor?.substring(5)} />

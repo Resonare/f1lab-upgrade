@@ -86,6 +86,7 @@ const SecondaryButton = ({
       {link && (
         <NavLink
           className={`${className} ${buttonStyle} min-w-full`}
+          viewTransition
           to={to}
           onClick={showServicesDropdownHandler}
         >

@@ -14,12 +14,14 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
 
   const staticLinks = [
     <Link
+      viewTransition
       className={`${
         segments.filter((s) => s.length > 0).length > 0
           ? "text-gray-200"
           : `${inverseColor ? `text-gray-200` : `text-gray-400`}`
       } text-sm font-text hover:underline hover:underline-offset-4`}
       to="/"
+      viewTransition
       onClick={closeServicesDropdownHandler}
       key="homepage"
     >
@@ -67,6 +69,7 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
             />
           </div>
           <NavLink
+            viewTransition
             to={`${segments[0]}${url}`}
             onClick={closeServicesDropdownHandler}
             className={
