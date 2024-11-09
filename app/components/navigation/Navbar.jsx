@@ -107,6 +107,7 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
                       to={nav.link}
                       key={nav.title}
                       className="hover:underline hover:underline-offset-4"
+                      unstable_viewTransition
                       onClick={() => {
                         setShowServicesDropdown(false);
                       }}
