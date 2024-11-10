@@ -30,9 +30,11 @@ export default function ListBranches({ branches = [] }) {
                 <td>{branch.title}</td>
                 <td>{branch.color}</td>
                 <td>
-                  {branch.services?.map((service) => (
-                    <div key={service.id}>{service.title}</div>
-                  ))}
+                  <ul className="list-disc ps-20">
+                    {branch.services?.map((service) => (
+                      <li key={service.id}>{service.title}</li>
+                    ))}
+                  </ul>
                 </td>
                 <td>
                   <div className="flex gap-20">

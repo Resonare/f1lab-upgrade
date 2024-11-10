@@ -29,6 +29,17 @@ const UpdateServiceCase = ({
             placeholder="Краткое описание"
             className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
           />
+          <input
+            defaultValue={
+              serviceCase.imageUrl.split("/")[
+                serviceCase.imageUrl.split("/").length - 1
+              ]
+            }
+            type="text"
+            name="image"
+            placeholder="Имя файла-лого"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
+          />
           <div className="flex flex-col gap-10">
             {branches.map((branch) => (
               <div key={branch.id}>

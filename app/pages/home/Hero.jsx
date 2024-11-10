@@ -29,17 +29,22 @@ const Hero = () => {
         hero={true}
         className="2xl:border-gray-250 text-5xl font-title sm:pb-60 whitespace-normal inline-block w-full h-full"
       >
-        <div className="text-gray-400 row-start-1 col-start-1 2xl:col-end-4 col-end-5 sm:text-[56px] text-[28px]">
+        <div className="text-gray-400 row-start-1 col-start-1 2xl:col-end-4 col-end-4 sm:text-[56px] text-[28px]">
           <div className="flex items-center">
             IT-
             <VerticalCarousel
               className="text-f1-light"
-              words={["консалтинг", "менеджмент", "безопасность", "аутсорсинг"]}
+              words={[
+                "консалтинг",
+                "менеджмент",
+                "безопасность",
+                "аутсорсинг",
+                "техподдержка",
+              ]}
             />
           </div>
           <p className="mt-[-10px]">
-            для малого и среднего бизнеса, вдохновлённый практиками ведущих
-            компаний
+            для малого и среднего бизнеса, вдохновлённый практиками топ-компаний
           </p>
         </div>
 

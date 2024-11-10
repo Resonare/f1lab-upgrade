@@ -33,9 +33,11 @@ export default function ListCases({ serviceCases = [], branches = [] }) {
                 <td>{serviceCase.title}</td>
                 <td>{serviceCase.description}</td>
                 <td>
-                  {serviceCase.services?.map((service) => (
-                    <div key={service.id}>{service.title}</div>
-                  ))}
+                  <ul className="list-disc ps-20">
+                    {serviceCase.services?.map((service) => (
+                      <li key={service.id}>{service.title}</li>
+                    ))}
+                  </ul>
                 </td>
                 <td>
                   <div className="flex gap-20">

@@ -9,6 +9,7 @@ const AddCase = ({ closeHandler, branches = [] }) => {
           method="POST"
           action="/admin/case"
           className="flex flex-col gap-10 px-100 py-30"
+          onSubmit={closeHandler}
         >
           <input
             type="text"

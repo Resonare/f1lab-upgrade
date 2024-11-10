@@ -25,62 +25,62 @@ export const navData = [
             textColor: "text-consulting",
             items: [],
           },
-          {
+          /*{
             link: "server-manage",
             title: "Обслуживание серверов",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          },
+          }, */
           {
             link: "it-support",
-            title: "Удалённая техподдержка",
+            title: "Техподдержка",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
           },
-          {
+          /*{
             link: "networking",
             title: "Обслуживание сетевого оборудования",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          },
-          {
+          }, */
+          /* {
             link: "voip",
             title: "Обслуживание VOIP",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          },
-          {
+          }, */
+          /* {
             link: "1c-optimization",
             title: "Оптимизация работы 1С",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          },
-          {
+          }, */
+          /*{
             link: "vpn-management",
             title: "Организация удалённой работы",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          },
-          {
+          }, */
+          /* {
             link: "backup-management",
             title: "Резервное копирование",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          },
-          {
+          }, */
+          /* {
             link: "helpdesk",
             title: "Сервис Helpdesk",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          },
+          }, */
         ],
       },
       {
@@ -89,13 +89,13 @@ export const navData = [
         bgColor: "bg-cloud",
         textColor: "text-cloud",
         items: [
-          {
+          /* {
             link: "monitoring",
             title: "Мониторинг инфраструктуры 24/7",
             bgColor: "bg-cloud",
             textColor: "text-cloud",
             items: [],
-          },
+          }, */
           {
             link: "cloud-migration",
             title: "Миграция в облако",
@@ -103,20 +103,20 @@ export const navData = [
             textColor: "text-cloud",
             items: [],
           },
-          {
+          /* {
             link: "cloud-deployment",
             title: "Развёртывание инфраструктуры в облаке",
             bgColor: "bg-cloud",
             textColor: "text-cloud",
             items: [],
-          },
-          {
+          }, */
+          /* {
             link: "cloud-1c",
             title: "Защищённая 1С-инфраструктура в облаке",
             bgColor: "bg-cloud",
             textColor: "text-cloud",
             items: [],
-          },
+          }, */
           {
             link: "cloud-backup",
             title: "Резервное копирование критически важных данных",
@@ -146,20 +146,20 @@ export const navData = [
             textColor: "text-security",
             items: [],
           },
-          {
+          /* {
             link: "vpn",
             title: "Контроль доступа к сети",
             bgColor: "bg-security",
             textColor: "text-security",
             items: [],
-          },
-          {
+          }, */
+          /* {
             link: "network-security",
             title: "Настройка сетевых устройств",
             bgColor: "bg-security",
             textColor: "text-security",
             items: [],
-          },
+          }, */
         ],
       },
       // {

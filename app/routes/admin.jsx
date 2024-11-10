@@ -62,7 +62,7 @@ export default function AdminPanel() {
             ))}
           </ul>
         </div>
-        <div className="col-span-5 xl:px-30 lg:px-15 px-10">
+        <div className="col-span-6 xl:px-30 lg:px-15 px-10">
           {activeNav === "branches" && <ListBranches branches={branches} />}
           {activeNav === "services" && (
             <ListServices services={services} branches={branches} />

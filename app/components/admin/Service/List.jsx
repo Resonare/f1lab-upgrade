@@ -33,9 +33,15 @@ export default function ListServices({ services = [], branches = [] }) {
                 <td>{service.title}</td>
                 <td>{service.branch?.title}</td>
                 <td>
-                  {service.cases?.map((serviceCase) => (
-                    <div key={serviceCase.id}>{serviceCase.title}</div>
-                  ))}
+                  <ul className="list-disc ps-20">
+                    {service.cases?.map((serviceCase) => (
+                      <>
+                        {serviceCase.title && (
+                          <li key={serviceCase.id}>{serviceCase.title}</li>
+                        )}
+                      </>
+                    ))}
+                  </ul>
                 </td>
                 <td>
                   <div className="flex gap-20">

@@ -22,7 +22,7 @@ const Hero = () => {
               Передать задачи
               <br />
               <span className="text-f1-dark">
-                по обслуживанию <br /> и модернизации IT инфраструктуры
+                по обслуживанию <br /> и модернизации <br /> ИТ-инфраструктуры
               </span>
               <br />
               выгодно
@@ -82,26 +82,17 @@ const Hero = () => {
                   </p>
                 </div>
               </ContentCard>
-              <ContentCard className="bg-gray-400 rounded-[15px]">
-                <div className="flex flex-col gap-15 text-gray-100">
-                  <p className="text-[28px] font-extrabold font-expanded leading-loose line-through">
-                    ОТПУСК И БОЛЬНИЧНЫЕ
-                  </p>
-                  <p className="text-xl font-light font-text leading-relaxed">
-                    Без вынужденного прерывания бизнес-процессов
-                  </p>
-                </div>
-              </ContentCard>
             </div>
 
             <div className="flex flex-col basis-1/2 gap-[3px] justify-between">
               <ContentCard className="bg-gray-400 rounded-[15px]">
                 <div className="flex flex-col gap-15 text-gray-100">
                   <p className="text-[28px] font-extrabold font-expanded leading-loose">
-                    ~ 80 000 ₽
+                    ~ 150 000 ₽
                   </p>
                   <p className="text-xl font-light font-text leading-relaxed">
-                    Средняя зарплата одного специалиста в месяц
+                    Средняя зарплата системного администратора по данным
+                    habr.com
                   </p>
                   <div className="w-15">
                     <svg
@@ -117,7 +108,6 @@ const Hero = () => {
                         fill="#F1F1F1"
                       />
                     </svg>
-
                     <svg
                       className="sm:hidden"
                       width="30"
@@ -133,8 +123,8 @@ const Hero = () => {
                     </svg>
                   </div>
                   <p className="text-xl font-light font-text leading-relaxed">
-                    Мы предоставим штат сотрудников за сравнимую сумму на 2
-                    месяца
+                    Мы предоставим штат многопрофильных специалистов c экономией
+                    до 80%
                   </p>
                 </div>
               </ContentCard>
@@ -145,7 +135,18 @@ const Hero = () => {
                     НАЛОГИ
                   </p>
                   <p className="text-xl font-light font-text leading-relaxed">
-                    Вы не платите налоги за внештатных сотрудников
+                    Вы не платите налоги за сотрудников и уменьшаете
+                    налогооблагаемую базу за счёт расходов
+                  </p>
+                </div>
+              </ContentCard>
+              <ContentCard className="bg-gray-400 rounded-[15px]">
+                <div className="flex flex-col gap-15 text-gray-100">
+                  <p className="text-[28px] font-extrabold font-expanded leading-loose line-through">
+                    ОТПУСКА И БОЛЬНИЧНЫЕ
+                  </p>
+                  <p className="text-xl font-light font-text leading-relaxed">
+                    Постоянная ИТ-поддержка без риска простоев.
                   </p>
                 </div>
               </ContentCard>

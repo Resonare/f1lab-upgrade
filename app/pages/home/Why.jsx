@@ -48,7 +48,7 @@ const Why = () => {
         >
           <div className="flex flex-col gap-15">
             <p className="text-[22px] font-extended font-bold">
-              Ваш бизнес - наша поддержка
+              Сосредоточтесь на главном
             </p>
             <p>
               Решение технических задач и предотвращение угроз безопасности —
@@ -56,7 +56,6 @@ const Why = () => {
             </p>
           </div>
         </ContentCard>
-
         <ContentCard
           className="bg-gray-400 border-y max-sm:border-x basis-4/12"
           iconPath="home/why-icon3.svg"
