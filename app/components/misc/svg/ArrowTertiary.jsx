@@ -1,11 +1,9 @@
-import { colors } from "../../../../tailwind.config";
-
 const ArrowTertiary = ({ color }) => {
-  const colorMatch = colors;
-
   return (
     <span
-      className={`p-10 group-hover:px-5 group-hover:self-start transition-all duration-300`}
+      className={`stroke-${
+        color ? color : `gray-400`
+      } p-10 group-hover:px-5 group-hover:self-start transition-all duration-300`}
     >
       <svg
         width="20"
@@ -16,13 +14,11 @@ const ArrowTertiary = ({ color }) => {
       >
         <path
           d="M1.95996 9.95557L18.8697 9.95547"
-          stroke={colorMatch[color] || colorMatch.gray["400"]}
           strokeWidth="2"
           strokeLinecap="round"
         />
         <path
           d="M10.4043 1.51465L18.8895 9.99988L10.4042 18.4852"
-          stroke={colorMatch[color] || colorMatch.gray["400"]}
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"

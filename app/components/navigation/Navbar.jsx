@@ -13,6 +13,7 @@ import BreadCrumbs from "./Breadcrumbs";
 import ServicesNavigation from "./ServicesNavigation";
 import BurgerDropdown from "./BurgerDropdown";
 import Connection from "./Connection";
+import Logo from "../misc/svg/Logo";
 
 import { ThemeContext } from "../../store/theme-context";
 import { NavbarContext } from "../../store/navbar-context";
@@ -70,7 +71,7 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
               inverseColor ? `border-gray-300` : `border-gray-200`
             } h-full shrink-0 pr-15 mr-30 border-dashed sm:border-r items-center flex`}
           >
-            <img className="max-sm:h-[65%]" src="/images/logo.svg" alt="" />
+            <Logo inverseColor={inverseColor} />
           </div>
           <div className="shrink max-lg:min-w-[210px] min-w-[150px] grow justify-start items-center lg:flex-wrap hidden md:flex">
             <BreadCrumbs navs={navs} inverseColor={inverseColor} />

@@ -59,7 +59,7 @@ const BurgerMenu = ({ inverseColor = false }) => {
         <button
           className={`${
             inverseColor ? `border-gray-300` : `border-gray-200`
-          } max-lg:border-l border-r border-dashed ${buttonBgColor} hover:bg-f1-light h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
+          } group max-lg:border-l border-r border-dashed ${buttonBgColor} hover:bg-f1-light h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
           onClick={showMenuHandler}
         >
           <div className={`px-20`}>
@@ -70,24 +70,17 @@ const BurgerMenu = ({ inverseColor = false }) => {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                className={inverseColor ? `stroke-gray-100` : `stroke-gray-300`}
-                d="M1 5H31"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                className={inverseColor ? `stroke-gray-100` : `stroke-gray-300`}
-                d="M1 15H31"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <path
-                className={inverseColor ? `stroke-gray-100` : `stroke-gray-300`}
-                d="M1 25H31"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+              <g
+                className={`${
+                  inverseColor
+                    ? `stroke-gray-100 group-hover:stroke-gray-400`
+                    : `stroke-gray-300`
+                } transition-all`}
+              >
+                <path d="M1 5H31" strokeWidth="2" strokeLinecap="round" />
+                <path d="M1 15H31" strokeWidth="2" strokeLinecap="round" />
+                <path d="M1 25H31" strokeWidth="2" strokeLinecap="round" />
+              </g>
             </svg>
           </div>
         </button>
