@@ -11,7 +11,6 @@ const UpdateServiceCase = ({
       <AdminModal closeModal={closeHandler}>
         <Form
           method="PUT"
-          action="/admin/case"
           className="flex flex-col gap-20"
           onSubmit={closeHandler}
         >

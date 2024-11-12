@@ -7,7 +7,6 @@ const AddCase = ({ closeHandler, branches = [] }) => {
         <div className=" font-title text-5xl px-100 pt-180">Новый кейс</div>
         <Form
           method="POST"
-          action="/admin/case"
           className="flex flex-col gap-10 px-100 py-30"
           onSubmit={closeHandler}
         >

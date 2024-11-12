@@ -199,11 +199,41 @@ export const navData = [
     textColor: "text-white",
     items: [],
   },
-  /*{
+  {
     link: "admin",
     title: "Админка",
     bgColor: "bg-gray-100",
     textColor: "text-white",
-    items: [],
-    }, */
+    isHidden: true,
+    items: [
+      {
+        link: "users",
+        title: "Пользователи",
+        bgColor: "bg-gray-100",
+        textColor: "text-white",
+        items: [],
+      },
+      {
+        link: "branches",
+        title: "Направления",
+        bgColor: "bg-gray-100",
+        textColor: "text-white",
+        items: [],
+      },
+      {
+        link: "services",
+        title: "Услуги",
+        bgColor: "bg-gray-100",
+        textColor: "text-white",
+        items: [],
+      },
+      {
+        link: "cases",
+        title: "Кейсы",
+        bgColor: "bg-gray-100",
+        textColor: "text-white",
+        items: [],
+      },
+    ],
+  },
 ];

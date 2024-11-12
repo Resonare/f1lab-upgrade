@@ -5,7 +5,7 @@ import AddBranch from "./Add";
 import UpdateBranch from "./Update";
 import DeleteBranch from "./Delete";
 
-export default function ListBranches({ branches = [] }) {
+export default function ListBranches({ items = [] }) {
   const [addBranch, setAddBranch] = useState(false);
   const [showBranch, setShowBranch] = useState({ branch: {}, active: false });
   const [deleteBranch, setDeleteBranch] = useState({
@@ -15,7 +15,7 @@ export default function ListBranches({ branches = [] }) {
 
   return (
     <>
-      {branches?.length > 0 && (
+      {items?.length > 0 && (
         <table className="table-auto w-full text-lg ">
           <thead>
             <tr>
@@ -25,7 +25,7 @@ export default function ListBranches({ branches = [] }) {
             </tr>
           </thead>
           <tbody>
-            {branches.map((branch) => (
+            {items.map((branch) => (
               <tr key={branch.id} className="border-y ">
                 <td>{branch.title}</td>
                 <td>{branch.color}</td>
@@ -63,7 +63,7 @@ export default function ListBranches({ branches = [] }) {
           </tbody>
         </table>
       )}
-      {branches.length === 0 && (
+      {items.length === 0 && (
         <div className="text-2xl font-bold">
           Не найдено ни одного направления
         </div>

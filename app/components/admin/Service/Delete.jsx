@@ -10,7 +10,6 @@ const DeleteService = ({ service = {}, closeHandler }) => {
         </div>
         <Form
           method="DELETE"
-          action="/admin/service"
           className="flex flex-col gap-20"
           onSubmit={closeHandler}
         >

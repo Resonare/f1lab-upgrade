@@ -1,3 +1,5 @@
+import type { MetaFunction } from "@remix-run/node";
+
 import Hero from "../pages/home/Hero";
 import Why from "../pages/home/Why";
 import Cases from "../pages/home/Cases";
@@ -6,8 +8,6 @@ import Benefits from "../pages/home/Benefits";
 import Solutions from "../pages/home/Solutions";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
-
-import type { MetaFunction } from "@remix-run/node";
 
 export const meta: MetaFunction = () => {
   return [

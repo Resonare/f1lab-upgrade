@@ -7,7 +7,6 @@ const AddService = ({ closeHandler, branches = [] }) => {
         <div className="font-title text-5xl mb-40">Новая услуга</div>
         <Form
           method="POST"
-          action="/admin/service"
           className="flex flex-col gap-20"
           onSubmit={closeHandler}
         >

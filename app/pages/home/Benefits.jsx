@@ -39,10 +39,10 @@ const Hero = () => {
             <div className="flex flex-col gap-[3px] basis-1/2 justify-between">
               <ContentCard className="bg-gray-400 rounded-[15px]">
                 <div className="flex flex-col gap-15 text-gray-100">
-                  <p className="text-[28px] font-extrabold font-expanded leading-loose">
+                  <p className="text-[28px] font-extrabold font-expanded leading-normal">
                     6 месяцев
                   </p>
-                  <p className="text-xl font-light font-text leading-relaxed">
+                  <p className="text-xl font-light font-text leading-normal">
                     До 6 месяцев может длиться поиск сотрудников
                   </p>
                   <div className="w-15">
@@ -74,11 +74,22 @@ const Hero = () => {
                       />
                     </svg>
                   </div>
-                  <p className="text-[28px] font-extrabold font-expanded leading-loose">
+                  <p className="text-[28px] font-extrabold font-expanded leading-normal">
                     1 день
                   </p>
-                  <p className="text-xl font-light font-text leading-relaxed">
+                  <p className="text-xl font-light font-text leading-normal">
                     Мы закроем потребность в специалистах за один день
+                  </p>
+                </div>
+              </ContentCard>
+              <ContentCard className="bg-gray-400 rounded-[15px]">
+                <div className="flex flex-col gap-15 text-gray-100">
+                  <p className="text-[28px] font-extrabold font-expanded leading-normal line-through">
+                    НАЛОГИ
+                  </p>
+                  <p className="text-xl font-light font-text leading-normal">
+                    Вы не платите налоги за сотрудников и уменьшаете
+                    налогооблагаемую базу за счёт расходов
                   </p>
                 </div>
               </ContentCard>
@@ -87,10 +98,10 @@ const Hero = () => {
             <div className="flex flex-col basis-1/2 gap-[3px] justify-between">
               <ContentCard className="bg-gray-400 rounded-[15px]">
                 <div className="flex flex-col gap-15 text-gray-100">
-                  <p className="text-[28px] font-extrabold font-expanded leading-loose">
+                  <p className="text-[28px] font-extrabold font-expanded leading-normal">
                     ~ 150 000 ₽
                   </p>
-                  <p className="text-xl font-light font-text leading-relaxed">
+                  <p className="text-xl font-light font-text leading-normal">
                     Средняя зарплата системного администратора по данным
                     habr.com
                   </p>
@@ -122,7 +133,7 @@ const Hero = () => {
                       />
                     </svg>
                   </div>
-                  <p className="text-xl font-light font-text leading-relaxed">
+                  <p className="text-xl font-light font-text leading-normal">
                     Мы предоставим штат многопрофильных специалистов c экономией
                     до 80%
                   </p>
@@ -131,21 +142,10 @@ const Hero = () => {
 
               <ContentCard className="bg-gray-400 rounded-[15px]">
                 <div className="flex flex-col gap-15 text-gray-100">
-                  <p className="text-[28px] font-extrabold font-expanded leading-loose line-through">
-                    НАЛОГИ
-                  </p>
-                  <p className="text-xl font-light font-text leading-relaxed">
-                    Вы не платите налоги за сотрудников и уменьшаете
-                    налогооблагаемую базу за счёт расходов
-                  </p>
-                </div>
-              </ContentCard>
-              <ContentCard className="bg-gray-400 rounded-[15px]">
-                <div className="flex flex-col gap-15 text-gray-100">
-                  <p className="text-[28px] font-extrabold font-expanded leading-loose line-through">
+                  <p className="text-[28px] font-extrabold font-expanded leading-normal line-through">
                     ОТПУСКА И БОЛЬНИЧНЫЕ
                   </p>
-                  <p className="text-xl font-light font-text leading-relaxed">
+                  <p className="text-xl font-light font-text leading-normal">
                     Постоянная ИТ-поддержка без риска простоев.
                   </p>
                 </div>

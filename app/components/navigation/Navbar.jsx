@@ -81,44 +81,46 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
               inverseColor ? `text-gray-100` : `text-gray-400`
             } xl:pl-60 pl-15 pr-30 justify-end gap-30 text-sm font-expanded font-bold hidden lg:flex`}
           >
-            {navs.map((nav) => (
-              <div key={nav.link}>
-                {nav.items.length !== 0 && (
-                  <>
-                    <button
-                      onClick={showServicesDropdownHandler}
-                      className="flex justify-between items-center gap-5 hover:underline hover:underline-offset-4 "
-                    >
-                      {nav.title}
-                      <img
-                        className={`${inverseColor && `invert`}`}
-                        src={
-                          !showServicesDropdown
-                            ? "/images/arrow-down.svg"
-                            : "/images/arrow-up.svg"
-                        }
-                        alt=""
-                      />
-                    </button>
-                  </>
-                )}
-                {nav.items.length === 0 && (
-                  <>
-                    <NavLink
-                      to={nav.link}
-                      key={nav.title}
-                      className="hover:underline hover:underline-offset-4"
-                      viewTransition
-                      onClick={() => {
-                        setShowServicesDropdown(false);
-                      }}
-                    >
-                      {nav.title}
-                    </NavLink>
-                  </>
-                )}
-              </div>
-            ))}
+            {navs
+              .filter((nav) => !nav.isHidden)
+              .map((nav) => (
+                <div key={nav.link}>
+                  {nav.items.length !== 0 && (
+                    <>
+                      <button
+                        onClick={showServicesDropdownHandler}
+                        className="flex justify-between items-center gap-5 hover:underline hover:underline-offset-4 "
+                      >
+                        {nav.title}
+                        <img
+                          className={`${inverseColor && `invert`}`}
+                          src={
+                            !showServicesDropdown
+                              ? "/images/arrow-down.svg"
+                              : "/images/arrow-up.svg"
+                          }
+                          alt=""
+                        />
+                      </button>
+                    </>
+                  )}
+                  {nav.items.length === 0 && (
+                    <>
+                      <NavLink
+                        to={nav.link}
+                        key={nav.title}
+                        className="hover:underline hover:underline-offset-4"
+                        viewTransition
+                        onClick={() => {
+                          setShowServicesDropdown(false);
+                        }}
+                      >
+                        {nav.title}
+                      </NavLink>
+                    </>
+                  )}
+                </div>
+              ))}
           </div>
           <div className="h-[70px] flex-wrap lg:h-90 flex content-center justify-end">
             <SecondaryButton

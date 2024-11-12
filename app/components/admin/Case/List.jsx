@@ -5,7 +5,7 @@ import AddServiceCase from "./Add";
 import UpdateServiceCase from "./Update";
 import DeleteServiceCase from "./Delete";
 
-export default function ListCases({ serviceCases = [], branches = [] }) {
+export default function ListCases({ items = [], branches = [] }) {
   const [addServiceCase, setAddServiceCase] = useState(false);
   const [showServiceCase, setShowServiceCase] = useState({
     serviceCase: {},
@@ -18,7 +18,7 @@ export default function ListCases({ serviceCases = [], branches = [] }) {
 
   return (
     <>
-      {serviceCases?.length > 0 && (
+      {items?.length > 0 && (
         <table className="table-auto w-full text-lg">
           <thead>
             <tr>
@@ -28,7 +28,7 @@ export default function ListCases({ serviceCases = [], branches = [] }) {
             </tr>
           </thead>
           <tbody>
-            {serviceCases.map((serviceCase) => (
+            {items.map((serviceCase) => (
               <tr key={serviceCase.id} className="border-y">
                 <td>{serviceCase.title}</td>
                 <td>{serviceCase.description}</td>
@@ -72,7 +72,7 @@ export default function ListCases({ serviceCases = [], branches = [] }) {
           </tbody>
         </table>
       )}
-      {serviceCases.length === 0 && (
+      {items.length === 0 && (
         <div className="text-2xl font-bold">Не найдено ни одного кейса</div>
       )}
       <div className="mt-30">

@@ -1,27 +1,24 @@
-import { useLoaderData, useLocation } from "@remix-run/react";
+import {
+  Form,
+  NavLink,
+  Outlet,
+  redirect,
+  useLoaderData,
+} from "@remix-run/react";
 
-import { useState } from "react";
+import { getAll as getAllUsers, verifyUser } from "../data/users.server";
 
-import { getAll as getAllBranches } from "../data/branches.server";
-import { getAll as getAllServices } from "../data/services.server";
-import { getAll as getAllServiceCases } from "../data/cases.server";
-
-import ListBranches from "../components/admin/Branch/List";
-import ListServices from "../components/admin/Service/List";
-import ListServiceCases from "../components/admin/Case/List";
-
-export const meta = () => {
-  return [
-    { title: "F1LAB" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+import { authCookie } from "../auth";
+import UserForm from "../components/admin/User/Form";
 
 export default function AdminPanel() {
-  const location = useLocation();
-  const { branches, services, cases } = useLoaderData();
+  const { isAuthed } = useLoaderData();
 
   const navigation = [
+    {
+      title: "Пользователи",
+      link: "users",
+    },
     {
       title: "Направления",
       link: "branches",
@@ -36,54 +33,91 @@ export default function AdminPanel() {
     },
   ];
 
-  const [activeNav, setActiveNav] = useState(
-    location.hash ? location.hash.substring(1) : "branches"
-  );
-
   return (
     <div className="xl:px-120 lg:px-60 px-[44.1px]">
-      <div className=" font-title text-5xl pt-180 ">Админка</div>
+      <div className="flex justify-between">
+        <div className="font-title text-5xl pt-180 xl:px-30 lg:px-15 px-10 ">
+          Админка
+        </div>
+        <div className=" pt-[190px] text-xl xl:px-30 lg:px-15 px-10 ">
+          <Form method="POST">
+            <button
+              type="submit"
+              name="intent"
+              value="signout"
+              className="font-text bg-gray-400 text-gray-100 p-10"
+            >
+              Выйти
+            </button>
+          </Form>
+        </div>
+      </div>
       <div className="grid grid-cols-8 pt-30">
-        <div className="col-span-2">
-          <ul className="text-3xl font-bold">
-            {navigation.map((nav) => (
-              <li key={nav.link} className="">
-                <button
-                  className={`p-10 hover:bg-opacity-30 text-start text w-full ${
-                    activeNav === nav.link ? "bg-f1-light" : "hover:bg-gray-200"
-                  }`}
-                  onClick={() => {
-                    setActiveNav(nav.link);
-                  }}
+        {isAuthed && (
+          <>
+            <div className="col-span-12 mb-40">
+              {navigation.map((nav) => (
+                <NavLink
+                  key={nav.link}
+                  to={nav.link}
+                  className={({ isActive }) =>
+                    `p-10 hover:bg-opacity-30 text-start text w-full h-20 ${
+                      isActive ? "bg-f1-light" : "hover:bg-gray-200"
+                    }`
+                  }
                 >
                   {nav.title}
-                </button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="col-span-6 xl:px-30 lg:px-15 px-10">
-          {activeNav === "branches" && <ListBranches branches={branches} />}
-          {activeNav === "services" && (
-            <ListServices services={services} branches={branches} />
-          )}
-          {activeNav === "cases" && (
-            <ListServiceCases serviceCases={cases} branches={branches} />
-          )}
-        </div>
+                </NavLink>
+              ))}
+            </div>
+            <div className="col-span-12 xl:px-30 lg:px-15 px-10">
+              <Outlet />
+            </div>
+          </>
+        )}
+        {!isAuthed && (
+          <div className="col-span-4 xl:px-30 lg:px-15 px-10">
+            <UserForm intent="signin" />
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-export async function loader() {
-  const branchesData = await getAllBranches();
-  const servicesData = await getAllServices();
-  const serviceCasesData = await getAllServiceCases();
+export async function loader({ request }) {
+  const cookieString = request.headers.get("Cookie");
+  const userId = await authCookie.parse(cookieString);
 
-  return {
-    branches: branchesData,
-    services: servicesData,
-    cases: serviceCasesData,
-  };
+  const users = await getAllUsers();
+
+  return { isAuthed: userId || users.length === 0 };
+}
+
+export async function action({ request }) {
+  const formData = await request.formData();
+  const userData = Object.fromEntries(formData);
+
+  const intent = formData.get("intent");
+
+  if (intent === "signin") {
+    const name = String(userData.name);
+    const password = String(userData.password);
+
+    const { isValid, userId } = await verifyUser(name, password);
+
+    if (!isValid) {
+      return { errors: { password: "Неверный пароль" } };
+    }
+
+    return redirect("/admin/users", {
+      headers: { "Set-Cookie": await authCookie.serialize(userId) },
+    });
+  }
+
+  if (intent === "signout") {
+    return redirect("/admin/users", {
+      headers: { "Set-Cookie": await authCookie.serialize("") },
+    });
+  }
 }

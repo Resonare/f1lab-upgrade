@@ -14,18 +14,18 @@ import CallMeBackModal from "~/components/modals/callMeBack/CallMeBackModal";
 import PlanModal from "~/components/modals/plan/PlanModal";
 import BackgroundGrid from "~/components/BackgroundGrid";
 
+import { CriticalSVGs } from "./components/CriticalSVGs";
+
 import { ThemeContext } from "~/store/theme-context";
 import { LinksFunction } from "@remix-run/node";
-
-import { CriticalSVGs } from "./components/CriticalSVGs";
 
 export const links: LinksFunction = () => {
   return [
     {
       rel: "preload",
-      href: "/fonts/Bahnschrift.woff2",
+      href: "/fonts/Bahnschrift.ttf",
       as: "font",
-      type: "font/woff2",
+      type: "font/ttf",
       crossOrigin: "anonymous",
     },
     {
@@ -100,8 +100,32 @@ export function Layout({ children }: { children: React.ReactNode }) {
     bgColorChangeHandler(currentItem.bgColor);
   }, [currentItem]);
 
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      if (document.fonts) {
+        document.fonts.ready.then(() => {
+          setFontsLoaded(true);
+        });
+
+        // Fallback
+        const timeoutId = setTimeout(() => {
+          setFontsLoaded(true);
+        }, 4000);
+
+        return () => clearTimeout(timeoutId);
+      } else {
+        setFontsLoaded(true);
+      }
+    }
+  }, []);
+
   return (
-    <html lang="ru" className="scroll-smooth">
+    <html
+      lang="ru"
+      className={`scroll-smooth ${fontsLoaded ? "fonts-loaded" : ""}`}
+    >
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -110,53 +134,33 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         <style>
           {`
-                    .content-wrapper {
-                      visibility: hidden;
-                    }
+                   .content-wrapper {
+                     visibility: hidden;
+                   }
 
-                    .fonts-loaded .content-wrapper {
-                      visibility: visible;
-                      animation: fadeIn 0.2s ease-in;
-                    }
+                   .fonts-loaded .content-wrapper {
+                     visibility: visible;
+                     animation: fadeIn 0.2s ease-in;
+                   }
 
-                    @keyframes fadeIn {
-                      from { opacity: 0; }
-                      to { opacity: 1; }
-                    }
+                   @keyframes fadeIn {
+                     from { opacity: 0; }
+                     to { opacity: 1; }
+                   }
 
-                    #font-loader {
-                      position: fixed;
-                      inset: 0;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                    }
+                   #font-loader {
+                     position: fixed;
+                     inset: 0;
+                     display: flex;
+                     align-items: center;
+                     justify-content: center;
+                   }
 
-                    .fonts-loaded #font-loader {
-                      display: none;
-                    }
-                  `}
+                   .fonts-loaded #font-loader {
+                     display: none;
+                   }
+                 `}
         </style>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                    (function() {
-                      if (document.fonts) {
-                        document.fonts.ready.then(function() {
-                          document.documentElement.classList.add('fonts-loaded');
-                        });
-
-                        // Fallback
-                        setTimeout(function() {
-                          document.documentElement.classList.add('fonts-loaded');
-                        }, 4000);
-                      } else {
-                        document.documentElement.classList.add('fonts-loaded');
-                      }
-                    })();
-                  `,
-          }}
-        />
       </head>
       <ThemeContext.Provider value={{ bgColor: bgColor }}>
         <body

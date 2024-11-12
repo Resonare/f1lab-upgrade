@@ -7,7 +7,6 @@ const UpdateBranch = ({ branch = {}, closeHandler }) => {
       <AdminModal closeModal={closeHandler}>
         <Form
           method="PUT"
-          action="/admin/branch"
           className="flex flex-col gap-20"
           onSubmit={closeHandler}
         >

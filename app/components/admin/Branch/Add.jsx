@@ -7,7 +7,6 @@ const AddBranch = ({ closeHandler }) => {
         <div className="font-title text-5xl mb-40">Новое направление</div>
         <Form
           method="POST"
-          action="/admin/branch"
           className="flex flex-col gap-20"
           onSubmit={closeHandler}
         >

@@ -11,7 +11,6 @@ const DeleteBranch = ({ branch = {}, closeHandler }) => {
         </div>
         <Form
           method="DELETE"
-          action="/admin/branch"
           className="flex flex-col gap-20"
           onSubmit={closeHandler}
         >

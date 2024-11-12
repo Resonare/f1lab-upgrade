@@ -162,19 +162,21 @@ const BurgerDropdown = ({ navs }) => {
             <div className="font-text font-bold uppercase text-sm text-gray-300 mb-15">
               {serviceState.title}
             </div>
-            {serviceState.items.map((nav) => (
-              <div key={nav.link}>
-                <SecondaryButton
-                  className="border-x"
-                  key={nav.link}
-                  variant="shaded"
-                  link
-                  to={"services/" + nav.link}
-                >
-                  {nav.title}
-                </SecondaryButton>
-              </div>
-            ))}
+            {serviceState.items
+              .filter((nav) => !nav.isHidden)
+              .map((nav) => (
+                <div key={nav.link}>
+                  <SecondaryButton
+                    className="border-x"
+                    key={nav.link}
+                    variant="shaded"
+                    link
+                    to={"services/" + nav.link}
+                  >
+                    {nav.title}
+                  </SecondaryButton>
+                </div>
+              ))}
             <BackButton
               className="border-x"
               onClick={() => {

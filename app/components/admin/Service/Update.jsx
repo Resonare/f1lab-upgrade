@@ -14,7 +14,6 @@ const UpdateBranch = ({ service, branches = [], closeHandler }) => {
       <AdminModal closeModal={closeHandler}>
         <Form
           method="POST"
-          action="/admin/service"
           className="flex flex-col gap-20"
           onSubmit={closeHandler}
         >

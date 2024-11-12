@@ -5,7 +5,7 @@ import AddService from "./Add";
 import UpdateService from "./Update";
 import DeleteService from "./Delete";
 
-export default function ListServices({ services = [], branches = [] }) {
+export default function ListServices({ items = [], branches = [] }) {
   const [addService, setAddService] = useState(false);
   const [showService, setShowService] = useState({
     service: {},
@@ -18,7 +18,7 @@ export default function ListServices({ services = [], branches = [] }) {
 
   return (
     <>
-      {services?.length > 0 && (
+      {items?.length > 0 && (
         <table className="table-auto w-full text-lg">
           <thead>
             <tr>
@@ -28,18 +28,18 @@ export default function ListServices({ services = [], branches = [] }) {
             </tr>
           </thead>
           <tbody>
-            {services.map((service) => (
+            {items.map((service) => (
               <tr key={service.id} className="border-y">
                 <td>{service.title}</td>
                 <td>{service.branch?.title}</td>
                 <td>
                   <ul className="list-disc ps-20">
                     {service.cases?.map((serviceCase) => (
-                      <>
+                      <div key={serviceCase.id}>
                         {serviceCase.title && (
                           <li key={serviceCase.id}>{serviceCase.title}</li>
                         )}
-                      </>
+                      </div>
                     ))}
                   </ul>
                 </td>
@@ -70,7 +70,7 @@ export default function ListServices({ services = [], branches = [] }) {
           </tbody>
         </table>
       )}
-      {services.length === 0 && (
+      {items.length === 0 && (
         <div className="text-2xl font-bold">Не найдено ни одной услуги</div>
       )}
       <div className="mt-30">

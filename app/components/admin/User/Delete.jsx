@@ -1,12 +1,12 @@
 import { Form } from "@remix-run/react";
 import AdminModal from "../Modal";
 
-const DeleteCase = ({ serviceCase = {}, closeHandler }) => {
+const DeleteUser = ({ user = {}, closeHandler }) => {
   return (
     <>
       <AdminModal closeModal={closeHandler}>
         <div className="font-title text-2xl mb-40">
-          Уверены, что хотите удалить кейс {serviceCase.title}?
+          Уверены, что хотите удалить пользователя {user.name}?
         </div>
         <Form
           method="DELETE"
@@ -14,7 +14,7 @@ const DeleteCase = ({ serviceCase = {}, closeHandler }) => {
           onSubmit={closeHandler}
         >
           <input
-            value={serviceCase.id}
+            value={user.id}
             readOnly
             type="text"
             name="id"
@@ -43,4 +43,4 @@ const DeleteCase = ({ serviceCase = {}, closeHandler }) => {
   );
 };
 
-export default DeleteCase;
+export default DeleteUser;

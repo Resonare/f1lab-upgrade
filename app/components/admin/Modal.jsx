@@ -1,4 +1,4 @@
-const AdminModal = ({ children, closeModal }) => {
+const AdminModal = ({ children, closeModal, title = "" }) => {
   return (
     <div className="fixed inset-0 z-50 flex justify-center items-center">
       <div className="flex flex-col border border-dashed border-gray-200 bg-gray-100 z-50 w-screen m-120">
@@ -6,6 +6,7 @@ const AdminModal = ({ children, closeModal }) => {
           Закрыть
         </button>
         <div className="items-center justify-center px-100 pt-60 pb-90">
+          <div className="font-title text-5xl mb-40">{title}</div>
           {children}
         </div>
       </div>
