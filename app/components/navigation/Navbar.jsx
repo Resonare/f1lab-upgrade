@@ -1,8 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 
-import { useLocation } from "@remix-run/react";
+import { useLocation, NavLink } from "@remix-run/react";
 
-import { NavLink } from "@remix-run/react";
 import PropTypes from "prop-types";
 
 import useModalStore from "../../store/modal";
@@ -40,10 +39,8 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
     setShowServicesDropdown(false);
   };
 
-  const navs = navData;
-
   useEffect(() => {
-    navsChangeHandler(navs);
+    navsChangeHandler(navData);
   });
 
   return (
@@ -74,14 +71,14 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
             <Logo inverseColor={inverseColor} />
           </div>
           <div className="shrink max-lg:min-w-[210px] min-w-[150px] grow justify-start items-center lg:flex-wrap hidden md:flex">
-            <BreadCrumbs navs={navs} inverseColor={inverseColor} />
+            <BreadCrumbs navs={navData} inverseColor={inverseColor} />
           </div>
           <div
             className={`${
               inverseColor ? `text-gray-100` : `text-gray-400`
             } xl:pl-60 pl-15 pr-30 justify-end gap-30 text-sm font-expanded font-bold hidden lg:flex`}
           >
-            {navs
+            {navData
               .filter((nav) => !nav.isHidden)
               .map((nav) => (
                 <div key={nav.link}>
@@ -134,12 +131,16 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
             <BurgerMenu inverseColor={inverseColor} />
           </div>
         </nav>
-        {navs.map((nav) => (
-          <div key={nav.link}>
-            {nav.items.length !== 0 && <ServicesNavigation items={nav.items} />}
-          </div>
-        ))}
-        <BurgerDropdown navs={navs} />
+        {navData
+          .filter((nav) => !nav.isHidden)
+          .map((nav) => (
+            <div key={nav.link}>
+              {nav.items.length !== 0 && (
+                <ServicesNavigation items={nav.items} />
+              )}
+            </div>
+          ))}
+        <BurgerDropdown navs={navData} />
         <Connection />
       </NavbarContext.Provider>
     </>
