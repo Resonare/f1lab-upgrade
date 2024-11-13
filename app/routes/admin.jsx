@@ -39,18 +39,20 @@ export default function AdminPanel() {
         <div className="font-title text-5xl pt-180 xl:px-30 lg:px-15 px-10 ">
           Админка
         </div>
-        <div className=" pt-[190px] text-xl xl:px-30 lg:px-15 px-10 ">
-          <Form method="POST">
-            <button
-              type="submit"
-              name="intent"
-              value="signout"
-              className="font-text bg-gray-400 text-gray-100 p-10"
-            >
-              Выйти
-            </button>
-          </Form>
-        </div>
+        {isAuthed && (
+          <div className=" pt-[190px] text-xl xl:px-30 lg:px-15 px-10 ">
+            <Form method="POST">
+              <button
+                type="submit"
+                name="intent"
+                value="signout"
+                className="font-text bg-gray-400 text-gray-100 p-10"
+              >
+                Выйти
+              </button>
+            </Form>
+          </div>
+        )}
       </div>
       <div className="grid grid-cols-8 pt-30">
         {isAuthed && (
