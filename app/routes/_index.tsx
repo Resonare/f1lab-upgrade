@@ -18,7 +18,7 @@ export const meta: MetaFunction = () => {
 
 export default function Services() {
   return (
-    <div className="flex flex-col">
+    <div className="2xl:border-x border-gray-200 border-dashed flex flex-col">
       <Hero />
       <Why />
       <Solutions />

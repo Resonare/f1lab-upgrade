@@ -18,7 +18,7 @@ export const meta = () => {
 
 export default function Staffcop() {
   return (
-    <div className="flex flex-col lg:gap-100 sm:gap-[82px]">
+    <div className="2xl:border-x border-gray-200 border-dashed flex flex-col lg:gap-100 sm:gap-[82px]">
       <Hero />
       <Scenarios />
       <Offers />
