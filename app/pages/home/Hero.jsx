@@ -14,21 +14,16 @@ const Hero = () => {
 
   return (
     <div className="relative">
-      <div className="bg-f1-light h-full w-full -z-[9] absolute left-1/2 translate-x-[-50%]">
-        <BackgroundGrid
-          className="-z-[9] absolute left-1/2 translate-x-[-50%] h-full"
-          customLinesColor="border-gray-250"
-          striped={false}
-          hFull={false}
-        />
-        <div className="h-full w-full absolute left-1/2 translate-x-[-50%] pt-[70px] lg:pt-90 max-w-[1921px]">
+      <Section
+        className="2xl:border-gray-250 text-5xl font-title whitespace-normal inline-block w-full h-full"
+        hero={true}
+        inverseColor={true}
+        customBackground="bg-f1-light"
+        customLinesColor="border-gray-250"
+      >
+        <div className="h-full w-full absolute top-0 left-1/2 translate-x-[-50%] max-w-[1921px]">
           <Animation data={homeAnimationJson} hero={true} />
         </div>
-      </div>
-      <Section
-        hero={true}
-        className="2xl:border-gray-250 text-5xl font-title sm:pb-60 whitespace-normal inline-block w-full h-full"
-      >
         <div className="text-gray-400 row-start-1 col-start-1 2xl:col-end-4 col-end-4 sm:text-[56px] text-[28px]">
           <div className="flex items-center">
             IT-

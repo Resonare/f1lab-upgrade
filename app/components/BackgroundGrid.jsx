@@ -1,7 +1,7 @@
 const BackgroundGrid = ({
   inverseColor = false,
+  customBackground,
   customLinesColor = "",
-  hFull = true,
   striped = true,
   className = "",
 }) => {
@@ -13,16 +13,37 @@ const BackgroundGrid = ({
 
   return (
     <div
-      className={`${className} ${hFull && `h-full`} ${
-        inverseColor
-          ? `bg-gray-400 max-sm:bg-dark-striped absolute -z-[9]`
-          : `${striped && `max-sm:bg-striped`} fixed top-0 -z-[10]`
-      } grid grid-cols-4 max-w-[1921px] w-full xl:px-120 lg:px-60 sm:px-[44.1px] px-15`}
+      className={`${className} ${
+        striped && !inverseColor && `max-sm:bg-striped`
+      } ${inverseColor ? `absolute z-[-1]` : `fixed -z-[10]`} ${
+        customLinesColor ? customLinesColor : `border-gray-300`
+      } top-0 max-w-[1921px] w-full h-full border-dashed`}
     >
-      <div className={`sm:border-x border-l border-dashed ${linesColor}`}></div>
-      <div className={`border-r border-dashed ${linesColor}`}></div>
-      <div className={`sm:border-r border-dashed ${linesColor}`}></div>
-      <div className={`border-r border-dashed ${linesColor}`}></div>
+      {inverseColor && (
+        <div
+          className={`${
+            customBackground ? customBackground : `bg-gray-400`
+          } max-sm:bg-dark-striped h-full w-[100svw] z-[-9] absolute left-1/2 -translate-x-1/2`}
+        ></div>
+      )}
+
+      <div
+        className={`${
+          inverseColor &&
+          `${customLinesColor ? customLinesColor : `border-gray-300`} border-x`
+        } absolute h-full w-full grid grid-cols-4 xl:px-120 lg:px-60 sm:px-[44.1px] px-15 border-dashed`}
+      ></div>
+
+      <div
+        className={`h-full w-full grid grid-cols-4 xl:px-120 lg:px-60 sm:px-[44.1px] px-15 border-dashed`}
+      >
+        <div
+          className={`sm:border-x border-l border-dashed ${linesColor}`}
+        ></div>
+        <div className={`border-r border-dashed ${linesColor}`}></div>
+        <div className={`sm:border-r border-dashed ${linesColor}`}></div>
+        <div className={`border-r border-dashed ${linesColor}`}></div>
+      </div>
     </div>
   );
 };
