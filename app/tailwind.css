@@ -121,4 +121,8 @@
   .snap-x-mandatory {
     scroll-snap-type: x mandatory;
   }
+
+  .no-clip {
+    clip-path: none;
+  }
 }

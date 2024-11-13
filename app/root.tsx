@@ -13,6 +13,7 @@ import Navbar from "~/components/navigation/Navbar";
 import CallMeBackModal from "~/components/modals/callMeBack/CallMeBackModal";
 import PlanModal from "~/components/modals/plan/PlanModal";
 import BackgroundGrid from "~/components/BackgroundGrid";
+import Footer from "~/components/Footer";
 
 import { CriticalSVGs } from "./components/CriticalSVGs";
 
@@ -164,7 +165,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <ThemeContext.Provider value={{ bgColor: bgColor }}>
         <body
-          className={`content-wrapper ${bgColor} max-w-[1923px] mx-auto transition-full duration-300 `}
+          className={`overflow-x-hidden content-wrapper ${bgColor} max-w-[1923px] mx-auto transition-full duration-300 `}
         >
           <header className="fixed top-0 left-0 w-full z-10">
             <Navbar navsChangeHandler={navsChangeHandler} />
@@ -175,6 +176,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <BackgroundGrid />
           <ScrollRestoration />
           <Scripts />
+          <Footer />
         </body>
       </ThemeContext.Provider>
     </html>
