@@ -9,10 +9,10 @@ const Footer = () => {
 
   return (
     <Section
-      className="max-w-[1921.4px] pt-100 text-gray-100 border-t border-dashed border-gray-300 mt-[-1px]"
+      className="max-w-[1921.4px] sm:py-40 text-gray-100 border-t border-dashed border-gray-300 mt-[-1px]"
       inverseColor={true}
     >
-      <div className="flex flex-col gap-60 p-30">
+      <div className="col-start-1 lg:col-end-2 sm:col-end-3 col-end-5 flex flex-col gap-60 p-30">
         <p className="uppercase font-text text-sm font-semibold">Заголовок</p>
         <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
           <p className="hover:underline cursor-pointer">Ссылка</p>
@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-60 p-30">
+      <div className="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 col-end-5 flex flex-col gap-60 p-30">
         <p className="uppercase font-text text-sm font-semibold">Заголовок</p>
         <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
           <p className="hover:underline cursor-pointer">Ссылка</p>
@@ -36,7 +36,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-60 p-30">
+      <div className="lg:col-start-3 col-start-1 lg:col-end-4 sm:col-end-3 col-end-5 flex flex-col gap-60 p-30">
         <p className="uppercase font-text text-sm font-semibold">Заголовок</p>
         <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
           <p className="hover:underline cursor-pointer">Ссылка</p>
@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="flex flex-col gap-60 p-30">
+      <div className="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 col-end-5 flex flex-col gap-60 p-30">
         <PrimaryButton type="light" onClick={showCallMeBackModal}>
           Консультация
         </PrimaryButton>
