@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export function LazyImage({
   src,
-  alt,
+  alt = "",
   className,
 }: {
   src: string;

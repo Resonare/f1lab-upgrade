@@ -45,7 +45,7 @@ const FormInput = ({
   return (
     <button
       className={`${className} ${value && bgColor} ${
-        focused || value ? `pb-10 sm:pt-40 pt-20` : `py-[15px]`
+        focused || value ? `pb-10 lg:pt-40 pt-20` : `lg:py-[25px] py-[15px]`
       } has-[:focus]:${bgColor} border-gray-200 border-x border-t relative sm:px-30 px-15 text-gray-300 sm:text-xl font-text sm:font-normal font-light leading-7 border-dashed cursor-text transition-all`}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}

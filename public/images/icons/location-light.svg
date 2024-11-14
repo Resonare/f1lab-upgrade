@@ -1,0 +1,14 @@
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="location-pin-3--navigation-map-maps-pin-gps-location" clip-path="url(#clip0_3237_27837)">
+<g id="location-pin-3--navigation-map-maps-pin-gps-location_2">
+<path id="Vector" d="M19.7147 9.0714C19.7147 14.2143 12.0004 20.2143 12.0004 20.2143C12.0004 20.2143 4.28613 14.2143 4.28613 9.0714C4.28613 4.86969 7.7987 1.35712 12.0004 1.35712C16.2021 1.35712 19.7147 4.86969 19.7147 9.0714Z" stroke="#01CA9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M12.0001 11.6429C13.4203 11.6429 14.5716 10.4916 14.5716 9.07143C14.5716 7.65126 13.4203 6.5 12.0001 6.5C10.58 6.5 9.42871 7.65126 9.42871 9.07143C9.42871 10.4916 10.58 11.6429 12.0001 11.6429Z" stroke="#01CA9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M18.9899 17.6428H20.5717L23.1431 23.6428H0.857422L3.42885 17.6428H5.01062" stroke="#01CA9A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_3237_27837">
+<rect width="24" height="24" fill="white" transform="translate(0 0.5)"/>
+</clipPath>
+</defs>
+</svg>

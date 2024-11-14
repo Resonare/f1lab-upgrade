@@ -15,7 +15,8 @@ const Hero = () => {
   return (
     <div className="">
       <Section
-        className="relative 2xl:border-gray-250 text-5xl font-expanded font-extrabold lg:mt-90 mt-[70px]"
+        className="relative 2xl:border-gray-250 text-5xl sm:font-expanded font-extended sm:font-extrabold font-bold lg:mt-90 mt-[70px]"
+        hero={true}
         inverseColor={true}
         customBackground="bg-f1-light"
         customLinesColor="border-gray-250"
@@ -25,8 +26,8 @@ const Hero = () => {
         </div>
 
         <div className="z-[0] col-start-1 col-end-5 grid grid-cols-4">
-          <div className="text-gray-400 row-start-1 col-start-1 xl:col-end-4 col-end-5 sm:text-[56px] text-[28px]">
-            <div className="flex items-center">
+          <div className="text-gray-400 row-start-1 col-start-1 xl:col-end-4 col-end-5 lg:text-[56px] sm:text-[44px] text-[28px]">
+            <div className="flex gap-5 items-center">
               IT-
               <VerticalCarousel
                 className="text-f1-light"

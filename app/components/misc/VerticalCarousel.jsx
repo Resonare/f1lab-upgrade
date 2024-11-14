@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 
-const TRANSLATE_MODIFIER = 91.2;
-const MOBILE_TRANSLATE_MODIFIER = 63.2;
+const LG_TRANSLATE_MODIFIER = 91.12;
+const SM_TRANSLATE_MODIFIER = 79.12;
+const MOBILE_TRANSLATE_MODIFIER = 63.12;
 
 const VerticalCarousel = ({ className, words, duration = 2500 }) => {
   const [translate, setTranslate] = useState(0);
 
   const handleTimeout = () => {
-    let translateModifier = TRANSLATE_MODIFIER;
+    let translateModifier = LG_TRANSLATE_MODIFIER;
+
+    if (window.matchMedia("(max-width: 1300px)").matches) {
+      translateModifier = SM_TRANSLATE_MODIFIER;
+    }
 
     if (window.matchMedia("(max-width: 770px)").matches) {
       translateModifier = MOBILE_TRANSLATE_MODIFIER;
@@ -29,7 +34,7 @@ const VerticalCarousel = ({ className, words, duration = 2500 }) => {
 
   return (
     <div
-      className={`${className} sm:text-[56px] text-[28px] sm:h-[86px] h-[58px] sm:py-15 pt-10 overflow-hidden`}
+      className={`${className} lg:text-[56px] sm:text-[44px] text-[28px] lg:h-[86px] sm:h-[74px] h-[58px] sm:py-15 pt-10 overflow-hidden`}
     >
       <div
         className={`${translate != 0 && `transition-all`} flex gap-20 flex-col`}

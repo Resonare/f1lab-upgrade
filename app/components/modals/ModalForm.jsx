@@ -56,6 +56,7 @@ const validateForm = (values, setErrors) => {
 };
 
 const ModalForm = ({
+  title = "Давайте уточним детали",
   method = "POST",
   action = "",
   values,
@@ -92,7 +93,7 @@ const ModalForm = ({
     >
       <div className="flex flex-col gap-5">
         <p className="lg:text-[28px] sm:text-[22px] text-xl lg:font-expanded lg:font-extrabold font-extended font-bold lg:leading-loose leading-relaxed">
-          Давайте уточним детали
+          {title}
         </p>
         <p className="sm:text-xl text-sm text-gray-300 font-text sm:font-light font-normal sm:leading-relaxed leading-tight">
           Заполните форму и мы свяжемся с вами в течение 15 минут
