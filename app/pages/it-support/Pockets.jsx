@@ -18,7 +18,7 @@ const Pockets = () => {
   ];
 
   return (
-    <Section id="">
+    <Section id="" className="pb-100">
       <SectionTitle
         row="row-start-1"
         col="col-start-1 max-lg:col-end-5"

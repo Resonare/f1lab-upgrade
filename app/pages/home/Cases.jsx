@@ -139,7 +139,7 @@ const Cases = () => {
         </SectionTitle>
 
         <Carousel
-          className="w-full col-start-1 col-end-5 row-start-2 sm:hidden overflow-hidden [&>div:first-child]:border-b"
+          className="w-full col-start-1 col-end-5 row-start-2 sm:hidden overflow-hidden"
           inverseColor={true}
         >
           {serviceCases.map((serviceCase, index) => (

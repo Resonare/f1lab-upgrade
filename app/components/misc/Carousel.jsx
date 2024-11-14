@@ -36,30 +36,37 @@ const Carousel = ({
       }
 
       pageIndicators.push(
-        <div
+        <p
           key={i}
-          className={`${indicatorColorClasses} flex-1 flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}
+          className={`${indicatorColorClasses} grow flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}
         >
-          <p>•</p>
-        </div>
+          •
+        </p>
       );
     }
 
     return pageIndicators;
   };
 
+  if (!children || children.filter((child) => child).length == 0)
+    return (
+      <div className="text-gray-400 font-extended font-bold text-[20px]">
+        Нет элементов
+      </div>
+    );
+
   return (
     <div className={`${className} border-gray-300 border-dashed`}>
       <div
         className={`${
           inverseColor && `border-gray-300`
-        } border-t mx-[0.8px] border-dashed overflow-x-scroll flex [&>*]:min-w-[300px] [&>*]:snap-center snap-x-mandatory`}
+        } border-y mx-[0.8px] border-dashed overflow-x-scroll flex [&>*]:min-w-[300px] [&>*]:snap-center snap-x-mandatory`}
         onScroll={scrollHandle}
         ref={carouselRef}
       >
         {children}
       </div>
-      <div className="flex">{getPageIndicators()}</div>
+      <div className="flex w-full">{getPageIndicators()}</div>
     </div>
   );
 };

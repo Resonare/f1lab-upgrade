@@ -18,11 +18,11 @@ const Pockets = () => {
   ];
 
   return (
-    <Section id="">
+    <Section className="[&>div]:pt-0 pb-100" id="">
       <SectionTitle
         row="row-start-1"
         col="col-start-1 lg:col-end-2 sm:col-end-4 col-end-5"
-        className="md:pb-60 max-sm:pb-30 leading-[44px]"
+        className="md:pb-60 max-sm:pb-30 sm:leading-[44px]"
       >
         Решения под ключ с пакетами услуг
       </SectionTitle>

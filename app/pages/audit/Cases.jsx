@@ -133,7 +133,7 @@ const Cases = () => {
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
         <SectionTitle>Примеры кейсов с аудитом</SectionTitle>
 
-        <Carousel className="[&>div:first-child]:border-b">
+        <Carousel>
           {serviceCases.map((serviceCase, index) => (
             <CaseCard
               className={`${index != serviceCases.length - 1 && `border-r`} ${

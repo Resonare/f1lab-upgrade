@@ -12,7 +12,7 @@ export const meta = () => {
 
 export default function Portfolio() {
   return (
-    <div>
+    <div className="2xl:border-x border-gray-200 border-dashed">
       <Cases />
       <Pockets />
     </div>

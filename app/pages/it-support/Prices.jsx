@@ -92,7 +92,7 @@ const Prices = () => {
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
         <SectionTitle>Понятные цены</SectionTitle>
 
-        <Carousel className="[&>div:first-child]:border-b">
+        <Carousel>
           <PriceCard
             className="border-r"
             row="row-start-1"

@@ -21,9 +21,9 @@ const BackgroundGrid = ({
     >
       {inverseColor && (
         <div
-          className={`${
-            customBackground ? customBackground : `bg-gray-400`
-          } max-sm:bg-dark-striped h-full w-[100vw] z-[-9] absolute left-1/2 -translate-x-1/2`}
+          className={`${customBackground ? customBackground : `bg-gray-400`} ${
+            !customBackground && `max-sm:bg-dark-striped`
+          } h-full w-[100vw] z-[-9] absolute left-1/2 -translate-x-1/2`}
         ></div>
       )}
 
