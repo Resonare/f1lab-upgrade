@@ -1,11 +1,26 @@
 import { useRef, useState, forwardRef } from "react";
 
 const FILE_SIZE_RESTRICTION = 5; // In MB
-const ALLOWED_MIMES = ["image/jpeg", "image/png", "application/pdf"];
+const ALLOWED_MIMES = [
+  "image/jpeg",
+  "image/png",
+  "image/gif",
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.ms-excel",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "application/vnd.ms-powerpoint",
+  "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+  "audio/mpeg",
+  "audio/wav",
+  "audio/webm",
+  "video/x-msvideo",
+];
 
 const ERROR_MESSAGES = {
   tooBigFile: `Максимальный размер файла - ${FILE_SIZE_RESTRICTION}MB`,
-  wrongMIME: `Неверный тип файла. Допустимы только JPG, PNG или PDF.`,
+  wrongMIME: `Неверный тип файла.`,
 };
 
 const FileAttachment = forwardRef(function MyInput(props, ref) {
