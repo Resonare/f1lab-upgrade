@@ -82,7 +82,7 @@ const Contacts = () => {
           errors={errors}
           setErrors={setErrors}
           setSuccess={setSuccess}
-          attachable={false}
+          attachable={true}
           showContacts={false}
         >
           <FormInput

@@ -1,6 +1,6 @@
 const Cancel = ({ className, onClick }) => {
   return (
-    <div className={`${className}`} onClick={onClick}>
+    <div className={`${className} cursor-pointer`} onClick={onClick}>
       <span>
         <svg
           width="100%"

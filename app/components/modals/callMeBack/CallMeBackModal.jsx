@@ -38,7 +38,7 @@ const CallMeBackModal = () => {
   const [values, setValues] = useState(INITIAL_VALUES);
 
   //States: false - submit failed, true - submit succeed, null - not submitted
-  const [success, setSuccess] = useState(true);
+  const [success, setSuccess] = useState(null);
 
   const { callMeBackModalIsActive, closeCallMeBackModal } = useModalStore();
 
@@ -68,7 +68,7 @@ const CallMeBackModal = () => {
               errors={errors}
               setErrors={setErrors}
               setSuccess={setSuccess}
-              attachable={false}
+              attachable={true}
               showContacts={false}
             >
               <FormInput
@@ -153,7 +153,7 @@ const CallMeBackModal = () => {
             </div>
 
             <Cancel
-              className="w-40 h-40 absolute sm:top-30 top-15 sm:right-30 right-15 cursor-pointer select-none"
+              className="w-40 h-40 absolute sm:top-30 top-15 sm:right-30 right-15"
               onClick={closeCallMeBackModal}
             />
           </div>

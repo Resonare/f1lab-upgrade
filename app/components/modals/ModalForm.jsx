@@ -1,9 +1,11 @@
 import { useFetcher } from "@remix-run/react";
+import { useRef, useState } from "react";
 
 import PrimaryButton from "../buttons/PrimaryButton";
 import Checkbox from "../misc/Checkbox";
-import Paperclip from "../misc/svg/Paperclip";
 import Contacts from "./Contacts";
+import FileAttachmentInput from "../misc/FileAttachmentInput";
+import FileAttachmentArea from "../misc/FileAttachmentArea";
 
 const INITIAL_ERRORS = {
   name: "",
@@ -69,6 +71,11 @@ const ModalForm = ({
   showContacts = false,
   children,
 }) => {
+  const fileAttachmentInputRef = useRef();
+  const formRef = useRef();
+
+  const [isDragOver, setIsDragOver] = useState(false);
+
   const fetcher = useFetcher();
 
   const handleSubmit = (event) => {
@@ -79,64 +86,103 @@ const ModalForm = ({
     const formData = new FormData(event.target);
 
     fetcher.submit(formData, { method: "POST", action: "/services" });
-
     fetcher.data?.success ? setSuccess(true) : setSuccess(false);
   };
 
-  return (
-    <fetcher.Form
-      className={`${className} grow lg:p-30 lg:gap-5 sm:gap-15 gap-30 p-20 flex flex-col justify-between`}
-      onSubmit={handleSubmit}
-      method={method}
-      action={action}
-      noValidate
-    >
-      <div className="flex flex-col gap-5">
-        <p className="lg:text-[28px] sm:text-[22px] text-xl lg:font-expanded lg:font-extrabold font-extended font-bold lg:leading-loose leading-relaxed">
-          {title}
-        </p>
-        <p className="sm:text-xl text-sm text-gray-300 font-text sm:font-light font-normal sm:leading-relaxed leading-tight">
-          Заполните форму и мы свяжемся с вами в течение 15 минут
-        </p>
-      </div>
-      <div className="flex flex-col gap-30">
-        <div className="flex flex-col gap-0">{children}</div>
+  const handleDragEnter = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
 
-        <div className="flex justify-between items-start">
-          <div className={`${errors.policy && `text-alert`} flex gap-15`}>
-            <Checkbox
-              name="policy"
-              setValues={setValues}
-              value={values.policy}
-              error={errors.policy}
+    if (!isDragOver) setIsDragOver(true);
+  };
+
+  const handleDragLeave = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const rect = formRef.current.getBoundingClientRect();
+    const { clientX, clientY } = event;
+    if (
+      clientX < rect.left ||
+      clientX > rect.right ||
+      clientY < rect.top ||
+      clientY > rect.bottom
+    ) {
+      setIsDragOver(false);
+    }
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  return (
+    <>
+      <div
+        className={`${
+          !isDragOver && `hidden`
+        } fixed top-0 left-0 w-full h-full bg-[rgba(0,0,0,0.5)] z-[10]`}
+        onDragOver={handleDragLeave}
+      ></div>
+      <fetcher.Form
+        className={`${className} grow lg:p-30 lg:gap-10 sm:gap-15 gap-30 p-20 flex flex-col justify-between`}
+        ref={formRef}
+        onSubmit={handleSubmit}
+        onDragEnter={handleDragEnter}
+        onDragLeave={handleDragLeave}
+        onDragOver={handleDragOver}
+        method={method}
+        action={action}
+        noValidate
+      >
+        <div className="flex flex-col gap-5">
+          <p className="lg:text-[28px] sm:text-[22px] text-xl lg:font-expanded lg:font-extrabold font-extended font-bold lg:leading-loose leading-relaxed">
+            {title}
+          </p>
+          <p className="sm:text-xl text-sm text-gray-300 font-text sm:font-light font-normal sm:leading-relaxed leading-tight">
+            Заполните форму и мы свяжемся с вами в течение 15 минут
+          </p>
+        </div>
+        <div className="flex flex-col gap-30">
+          <div className="relative flex flex-col gap-0">
+            {children}
+            <FileAttachmentArea
+              isDragOver={isDragOver}
+              setIsDragOver={setIsDragOver}
+              fileAttachmentInputRef={fileAttachmentInputRef}
             />
-            <div className="select-none font-text text-base leading-tight">
-              <p>Я согласен на обработку персональных данных</p>
-              <p className="underline cursor-pointer">
-                Политика конфиденциальности
-              </p>
-            </div>
           </div>
 
-          {attachable && (
-            <div className="flex gap-10 items-center">
-              <Paperclip />
-              <p className="font-text text-[14px] text-gray-300 font-bold leading-tight uppercase">
-                Прикрепить файл
-              </p>
+          <div className="flex justify-between items-start">
+            <div className={`${errors.policy && `text-alert`} flex gap-15`}>
+              <Checkbox
+                name="policy"
+                setValues={setValues}
+                value={values.policy}
+                error={errors.policy}
+              />
+              <div className="select-none font-text text-base leading-tight">
+                <p>Я согласен на обработку персональных данных</p>
+                <p className="underline cursor-pointer">
+                  Политика конфиденциальности
+                </p>
+              </div>
             </div>
-          )}
-        </div>
-      </div>
 
-      <div className="flex flex-col lg:gap-30 gap-15">
-        {showContacts && <Contacts />}
-
-        <div className="h-[68px] flex items-center">
-          <PrimaryButton>Заказать звонок</PrimaryButton>
+            {attachable && <FileAttachmentInput ref={fileAttachmentInputRef} />}
+          </div>
         </div>
-      </div>
-    </fetcher.Form>
+
+        <div className="flex flex-col lg:gap-30 gap-15">
+          {showContacts && <Contacts />}
+
+          <div className="h-[68px] flex items-center">
+            <PrimaryButton>Заказать звонок</PrimaryButton>
+          </div>
+        </div>
+      </fetcher.Form>
+    </>
   );
 };
 
