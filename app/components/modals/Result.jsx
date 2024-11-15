@@ -79,7 +79,7 @@ const Result = ({
 
   return (
     <div
-      className={`${className} max-lg:h-[550px] xl:w-auto lg:w-[50%] w-full sm:grow md:p-30 sm:p-15 pt-15 max-sm:pb-30 flex flex-col max-sm:gap-30 sm:justify-between`}
+      className={`${className} max-lg:h-[550px] xl:w-auto lg:w-[50%] w-full sm:grow md:p-30 sm:p-15 pt-15 max-sm:pb-30 flex flex-col gap-60 max-sm:gap-30 sm:justify-between`}
     >
       <div className={`${!success && `hidden`} max-sm:px-15`}>
         {successCircleBig}
@@ -158,7 +158,7 @@ const Result = ({
         </p>
       </div>
 
-      {showContacts && (
+      {showContacts && onClose && (
         <div
           className={`max-sm:${bgColor} flex flex-col gap-15 max-sm:p-15 max-sm:h-full max-sm:justify-between`}
         >

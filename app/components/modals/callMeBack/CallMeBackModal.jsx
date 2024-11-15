@@ -38,7 +38,7 @@ const CallMeBackModal = () => {
   const [values, setValues] = useState(INITIAL_VALUES);
 
   //States: false - submit failed, true - submit succeed, null - not submitted
-  const [success, setSuccess] = useState(null);
+  const [success, setSuccess] = useState(true);
 
   const { callMeBackModalIsActive, closeCallMeBackModal } = useModalStore();
 

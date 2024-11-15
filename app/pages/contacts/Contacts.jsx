@@ -49,17 +49,20 @@ const Contacts = () => {
           <Animation data={whyAnimationJson} />
         </div>
         <div className="py-60 flex flex-col gap-30 font-text text-xl text-gray-400">
-          <Condition icon="location-light.svg">
+          <Condition icon="location-lg.svg">
             Владивосток, ул. Батарейная, 3А
           </Condition>
-          <Condition icon="mail-light.svg">info@f1lab.ru</Condition>
-          <Condition icon="phone-light.svg">8-800-888-88-88</Condition>
+          <Condition icon="mail-lg.svg">info@f1lab.ru</Condition>
+          <Condition icon="phone-lg.svg">8-800-888-88-88</Condition>
 
           <div className="flex gap-20">
-            <LazyImage src="images/icons/instagram-dark.svg" />
-            <LazyImage src="images/icons/telegram-dark.svg" />
-            <LazyImage src="images/icons/linkedin-dark.svg" />
-            <LazyImage src="images/icons/play-store-dark.svg" />
+            <LazyImage className="invert" src="images/icons/instagram-lg.svg" />
+            <LazyImage className="invert" src="images/icons/telegram-lg.svg" />
+            <LazyImage className="invert" src="images/icons/linkedin-lg.svg" />
+            <LazyImage
+              className="invert"
+              src="images/icons/play-store-lg.svg"
+            />
           </div>
         </div>
       </div>
@@ -130,15 +133,14 @@ const Contacts = () => {
             value="consultation-request"
           />
         </ModalForm>
-        {/* 
+
         <Result
           className={`${
             success === null && `hidden`
-          } max-sm:justify-between max-sm:h-[calc(100svh-30px*2)] max-sm:pb-0`}
+          } max-sm:justify-between max-sm:h-[calc(100svh-30px*2)] max-sm:pb-0 bg-striped`}
           success={success}
           phone={values.phone}
-          onClose={closeCallMeBackModal}
-        /> */}
+        />
       </div>
     </Section>
   );

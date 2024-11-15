@@ -55,22 +55,22 @@ const Footer = () => {
         <div className="flex gap-20">
           <LazyImage
             className="cursor-pointer"
-            src="/images/icons/instagram.svg"
+            src="/images/icons/instagram-lg.svg"
             alt=""
           />
           <LazyImage
             className="cursor-pointer"
-            src="/images/icons/linkedin.svg"
+            src="/images/icons/linkedin-lg.svg"
             alt=""
           />
           <LazyImage
             className="cursor-pointer"
-            src="/images/icons/play-store.svg"
+            src="/images/icons/play-store-lg.svg"
             alt=""
           />
           <LazyImage
             className="cursor-pointer"
-            src="/images/icons/telegram.svg"
+            src="/images/icons/telegram-lg.svg"
             alt=""
           />
         </div>
