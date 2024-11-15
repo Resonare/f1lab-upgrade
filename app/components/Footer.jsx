@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 col-end-5 flex flex-col gap-60 p-30">
+      <div className="lg:col-start-4 sm:col-start-3 col-start-1 col-end-5 flex flex-col gap-60 p-30">
         <PrimaryButton type="light" onClick={showCallMeBackModal}>
           Консультация
         </PrimaryButton>
