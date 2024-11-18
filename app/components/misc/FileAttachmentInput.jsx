@@ -1,4 +1,6 @@
 import { useRef, useState, forwardRef } from "react";
+import SecondaryButton from "../buttons/SecondaryButton";
+import Paperclip from "../misc/svg/Paperclip";
 
 const FILE_SIZE_RESTRICTION = 5; // In MB
 const ALLOWED_MIMES = [
@@ -23,7 +25,7 @@ const ERROR_MESSAGES = {
   wrongMIME: `Неверный тип файла.`,
 };
 
-const FileAttachment = forwardRef(function MyInput(props, ref) {
+const FileAttachment = forwardRef(function MyInput({ className = "" }, ref) {
   const fileInputRef = useRef(null);
   const [fileName, setFileName] = useState("");
   const [error, setError] = useState("");
@@ -57,33 +59,26 @@ const FileAttachment = forwardRef(function MyInput(props, ref) {
   };
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className={className}>
       <div
-        className="flex gap-10 items-center group cursor-pointer"
+        className="max-sm:hidden flex gap-10 items-center group cursor-pointer"
         onClick={handleAttachClick}
       >
         <div className="w-[24px] h-[24px]">
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              className="stroke-gray-300"
-              d="M18.0101 8.13274L10.9102 15.2326C10.066 16.0769 8.69717 16.0769 7.85292 15.2326C7.0069 14.3866 7.00893 13.0143 7.85745 12.1708L13.3632 6.69754L14.7459 5.31487C16.4282 3.63253 19.1558 3.63253 20.8381 5.31487C22.5205 6.99721 22.5205 9.72482 20.8381 11.4072L19.4763 12.769L14.3148 17.9305C11.6448 20.7117 7.59921 21.1349 4.77061 18.4194C1.97664 15.7372 2.45021 11.716 5.2752 8.89098L10.4164 3.74902"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
+          <Paperclip />
         </div>
 
         <p className="group-hover:underline font-text text-[14px] text-gray-300 font-bold leading-tight uppercase">
           Прикрепить файл
         </p>
       </div>
+
+      <SecondaryButton
+        className="sm:hidden border-x"
+        customIcon="images/icons/telegram.svg"
+      >
+        Прикрепить файл
+      </SecondaryButton>
 
       <input
         className="hidden"

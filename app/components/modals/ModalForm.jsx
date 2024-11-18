@@ -155,7 +155,11 @@ const ModalForm = ({
           </div>
 
           <div className="flex justify-between items-start">
-            <div className={`${errors.policy && `text-alert`} flex gap-15`}>
+            <div
+              className={`${
+                errors.policy && `text-alert`
+              } max-sm:text-sm flex gap-15`}
+            >
               <Checkbox
                 name="policy"
                 setValues={setValues}
@@ -170,9 +174,21 @@ const ModalForm = ({
               </div>
             </div>
 
-            {attachable && <FileAttachmentInput ref={fileAttachmentInputRef} />}
+            {attachable && (
+              <FileAttachmentInput
+                ref={fileAttachmentInputRef}
+                className="max-sm:hidden"
+              />
+            )}
           </div>
         </div>
+
+        {attachable && (
+          <FileAttachmentInput
+            ref={fileAttachmentInputRef}
+            className="sm:hidden"
+          />
+        )}
 
         <div className="flex flex-col lg:gap-30 gap-15">
           {showContacts && <Contacts />}
