@@ -45,7 +45,7 @@ export const add = async (serviceCaseData) => {
         title: serviceCaseData.title || "",
         description: serviceCaseData.description || "",
         body: serviceCaseData.body || "",
-        imageUrl: "/images/logo/" + serviceCaseData.image,
+        imageUrl: "/images/logo/" + serviceCaseData.imageUrl,
         services: {
           connect: serviceCaseData.serviceIds.map((serviceId) => ({
             id: +serviceId,
@@ -63,10 +63,19 @@ export const update = async (serviceCaseData) => {
     await prisma.serviceCase.update({
       where: { id: +serviceCaseData.id },
       data: {
+        services: {
+          set: [], // This removes all existing connections
+        },
+      },
+    });
+
+    await prisma.serviceCase.update({
+      where: { id: +serviceCaseData.id },
+      data: {
         title: serviceCaseData.title || "",
         description: serviceCaseData.description || "",
         body: serviceCaseData.body || "",
-        imageUrl: "/images/logo/" + serviceCaseData.image || "",
+        imageUrl: "/images/logo/" + serviceCaseData.imageUrl || "",
         services: {
           connect: serviceCaseData.serviceIds.map((serviceId) => ({
             id: +serviceId,

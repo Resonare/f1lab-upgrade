@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 import SecondaryButton from "../../buttons/SecondaryButton";
-import AddServiceCase from "./Add";
-import UpdateServiceCase from "./Update";
+
 import DeleteServiceCase from "./Delete";
+import AdminModal from "../Modal";
+import ServiceCaseForm from "./Form";
 
 export default function ListCases({ items = [], branches = [] }) {
   const [addServiceCase, setAddServiceCase] = useState(false);
@@ -87,20 +88,37 @@ export default function ListCases({ items = [], branches = [] }) {
         </SecondaryButton>
       </div>
       {addServiceCase && (
-        <AddServiceCase
-          branches={branches}
-          closeHandler={() => {
+        <AdminModal
+          title="Новый кейс"
+          closeModal={() => {
             setAddServiceCase(false);
           }}
-        />
+        >
+          <ServiceCaseForm
+            branches={branches}
+            intent="add"
+            closeHandler={() => {
+              setAddServiceCase(false);
+            }}
+          />
+        </AdminModal>
       )}
       {showServiceCase.active && (
-        <UpdateServiceCase
-          serviceCase={showServiceCase.serviceCase}
-          closeHandler={() => {
+        <AdminModal
+          title="Изменить кейс"
+          closeModal={() => {
             setShowServiceCase({ serviceCase: {}, active: false });
           }}
-        />
+        >
+          <ServiceCaseForm
+            serviceCase={showServiceCase.serviceCase}
+            branches={branches}
+            intent="update"
+            closeHandler={() => {
+              setShowServiceCase({ serviceCase: {}, active: false });
+            }}
+          />
+        </AdminModal>
       )}
       {deleteServiceCase.active && (
         <DeleteServiceCase

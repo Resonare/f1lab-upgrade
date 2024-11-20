@@ -45,17 +45,19 @@ export async function action({ request }) {
     title: formData.get("title"),
     description: formData.get("description"),
     body: formData.get("body"),
-    image: formData.get("image"),
+    imageUrl: formData.get("imageUrl"),
     serviceIds: formData.getAll("serviceIds"),
   };
   const intent = formData.get("intent");
 
   if (intent === "add") {
     await add(serviceCaseData);
+    return { message: "case added successfully" };
   }
 
   if (intent === "update") {
     await update(serviceCaseData);
+    return { message: "case updated successfully" };
   }
 
   if (intent === "delete") {
