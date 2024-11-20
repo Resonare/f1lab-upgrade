@@ -19,6 +19,18 @@ export const getAll = async () => {
   }
 };
 
+export const getOne = async (serviceCaseId) => {
+  try {
+    const serviceCase = await prisma.serviceCase.findUnique({
+      where: { id: +serviceCaseId },
+    });
+
+    return serviceCase;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getByService = async (service) => {
   try {
     const serviceCases = await prisma.serviceCase.findMany({

@@ -5,11 +5,13 @@ import Tag from "../misc/Tag";
 
 import { ThemeContext } from "../../store/theme-context";
 import { LazyImage } from "../LazyImage";
+import { NavLink } from "@remix-run/react";
 
 const CaseCard = ({
   row = "",
   col = "",
   tags = [],
+  caseDataId,
   logoPath,
   className = "",
   outerClassName = "",
@@ -19,6 +21,8 @@ const CaseCard = ({
 }) => {
   const { bgColor } = useContext(ThemeContext);
 
+  console.log(caseDataId);
+
   return (
     <div className={`${row} ${col} ${outerClassName} group bg-gray-400`}>
       <div
@@ -26,7 +30,8 @@ const CaseCard = ({
           inverseColor && `border-gray-300`
         } cursor-pointer h-full border-dashed sm:rounded-xl`}
       >
-        <div
+        <NavLink
+          to={String(caseDataId)}
           className={`hover:sm:bg-striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] sm:group h-full xl:p-30 p-15 gap-60 flex flex-col max-sm:justify-between transition-all duration-300`}
         >
           {logoPath && (
@@ -79,7 +84,7 @@ const CaseCard = ({
               </div>
             )}
           </div>
-        </div>
+        </NavLink>
       </div>
     </div>
   );
