@@ -4,13 +4,20 @@ import VerticalCarousel from "../../components/misc/VerticalCarousel";
 import ContentCard from "../../components/cards/ContentCard";
 import Section from "../../layout/Section";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
-import BackgroundGrid from "../../components/BackgroundGrid";
 import Animation from "../../components/misc/animations/Animation";
 
 import homeAnimationJson from "../../components/misc/animations/home-animation.json";
 
 const Hero = () => {
   const { showCallMeBackModal } = useModalStore();
+
+  const animationClasses = {
+    width:
+      "xl:[&>div>svg]:w-[1950px] lg:[&>div>svg]:w-[1550px] md:[&>div>svg]:w-[1600px] sm:[&>div>svg]:w-[1160px] min-[560px]:[&>div>svg]:w-[900px] [&>div>svg]:w-[520px]",
+    translate:
+      "xl:[&>div>svg>g]:translate-y-[5%] lg:[&>div>svg>g]:translate-y-[16%] md:[&>div>svg>g]:translate-y-[30%] sm:[&>div>svg>g]:translate-y-[60%] [&>div>svg>g]:translate-y-[0]",
+    other: "[&>div>svg]:right-0 ",
+  };
 
   return (
     <div className="">
@@ -21,8 +28,14 @@ const Hero = () => {
         customBackground="bg-f1-light"
         customLinesColor="border-gray-250"
       >
-        <div className="row-start-5 col-start-1 col-end-5 h-[calc(100%+90px)] xl:right-120 lg:right-60 sm:right-[44.1px] right-15 w-full lg:absolute lg:top-[-90px]">
-          <Animation data={homeAnimationJson} hero={true} />
+        <div className="lg:hidden col-start-1 col-end-5 row-start-2 md:h-[280px] sm:h-[300px]"></div>
+
+        <div className="row-start-6 col-start-1 col-end-5 h-[calc(100%)] xl:right-120 lg:right-60 sm:right-[44.1px] right-15 w-full absolute bottom-0">
+          <Animation
+            className={`${animationClasses.width} ${animationClasses.translate} ${animationClasses.other}`}
+            data={homeAnimationJson}
+            hero={true}
+          />
         </div>
 
         <div className="z-[0] col-start-1 col-end-5 grid grid-cols-4">
@@ -40,24 +53,24 @@ const Hero = () => {
                 ]}
               />
             </div>
-            <p className="mt-[-10px]">
+            <p className="mt-[-10px] lg:leading-[60px] sm:leading-[48px] leading-[32px]">
               для малого и среднего бизнеса, вдохновлённый практиками
               топ-компаний
             </p>
           </div>
 
-          <div className="h-90 col-start-1 col-end-5 row-start-2"></div>
+          <div className="lg:h-90 md:h-60 sm:h-30 min-[560px]:h-[280px] h-[160px] col-start-1 col-end-5 row-start-2"></div>
 
           <ContentCard
             className="border-t border-gray-250"
             row="row-start-3"
-            col="col-start-1 lg:col-end-2 sm:col-end-3 col-end-5"
+            col="col-start-1 lg:col-end-2 md:col-end-3 sm:col-end-4 col-end-5"
           >
             Мы позаботимся о технической стороне, чтобы вы сосредоточились на
             бизнесе
           </ContentCard>
 
-          <div className="md:row-start-4 col-start-1 lg:col-end-2 sm:col-end-3 col-end-5 flex max-sm:flex-col max-sm:gap-15 justify-between">
+          <div className="md:row-start-4 col-start-1 lg:col-end-2 md:col-end-3 sm:col-end-4 col-end-5 flex max-sm:flex-col max-sm:gap-15 justify-between">
             <PrimaryButton
               row="h-full"
               type="dark-to-light"

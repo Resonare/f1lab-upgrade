@@ -12,7 +12,7 @@ const Section = ({
   return (
     <div
       id={id}
-      className={`${hero && `sm:pt-60 pt-15`}
+      className={`
       ${inverseColor && `z-[1]`} ${className} max-sm:pb-15 relative`}
     >
       {inverseColor ? (

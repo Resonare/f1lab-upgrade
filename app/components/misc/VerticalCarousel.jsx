@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-const LG_TRANSLATE_MODIFIER = 91.12;
-const SM_TRANSLATE_MODIFIER = 79.12;
-const MOBILE_TRANSLATE_MODIFIER = 63.12;
+const LG_TRANSLATE_MODIFIER = 86;
+const SM_TRANSLATE_MODIFIER = 74;
+const MOBILE_TRANSLATE_MODIFIER = 53;
 
-const VerticalCarousel = ({ className, words, duration = 2500 }) => {
+const VerticalCarousel = ({ className, words, duration = 1500 }) => {
   const [translate, setTranslate] = useState(0);
 
   const handleTimeout = () => {
@@ -34,7 +34,7 @@ const VerticalCarousel = ({ className, words, duration = 2500 }) => {
 
   return (
     <div
-      className={`${className} lg:text-[56px] sm:text-[44px] text-[28px] lg:h-[86px] sm:h-[74px] h-[58px] sm:py-15 pt-10 overflow-hidden`}
+      className={`${className} lg:text-[56px] sm:text-[44px] text-[28px] lg:h-[86px] sm:h-[74px] h-[58px] py-15 overflow-hidden`}
     >
       <div
         className={`${translate != 0 && `transition-all`} flex gap-20 flex-col`}
@@ -44,13 +44,13 @@ const VerticalCarousel = ({ className, words, duration = 2500 }) => {
       >
         {words.map((word, index) => (
           <span
-            className="bg-gray-400 sm:pb-15 pb-10 max-sm:pt-5 sm:px-30 px-10 sm:rounded-[15px] rounded-[50px] w-fit"
+            className="bg-gray-400 sm:pb-[10px] pb-5 sm:px-30 px-10 sm:rounded-[15px] rounded-[50px] w-fit"
             key={index}
           >
             {word}
           </span>
         ))}
-        <span className="bg-gray-400 sm:pb-15 pb-10 max-sm:pt-5 sm:px-30 px-10 sm:rounded-[15px] rounded-[50px] w-fit">
+        <span className="bg-gray-400 sm:pb-[10px] pb-5 sm:px-30 px-10 sm:rounded-[15px] rounded-[50px] w-fit">
           {words[0]}
         </span>
       </div>
