@@ -7,7 +7,6 @@ import SectionTitle from "../../components/SectionTitle";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ContentCard from "../../components/cards/ContentCard";
 import SchemaCanvas from "../../components/heroSchema/SchemaCanvas";
-import ShoppingCart from "../../components/shoppingCart/ShoppingCart";
 
 import { ThemeContext } from "../../store/theme-context";
 
@@ -23,8 +22,6 @@ const Hero = () => {
     ],
   };
 
-  const dummyAddToCartHandler = () => {};
-
   return (
     <Section hero={true}>
       <SectionTitle
@@ -37,33 +34,36 @@ const Hero = () => {
       <ContentCard
         className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
         row="row-start-2"
-        col="col-start-1 max-md:col-start-2 max-sm:col-start-1 max-md:col-end-5"
-        bg={themeContext.bgColor}
-      >
-        {content.cards[0]}
-      </ContentCard>
-      <div className="row-start-2 row-end-2 col-start-2 col-end-2 flex items-end justify-end">
-        <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
-          <div className=""></div> <div className=""></div>
-          <div className="lg:border-t lg:border-r lg:border-dashed lg:rounded-tr-2xl"></div>
-          <div className=""></div>
-        </div>
-      </div>
-      <ContentCard
-        className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
-        row="row-start-3"
-        col="col-start-2 max-md:col-start-2 max-sm:col-start-1 max-md:col-end-5"
+        col="col-start-1 max-md:col-end-3 max-sm:col-end-5"
         bg={themeContext.bgColor}
       >
         {content.cards[0]}
       </ContentCard>
 
-      <div className="row-start-3 row-end-4 col-start-1 col-end-2 flex items-end justify-end">
+      <div className="row-start-2 row-end-3 col-start-2 col-end-3 flex items-end overflow-auto">
         <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
           <div className=""></div>
           <div className=""></div>
+          <div className="lg:border-t lg:border-r lg:border-dashed lg:rounded-tr-2xl"></div>
           <div className=""></div>
-          <div className="lg:border-t lg:border-l lg:border-dashed lg:rounded-tl-2xl"></div>
+        </div>
+      </div>
+
+      <ContentCard
+        className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
+        row="row-start-3"
+        col="col-start-2 max-md:col-start-3 max-sm:col-start-1 max-md:col-end-5"
+        bg={themeContext.bgColor}
+      >
+        {content.cards[1]}
+      </ContentCard>
+
+      <div className="row-start-3 row-end-4 col-start-1 col-end-2 flex items-end justify-end">
+        <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
+          <div className=""></div>
+          <div className="lg:border-b lg:border-l lg:border-dashed lg:rounded-bl-2xl"></div>
+          <div className=""></div>
+          <div className=""></div>
         </div>
       </div>
 
@@ -76,17 +76,6 @@ const Hero = () => {
         >
           Консультация
         </PrimaryButton>
-
-        <div className="flex justify-between items-start">
-          <div className="sm:hidden flex flex-col justify-between items-start">
-            <div className="text-sm font-text font-normal">
-              Средняя стоимость аудита
-            </div>
-            <div className="font-extended font-bold text-[26px] leading-[30px]">
-              100 000 ₽
-            </div>
-          </div>
-        </div>
 
         <PrimaryButton
           className="h-full max-lg:grow sm:hidden"

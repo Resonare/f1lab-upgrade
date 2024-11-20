@@ -23,7 +23,6 @@ const Hero = () => {
     <div className="">
       <Section
         className="relative 2xl:border-gray-250 text-5xl sm:font-expanded font-extended sm:font-extrabold font-bold lg:mt-90 mt-[70px]"
-        hero={true}
         inverseColor={true}
         customBackground="bg-f1-light"
         customLinesColor="border-gray-250"
