@@ -34,7 +34,7 @@ export default function AdminPanel() {
   ];
 
   return (
-    <div className="xl:px-120 lg:px-60 px-[44.1px]">
+    <div className="xl:px-120 lg:px-60 px-[44.1px] pb-180">
       <div className="flex justify-between">
         <div className="font-title text-5xl pt-180 xl:px-30 lg:px-15 px-10 ">
           Админка

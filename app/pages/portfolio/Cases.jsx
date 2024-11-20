@@ -120,6 +120,7 @@ const Cases = () => {
             {part.map((caseData) => (
               <CaseCard
                 key={caseData.id}
+                caseDataId={caseData.id}
                 tags={caseData.services}
                 logoPath={caseData.imageUrl}
               >
