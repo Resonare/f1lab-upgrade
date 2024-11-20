@@ -110,13 +110,13 @@ export const navData = [
             textColor: "text-cloud",
             items: [],
           }, */
-          /* {
+          {
             link: "cloud-1c",
             title: "Защищённая 1С-инфраструктура в облаке",
             bgColor: "bg-cloud",
             textColor: "text-cloud",
             items: [],
-          }, */
+          },
           {
             link: "cloud-backup",
             title: "Резервное копирование критически важных данных",
