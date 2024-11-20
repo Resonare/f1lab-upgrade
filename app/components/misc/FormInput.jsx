@@ -25,11 +25,15 @@ const FormInput = ({
     }));
   };
 
-  const handleClick = () => {
+  const handleClick = (event) => {
+    event.preventDefault();
+
     inputRef.current.focus();
   };
 
-  const handleDoubleClick = () => {
+  const handleDoubleClick = (event) => {
+    event.preventDefault();
+
     inputRef.current.focus();
     inputRef.current.select();
   };
@@ -54,7 +58,8 @@ const FormInput = ({
         <div className="absolute sm:left-30 left-15 top-0 pointer-events-none h-full">
           <div
             className={`${
-              (focused || value) && `mt-[-10px] sm:text-sm text-[10px] leading-tight`
+              (focused || value) &&
+              `mt-[-10px] sm:text-sm text-[10px] leading-tight`
             } ${
               type == `textarea`
                 ? focused || value
@@ -63,7 +68,7 @@ const FormInput = ({
                 : `content-center`
             } flex-wrap h-full flex align-center gap-5 pointer-events-none transition-all`}
           >
-            <p className="text-nowrap">
+            <p className="text-wrap text-left leading-[20px]">
               {placeholder}
               <span className={`${!required && `hidden`} text-alert`}>*</span>
               <span className={`${!error && `hidden`} ml-[8px] text-alert`}>
@@ -76,7 +81,7 @@ const FormInput = ({
           <textarea
             className={`${
               error ? `text-alert` : `text-gray-400`
-            } pointer-events-none focus:outline-none bg-[transparent]`}
+            } resize-none focus:outline-none bg-[transparent]`}
             cols="5"
             rows="10"
             wrap="soft"

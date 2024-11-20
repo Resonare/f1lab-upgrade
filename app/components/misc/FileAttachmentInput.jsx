@@ -1,6 +1,6 @@
 import { useRef, useState, forwardRef } from "react";
 import SecondaryButton from "../buttons/SecondaryButton";
-import Paperclip from "../misc/svg/Paperclip";
+import { LazyImage } from "../LazyImage";
 
 const FILE_SIZE_RESTRICTION = 5; // In MB
 const ALLOWED_MIMES = [
@@ -65,7 +65,7 @@ const FileAttachment = forwardRef(function MyInput({ className = "" }, ref) {
         onClick={handleAttachClick}
       >
         <div className="w-[24px] h-[24px]">
-          <Paperclip />
+          <LazyImage src="/images/icons/paperclip.svg" />
         </div>
 
         <p className="group-hover:underline font-text text-[14px] text-gray-300 font-bold leading-tight uppercase">
@@ -75,7 +75,8 @@ const FileAttachment = forwardRef(function MyInput({ className = "" }, ref) {
 
       <SecondaryButton
         className="sm:hidden border-x"
-        customIcon="images/icons/telegram.svg"
+        customIcon="/images/icons/paperclip-dark.svg"
+        onClick={handleAttachClick}
       >
         Прикрепить файл
       </SecondaryButton>
@@ -92,7 +93,7 @@ const FileAttachment = forwardRef(function MyInput({ className = "" }, ref) {
       <p
         className={`${
           error ? `text-alert` : `text-gray-300`
-        } font-text font-semibold text-[14px] min-h-[14px]`}
+        } font-text sm:font-semibold font-light text-[14px] min-h-[14px]`}
       >
         {fileName ? `Выбран файл: ${fileName}` : error}
         <span className="opacity-0">@</span>

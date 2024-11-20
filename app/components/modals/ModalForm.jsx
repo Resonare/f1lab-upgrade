@@ -154,6 +154,13 @@ const ModalForm = ({
             />
           </div>
 
+          {attachable && (
+            <FileAttachmentInput
+              ref={fileAttachmentInputRef}
+              className="sm:hidden"
+            />
+          )}
+
           <div className="flex justify-between items-start">
             <div
               className={`${
@@ -182,13 +189,6 @@ const ModalForm = ({
             )}
           </div>
         </div>
-
-        {attachable && (
-          <FileAttachmentInput
-            ref={fileAttachmentInputRef}
-            className="sm:hidden"
-          />
-        )}
 
         <div className="flex flex-col lg:gap-30 gap-15">
           {showContacts && <Contacts />}

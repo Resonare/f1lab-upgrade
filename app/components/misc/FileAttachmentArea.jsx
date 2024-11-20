@@ -48,14 +48,14 @@ const FileAttachmentArea = ({
       >
         <div className="flex flex-col gap-30 items-center justify-center z-[1]">
           <div className="flex flex-col gap-10 items-center">
-            <LazyImage src="images/icons/attach-file.svg" />
+            <LazyImage src="/images/icons/attach-file.svg" />
             <div className="flex flex-col items-center">
               <p>Перетащите сюда файл</p>
               <p>*PDF; *JPEG; *PNG; *PPTX; *EXEL и т.д.</p>
             </div>
             <p>или</p>
             <SecondaryButton
-              customIcon="images/icons/desktop-upload.svg"
+              customIcon="/images/icons/desktop-upload.svg"
               className="text-gray-400 border-x"
               onClick={handleClick}
             >
