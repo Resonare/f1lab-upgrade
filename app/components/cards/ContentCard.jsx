@@ -5,6 +5,7 @@ const ContentCard = ({
   col,
   bg,
   iconPath,
+  mobileIconPath,
   inverseColor = false,
   notInGrid = false,
   hideIconOnMobile = true,
@@ -21,7 +22,14 @@ const ContentCard = ({
     >
       {iconPath ? (
         <div className={`${hideIconOnMobile && `max-sm:hidden`}`}>
-          <LazyImage src={`/images/${iconPath}`} alt="" />
+          {mobileIconPath ? (
+            <>
+              <LazyImage className="sm:hidden" src={mobileIconPath} alt="" />
+              <LazyImage className="max-sm:hidden" src={iconPath} alt="" />
+            </>
+          ) : (
+            <LazyImage src={iconPath} alt="" />
+          )}
         </div>
       ) : null}
       <div

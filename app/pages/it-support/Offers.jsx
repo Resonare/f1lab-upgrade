@@ -31,7 +31,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="sm:row-start-2 row-start-3"
         col="lg:col-start-2 sm:col-start-1 col-start-2 lg:col-end-3 sm:col-end-3 col-end-5"
-        iconPath="it-support/offer-icon1.svg"
+        iconPath="/images/it-support/offer-icon1.svg"
         inverseColor={true}
       >
         Наши специалисты всегда на связи и готовы помочь в любой момент.
@@ -51,7 +51,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-2 row-start-6"
         col="lg:col-start-3 sm:col-start-3 col-start-1 lg:col-end-4 sm:col-end-5 col-end-4"
-        iconPath="it-support/offer-icon2.svg"
+        iconPath="/images/it-support/offer-icon2.svg"
         inverseColor={true}
       >
         Реагируем на любые инциденты в течение 15 минут.
@@ -71,7 +71,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-2 sm:row-start-3 row-start-9"
         col="lg:col-start-4 sm:col-start-1 col-start-2 lg:col-end-5 sm:col-end-3 col-end-5"
-        iconPath="it-support/offer-icon3.svg"
+        iconPath="/images/it-support/offer-icon3.svg"
         inverseColor={true}
       >
         Регулярно проверяем работу серверов для предотвращения проблем.
@@ -91,7 +91,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-3 row-start-12"
         col="lg:col-start-1 sm:col-start-3 col-start-1 lg:col-end-2 sm:col-end-5 col-end-4"
-        iconPath="it-support/offer-icon3.svg"
+        iconPath="/images/it-support/offer-icon3.svg"
         inverseColor={true}
       >
         Настраиваем серверы для надёжной и стабильной работы.
@@ -111,7 +111,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[15]"
         col="lg:col-start-2 sm:col-start-1 col-start-2 lg:col-end-3 sm:col-end-3 col-end-5"
-        iconPath="it-support/offer-icon3.svg"
+        iconPath="/images/it-support/offer-icon3.svg"
         inverseColor={true}
       >
         Резервируем данные для их защиты в непредвиденных ситуациях.
@@ -131,7 +131,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[19]"
         col="lg:col-start-3 sm:col-start-3 col-start-1 lg:col-end-4 sm:col-end-5 col-end-4"
-        iconPath="it-support/offer-icon4.svg"
+        iconPath="/images/it-support/offer-icon4.svg"
         inverseColor={true}
       >
         Собираем данные для повышения эффективности вашего бизнеса.

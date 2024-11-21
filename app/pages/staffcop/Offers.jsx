@@ -31,7 +31,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="sm:row-start-2 row-start-3"
         col="sm:col-start-1 col-start-2 lg:col-end-2 sm:col-end-3 col-end-5"
-        iconPath="staffcop/offer-icon1.svg"
+        iconPath="/images/staffcop/offer-icon1.svg"
         inverseColor={true}
       >
         Подберем лицензии под любые задачи и рассчитаем стоимость проекта
@@ -51,7 +51,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-2 row-start-6"
         col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
-        iconPath="staffcop/offer-icon2.svg"
+        iconPath="/images/staffcop/offer-icon2.svg"
         inverseColor={true}
       >
         Настройку и интеграцию Staffcop в вашу IT-инфраструктуру или
@@ -72,7 +72,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-2 sm:row-start-3 row-start-9"
         col="lg:col-start-3 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
-        iconPath="staffcop/offer-icon3.svg"
+        iconPath="/images/staffcop/offer-icon3.svg"
         inverseColor={true}
       >
         Аутсорсинг информационной безопасности. Администрирование рабочих мест,
@@ -93,7 +93,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-3 row-start-12"
         col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
-        iconPath="staffcop/offer-icon3.svg"
+        iconPath="/images/staffcop/offer-icon3.svg"
         inverseColor={true}
       >
         Техническую поддержку и обучение сотрудников для эффективного
@@ -114,7 +114,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[15]"
         col="lg:col-start-3 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
-        iconPath="staffcop/offer-icon3.svg"
+        iconPath="/images/staffcop/offer-icon3.svg"
         inverseColor={true}
       >
         Юридическую справку для внедрения и использования программного
@@ -135,7 +135,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[19]"
         col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
-        iconPath="staffcop/offer-icon4.svg"
+        iconPath="/images/staffcop/offer-icon4.svg"
         inverseColor={true}
       >
         Контроль за действиями сотрудников с целью предотвращения утечек данных

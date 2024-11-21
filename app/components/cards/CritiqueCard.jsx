@@ -25,10 +25,12 @@ const CritiqueCard = ({
   );
 
   return (
-    <div className={`${row} ${col} mr-[1px]`}>
-      <div className={`${className} gap-15 p-30 flex flex-col border-dashed border-gray-200`}>
+    <div className={`${row} ${col} mr-[1px] mt-[-1px]`}>
+      <div
+        className={`${className} gap-15 p-30 flex flex-col border-dashed border-gray-200`}
+      >
         <div className="flex gap-30">
-          <LazyImage className="avatar-clip" src={avatarPath} alt="" />
+          <LazyImage className="lg:w-90 w-60 lg:h-90 h-60 rounded-[15px]" src={avatarPath} alt="" />
           <div className="flex flex-col justify-center gap-5">
             <p className="text-gray-400 text-[22px] font-extended font-bold">
               {title}
@@ -41,7 +43,7 @@ const CritiqueCard = ({
         <div className="flex gap-10">
           <div>{quoteSvgEl}</div>
 
-          <p className="text-xl text-gray-400 font-text font-light">
+          <p className="sm:text-xl text-base text-gray-400 font-text font-light">
             {children}
           </p>
 

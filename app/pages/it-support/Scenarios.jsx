@@ -29,7 +29,7 @@ const Scenarios = () => {
         className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-2 row-start-3"
         col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
-        iconPath="it-support/scenario-icon1.svg"
+        iconPath="/images/it-support/scenario-icon1.svg"
       >
         Несоответствие прежних ИТ‑процессов новым масштабным задачам
       </ContentCard>
@@ -47,7 +47,7 @@ const Scenarios = () => {
         className={`${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
         row="sm:row-start-2 row-start-6"
         col="sm:col-start-3 col-start-1 xl:col-end-4 lg:col-end-4 sm:col-end-5 col-end-4"
-        iconPath="it-support/scenario-icon2.svg"
+        iconPath="/images/it-support/scenario-icon2.svg"
       >
         Оптимизировать производительность и снизить затраты на обслуживание
       </ContentCard>
@@ -65,7 +65,7 @@ const Scenarios = () => {
         className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-3 row-start-9"
         col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
-        iconPath="it-support/scenario-icon3.svg"
+        iconPath="/images/it-support/scenario-icon3.svg"
       >
         Нехватка ИТ‑компетенций при наличии сложных инфраструктур
       </ContentCard>

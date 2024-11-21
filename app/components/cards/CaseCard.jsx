@@ -21,8 +21,6 @@ const CaseCard = ({
 }) => {
   const { bgColor } = useContext(ThemeContext);
 
-  console.log(caseDataId);
-
   return (
     <div className={`${row} ${col} ${outerClassName} group bg-gray-400`}>
       <div

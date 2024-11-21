@@ -31,7 +31,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="sm:row-start-2 row-start-3"
         col="lg:col-start-1 sm:col-start-1 col-start-2 lg:col-end-2 sm:col-end-3 col-end-5"
-        iconPath="cloud-1c/offer-icon1.svg"
+        iconPath="/images/cloud-1c/offer-icon1.svg"
         inverseColor={true}
       >
         Организацию быстрой и эффективной совместной работы в 1С за счет
@@ -52,7 +52,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-2 row-start-6"
         col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
-        iconPath="cloud-1c/offer-icon2.svg"
+        iconPath="/images/cloud-1c/offer-icon2.svg"
         inverseColor={true}
       >
         role-based model организации <br />
@@ -73,7 +73,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-2 sm:row-start-3 row-start-9"
         col="lg:col-start-3 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
-        iconPath="cloud-1c/offer-icon2.svg"
+        iconPath="/images/cloud-1c/offer-icon2.svg"
         inverseColor={true}
       >
         Настройка VPN-доступа. Создаём защищённый канал связи, исключающий
@@ -94,7 +94,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="lg:row-start-2 sm:row-start-3 row-start-12"
         col="lg:col-start-4 sm:col-start-3 col-start-1 lg:col-end-5 sm:col-end-5 col-end-4"
-        iconPath="cloud-1c/offer-icon2.svg"
+        iconPath="/images/cloud-1c/offer-icon2.svg"
         inverseColor={true}
       >
         Мониторинг инфраструктуры 24/7. Постоянный контроль и оперативное
@@ -115,7 +115,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[15]"
         col="lg:col-start-2 sm:col-start-1 col-start-2 lg:col-end-3 sm:col-end-3 col-end-5"
-        iconPath="cloud-1c/offer-icon2.svg"
+        iconPath="/images/cloud-1c/offer-icon2.svg"
         inverseColor={true}
       >
         Ежедневное резервное копирование данных.Безопасное хранение критически

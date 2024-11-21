@@ -10,7 +10,6 @@ const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
     counter > max ? min : counter < min ? max : counter;
 
   const handleNext = () => {
-    console.log("testr")
     setCurPage((prevPage) => handleOverflow(prevPage + 1, 0, pagesAmount - 1));
   };
 
