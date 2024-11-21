@@ -1,8 +1,5 @@
-import Cases from "../pages/portfolio/Cases";
-import Pockets from "../pages/portfolio/Pockets";
-
 import { getOne as getCase } from "../data/cases.server";
-import { useLoaderData } from "@remix-run/react";
+import CaseInfo from "../pages/portfolio/CaseInfo";
 
 export const meta = () => {
   return [
@@ -12,10 +9,9 @@ export const meta = () => {
 };
 
 export default function Case() {
-  const serviceCase = useLoaderData();
   return (
-    <div className="2xl:border-x border-gray-200 border-dashed lg:pt-90 pt-[70px]">
-      {serviceCase?.id}
+    <div className="2xl:border-x border-gray-200 border-dashed flex flex-col lg:gap-200 sm:gap-[82px] lg:pt-90 pt-[70px]">
+      <CaseInfo />
     </div>
   );
 }

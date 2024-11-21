@@ -126,6 +126,10 @@
     clip-path: none;
   }
 
+  .avatar-clip {
+    clip-path: circle();
+  }
+
   textarea::-webkit-scrollbar {
     width: 0.2em;
   }

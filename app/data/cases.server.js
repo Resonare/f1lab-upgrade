@@ -23,6 +23,9 @@ export const getOne = async (serviceCaseId) => {
   try {
     const serviceCase = await prisma.serviceCase.findUnique({
       where: { id: +serviceCaseId },
+      include: {
+        services: true,
+      },
     });
 
     return serviceCase;

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import ArrowURSecondary from "../misc/svg/ArrowURSecondary";
-import Tag from "../misc/Tag";
+import ServiceTags from "../misc/ServiceTags";
 
 import { ThemeContext } from "../../store/theme-context";
 import { LazyImage } from "../LazyImage";
@@ -60,29 +60,7 @@ const CaseCard = ({
               {children}
             </div>
 
-            {tags.length != 0 && (
-              <div className="flex flex-col gap-5">
-                <p
-                  className={`${
-                    inverseColor && `text-gray-100`
-                  } font-text font-normal text-sm leading-tight`}
-                >
-                  Услуги в кейсе
-                </p>
-                <div className="flex flex-wrap gap-5">
-                  {tags.map((tag) => (
-                    <Tag
-                      key={tag.id}
-                      className={
-                        tag.link === currentLocation ? "bg-f1-light" : bgColor
-                      }
-                    >
-                      {tag.title}
-                    </Tag>
-                  ))}
-                </div>
-              </div>
-            )}
+            <ServiceTags inverseColor={inverseColor}>{tags}</ServiceTags>
           </div>
         </NavLink>
       </div>
