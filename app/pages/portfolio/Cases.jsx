@@ -70,7 +70,7 @@ const Cases = () => {
         className="max-sm:font-extended md:pb-15 xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px]"
         col="col-start-1 col-end-5"
       >
-        Портфолио
+        Кейсы: как мы решаем задачи наших клиентов
       </SectionTitle>
 
       <p className="max-sm:mt-30 mb-15 row-start-2 col-start-1 col-end-5 max-sm:uppercase sm:text-[26px] text-sm sm:font-extended font-text font-bold leading-[30px] max-sm:tracking-wide sm:text-gray-400 text-gray-300">

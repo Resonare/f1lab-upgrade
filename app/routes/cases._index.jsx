@@ -4,10 +4,7 @@ import Pockets from "../pages/portfolio/Pockets";
 import { getAll as getAllCases } from "../data/cases.server";
 
 export const meta = () => {
-  return [
-    { title: "F1LAB" },
-    { name: "Портфолио", content: "Welcome to Remix!" },
-  ];
+  return [{ title: "F1LAB" }, { name: "Кейсы", content: "Welcome to Remix!" }];
 };
 
 export default function Portfolio() {

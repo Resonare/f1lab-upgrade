@@ -172,8 +172,8 @@ export const navData = [
     ],
   },
   {
-    link: "portfolio",
-    title: "Портфолио",
+    link: "cases",
+    title: "Кейсы",
     bgColor: "bg-gray-100",
     textColor: "text-cloud",
     items: [],
