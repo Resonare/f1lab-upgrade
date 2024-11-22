@@ -15,54 +15,6 @@ const Cases = () => {
   const path = pathname.split("/");
   const currentLocation = path[path.length - 1];
 
-  if (serviceCases[0]) {
-    serviceCases[0] = {
-      ...serviceCases[0],
-      row: "row-start-2",
-      col: "col-start-1 col-end-3 lg:col-end-1",
-    };
-  }
-
-  if (serviceCases[1]) {
-    serviceCases[1] = {
-      ...serviceCases[1],
-      row: "row-start-2",
-      col: "col-start-3 col-end-5 lg:col-start-2 lg:col-end-2",
-    };
-  }
-
-  if (serviceCases[2]) {
-    serviceCases[2] = {
-      ...serviceCases[2],
-      row: "lg:row-start-2 row-start-3",
-      col: "col-start-1 col-end-3 lg:col-start-3 lg:col-end-3",
-    };
-  }
-
-  if (serviceCases[3]) {
-    serviceCases[3] = {
-      ...serviceCases[3],
-      row: "row-start-3",
-      col: "lg:col-start-1 col-start-3 lg:col-end-1 col-end-5",
-    };
-  }
-
-  if (serviceCases[4]) {
-    serviceCases[4] = {
-      ...serviceCases[4],
-      row: "row-start-3",
-      col: "col-start-2",
-    };
-  }
-
-  if (serviceCases[5]) {
-    serviceCases[5] = {
-      ...serviceCases[5],
-      row: "row-start-3",
-      col: "col-start-3",
-    };
-  }
-
   return (
     <div id="cases">
       <Section className="max-sm:hidden my-60">
@@ -74,20 +26,20 @@ const Cases = () => {
           Кейсы: как мы решаем задачи наших клиентов
         </SectionTitle>
 
-        {serviceCases.map((serviceCase) => (
-          <CaseCard
-            className="border mr-[-1px]"
-            outerClassName="mt-[-1px] mb-[-1px]"
-            key={serviceCase.id}
-            tags={serviceCase.services}
-            logoPath={serviceCase.imageUrl}
-            currentLocation={currentLocation}
-            row={serviceCase.row}
-            col={serviceCase.col}
-          >
-            {serviceCase.description}
-          </CaseCard>
-        ))}
+        <div className="col-start-1 lg:col-end-4 col-end-5 flex flex-wrap">
+          {serviceCases.map((serviceCase) => (
+            <CaseCard
+              className="border mr-[-1px]"
+              outerClassName="mt-[-1px] mb-[-1px] lg:w-1/3 w-1/2"
+              key={serviceCase.id}
+              tags={serviceCase.services}
+              logoPath={serviceCase.imageUrl}
+              currentLocation={currentLocation}
+            >
+              {serviceCase.description}
+            </CaseCard>
+          ))}
+        </div>
 
         <ReviewCard
           className="ml-[0.5px] mt-[-1px] max-lg:hidden"
