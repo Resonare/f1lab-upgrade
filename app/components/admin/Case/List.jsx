@@ -6,7 +6,7 @@ import DeleteServiceCase from "./Delete";
 import AdminModal from "../Modal";
 import ServiceCaseForm from "./Form";
 
-export default function ListCases({ items = [], branches = [] }) {
+export default function ListCases({ items = [], branches = [], clients = [] }) {
   const [addServiceCase, setAddServiceCase] = useState(false);
   const [showServiceCase, setShowServiceCase] = useState({
     serviceCase: {},
@@ -23,16 +23,24 @@ export default function ListCases({ items = [], branches = [] }) {
         <table className="table-auto w-full text-lg">
           <thead>
             <tr>
-              <th className="text-start">Наименование</th>
-              <th className="text-start">Краткое описание</th>
+              <th className="text-start">Описание</th>
+              <th className="text-start">Задача</th>
+              <th className="text-start">Результаты</th>
+              <th className="text-start">Клиент</th>
               <th className="text-start">Услуги</th>
             </tr>
           </thead>
           <tbody>
             {items.map((serviceCase) => (
               <tr key={serviceCase.id} className="border-y">
-                <td>{serviceCase.title}</td>
                 <td>{serviceCase.description}</td>
+                <td>{serviceCase.task}</td>
+                <td>{serviceCase.results}</td>
+                <td>
+                  <ul className="list-disc ps-20">
+                    {serviceCase.client?.title}
+                  </ul>
+                </td>
                 <td>
                   <ul className="list-disc ps-20">
                     {serviceCase.services?.map((service) => (
@@ -96,6 +104,7 @@ export default function ListCases({ items = [], branches = [] }) {
         >
           <ServiceCaseForm
             branches={branches}
+            clients={clients}
             intent="add"
             closeHandler={() => {
               setAddServiceCase(false);
@@ -113,6 +122,7 @@ export default function ListCases({ items = [], branches = [] }) {
           <ServiceCaseForm
             serviceCase={showServiceCase.serviceCase}
             branches={branches}
+            clients={clients}
             intent="update"
             closeHandler={() => {
               setShowServiceCase({ serviceCase: {}, active: false });

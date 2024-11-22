@@ -1,0 +1,46 @@
+import { Form } from "@remix-run/react";
+import AdminModal from "../Modal";
+
+const AddClient = ({ closeHandler }) => {
+  return (
+    <>
+      <AdminModal closeModal={closeHandler}>
+        <div className="font-title text-5xl mb-40">Новый клиент</div>
+        <Form
+          method="POST"
+          className="flex flex-col gap-20"
+          onSubmit={closeHandler}
+        >
+          <input
+            type="text"
+            name="title"
+            placeholder="Наименование"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full "
+          />
+          <input
+            type="text"
+            name="description"
+            placeholder="Описание компании"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
+          />
+          <input
+            type="text"
+            name="logoPath"
+            placeholder="Путь до логотипа"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full "
+          />
+          <button
+            type="submit"
+            name="intent"
+            value="add"
+            className="rounded-md bg-gray-400 text-gray-100 text-2xl p-10 font-text w-200"
+          >
+            Добавить
+          </button>
+        </Form>
+      </AdminModal>
+    </>
+  );
+};
+
+export default AddClient;

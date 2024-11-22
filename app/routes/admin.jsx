@@ -31,6 +31,10 @@ export default function AdminPanel() {
       title: "Кейсы",
       link: "cases",
     },
+    {
+      title: "Клиенты",
+      link: "clients",
+    },
   ];
 
   return (

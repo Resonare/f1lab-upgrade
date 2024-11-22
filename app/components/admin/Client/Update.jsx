@@ -1,0 +1,64 @@
+import { Form } from "@remix-run/react";
+import AdminModal from "../Modal";
+
+const UpdateClient = ({ client = {}, closeHandler }) => {
+  return (
+    <>
+      <AdminModal closeModal={closeHandler}>
+        <Form
+          method="PUT"
+          className="flex flex-col gap-20"
+          onSubmit={closeHandler}
+        >
+          <input
+            defaultValue={client.title}
+            type="text"
+            name="title"
+            placeholder="Наименование"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full "
+          />
+          <input
+            defaultValue={client.description}
+            type="text"
+            name="description"
+            placeholder="Описание компании"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
+          />
+          <input
+            defaultValue={client.logoPath}
+            type="text"
+            name="logoPath"
+            placeholder="Путь до логотипа"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
+          />
+          <input
+            defaultValue={client.id}
+            type="text"
+            name="id"
+            placeholder="ID"
+            className="hidden"
+          />
+
+          <div className="flex gap-20">
+            <button
+              type="submit"
+              name="intent"
+              value="update"
+              className="rounded-md bg-gray-400 text-gray-100 text-2xl p-10 font-text w-1/2"
+            >
+              Сохранить
+            </button>
+            <button
+              onClick={closeHandler}
+              className="rounded-md bg-gray-200 text-gray-100 text-2xl p-10 font-text w-1/2"
+            >
+              Отмена
+            </button>
+          </div>
+        </Form>
+      </AdminModal>
+    </>
+  );
+};
+
+export default UpdateClient;

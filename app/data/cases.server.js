@@ -4,6 +4,7 @@ export const getAll = async () => {
   try {
     const serviceCases = await prisma.serviceCase.findMany({
       include: {
+        client: true,
         services: true,
         CasesOnServices: {
           include: {
@@ -25,6 +26,7 @@ export const getOne = async (serviceCaseId) => {
       where: { id: +serviceCaseId },
       include: {
         services: true,
+        client: true,
       },
     });
 
@@ -38,6 +40,7 @@ export const getByService = async (service) => {
   try {
     const serviceCases = await prisma.serviceCase.findMany({
       include: {
+        client: true,
         services: true,
         CasesOnServices: {
           include: {
@@ -57,15 +60,19 @@ export const add = async (serviceCaseData) => {
   try {
     return await prisma.serviceCase.create({
       data: {
-        title: serviceCaseData.title || "",
         description: serviceCaseData.description || "",
-        body: serviceCaseData.body || "",
-        imageUrl: "/images/logo/" + serviceCaseData.imageUrl,
+        task: serviceCaseData.task || "",
+        results: serviceCaseData.results || "",
         services: {
           connect: serviceCaseData.serviceIds.map((serviceId) => ({
             id: +serviceId,
           })),
         },
+        client: {
+          connect: {
+            id: +serviceCaseData.clientId
+          }
+        }
       },
     });
   } catch (error) {
@@ -87,15 +94,19 @@ export const update = async (serviceCaseData) => {
     await prisma.serviceCase.update({
       where: { id: +serviceCaseData.id },
       data: {
-        title: serviceCaseData.title || "",
         description: serviceCaseData.description || "",
-        body: serviceCaseData.body || "",
-        imageUrl: "/images/logo/" + serviceCaseData.imageUrl || "",
+        task: serviceCaseData.task || "",
+        results: serviceCaseData.results || "",
         services: {
           connect: serviceCaseData.serviceIds.map((serviceId) => ({
             id: +serviceId,
           })),
         },
+        client: {
+          connect: {
+            id: +serviceCaseData.clientId
+          }
+        }
       },
     });
   } catch (error) {

@@ -6,6 +6,7 @@ const ServiceCaseForm = ({
   intent = "update",
   serviceCase = {},
   branches = [],
+  clients = [],
 }) => {
   const fetcher = useFetcher();
 
@@ -16,6 +17,12 @@ const ServiceCaseForm = ({
         : intent === "update"
         ? "Изменить"
         : "Сохранить",
+  };
+
+  const [selectedClient, setSelectedClient] = useState(serviceCase.clientId);
+
+  const handleClientChange = (clientId) => {
+    setSelectedClient(clientId);
   };
 
   const [selectedServices, setSelectedServices] = useState(
@@ -39,9 +46,11 @@ const ServiceCaseForm = ({
     const formData = new FormData(event.currentTarget);
 
     // Remove any existing serviceIds
+    formData.delete("clientId");
     formData.delete("serviceIds");
 
     // Add all selected services
+    formData.append("clientId", selectedClient);
     selectedServices.forEach((serviceId) => {
       formData.append("serviceIds", serviceId);
     });
@@ -68,22 +77,31 @@ const ServiceCaseForm = ({
         className="flex flex-col gap-10 py-30"
         onSubmit={submitHandler}
       >
-        <input
-          type="text"
-          name="title"
-          placeholder="Заголовок"
-          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full "
-          defaultValue={serviceCase.title}
-        />
         <textarea
           type="text"
           rows={5}
           name="description"
-          placeholder="Краткое описание"
+          placeholder="Описание"
           className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
           defaultValue={serviceCase.description}
         />
-        <input
+        <textarea
+          type="text"
+          rows={5}
+          name="task"
+          placeholder="Задача"
+          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+          defaultValue={serviceCase.task}
+        />
+        <textarea
+          type="text"
+          rows={5}
+          name="results"
+          placeholder="Что сделали"
+          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+          defaultValue={serviceCase.results}
+        />
+        {/* <input
           type="text"
           name="imageUrl"
           placeholder="Имя файла-лого"
@@ -93,11 +111,33 @@ const ServiceCaseForm = ({
               serviceCase.imageUrl.split("/").length - 1
             ]
           }
-        />
+        /> */}
+
         <div className="flex flex-col gap-10">
+          <p className="font-expanded font-extrabold text-2xl">Клиент</p>
+          {/* {console.log(clients)} */}
+          {clients.map((client) => (
+            <div key={client.id} className="flex gap-5">
+              <input
+                type="radio"
+                name="client"
+                id={client.title}
+                value={client.id}
+                onChange={() => handleClientChange(client.id)}
+                checked={selectedClient == client.id}
+              />
+              <label htmlFor={client.title} className="font-subtitle text-lg">
+                {client.title}
+              </label>
+            </div>
+          ))}
+        </div>
+
+        <div className="flex flex-col gap-10">
+          <p className="font-expanded font-extrabold text-2xl">Услуги</p>
           {branches.map((branch) => (
             <div key={branch.id}>
-              <div className="font-subtitle text-xl">{branch.title}</div>
+              <div className="font-subtitle text-lg">{branch.title}</div>
               {branch.services?.map((service) => (
                 <div key={service.id} className="flex gap-10">
                   <input
@@ -114,6 +154,7 @@ const ServiceCaseForm = ({
             </div>
           ))}
         </div>
+
         <input hidden type="text" name="intent" defaultValue={intent} />
         <input hidden type="text" name="id" defaultValue={serviceCase?.id} />
         <button

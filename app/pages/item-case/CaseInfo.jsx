@@ -15,10 +15,6 @@ import Tag from "../../components/misc/Tag";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 
 const DUMMY_CLIENT_DATA = {
-  title: "ДВР Групп",
-  description:
-    "ДВР Групп — компания с более чем 20-летним опытом работы на российском и азиатском рекламных рынках. Специализируется на профессиональном управлении маркетинговыми коммуникациями.",
-  logoPath: "/images/logo/dvr-group-logo.svg",
   critiques: [
     {
       avatarPath: "/images/avatars/samarga.png",
@@ -52,7 +48,6 @@ const DUMMY_CASE_DATA = {
         "Ежемесячная экономия по сравнению с затратами на самостоятельное содержание IT-отдела техподдержки.",
     },
   ],
-  task: "С ростом компании возникла необходимость в организации современной службы техподдержки для обеспечения пользователей быстрым и качественным обслуживанием. Заказчик поручил задачу ИТ-директору, который в свою очередь обратился к нам.",
   results: [
     "Создана единая и эффективная служба техподдержки, доступная через удобные каналы связи.",
     "Обеспечена прозрачная и понятная система отчетности, позволяющая отслеживать и анализировать обращения пользователей.",
@@ -115,7 +110,7 @@ const CaseInfo = () => {
       <div className="col-start-1 md:col-end-3 col-end-5">
         <ContentCard
           className={`${bgColor} md:justify-between border-t max-sm:border-x`}
-          iconPath={DUMMY_CLIENT_DATA.logoPath}
+          iconPath={selectedCase.client.logoPath}
           hideIconOnMobile={false}
         >
           <div className="flex flex-col gap-30">
@@ -125,7 +120,7 @@ const CaseInfo = () => {
         </ContentCard>
 
         <ContentCard className={`${bgColor} border-y max-sm:border-x`}>
-          {DUMMY_CLIENT_DATA.description}
+          {selectedCase.client.description}
         </ContentCard>
       </div>
 
@@ -185,7 +180,7 @@ const CaseInfo = () => {
             Задача:
           </p>
           <p className="text-gray-400 text-xl font-text font-light">
-            {DUMMY_CASE_DATA.task}
+            {selectedCase.task}
           </p>
         </div>
       </ContentCard>
@@ -200,7 +195,7 @@ const CaseInfo = () => {
             Результаты:
           </p>
           <div className="flex flex-col text-gray-400 text-xl font-text font-light">
-            {DUMMY_CASE_DATA.results.map((result, index) => (
+            {selectedCase.results.split("•").map((result, index) => (
               <div key={index} className="flex gap-10">
                 <p>•</p>
                 <p>{result}</p>
