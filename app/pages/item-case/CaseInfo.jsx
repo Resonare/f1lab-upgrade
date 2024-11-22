@@ -20,6 +20,11 @@ const DUMMY_CASE_DATA = {
   title:
     "Организация эффективной службы техподдержки с единым контактным центром и прозрачной системой отчётности",
   logoPath: "/images/logo/dvr-group-logo.svg",
+  technologies: [
+    { title: "F1 HD", color: "bg-cloud" },
+    { title: "Telegram", color: "bg-cloud" },
+    { title: "PRO32 Connect", color: "bg-cloud" },
+  ],
   avatarPath: "/images/avatars/samarga.png",
   critiqueTitle: "Мария Ивановна",
   critiqueSubtitle: "CEO компании “Samarga”",
@@ -108,8 +113,10 @@ const CaseInfo = () => {
           iconPath={DUMMY_CASE_DATA.logoPath}
           hideIconOnMobile={false}
         >
-          <ServiceTags>{selectedCase.services}</ServiceTags>
-          <TechTags>{selectedCase.technologies}</TechTags>
+          <div className="flex flex-col gap-30">
+            <ServiceTags>{selectedCase.services}</ServiceTags>
+            <TechTags>{DUMMY_CASE_DATA.technologies}</TechTags>
+          </div>
         </ContentCard>
 
         <ContentCard className={`${bgColor} border-y max-sm:border-x`}>

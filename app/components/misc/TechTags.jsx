@@ -15,8 +15,10 @@ const TechTags = ({ inverseColor = false, children }) => {
         Технологии
       </p>
       <div className="flex flex-wrap gap-5">
-        {technologies.map((technology) => (
-          <Tag key={technology.id}>{technology.title}</Tag>
+        {technologies.map((technology, index) => (
+          <Tag key={index} className={technology.color} hoverable={false}>
+            {technology.title}
+          </Tag>
         ))}
       </div>
     </div>
