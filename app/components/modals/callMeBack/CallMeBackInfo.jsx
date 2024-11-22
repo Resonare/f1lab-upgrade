@@ -27,7 +27,7 @@ const CallMeBackInfo = ({ success }) => {
     <div
       className={`${bgColor} ${
         success !== null && `hidden`
-      } xl:w-[40%] lg:w-[50%] lg:p-30 sm:p-20 p-15 border-dashed flex flex-col justify-between transition-all`}
+      } xl:w-[40%] lg:w-[50%] lg:p-30 sm:p-20 p-15 border-dashed flex flex-col justify-between `}
     >
       <div className="flex flex-col lg:gap-60 gap-30">
         {success ? (

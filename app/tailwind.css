@@ -126,6 +126,11 @@
     clip-path: none;
   }
 
+  /* Hide scrollbar */
+  /* ::-webkit-scrollbar {
+    width: 0;
+  } */
+
   textarea::-webkit-scrollbar {
     width: 0.2em;
   }
