@@ -259,7 +259,7 @@ const Process = () => {
 
           <StepCard title="Заполните форму и мы приступим" inverseColor={true}>
             <div className="flex flex-col gap-15">
-              <Animation height="h-[300px]" data={animationData} />
+              <Animation className="max-sm:h-[260px]" data={animationData} />
 
               <SecondaryButton variant="light" onClick={showCallMeBackModal}>
                 <p className="text-base font-subtitle">Начать</p>
