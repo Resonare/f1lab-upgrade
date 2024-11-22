@@ -12,7 +12,7 @@ import "./tailwind.css";
 import Navbar from "~/components/navigation/Navbar";
 import CallMeBackModal from "~/components/modals/callMeBack/CallMeBackModal";
 import PlanModal from "~/components/modals/plan/PlanModal";
-import BackgroundGrid from "~/components/BackgroundGrid";
+import BackgroundGrid from "~/layout/BackgroundGrid";
 import Footer from "~/components/Footer";
 
 import { CriticalSVGs } from "./components/CriticalSVGs";

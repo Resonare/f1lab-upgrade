@@ -1,7 +1,6 @@
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import ContentCard from "../../components/cards/ContentCard";
-import BackgroundGrid from "../../components/BackgroundGrid";
 import { LazyImage } from "../../components/LazyImage";
 
 const Hero = () => {

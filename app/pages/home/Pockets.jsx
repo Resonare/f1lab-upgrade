@@ -2,7 +2,7 @@ import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
 import PocketCard from "../../components/cards/PocketCard";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import Tag from "../../components/misc/Tag";
 import PocketColumn from "../../components/misc/PocketColumn";
 

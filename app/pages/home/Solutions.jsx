@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import ContentCard from "../../components/cards/ContentCard";
-import SolutionsCarousel from "../../components/SolutionsCarousel";
+import SolutionsCarousel from "../../components/misc/SolutionsCarousel";
 import SwitchButton from "../../components/buttons/SwitchButton";
 import Carousel from "../../components/misc/Carousel";
 

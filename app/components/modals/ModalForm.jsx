@@ -2,10 +2,10 @@ import { useFetcher } from "@remix-run/react";
 import { useRef, useState } from "react";
 
 import PrimaryButton from "../buttons/PrimaryButton";
-import Checkbox from "../misc/Checkbox";
+import Checkbox from "../misc/inputs/Checkbox";
 import Contacts from "./Contacts";
-import FileAttachmentInput from "../misc/FileAttachmentInput";
-import FileAttachmentArea from "../misc/FileAttachmentArea";
+import FileAttachmentInput from "../misc/inputs/FileAttachmentInput";
+import FileAttachmentArea from "../misc/inputs/FileAttachmentArea";
 
 const INITIAL_ERRORS = {
   name: "",

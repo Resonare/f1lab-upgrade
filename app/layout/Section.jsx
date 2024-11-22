@@ -1,4 +1,4 @@
-import BackgroundGrid from "../components/BackgroundGrid";
+import BackgroundGrid from "./BackgroundGrid";
 
 const Section = ({
   id,

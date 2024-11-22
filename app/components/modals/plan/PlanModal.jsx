@@ -4,12 +4,12 @@ import { useLocation } from "@remix-run/react";
 import useModalStore from "../../../store/modal";
 
 import BlurCurtain from "../BlurCurtain";
-import BackgroundGrid from "../../BackgroundGrid";
+import BackgroundGrid from "../../../layout/BackgroundGrid";
 import PlanInfo from "./PlanInfo";
 import Result from "../Result";
 import Cancel from "../Cancel";
 import ModalForm from "../ModalForm";
-import FormInput from "../../misc/FormInput";
+import FormInput from "../../misc/inputs/FormInput";
 import PrimaryButton from "../../buttons/PrimaryButton";
 import Contacts from "../Contacts";
 

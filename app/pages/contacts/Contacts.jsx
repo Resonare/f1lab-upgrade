@@ -4,12 +4,12 @@ import { useLocation } from "@remix-run/react";
 import { ThemeContext } from "../../store/theme-context";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import Animation from "../../components/misc/animations/Animation";
 import Condition from "../../components/misc/Condition";
 import { LazyImage } from "../../components/LazyImage";
 import ModalForm from "../../components/modals/ModalForm";
-import FormInput from "../../components/misc/FormInput";
+import FormInput from "../../components/misc/inputs/FormInput";
 import Result from "../../components/modals/Result";
 
 import whyAnimationJson from "../../components/misc/animations/why-animation.json";

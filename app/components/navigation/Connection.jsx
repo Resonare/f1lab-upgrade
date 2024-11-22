@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import ArrowConnect from "../misc/svg/ArrowConnect";
 import SecondaryButton from "../buttons/SecondaryButton";
-import NumberInput from "../misc/NumberInput";
+import NumberInput from "../misc/inputs/NumberInput";
 import { LazyImage } from "../LazyImage";
 
 const INITIAL_VALUES = {

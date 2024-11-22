@@ -1,5 +1,5 @@
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import ContentCard from "../../components/cards/ContentCard";
 import Animation from "../../components/misc/animations/Animation";
 
