@@ -40,25 +40,92 @@ model Service {
   CasesOnServices CasesOnServices[]
 }
 
+model Technology {
+  id                  Int                   @id @default(autoincrement())
+  title               String                @unique
+  color               String                @default("gray-100")
+  CasesOnTechnologies CasesOnTechnologies[]
+}
+
 model ServiceCase {
-  id              Int               @id @default(autoincrement())
-  title           String            @default("")
-  description     String            @default("")
-  body            String            @default("")
-  imageUrl        String            @default("default.png")
-  services        Service[]
-  addedAt         DateTime          @default(now())
-  updatedAt       DateTime          @default(now())
-  CasesOnServices CasesOnServices[]
+  id                  Int                   @id @default(autoincrement())
+  description         String                @default("")
+  task                String                @default("")
+  results             String                @default("")
+  addedAt             DateTime              @default(now())
+  updatedAt           DateTime              @default(now())
+  client              Client                @relation(fields: [clientId], references: [id])
+  clientId            Int                   @default(-1)
+  numbers             NumberInCase[]
+  dones               DoneInCase[]
+  services            Service[]
+  CasesOnServices     CasesOnServices[]
+  CasesOnTechnologies CasesOnTechnologies[]
 }
 
 model CasesOnServices {
   service    Service     @relation(fields: [serviceId], references: [id])
-  serviceId  Int // relation scalar field (used in the `@relation` attribute above)
+  serviceId  Int
   case       ServiceCase @relation(fields: [caseId], references: [id])
-  caseId     Int // relation scalar field (used in the `@relation` attribute above)
+  caseId     Int
   assignedAt DateTime    @default(now())
   assignedBy String
 
   @@id([serviceId, caseId])
+}
+
+model CasesOnTechnologies {
+  technology    Technology  @relation(fields: [technologyId], references: [id])
+  technologyId  Int
+  case          ServiceCase @relation(fields: [caseId], references: [id])
+  caseId        Int
+  assignedAt    DateTime    @default(now())
+  assignedBy    String
+
+  @@id([technologyId, caseId])
+}
+
+model Client {
+  id              Int               @id @default(autoincrement())
+  title           String            @default("")
+  description     String            @default("")
+  logoPath        String            @default("")
+  addedAt         DateTime          @default(now())
+  updatedAt       DateTime          @default(now())
+  cases           ServiceCase[]
+  critiques       Critique[]
+}
+
+model Critique {
+  id          Int       @id @default(autoincrement())
+  title       String    @default("")
+  subtitle    String    @default("")
+  body        String    @default("")
+  avatarPath  String    @default("")
+  addedAt     DateTime  @default(now())
+  updatedAt   DateTime  @default(now())
+  client      Client    @relation(fields: [clientId], references: [id])
+  clientId    Int
+}
+
+model NumberInCase {
+  id          Int           @id @default(autoincrement())
+  title       String        @default("")
+  description String        @default("")
+  addedAt     DateTime      @default(now())
+  updatedAt   DateTime      @default(now())
+  case        ServiceCase   @relation(fields: [caseId], references: [id])
+  caseId      Int
+}
+
+model DoneInCase {
+  id              Int             @id @default(autoincrement())
+  title           String          @default("")
+  description     String          @default("")
+  iconPath        String          @default("")
+  mobileIconPath  String          @default("")
+  addedAt         DateTime        @default(now())
+  updatedAt       DateTime        @default(now())
+  case            ServiceCase     @relation(fields: [caseId], references: [id])
+  caseId          Int
 }

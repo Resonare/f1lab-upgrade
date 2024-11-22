@@ -14,22 +14,27 @@ import TechTags from "../../components/misc/TechTags";
 import Tag from "../../components/misc/Tag";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 
-const DUMMY_CASE_DATA = {
+const DUMMY_CLIENT_DATA = {
+  title: "ДВР Групп",
   description:
     "ДВР Групп — компания с более чем 20-летним опытом работы на российском и азиатском рекламных рынках. Специализируется на профессиональном управлении маркетинговыми коммуникациями.",
-  title:
-    "Организация эффективной службы техподдержки с единым контактным центром и прозрачной системой отчётности",
   logoPath: "/images/logo/dvr-group-logo.svg",
+  critiques: [
+    {
+      avatarPath: "/images/avatars/samarga.png",
+      title: "Мария Ивановна",
+      subtitle: "CEO компании “Samarga”",
+      body: "Сотрудничество с командой F1 Lab стало настоящим прорывом для нашей компании. Мы искали партнёра, который мог бы не просто взять на себя обслуживание нашей IT-инфраструктуры, но и предложить комплексные решения для повышения эффективности бизнеса. F1 Lab превзошли наши ожидания. Благодаря их профессионализму, мы смогли сократить время простоя серверов на 80%, оптимизировать IT-расходы и значительно повысить безопасность данных.",
+    },
+  ],
+};
+
+const DUMMY_CASE_DATA = {
   technologies: [
     { title: "F1 HD", color: "bg-cloud" },
     { title: "Telegram", color: "bg-cloud" },
     { title: "PRO32 Connect", color: "bg-cloud" },
   ],
-  avatarPath: "/images/avatars/samarga.png",
-  critiqueTitle: "Мария Ивановна",
-  critiqueSubtitle: "CEO компании “Samarga”",
-  critiqueText:
-    "Сотрудничество с командой F1 Lab стало настоящим прорывом для нашей компании. Мы искали партнёра, который мог бы не просто взять на себя обслуживание нашей IT-инфраструктуры, но и предложить комплексные решения для повышения эффективности бизнеса. F1 Lab превзошли наши ожидания. Благодаря их профессионализму, мы смогли сократить время простоя серверов на 80%, оптимизировать IT-расходы и значительно повысить безопасность данных.",
   numbers: [
     {
       title: "3 минуты",
@@ -110,7 +115,7 @@ const CaseInfo = () => {
       <div className="col-start-1 md:col-end-3 col-end-5">
         <ContentCard
           className={`${bgColor} md:justify-between border-t max-sm:border-x`}
-          iconPath={DUMMY_CASE_DATA.logoPath}
+          iconPath={DUMMY_CLIENT_DATA.logoPath}
           hideIconOnMobile={false}
         >
           <div className="flex flex-col gap-30">
@@ -120,26 +125,29 @@ const CaseInfo = () => {
         </ContentCard>
 
         <ContentCard className={`${bgColor} border-y max-sm:border-x`}>
-          {DUMMY_CASE_DATA.description}
+          {DUMMY_CLIENT_DATA.description}
         </ContentCard>
       </div>
 
-      <CritiqueCard
-        className={`${bgColor} max-sm:hidden border-y max-md:border-l`}
-        col="md:col-start-3 col-start-1 col-end-5"
-        avatarPath={DUMMY_CASE_DATA.avatarPath}
-        title={DUMMY_CASE_DATA.critiqueTitle}
-        subtitle={DUMMY_CASE_DATA.critiqueSubtitle}
-      >
-        {DUMMY_CASE_DATA.critiqueText}
-      </CritiqueCard>
+      {DUMMY_CLIENT_DATA.critiques.map((critiqueData, index) => (
+        <CritiqueCard
+          key={index}
+          className={`${bgColor} max-sm:hidden border-y max-md:border-l`}
+          col="md:col-start-3 col-start-1 col-end-5"
+          avatarPath={critiqueData.avatarPath}
+          title={critiqueData.title}
+          subtitle={critiqueData.subtitle}
+        >
+          {critiqueData.body}
+        </CritiqueCard>
+      ))}
 
       <SectionTitle
         className="md:mt-60 sm:mt-30 md:mb-90 sm:mb-60 mb-30 max-sm:font-extended max-sm:font-bold max-sm:text-[28px] max-sm:leading-[30px]"
         row="md:row-start-3 row-start-1"
         col="col-start-1 col-end-5"
       >
-        {DUMMY_CASE_DATA.title}
+        {selectedCase.description}
       </SectionTitle>
 
       <div
