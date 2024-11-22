@@ -1,7 +1,7 @@
 import { useLoaderData, useLocation } from "@remix-run/react";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import CaseCard from "../../components/cards/CaseCard";
 import ReviewCard from "../../components/cards/ReviewCard";
 import SecondaryButton from "../../components/buttons/SecondaryButton";

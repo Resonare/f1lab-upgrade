@@ -1,10 +1,10 @@
-import { useState, useRef, useContext } from "react";
+import { useContext } from "react";
 
-import { LazyImage } from "../LazyImage";
-import Cancel from "../modals/Cancel";
-import SecondaryButton from "../buttons/SecondaryButton";
+import { LazyImage } from "../../LazyImage";
+import Cancel from "../../modals/Cancel";
+import SecondaryButton from "../../buttons/SecondaryButton";
 
-import { ThemeContext } from "../../store/theme-context";
+import { ThemeContext } from "../../../store/theme-context";
 
 const FileAttachmentArea = ({
   fileAttachmentInputRef,

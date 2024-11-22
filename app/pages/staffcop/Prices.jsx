@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import PriceCard from "../../components/cards/PriceCard";
 import Carousel from "../../components/misc/Carousel";
 

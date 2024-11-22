@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { ThemeContext } from "../../store/theme-context";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import PriceCard from "../../components/cards/PriceCard";
 import Carousel from "../../components/misc/Carousel";
 

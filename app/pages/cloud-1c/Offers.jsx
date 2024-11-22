@@ -3,7 +3,7 @@ import useModalStore from "../../store/modal";
 import Section from "../../layout/Section";
 import ContentCard from "../../components/cards/ContentCard";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import ImageCard from "../../components/cards/ImageCard";
 
 const Offers = () => {

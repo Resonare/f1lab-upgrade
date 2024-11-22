@@ -1,6 +1,6 @@
 import { useState, useContext, useRef } from "react";
 
-import { ThemeContext } from "../../store/theme-context";
+import { ThemeContext } from "../../../store/theme-context";
 
 const FormInput = ({
   className = "",

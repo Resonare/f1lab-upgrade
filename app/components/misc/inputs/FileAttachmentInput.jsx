@@ -1,6 +1,6 @@
 import { useRef, useState, forwardRef } from "react";
-import SecondaryButton from "../buttons/SecondaryButton";
-import { LazyImage } from "../LazyImage";
+import SecondaryButton from "../../buttons/SecondaryButton";
+import { LazyImage } from "../../LazyImage";
 
 const FILE_SIZE_RESTRICTION = 5; // In MB
 const ALLOWED_MIMES = [

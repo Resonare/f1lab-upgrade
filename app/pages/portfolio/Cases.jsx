@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLoaderData } from "@remix-run/react";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import Switch from "../../components/buttons/Switch";
 import SwitchButton from "../../components/buttons/SwitchButton";
 import CaseCard from "../../components/cards/CaseCard";

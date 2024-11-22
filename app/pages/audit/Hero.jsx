@@ -3,7 +3,7 @@ import { useContext } from "react";
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ContentCard from "../../components/cards/ContentCard";
 import SchemaCanvas from "../../components/heroSchema/SchemaCanvas";

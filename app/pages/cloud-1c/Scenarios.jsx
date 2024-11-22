@@ -4,7 +4,7 @@ import { ThemeContext } from "../../store/theme-context";
 import Section from "../../layout/Section";
 import ContentCard from "../../components/cards/ContentCard";
 import ImageCard from "../../components/cards/ImageCard";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 
 const Scenarios = () => {
   const { bgColor } = useContext(ThemeContext);

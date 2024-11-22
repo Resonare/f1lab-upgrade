@@ -6,7 +6,7 @@ import useModalStore from "../../store/modal";
 import Section from "../../layout/Section";
 import Tag from "../../components/misc/Tag";
 import StepCard from "../../components/cards/StepCard";
-import SectionTitle from "../../components/SectionTitle";
+import SectionTitle from "../../layout/SectionTitle";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import Carousel from "../../components/misc/Carousel";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
