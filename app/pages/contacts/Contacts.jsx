@@ -41,39 +41,52 @@ const Contacts = () => {
   const [success, setSuccess] = useState(null);
 
   return (
-    <Section hero={true}>
-      <SectionTitle col="col-start-1 col-end-5">Наши контакты</SectionTitle>
+    <Section className="sm:mb-200" hero={true}>
+      <SectionTitle col="col-start-1 col-end-5 max-sm:mb-30">
+        Наши контакты
+      </SectionTitle>
 
-      <div className="col-start-1 col-end-5 row-start-2 flex gap-60 border-t border-gray-200 border-dashed">
-        <div className="bg-[#070D14] z-[-11] sm:h-[360px] h-200 basis-8/12 flex justify-center">
+      <div className="col-start-1 col-end-5 row-start-2 flex lg:flex-row flex-col lg:items-center sm:gap-60 gap-30 border-t border-gray-200 border-dashed">
+        <div className="bg-[#070D14] sm:z-[-11] lg:h-[320px] sm:h-[260px] h-100 lg:basis-8/12 flex justify-center">
           <Animation data={whyAnimationJson} />
         </div>
-        <div className="py-60 flex flex-col gap-30 font-text text-xl text-gray-400">
-          <Condition icon="location-lg.svg">
-            Владивосток, ул. Батарейная, 3А
-          </Condition>
-          <Condition icon="mail-lg.svg">info@f1lab.ru</Condition>
-          <Condition icon="phone-lg.svg">8-800-888-88-88</Condition>
+        <div className="flex h-fit">
+          <div className="flex flex-col gap-30 font-text text-xl text-gray-400">
+            <Condition icon="location-lg.svg">
+              Владивосток, ул. Батарейная, 3А
+            </Condition>
+            <Condition icon="mail-lg.svg">info@f1lab.ru</Condition>
+            <Condition icon="phone-lg.svg">8-800-888-88-88</Condition>
 
-          <div className="flex gap-20">
-            <LazyImage className="invert" src="images/icons/instagram-lg.svg" />
-            <LazyImage className="invert" src="images/icons/telegram-lg.svg" />
-            <LazyImage className="invert" src="images/icons/linkedin-lg.svg" />
-            <LazyImage
-              className="invert"
-              src="images/icons/play-store-lg.svg"
-            />
+            <div className="flex gap-20">
+              <LazyImage
+                className="invert"
+                src="images/icons/instagram-lg.svg"
+              />
+              <LazyImage
+                className="invert"
+                src="images/icons/telegram-lg.svg"
+              />
+              <LazyImage
+                className="invert"
+                src="images/icons/linkedin-lg.svg"
+              />
+              <LazyImage
+                className="invert"
+                src="images/icons/play-store-lg.svg"
+              />
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="col-start-1 col-end-5 relative">
+      <div className="max-lg:mt-60 col-start-1 col-end-5 relative">
         <div
           className={`${bgColor} absolute w-[calc(100%-4px)] h-full translate-x-[-50%] left-1/2 z-[-1]`}
         ></div>
 
         <ModalForm
-          className={`${success !== null && `hidden`} bg-striped`}
+          className={`${success !== null && `hidden`} bg-striped max-sm:p-0`}
           title="Поговорим о сотрудничестве?"
           method="post"
           action="/services"
@@ -82,10 +95,11 @@ const Contacts = () => {
           errors={errors}
           setErrors={setErrors}
           setSuccess={setSuccess}
-          attachable={true}
+          attachable={false}
           showContacts={false}
         >
           <FormInput
+            className="max-sm:border-x-[0px]"
             name="name"
             placeholder="Ваше имя"
             required
@@ -94,6 +108,7 @@ const Contacts = () => {
             error={errors.name}
           />
           <FormInput
+            className="max-sm:border-x-[0px]"
             name="phone"
             placeholder="Телефон"
             type="tel"
@@ -103,6 +118,7 @@ const Contacts = () => {
             error={errors.phone}
           />
           <FormInput
+            className="max-sm:border-x-[0px]"
             name="email"
             placeholder="E-mail"
             type="email"
@@ -112,7 +128,7 @@ const Contacts = () => {
             error={errors.email}
           />
           <FormInput
-            className="lg:h-[150px] sm:h-[120px] h-[70px] border-b"
+            className="lg:h-[150px] sm:h-[120px] h-[70px] border-b max-sm:border-x-[0px]"
             name="details"
             placeholder="Важные детали проекта: требования, сроки и нюансы"
             type="textarea"
