@@ -61,7 +61,7 @@ const Connection = () => {
         !opened
           ? `lg:top-[calc(90px-366px)] top-[calc(70px-366px)]`
           : `lg:top-[calc(90px)] top-[calc(70px)]`
-      } z-[-1] max-sm:hidden bg-gray-400 fixed border-dashed border-l border-t border-gray-300 right-0 overflow-hidden transition-all duration-500`}
+      } z-[-1] max-sm:hidden bg-gray-400 fixed border-dashed border-l border-t border-gray-300 lg:right-0 overflow-hidden transition-all duration-500`}
     >
       <div className={`${!opened && ``} flex p-30 flex-col gap-15`}>
         <p className="text-gray-100 w-[370px] text-[22px] font-bold font-extended leading-tight">
