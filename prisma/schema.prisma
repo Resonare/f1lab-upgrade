@@ -111,7 +111,7 @@ model Critique {
 model NumberInCase {
   id          Int           @id @default(autoincrement())
   title       String        @default("")
-  description String        @default("")
+  body        String        @default("")
   addedAt     DateTime      @default(now())
   updatedAt   DateTime      @default(now())
   case        ServiceCase   @relation(fields: [caseId], references: [id])

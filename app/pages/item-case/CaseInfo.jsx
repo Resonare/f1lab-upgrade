@@ -20,23 +20,6 @@ const DUMMY_CASE_DATA = {
     { title: "Telegram", color: "bg-cloud" },
     { title: "PRO32 Connect", color: "bg-cloud" },
   ],
-  numbers: [
-    {
-      title: "3 минуты",
-      description:
-        "Среднее время реакции на обращение пользователя после внедрения системы.",
-    },
-    {
-      title: "-30%",
-      description:
-        "Сокращение количества обращений за счёт введения плановых регламентных работ.",
-    },
-    {
-      title: "100 000 ₽",
-      description:
-        "Ежемесячная экономия по сравнению с затратами на самостоятельное содержание IT-отдела техподдержки.",
-    },
-  ],
   done: [
     {
       iconPath: "/images/icons/services/audit.svg",
@@ -132,11 +115,11 @@ const CaseInfo = () => {
       <div
         className={`lg:${bgColor} md:pt-0 sm:pt-60 pt-0 max-sm:mx-[1px] lg:border-x border-dashed border-gray-200 lg:flex grid grid-cols-4 row-start-4 col-start-1 col-end-5`}
       >
-        {DUMMY_CASE_DATA.numbers.map((numberData, index) => (
+        {selectedCase.numbers.map((numberData, index) => (
           <ContentCard
             key={index}
             className={`${
-              index != DUMMY_CASE_DATA.numbers.length - 1 && `lg:border-r`
+              index != selectedCase.numbers.length - 1 && `lg:border-r`
             } max-lg:${bgColor} lg:w-1/3 border-y`}
             col={
               index % 2 == 0
@@ -148,7 +131,7 @@ const CaseInfo = () => {
               <p className="xl:text-[50px] md:text-[46px] text-[40px] font-expanded font-extrabold text-f1-dark">
                 {numberData.title}
               </p>
-              <p>{numberData.description}</p>
+              <p>{numberData.body}</p>
             </div>
           </ContentCard>
         ))}

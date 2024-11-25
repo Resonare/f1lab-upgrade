@@ -28,6 +28,7 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
               <th className="text-start">Результаты</th>
               <th className="text-start">Клиент</th>
               <th className="text-start">Услуги</th>
+              <th className="text-start">Цифры в услуге</th>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +46,16 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
                   <ul className="list-disc ps-20">
                     {serviceCase.services?.map((service) => (
                       <li key={service.id}>{service.title}</li>
+                    ))}
+                  </ul>
+                </td>
+                <td>
+                  <ul className="list-disc ps-20">
+                    {serviceCase.numbers?.map((number) => (
+                      <li key={number.id}>
+                        <p className="font-bold">{number.title}</p>
+                        <p>{number.body}</p>
+                      </li>
                     ))}
                   </ul>
                 </td>
@@ -121,6 +132,7 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
         >
           <ServiceCaseForm
             serviceCase={showServiceCase.serviceCase}
+            numbersInCase={showServiceCase.serviceCase.numbers}
             branches={branches}
             clients={clients}
             intent="update"

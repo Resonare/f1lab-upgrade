@@ -5,6 +5,7 @@ export const getAll = async () => {
     const serviceCases = await prisma.serviceCase.findMany({
       include: {
         client: true,
+        numbers: true,
         services: true,
         CasesOnServices: {
           include: {
@@ -26,6 +27,7 @@ export const getOne = async (serviceCaseId) => {
       where: { id: +serviceCaseId },
       include: {
         services: true,
+        numbers: true,
         client: {
           include: {
             critiques: true,

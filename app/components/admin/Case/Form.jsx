@@ -7,6 +7,7 @@ const ServiceCaseForm = ({
   serviceCase = {},
   branches = [],
   clients = [],
+  numbersInCase = [],
 }) => {
   const fetcher = useFetcher();
 
@@ -23,6 +24,16 @@ const ServiceCaseForm = ({
 
   const handleClientChange = (clientId) => {
     setSelectedClient(clientId);
+  };
+
+  const [numbersInCaseCount, setNumbersInCaseCount] = useState(
+    numbersInCase.length + 1
+  );
+
+  const handleAddNewNumberInCase = () => {
+    setNumbersInCaseCount(
+      (prevNumbersInCaseCount) => prevNumbersInCaseCount + 1
+    );
   };
 
   const [selectedServices, setSelectedServices] = useState(
@@ -49,11 +60,24 @@ const ServiceCaseForm = ({
     formData.delete("clientId");
     formData.delete("serviceIds");
 
-    // Add all selected services
     formData.append("clientId", selectedClient);
+
+    // Add all selected services
     selectedServices.forEach((serviceId) => {
       formData.append("serviceIds", serviceId);
     });
+
+    for (let i = 0; i < numbersInCaseCount; i++) {
+      let id = formData.get(`numberInCaseId${i}`);
+      let title = formData.get(`numberInCaseTitle${i}`);
+      let body = formData.get(`numberInCaseBody${i}`);
+
+      if (!title && !body && !id) continue;
+
+      formData.append("numberInCaseIds", id);
+      formData.append("numberInCaseTitles", title);
+      formData.append("numberInCaseBodies", body);
+    }
 
     fetcher.submit(formData, {
       method: "POST",
@@ -112,6 +136,44 @@ const ServiceCaseForm = ({
             ]
           }
         /> */}
+
+        <div className="flex flex-col gap-10">
+          <p className="font-expanded font-extrabold text-2xl">Цифры</p>
+          <div
+            className="border border-dashed border-gray-200 cursor-pointer w-fit py-5 px-10"
+            onClick={handleAddNewNumberInCase}
+          >
+            <p className="select-none">+ Добавить</p>
+          </div>
+
+          {Array.from({ length: numbersInCaseCount }).map((_, index) => (
+            <div key={index}>
+              <p className="font-expanded font-extrabold text-lg">
+                Столбец {index + 1}
+              </p>
+              <input
+                defaultValue={numbersInCase[index]?.id}
+                type="hidden"
+                name={`numberInCaseId${index}`}
+              />
+              <input
+                defaultValue={numbersInCase[index]?.title}
+                type="text"
+                name={`numberInCaseTitle${index}`}
+                placeholder="Заголовок"
+                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+              />
+              <textarea
+                defaultValue={numbersInCase[index]?.body}
+                type="text"
+                rows={5}
+                name={`numberInCaseBody${index}`}
+                placeholder="Текст"
+                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+              />
+            </div>
+          ))}
+        </div>
 
         <div className="flex flex-col gap-10">
           <p className="font-expanded font-extrabold text-2xl">Клиент</p>

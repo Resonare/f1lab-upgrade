@@ -7,6 +7,10 @@ import { getAll as getAllBranches } from "../data/branches.server";
 import { getAll as getAllClients } from "../data/clients.server";
 import { getAll as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllUsers } from "../data/users.server";
+import { add as addNumberInCase } from "../data/numbersInCase.server";
+import { update as updateNumberInCase } from "../data/numbersInCase.server";
+import { remove as removeNumberInCase } from "../data/numbersInCase.server";
+import { removeByCaseId as removeNumberInCaseByCaseId } from "../data/numbersInCase.server";
 import { useLoaderData } from "@remix-run/react";
 import { authCookie } from "../auth";
 
@@ -50,19 +54,54 @@ export async function action({ request }) {
     serviceIds: formData.getAll("serviceIds"),
     clientId: formData.get("clientId"),
   };
+
+  const numberInCaseIds = formData.getAll("numberInCaseIds");
+  const numberInCaseTitles = formData.getAll("numberInCaseTitles");
+  const numberInCaseBodies = formData.getAll("numberInCaseBodies");
+  const numbersInCaseData = [];
+
+  numberInCaseIds.map((numberInCaseId, index) =>
+    numbersInCaseData.push({
+      id: numberInCaseId,
+      title: numberInCaseTitles[index],
+      body: numberInCaseBodies[index],
+      caseId: formData.get("id"),
+    })
+  );
+
   const intent = formData.get("intent");
-  console.log(serviceCaseData);
+
   if (intent === "add") {
     await add(serviceCaseData);
+
+    for (let i = 0; i < numbersInCaseData.length; i++) {
+      await addNumberInCase(numbersInCaseData[i]);
+    }
+
     return { message: "case added successfully" };
   }
 
   if (intent === "update") {
     await update(serviceCaseData);
+
+    for (let i = 0; i < numbersInCaseData.length; i++) {
+      if (!numbersInCaseData[i].id) {
+        // Add new number
+        await addNumberInCase(numbersInCaseData[i]);
+      } else if (!numbersInCaseData[i].title && !numbersInCaseData[i].body) {
+        // Remove existing number if fields are empty
+        await removeNumberInCase(+numbersInCaseData[i].id);
+      } else {
+        // Update existing number
+        await updateNumberInCase(numbersInCaseData[i]);
+      }
+    }
+
     return { message: "case updated successfully" };
   }
 
   if (intent === "delete") {
+    await removeNumberInCaseByCaseId(+serviceCaseData.id);
     await remove(+serviceCaseData.id);
   }
 
