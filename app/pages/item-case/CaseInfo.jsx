@@ -113,14 +113,14 @@ const CaseInfo = () => {
       </SectionTitle>
 
       <div
-        className={`lg:${bgColor} md:pt-0 sm:pt-60 pt-0 max-sm:mx-[1px] lg:border-x border-dashed border-gray-200 lg:flex grid grid-cols-4 row-start-4 col-start-1 col-end-5`}
+        className={`lg:${bgColor} md:pt-0 sm:pt-60 pt-0 max-sm:mx-[1px] lg:border-x border-dashed border-gray-200 lg:flex lg:flex-wrap grid grid-cols-4 row-start-4 col-start-1 col-end-5`}
       >
         {selectedCase.numbers.map((numberData, index) => (
           <ContentCard
             key={index}
             className={`${
-              index != selectedCase.numbers.length - 1 && `lg:border-r`
-            } max-lg:${bgColor} lg:w-1/3 border-y`}
+              (index + 1) % 3 != 0 && `lg:border-r`
+            } max-lg:${bgColor} 2xl:w-[33.18%] lg:w-[33.13%] border-y`}
             col={
               index % 2 == 0
                 ? "col-start-1 md:col-end-3 col-end-5"
