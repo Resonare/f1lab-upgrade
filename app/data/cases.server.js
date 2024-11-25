@@ -6,6 +6,7 @@ export const getAll = async () => {
       include: {
         client: true,
         numbers: true,
+        dones: true,
         services: true,
         CasesOnServices: {
           include: {
@@ -28,6 +29,7 @@ export const getOne = async (serviceCaseId) => {
       include: {
         services: true,
         numbers: true,
+        dones: true,
         client: {
           include: {
             critiques: true,

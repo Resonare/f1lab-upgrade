@@ -10,6 +10,9 @@ import { getAll as getAllUsers } from "../data/users.server";
 import { add as addNumberInCase } from "../data/numbersInCase.server";
 import { update as updateNumberInCase } from "../data/numbersInCase.server";
 import { remove as removeNumberInCase } from "../data/numbersInCase.server";
+import { add as addDoneInCase } from "../data/doneInCase.server";
+import { update as updateDoneInCase } from "../data/doneInCase.server";
+import { remove as removeDoneInCase } from "../data/doneInCase.server";
 import { removeByCaseId as removeNumberInCaseByCaseId } from "../data/numbersInCase.server";
 import { useLoaderData } from "@remix-run/react";
 import { authCookie } from "../auth";
@@ -55,16 +58,36 @@ export async function action({ request }) {
     clientId: formData.get("clientId"),
   };
 
+  const numbersInCaseData = [];
   const numberInCaseIds = formData.getAll("numberInCaseIds");
   const numberInCaseTitles = formData.getAll("numberInCaseTitles");
   const numberInCaseBodies = formData.getAll("numberInCaseBodies");
-  const numbersInCaseData = [];
 
   numberInCaseIds.map((numberInCaseId, index) =>
     numbersInCaseData.push({
       id: numberInCaseId,
       title: numberInCaseTitles[index],
       body: numberInCaseBodies[index],
+      caseId: formData.get("id"),
+    })
+  );
+
+  const doneInCaseData = [];
+  const doneInCaseIds = formData.getAll("doneInCaseIds");
+  const doneInCaseTitles = formData.getAll("doneInCaseTitles");
+  const doneInCaseDescriptions = formData.getAll("doneInCaseDescriptions");
+  const doneInCaseIconPaths = formData.getAll("doneInCaseIconPaths");
+  const doneInCaseMobileIconPaths = formData.getAll(
+    "doneInCaseMobileIconPaths"
+  );
+
+  doneInCaseIds.map((doneInCaseId, index) =>
+    doneInCaseData.push({
+      id: doneInCaseId,
+      title: doneInCaseTitles[index],
+      description: doneInCaseDescriptions[index],
+      iconPath: doneInCaseIconPaths[index],
+      mobileIconPath: doneInCaseMobileIconPaths[index],
       caseId: formData.get("id"),
     })
   );
@@ -76,6 +99,10 @@ export async function action({ request }) {
 
     for (let i = 0; i < numbersInCaseData.length; i++) {
       await addNumberInCase(numbersInCaseData[i]);
+    }
+
+    for (let i = 0; i < doneInCaseData.length; i++) {
+      await addDoneInCase(doneInCaseData[i]);
     }
 
     return { message: "case added successfully" };
@@ -94,6 +121,19 @@ export async function action({ request }) {
       } else {
         // Update existing number
         await updateNumberInCase(numbersInCaseData[i]);
+      }
+    }
+
+    for (let i = 0; i < doneInCaseData.length; i++) {
+      if (!doneInCaseData[i].id) {
+        // Add new number
+        await addDoneInCase(doneInCaseData[i]);
+      } else if (!doneInCaseData[i].title && !doneInCaseData[i].description) {
+        // Remove existing number if fields are empty
+        await removeDoneInCase(+doneInCaseData[i].id);
+      } else {
+        // Update existing number
+        await updateDoneInCase(doneInCaseData[i]);
       }
     }
 

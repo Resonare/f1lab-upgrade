@@ -8,6 +8,7 @@ const ServiceCaseForm = ({
   branches = [],
   clients = [],
   numbersInCase = [],
+  doneInCase = [],
 }) => {
   const fetcher = useFetcher();
 
@@ -30,10 +31,18 @@ const ServiceCaseForm = ({
     numbersInCase.length + 1
   );
 
-  const handleAddNewNumberInCase = () => {
+  const handleAddNewNumberInCase = (event) => {
+    event.preventDefault();
     setNumbersInCaseCount(
       (prevNumbersInCaseCount) => prevNumbersInCaseCount + 1
     );
+  };
+
+  const [doneInCaseCount, setDoneInCaseCount] = useState(doneInCase.length + 1);
+
+  const handleAddNewDoneInCase = (event) => {
+    event.preventDefault();
+    setDoneInCaseCount((prevDoneInCaseCount) => prevDoneInCaseCount + 1);
   };
 
   const [selectedServices, setSelectedServices] = useState(
@@ -79,6 +88,22 @@ const ServiceCaseForm = ({
       formData.append("numberInCaseBodies", body);
     }
 
+    for (let i = 0; i < doneInCaseCount; i++) {
+      let id = formData.get(`doneInCaseId${i}`);
+      let title = formData.get(`doneInCaseTitle${i}`);
+      let description = formData.get(`doneInCaseDescription${i}`);
+      let iconPath = formData.get(`doneInCaseIconPath${i}`);
+      let mobileIconPath = formData.get(`doneInCaseMobileIconPath${i}`);
+
+      if (!title && !description && !id) continue;
+
+      formData.append("doneInCaseIds", id);
+      formData.append("doneInCaseTitles", title);
+      formData.append("doneInCaseDescriptions", description);
+      formData.append("doneInCaseIconPaths", iconPath);
+      formData.append("doneInCaseMobileIconPaths", mobileIconPath);
+    }
+
     fetcher.submit(formData, {
       method: "POST",
     });
@@ -90,9 +115,9 @@ const ServiceCaseForm = ({
     }
   }, [fetcher.state, fetcher.data]);
 
-  const isServiceSelected = (serviceId) => {
+  /* const isServiceSelected = (serviceId) => {
     return serviceCase.services?.some((service) => service.id === serviceId);
-  };
+    }; */
 
   return (
     <>
@@ -125,26 +150,14 @@ const ServiceCaseForm = ({
           className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
           defaultValue={serviceCase.results}
         />
-        {/* <input
-          type="text"
-          name="imageUrl"
-          placeholder="Имя файла-лого"
-          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
-          defaultValue={
-            serviceCase.imageUrl.split("/")[
-              serviceCase.imageUrl.split("/").length - 1
-            ]
-          }
-        /> */}
-
         <div className="flex flex-col gap-10">
           <p className="font-expanded font-extrabold text-2xl">Цифры</p>
-          <div
+          <button
             className="border border-dashed border-gray-200 cursor-pointer w-fit py-5 px-10"
             onClick={handleAddNewNumberInCase}
           >
             <p className="select-none">+ Добавить</p>
-          </div>
+          </button>
 
           {Array.from({ length: numbersInCaseCount }).map((_, index) => (
             <div key={index}>
@@ -174,7 +187,55 @@ const ServiceCaseForm = ({
             </div>
           ))}
         </div>
-
+        <div className="flex flex-col gap-10">
+          <p className="font-expanded font-extrabold text-2xl">
+            Что было сделано
+          </p>
+          <button
+            className="border border-dashed border-gray-200 cursor-pointer w-fit py-5 px-10"
+            onClick={handleAddNewDoneInCase}
+          >
+            <p className="select-none">+ Добавить</p>
+          </button>
+          {Array.from({ length: doneInCaseCount }).map((_, index) => (
+            <div key={index}>
+              <input
+                defaultValue={doneInCase[index]?.id}
+                type="hidden"
+                name={`doneInCaseId${index}`}
+              />
+              <input
+                defaultValue={doneInCase[index]?.title}
+                type="text"
+                name={`doneInCaseTitle${index}`}
+                placeholder="Заголовок"
+                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+              />
+              <textarea
+                defaultValue={doneInCase[index]?.description}
+                type="text"
+                rows={5}
+                name={`doneInCaseDescription${index}`}
+                placeholder="Описание"
+                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+              />
+              <input
+                defaultValue={doneInCase[index]?.iconPath}
+                type="text"
+                name={`doneInCaseIconPath${index}`}
+                placeholder="Путь до иконки"
+                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+              />
+              <input
+                defaultValue={doneInCase[index]?.mobileIconPath}
+                type="text"
+                name={`doneInCaseMobileIconPath${index}`}
+                placeholder="Путь до иконки для мобильных устройств"
+                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+              />
+            </div>
+          ))}
+        </div>
         <div className="flex flex-col gap-10">
           <p className="font-expanded font-extrabold text-2xl">Клиент</p>
           {clients.map((client) => (

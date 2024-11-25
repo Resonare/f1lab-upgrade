@@ -133,6 +133,7 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
           <ServiceCaseForm
             serviceCase={showServiceCase.serviceCase}
             numbersInCase={showServiceCase.serviceCase.numbers}
+            doneInCase={showServiceCase.serviceCase.dones}
             branches={branches}
             clients={clients}
             intent="update"
