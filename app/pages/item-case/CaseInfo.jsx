@@ -14,17 +14,6 @@ import TechTags from "../../components/misc/TechTags";
 import Tag from "../../components/misc/Tag";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 
-const DUMMY_CLIENT_DATA = {
-  critiques: [
-    {
-      avatarPath: "/images/avatars/samarga.png",
-      title: "Мария Ивановна",
-      subtitle: "CEO компании “Samarga”",
-      body: "Сотрудничество с командой F1 Lab стало настоящим прорывом для нашей компании. Мы искали партнёра, который мог бы не просто взять на себя обслуживание нашей IT-инфраструктуры, но и предложить комплексные решения для повышения эффективности бизнеса. F1 Lab превзошли наши ожидания. Благодаря их профессионализму, мы смогли сократить время простоя серверов на 80%, оптимизировать IT-расходы и значительно повысить безопасность данных.",
-    },
-  ],
-};
-
 const DUMMY_CASE_DATA = {
   technologies: [
     { title: "F1 HD", color: "bg-cloud" },
@@ -47,11 +36,6 @@ const DUMMY_CASE_DATA = {
       description:
         "Ежемесячная экономия по сравнению с затратами на самостоятельное содержание IT-отдела техподдержки.",
     },
-  ],
-  results: [
-    "Создана единая и эффективная служба техподдержки, доступная через удобные каналы связи.",
-    "Обеспечена прозрачная и понятная система отчетности, позволяющая отслеживать и анализировать обращения пользователей.",
-    "Повышено качество и скорость обработки запросов, что улучшило пользовательский опыт и лояльность сотрудников к системе.",
   ],
   done: [
     {
@@ -124,7 +108,7 @@ const CaseInfo = () => {
         </ContentCard>
       </div>
 
-      {DUMMY_CLIENT_DATA.critiques.map((critiqueData, index) => (
+      {selectedCase.client.critiques.map((critiqueData, index) => (
         <CritiqueCard
           key={index}
           className={`${bgColor} max-sm:hidden border-y max-md:border-l`}

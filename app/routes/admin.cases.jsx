@@ -26,8 +26,6 @@ export async function loader({ request }) {
 
   if (userId || users.length === 0) {
     serviceCasesData = await getAllServiceCases();
-    console.log(serviceCasesData);
-
     branchesData = await getAllBranches();
     clientsData = await getAllClients();
   } else {

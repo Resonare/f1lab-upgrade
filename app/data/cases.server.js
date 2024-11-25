@@ -26,7 +26,11 @@ export const getOne = async (serviceCaseId) => {
       where: { id: +serviceCaseId },
       include: {
         services: true,
-        client: true,
+        client: {
+          include: {
+            critiques: true,
+          },
+        },
       },
     });
 
@@ -70,9 +74,9 @@ export const add = async (serviceCaseData) => {
         },
         client: {
           connect: {
-            id: +serviceCaseData.clientId
-          }
-        }
+            id: +serviceCaseData.clientId,
+          },
+        },
       },
     });
   } catch (error) {
@@ -104,9 +108,9 @@ export const update = async (serviceCaseData) => {
         },
         client: {
           connect: {
-            id: +serviceCaseData.clientId
-          }
-        }
+            id: +serviceCaseData.clientId,
+          },
+        },
       },
     });
   } catch (error) {

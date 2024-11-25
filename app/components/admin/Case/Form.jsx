@@ -115,7 +115,6 @@ const ServiceCaseForm = ({
 
         <div className="flex flex-col gap-10">
           <p className="font-expanded font-extrabold text-2xl">Клиент</p>
-          {/* {console.log(clients)} */}
           {clients.map((client) => (
             <div key={client.id} className="flex gap-5">
               <input
