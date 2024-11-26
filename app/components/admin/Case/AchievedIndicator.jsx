@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 const AchievedIndicator = ({ index, numbersInCase }) => {
   return (
     <div className="border border-dashed p-15 my-10">
@@ -27,12 +29,16 @@ const AchievedIndicator = ({ index, numbersInCase }) => {
           rows={5}
           name={`numberInCaseBody${index}`}
           id={`numberInCaseBody${index}`}
-          placeholder="Текст"
           className="border border-gray-200 px-10 text-md font-text w-full"
         />
       </div>
     </div>
   );
+};
+
+AchievedIndicator.propTypes = {
+  index: PropTypes.number,
+  numbersInCase: PropTypes.array,
 };
 
 export default AchievedIndicator;

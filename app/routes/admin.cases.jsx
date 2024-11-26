@@ -2,7 +2,7 @@ import { redirect } from "@remix-run/node";
 import fs from "fs/promises";
 import path from "path";
 
-import { add, update, remove } from "../data/cases.server";
+import { add, update, publish, remove } from "../data/cases.server";
 import ListCases from "../components/admin/Case/List";
 
 import { getAll as getAllBranches } from "../data/branches.server";
@@ -63,6 +63,7 @@ export async function action({ request }) {
     description: formData.get("description"),
     task: formData.get("task"),
     results: formData.get("results"),
+    published: false,
     serviceIds: formData.getAll("serviceIds"),
     clientId: formData.get("clientId"),
   };
@@ -147,6 +148,10 @@ export async function action({ request }) {
     }
 
     return { message: "case updated successfully" };
+  }
+
+  if (intent === "publish") {
+    await publish(+serviceCaseData.id);
   }
 
   if (intent === "delete") {

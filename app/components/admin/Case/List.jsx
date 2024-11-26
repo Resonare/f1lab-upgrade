@@ -3,8 +3,11 @@ import { useState } from "react";
 import SecondaryButton from "../../buttons/SecondaryButton";
 
 import DeleteServiceCase from "./Delete";
+import PublishServiceCase from "./Publish";
 import AdminModal from "../Modal";
 import ServiceCaseForm from "./Form";
+
+import PropTypes from "prop-types";
 
 export default function ListCases({ items = [], branches = [], clients = [] }) {
   const [addServiceCase, setAddServiceCase] = useState(false);
@@ -16,6 +19,10 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
     serviceCase: {},
     active: false,
   });
+  const [publishServiceCase, setPublishServiceCase] = useState({
+    serviceCase: {},
+    active: false,
+  });
 
   return (
     <>
@@ -24,43 +31,30 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
           <thead>
             <tr>
               <th className="text-start">Описание</th>
-              <th className="text-start">Задача</th>
-              <th className="text-start">Результаты</th>
               <th className="text-start">Клиент</th>
-              <th className="text-start">Услуги</th>
-              <th className="text-start">Цифры в услуге</th>
+              <th className="text-start">Статус</th>
             </tr>
           </thead>
           <tbody>
             {items.map((serviceCase) => (
               <tr key={serviceCase.id} className="border-y">
-                <td>{serviceCase.description}</td>
-                <td>{serviceCase.task}</td>
-                <td>{serviceCase.results}</td>
-                <td>
-                  <ul className="list-disc ps-20">
-                    {serviceCase.client?.title}
-                  </ul>
-                </td>
-                <td>
-                  <ul className="list-disc ps-20">
-                    {serviceCase.services?.map((service) => (
-                      <li key={service.id}>{service.title}</li>
-                    ))}
-                  </ul>
-                </td>
-                <td>
-                  <ul className="list-disc ps-20">
-                    {serviceCase.numbers?.map((number) => (
-                      <li key={number.id}>
-                        <p className="font-bold">{number.title}</p>
-                        <p>{number.body}</p>
-                      </li>
-                    ))}
-                  </ul>
-                </td>
+                <td className="w-1/2">{serviceCase.description}</td>
+                <td>{serviceCase.client?.title}</td>
+                <td>{serviceCase.published ? "Опубликован" : "Черновик"}</td>
                 <td>
                   <div className="flex gap-20">
+                    <div className="hover:text-f1-light">
+                      <button
+                        onClick={() => {
+                          setPublishServiceCase({
+                            serviceCase: serviceCase,
+                            active: true,
+                          });
+                        }}
+                      >
+                        Опубликовать
+                      </button>
+                    </div>
                     <div className="text-gray-300 hover:text-f1-light">
                       <button
                         onClick={() => {
@@ -143,6 +137,14 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
           />
         </AdminModal>
       )}
+      {publishServiceCase.active && (
+        <PublishServiceCase
+          serviceCase={publishServiceCase.serviceCase}
+          closeHandler={() => {
+            setPublishServiceCase({ serviceCase: {}, active: false });
+          }}
+        />
+      )}
       {deleteServiceCase.active && (
         <DeleteServiceCase
           serviceCase={deleteServiceCase.serviceCase}
@@ -154,3 +156,9 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
     </>
   );
 }
+
+ListCases.propTypes = {
+  items: PropTypes.array,
+  branches: PropTypes.array,
+  clients: PropTypes.array,
+};

@@ -104,6 +104,7 @@ export const update = async (serviceCaseData) => {
       data: {
         description: serviceCaseData.description || "",
         task: serviceCaseData.task || "",
+        published: false,
         results: serviceCaseData.results || "",
         services: {
           connect: serviceCaseData.serviceIds.map((serviceId) => ({
@@ -122,6 +123,19 @@ export const update = async (serviceCaseData) => {
   }
 };
 
+export const publish = async (serviceCaseId) => {
+  try {
+    await prisma.serviceCase.update({
+      where: { id: serviceCaseId },
+      data: {
+        published: true,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const remove = async (serviceCaseId) => {
   try {
     const serviceCase = await prisma.serviceCase.findUnique({
@@ -132,9 +146,37 @@ export const remove = async (serviceCaseId) => {
       throw new Error(`ServiceCase with ID ${serviceCaseId} does not exist.`);
     }
 
-    await prisma.casesOnServices.deleteMany({
-      where: { caseId: serviceCaseId },
-    });
+    await prisma.$transaction([
+      prisma.casesOnServices.deleteMany({
+        where: {
+          caseId: serviceCaseId,
+        },
+      }),
+
+      prisma.casesOnTechnologies.deleteMany({
+        where: {
+          caseId: serviceCaseId,
+        },
+      }),
+
+      prisma.numberInCase.deleteMany({
+        where: {
+          caseId: serviceCaseId,
+        },
+      }),
+
+      prisma.doneInCase.deleteMany({
+        where: {
+          caseId: serviceCaseId,
+        },
+      }),
+
+      prisma.serviceCase.delete({
+        where: {
+          id: serviceCaseId,
+        },
+      }),
+    ]);
 
     const deletedServiceCase = await prisma.serviceCase.delete({
       where: { id: serviceCaseId },

@@ -16,10 +16,6 @@ export default function AdminPanel() {
 
   const navigation = [
     {
-      title: "Пользователи",
-      link: "users",
-    },
-    {
       title: "Направления",
       link: "branches",
     },
@@ -28,16 +24,20 @@ export default function AdminPanel() {
       link: "services",
     },
     {
-      title: "Кейсы",
-      link: "cases",
-    },
-    {
       title: "Клиенты",
       link: "clients",
     },
     {
       title: "Отзывы",
       link: "critiques",
+    },
+    {
+      title: "Кейсы",
+      link: "cases",
+    },
+    {
+      title: "Пользователи",
+      link: "users",
     },
   ];
 

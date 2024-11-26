@@ -48,7 +48,11 @@ const TaskDone = ({ index, doneInCase }) => {
           placeholder="Выберите иконку..."
           className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
         />
-        <ImagePicker value={iconPath} onSelect={setIconPath} />
+        <ImagePicker
+          value={iconPath}
+          onSelect={setIconPath}
+          path="/images/icon-pack"
+        />
       </div>
       <div className="mb-10">
         <label htmlFor={`doneInCaseMobileIconPath${index}`}>
@@ -66,6 +70,7 @@ const TaskDone = ({ index, doneInCase }) => {
         />
         <ImagePicker
           mobile
+          path="/images/icon-pack"
           value={mobileIconPath}
           onSelect={setMobileIconPath}
         />

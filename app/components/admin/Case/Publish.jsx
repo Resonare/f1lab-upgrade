@@ -3,15 +3,13 @@ import AdminModal from "../Modal";
 
 import PropTypes from "prop-types";
 
-const DeleteCase = ({ serviceCase = {}, closeHandler }) => {
+const PublishCase = ({ serviceCase = {}, closeHandler }) => {
   return (
     <>
       <AdminModal closeModal={closeHandler}>
-        <div className="font-title text-2xl mb-40">
-          Уверены, что хотите удалить кейс?
-        </div>
+        <div className="font-title text-2xl mb-40">Уверены?</div>
         <Form
-          method="DELETE"
+          method="POST"
           className="flex flex-col gap-20"
           onSubmit={closeHandler}
         >
@@ -27,10 +25,10 @@ const DeleteCase = ({ serviceCase = {}, closeHandler }) => {
             <button
               type="submit"
               name="intent"
-              value="delete"
-              className="rounded-md bg-alert text-gray-100 text-2xl p-10 font-text w-1/2"
+              value="publish"
+              className="rounded-md bg-f1-dark text-gray-100 text-2xl p-10 font-text w-1/2"
             >
-              Удалить
+              Опубликовать
             </button>
             <button
               onClick={closeHandler}
@@ -45,9 +43,9 @@ const DeleteCase = ({ serviceCase = {}, closeHandler }) => {
   );
 };
 
-DeleteCase.propTypes = {
+PublishCase.propTypes = {
   serviceCase: PropTypes.object,
   closeHandler: PropTypes.func,
 };
 
-export default DeleteCase;
+export default PublishCase;

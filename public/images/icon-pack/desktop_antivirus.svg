@@ -1,0 +1,12 @@
+<svg width="90" height="91" viewBox="0 0 90 91" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 15.8047C0 7.52042 6.71573 0.804688 15 0.804688H75C83.2843 0.804688 90 7.52042 90 15.8047V75.8047C90 84.089 83.2843 90.8047 75 90.8047H15C6.71573 90.8047 0 84.089 0 75.8047V15.8047Z" fill="#00FFC5"/>
+<path d="M46.5416 73.2157C45.5487 73.5988 44.4488 73.5988 43.4559 73.2157C35.7153 70.2315 29.0591 64.9743 24.3624 58.1358C19.6657 51.2973 17.1485 43.1976 17.1416 34.9016V22.3873C17.1416 21.2506 17.5931 20.1606 18.3969 19.3568C19.2006 18.5531 20.2907 18.1016 21.4273 18.1016H68.5702C69.7067 18.1016 70.797 18.5531 71.6006 19.3568C72.4042 20.1606 72.8559 21.2506 72.8559 22.3873V34.9016C72.849 43.1976 70.3316 51.2973 65.6349 58.1358C60.9386 64.9743 54.2822 70.2315 46.5416 73.2157Z" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.5706 45.7854V37.214C53.5706 32.4801 49.733 28.6426 44.9992 28.6426C40.2653 28.6426 36.4277 32.4801 36.4277 37.214V45.7854C36.4277 50.5193 40.2653 54.3569 44.9992 54.3569C49.733 54.3569 53.5706 50.5193 53.5706 45.7854Z" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M30 41.498H36.4286" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M53.5723 41.498H60.0008" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M36.4277 39.3594H53.5706" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52.7666 33.7319L57.8559 28.6426" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M52.7666 49.2676L57.8559 54.3569" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37.2309 49.2676L32.1416 54.3569" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M37.2309 33.7319L32.1416 28.6426" stroke="#22282E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

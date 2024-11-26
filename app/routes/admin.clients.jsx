@@ -1,3 +1,5 @@
+import fs from "fs/promises";
+import path from "path";
 import { redirect } from "@remix-run/node";
 
 import { add, update, remove } from "../data/clients.server";
@@ -26,9 +28,15 @@ export async function loader({ request }) {
     return redirect("/admin");
   }
 
+  const logosDirectory = path.resolve("public/images/logo");
+  const files = await fs.readdir(logosDirectory);
+
+  const logos = files.filter((file) => /\.(jpg|jpeg|png|gif|svg)$/i.test(file));
+
   return {
     isAuthed: userId | (users.length === 0),
     items: clientsData,
+    logos: logos,
   };
 }
 

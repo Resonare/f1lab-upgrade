@@ -1,9 +1,11 @@
 import { useState } from "react";
 
 import SecondaryButton from "../../buttons/SecondaryButton";
-import AddClient from "./Add";
-import UpdateClient from "./Update";
+
+import ClientForm from "./Form";
 import DeleteClient from "./Delete";
+
+import PropTypes from "prop-types";
 
 export default function ListClients({ items = [] }) {
   const [addClient, setAddClient] = useState(false);
@@ -20,16 +22,13 @@ export default function ListClients({ items = [] }) {
           <thead>
             <tr>
               <th className="text-start">Наименование</th>
-              <th className="text-start">Описание</th>
-              <th className="text-start">Путь до логотипа</th>
             </tr>
           </thead>
           <tbody>
             {items.map((client) => (
               <tr key={client.id} className="border-y ">
                 <td>{client.title}</td>
-                <td>{client.description}</td>
-                <td>{client.logoPath}</td>
+
                 <td>
                   <div className="flex gap-20">
                     <div className="text-gray-300 hover:text-f1-light">
@@ -72,15 +71,17 @@ export default function ListClients({ items = [] }) {
         </SecondaryButton>
       </div>
       {addClient && (
-        <AddClient
+        <ClientForm
+          intent="add"
           closeHandler={() => {
             setAddClient(false);
           }}
         />
       )}
       {showClient.active && (
-        <UpdateClient
+        <ClientForm
           client={showClient.client}
+          intent="update"
           closeHandler={() => {
             setShowClient({ client: {}, active: false });
           }}
@@ -97,3 +98,7 @@ export default function ListClients({ items = [] }) {
     </>
   );
 }
+
+ListClients.propTypes = {
+  items: PropTypes.array,
+};

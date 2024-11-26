@@ -16,15 +16,6 @@ const ServiceCaseForm = ({
 }) => {
   const fetcher = useFetcher();
 
-  const formOptions = {
-    buttonTitle:
-      intent === "add"
-        ? "Добавить"
-        : intent === "update"
-        ? "Изменить"
-        : "Сохранить",
-  };
-
   const [selectedClient, setSelectedClient] = useState(serviceCase.clientId);
 
   const handleClientChange = (clientId) => {
@@ -189,8 +180,7 @@ const ServiceCaseForm = ({
               rows={5}
               id="task"
               name="task"
-              placeholder="Задача"
-              className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+              className="border border-gray-200 px-10 text-md font-text w-full"
               defaultValue={serviceCase.task}
             />
           </div>
@@ -210,12 +200,6 @@ const ServiceCaseForm = ({
           <p className="font-expanded font-extrabold text-2xl">
             Достигнутые показатели
           </p>
-          <button
-            className="border border-dashed border-gray-200 cursor-pointer w-fit py-10 px-10"
-            onClick={handleAddNewNumberInCase}
-          >
-            + Добавить
-          </button>
 
           {Array.from({ length: numbersInCaseCount }).map((_, index) => (
             <AchievedIndicator
@@ -224,29 +208,35 @@ const ServiceCaseForm = ({
               numbersInCase={numbersInCase}
             />
           ))}
+          <button
+            className="border border-dashed border-gray-200 cursor-pointer w-fit py-10 px-10"
+            onClick={handleAddNewNumberInCase}
+          >
+            + Добавить
+          </button>
         </div>
         <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
           <p className="font-expanded font-extrabold text-2xl">
             Что было сделано
           </p>
+
+          {Array.from({ length: doneInCaseCount }).map((_, index) => (
+            <TaskDone key={index} index={index} doneInCase={doneInCase} />
+          ))}
           <button
             className="border border-dashed border-gray-200 cursor-pointer w-fit py-5 px-10"
             onClick={handleAddNewDoneInCase}
           >
-            <p className="select-none">+ Добавить</p>
+            + Добавить
           </button>
-          {Array.from({ length: doneInCaseCount }).map((_, index) => (
-            <TaskDone key={index} index={index} doneInCase={doneInCase} />
-          ))}
         </div>
-
         <input hidden type="text" name="intent" defaultValue={intent} />
         <input hidden type="text" name="id" defaultValue={serviceCase?.id} />
         <button
           type="submit"
-          className="bg-gray-400 text-gray-100 text-2xl p-10 font-text w-200"
+          className="bg-gray-400 text-gray-100 text-2xl p-10 font-text w-[300px]"
         >
-          {formOptions.buttonTitle}
+          Сохранить как черновик
         </button>
       </fetcher.Form>
     </>
