@@ -182,7 +182,7 @@ const CaseInfo = () => {
         </p>
       </ContentCard>
 
-      {DUMMY_CASE_DATA.done.map((doneData, index) => (
+      {selectedCase.dones.map((doneData, index) => (
         <ContentCard
           key={index}
           className={`${bgColor} max-sm:mx-[1px] border-y`}
@@ -204,7 +204,7 @@ const CaseInfo = () => {
               {doneData.description}
             </p>
             <div className="flex gap-10">
-              {doneData.tags.map((tagData, index) => (
+              {doneData.tags?.map((tagData, index) => (
                 <Tag key={index} className={tagData.color}>
                   {tagData.title}
                 </Tag>

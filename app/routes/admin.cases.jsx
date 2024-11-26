@@ -1,4 +1,6 @@
 import { redirect } from "@remix-run/node";
+import fs from "fs/promises";
+import path from "path";
 
 import { add, update, remove } from "../data/cases.server";
 import ListCases from "../components/admin/Case/List";
@@ -39,11 +41,18 @@ export async function loader({ request }) {
     return redirect("/admin");
   }
 
+  const iconsDirectory = path.resolve("public/images/icon-pack");
+  const files = await fs.readdir(iconsDirectory);
+
+  const icons = files.filter((file) => /\.(jpg|jpeg|png|gif|svg)$/i.test(file));
+
   return {
     isAuthed: userId | (users.length === 0),
     items: serviceCasesData,
     clients: clientsData,
     branches: branchesData,
+    desktopIcons: icons.filter((icon) => icon.split("_")[0] !== "mobile"),
+    mobileIcons: icons.filter((icon) => icon.split("_")[0] === "mobile"),
   };
 }
 

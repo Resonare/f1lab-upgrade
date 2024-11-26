@@ -1,5 +1,9 @@
 import { useFetcher } from "@remix-run/react";
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+
+import TaskDone from "./TaskDone";
+import AchievedIndicator from "./AchievedIndicator";
 
 const ServiceCaseForm = ({
   closeHandler,
@@ -113,7 +117,7 @@ const ServiceCaseForm = ({
     if (fetcher.state === "idle" && fetcher.data && !fetcher.data.errors) {
       closeHandler();
     }
-  }, [fetcher.state, fetcher.data]);
+  }, [fetcher.state, fetcher.data, closeHandler]);
 
   /* const isServiceSelected = (serviceId) => {
     return serviceCase.services?.some((service) => service.id === serviceId);
@@ -126,117 +130,7 @@ const ServiceCaseForm = ({
         className="flex flex-col gap-10 py-30"
         onSubmit={submitHandler}
       >
-        <textarea
-          type="text"
-          rows={5}
-          name="description"
-          placeholder="Описание"
-          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-          defaultValue={serviceCase.description}
-        />
-        <textarea
-          type="text"
-          rows={5}
-          name="task"
-          placeholder="Задача"
-          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-          defaultValue={serviceCase.task}
-        />
-        <textarea
-          type="text"
-          rows={5}
-          name="results"
-          placeholder="Что сделали"
-          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-          defaultValue={serviceCase.results}
-        />
-        <div className="flex flex-col gap-10">
-          <p className="font-expanded font-extrabold text-2xl">Цифры</p>
-          <button
-            className="border border-dashed border-gray-200 cursor-pointer w-fit py-5 px-10"
-            onClick={handleAddNewNumberInCase}
-          >
-            <p className="select-none">+ Добавить</p>
-          </button>
-
-          {Array.from({ length: numbersInCaseCount }).map((_, index) => (
-            <div key={index}>
-              <p className="font-expanded font-extrabold text-lg">
-                Столбец {index + 1}
-              </p>
-              <input
-                defaultValue={numbersInCase[index]?.id}
-                type="hidden"
-                name={`numberInCaseId${index}`}
-              />
-              <input
-                defaultValue={numbersInCase[index]?.title}
-                type="text"
-                name={`numberInCaseTitle${index}`}
-                placeholder="Заголовок"
-                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-              />
-              <textarea
-                defaultValue={numbersInCase[index]?.body}
-                type="text"
-                rows={5}
-                name={`numberInCaseBody${index}`}
-                placeholder="Текст"
-                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-              />
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-col gap-10">
-          <p className="font-expanded font-extrabold text-2xl">
-            Что было сделано
-          </p>
-          <button
-            className="border border-dashed border-gray-200 cursor-pointer w-fit py-5 px-10"
-            onClick={handleAddNewDoneInCase}
-          >
-            <p className="select-none">+ Добавить</p>
-          </button>
-          {Array.from({ length: doneInCaseCount }).map((_, index) => (
-            <div key={index}>
-              <input
-                defaultValue={doneInCase[index]?.id}
-                type="hidden"
-                name={`doneInCaseId${index}`}
-              />
-              <input
-                defaultValue={doneInCase[index]?.title}
-                type="text"
-                name={`doneInCaseTitle${index}`}
-                placeholder="Заголовок"
-                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-              />
-              <textarea
-                defaultValue={doneInCase[index]?.description}
-                type="text"
-                rows={5}
-                name={`doneInCaseDescription${index}`}
-                placeholder="Описание"
-                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-              />
-              <input
-                defaultValue={doneInCase[index]?.iconPath}
-                type="text"
-                name={`doneInCaseIconPath${index}`}
-                placeholder="Путь до иконки"
-                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-              />
-              <input
-                defaultValue={doneInCase[index]?.mobileIconPath}
-                type="text"
-                name={`doneInCaseMobileIconPath${index}`}
-                placeholder="Путь до иконки для мобильных устройств"
-                className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
-              />
-            </div>
-          ))}
-        </div>
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
           <p className="font-expanded font-extrabold text-2xl">Клиент</p>
           {clients.map((client) => (
             <div key={client.id} className="flex gap-5">
@@ -254,8 +148,7 @@ const ServiceCaseForm = ({
             </div>
           ))}
         </div>
-
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
           <p className="font-expanded font-extrabold text-2xl">Услуги</p>
           {branches.map((branch) => (
             <div key={branch.id}>
@@ -276,18 +169,98 @@ const ServiceCaseForm = ({
             </div>
           ))}
         </div>
+        <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
+          <p className="font-expanded font-extrabold text-2xl">О кейсе</p>
+          <div className="mb-10">
+            <label htmlFor="description">Описание</label>
+            <textarea
+              type="text"
+              rows={5}
+              id="description"
+              name="description"
+              className="border border-gray-200 px-10 text-md font-text w-full"
+              defaultValue={serviceCase.description}
+            />
+          </div>
+          <div className="mb-10">
+            <label htmlFor="task">Задача</label>
+            <textarea
+              type="text"
+              rows={5}
+              id="task"
+              name="task"
+              placeholder="Задача"
+              className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text w-full"
+              defaultValue={serviceCase.task}
+            />
+          </div>
+          <div className="mb-10">
+            <label htmlFor="results">Результаты</label>
+            <textarea
+              type="text"
+              rows={5}
+              id="results"
+              name="results"
+              className="border border-gray-200 px-10 text-md font-text w-full"
+              defaultValue={serviceCase.results}
+            />
+          </div>
+        </div>
+        <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
+          <p className="font-expanded font-extrabold text-2xl">
+            Достигнутые показатели
+          </p>
+          <button
+            className="border border-dashed border-gray-200 cursor-pointer w-fit py-10 px-10"
+            onClick={handleAddNewNumberInCase}
+          >
+            + Добавить
+          </button>
+
+          {Array.from({ length: numbersInCaseCount }).map((_, index) => (
+            <AchievedIndicator
+              key={index}
+              index={index}
+              numbersInCase={numbersInCase}
+            />
+          ))}
+        </div>
+        <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
+          <p className="font-expanded font-extrabold text-2xl">
+            Что было сделано
+          </p>
+          <button
+            className="border border-dashed border-gray-200 cursor-pointer w-fit py-5 px-10"
+            onClick={handleAddNewDoneInCase}
+          >
+            <p className="select-none">+ Добавить</p>
+          </button>
+          {Array.from({ length: doneInCaseCount }).map((_, index) => (
+            <TaskDone key={index} index={index} doneInCase={doneInCase} />
+          ))}
+        </div>
 
         <input hidden type="text" name="intent" defaultValue={intent} />
         <input hidden type="text" name="id" defaultValue={serviceCase?.id} />
         <button
           type="submit"
-          className="rounded-md bg-gray-400 text-gray-100 text-2xl p-10 font-text w-200"
+          className="bg-gray-400 text-gray-100 text-2xl p-10 font-text w-200"
         >
           {formOptions.buttonTitle}
         </button>
       </fetcher.Form>
     </>
   );
+};
+
+ServiceCaseForm.propTypes = {
+  closeHandler: PropTypes.func,
+  intent: PropTypes.string,
+  serviceCase: PropTypes.object,
+  branches: PropTypes.array,
+  clients: PropTypes.array,
+  numbersInCase: PropTypes.array,
+  doneInCase: PropTypes.array,
 };
 
 export default ServiceCaseForm;

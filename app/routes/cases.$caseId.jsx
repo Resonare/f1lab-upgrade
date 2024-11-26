@@ -28,7 +28,5 @@ export async function loader({ params }) {
   const selectedCase = await getCase(params.caseId);
   const allCases = await getAllServiceCases();
 
-  console.log(selectedCase);
-
   return { selectedCase, allCases };
 }

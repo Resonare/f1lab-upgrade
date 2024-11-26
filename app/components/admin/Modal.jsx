@@ -5,8 +5,8 @@ const AdminModal = ({ children, closeModal, title = "" }) => {
         <button onClick={closeModal} className="place-self-end m-10">
           Закрыть
         </button>
-        <div className="items-center justify-center px-100 pt-60 pb-90">
-          <div className="font-title text-5xl mb-40">{title}</div>
+        <div className="items-center justify-center px-60 py-20">
+          <div className="font-title text-5xl">{title}</div>
           {children}
         </div>
       </div>
