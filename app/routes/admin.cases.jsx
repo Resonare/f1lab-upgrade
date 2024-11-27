@@ -9,6 +9,7 @@ import { getAll as getAllBranches } from "../data/branches.server";
 import { getAll as getAllClients } from "../data/clients.server";
 import { getAll as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllUsers } from "../data/users.server";
+import { getAll as getAllTags } from "../data/tags.server";
 import { add as addNumberInCase } from "../data/numbersInCase.server";
 import { update as updateNumberInCase } from "../data/numbersInCase.server";
 import { remove as removeNumberInCase } from "../data/numbersInCase.server";
@@ -20,8 +21,15 @@ import { useLoaderData } from "@remix-run/react";
 import { authCookie } from "../auth";
 
 export default function Cases() {
-  const { items, branches, clients } = useLoaderData();
-  return <ListCases items={items} branches={branches} clients={clients} />;
+  const { items, branches, clients, tags } = useLoaderData();
+  return (
+    <ListCases
+      items={items}
+      branches={branches}
+      clients={clients}
+      tags={tags}
+    />
+  );
 }
 
 export async function loader({ request }) {
@@ -31,12 +39,14 @@ export async function loader({ request }) {
 
   let branchesData = [];
   let clientsData = [];
+  let tagsData = [];
   let serviceCasesData = [];
 
   if (userId || users.length === 0) {
     serviceCasesData = await getAllServiceCases();
     branchesData = await getAllBranches();
     clientsData = await getAllClients();
+    tagsData = await getAllTags();
   } else {
     return redirect("/admin");
   }
@@ -50,6 +60,7 @@ export async function loader({ request }) {
     isAuthed: userId | (users.length === 0),
     items: serviceCasesData,
     clients: clientsData,
+    tags: tagsData,
     branches: branchesData,
     desktopIcons: icons.filter((icon) => icon.split("_")[0] !== "mobile"),
     mobileIcons: icons.filter((icon) => icon.split("_")[0] === "mobile"),
@@ -65,6 +76,7 @@ export async function action({ request }) {
     results: formData.get("results"),
     published: false,
     serviceIds: formData.getAll("serviceIds"),
+    techTagIds: formData.getAll("techTagIds"),
     clientId: formData.get("clientId"),
   };
 

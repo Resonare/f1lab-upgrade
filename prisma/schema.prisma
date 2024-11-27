@@ -47,6 +47,7 @@ model Tag {
   link                String                @default("")
   addedAt             DateTime              @default(now())
   updatedAt           DateTime              @default(now())
+  cases               ServiceCase[]
   CasesOnTags         CasesOnTags[]
 }
 
@@ -64,7 +65,8 @@ model ServiceCase {
   dones               DoneInCase[]
   services            Service[]
   CasesOnServices     CasesOnServices[]
-  CasesOnTags         CasesOnTags[]
+  technologyTags      Tag[]
+  CasesOnTechnologies CasesOnTags[]
 }
 
 model CasesOnServices {

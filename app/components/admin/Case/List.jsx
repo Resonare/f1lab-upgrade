@@ -9,7 +9,12 @@ import ServiceCaseForm from "./Form";
 
 import PropTypes from "prop-types";
 
-export default function ListCases({ items = [], branches = [], clients = [] }) {
+export default function ListCases({
+  items = [],
+  branches = [],
+  clients = [],
+  tags = [],
+}) {
   const [addServiceCase, setAddServiceCase] = useState(false);
   const [showServiceCase, setShowServiceCase] = useState({
     serviceCase: {},
@@ -110,6 +115,7 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
           <ServiceCaseForm
             branches={branches}
             clients={clients}
+            tags={tags}
             intent="add"
             closeHandler={() => {
               setAddServiceCase(false);
@@ -130,6 +136,7 @@ export default function ListCases({ items = [], branches = [], clients = [] }) {
             doneInCase={showServiceCase.serviceCase.dones}
             branches={branches}
             clients={clients}
+            tags={tags}
             intent="update"
             closeHandler={() => {
               setShowServiceCase({ serviceCase: {}, active: false });

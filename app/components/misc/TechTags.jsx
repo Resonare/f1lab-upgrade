@@ -1,9 +1,11 @@
 import Tag from "./Tag";
 
 const TechTags = ({ inverseColor = false, children }) => {
-  const technologies = children;
+  if (!children || children.length == 0) return null;
 
-  if (!technologies || technologies.length == 0) return null;
+  const handleClick = (tagLink) => {
+    window.open(tagLink);
+  };
 
   return (
     <div className="flex flex-col gap-5">
@@ -15,8 +17,15 @@ const TechTags = ({ inverseColor = false, children }) => {
         Технологии
       </p>
       <div className="flex flex-wrap gap-5">
-        {technologies.map((technology, index) => (
-          <Tag key={index} className={technology.color} hoverable={false}>
+        {children.map((technology) => (
+          <Tag
+            key={technology.id}
+            className={`bg-${technology.color}`}
+            hoverable={technology.link}
+            onClick={
+              technology.link ? () => handleClick(technology.link) : null
+            }
+          >
             {technology.title}
           </Tag>
         ))}

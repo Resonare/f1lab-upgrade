@@ -14,56 +14,6 @@ import TechTags from "../../components/misc/TechTags";
 import Tag from "../../components/misc/Tag";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 
-const DUMMY_CASE_DATA = {
-  technologies: [
-    { title: "F1 HD", color: "bg-cloud" },
-    { title: "Telegram", color: "bg-cloud" },
-    { title: "PRO32 Connect", color: "bg-cloud" },
-  ],
-  done: [
-    {
-      iconPath: "/images/icons/services/audit.svg",
-      mobileIconPath: "/images/icons/services/audit-small.svg",
-      title: "Аудит:",
-      description:
-        "Провели комплексную проверку текущих процессов и систем, выявили проблемные зоны и возможности для оптимизации.",
-      tags: [{ title: "IT - аудит", color: "bg-cloud" }],
-    },
-    {
-      iconPath: "/images/icons/services/helpdesk.svg",
-      mobileIconPath: "/images/icons/services/helpdesk-small.svg",
-      title: "Единая система обработки запросов:",
-      description:
-        "Внедрили программное решение Helpdesk для консолидации всех обращений пользователей.",
-      tags: [{ title: "IT - аудит", color: "bg-cloud" }],
-    },
-    {
-      iconPath: "/images/icons/services/telephony.svg",
-      mobileIconPath: "/images/icons/services/telephony-small.svg",
-      title: "Каналы связи:",
-      description:
-        "Организовали многоканальную систему поддержки, включающую телефон, email, Telegram и веб-портал.",
-      tags: [{ title: "IT - аудит", color: "bg-cloud" }],
-    },
-    {
-      iconPath: "/images/icons/services/layers.svg",
-      mobileIconPath: "/images/icons/services/layers-small.svg",
-      title: "Многоуровневая поддержка:",
-      description:
-        "Построили систему многоуровневой поддержки, позволяющую эскалировать запросы в зависимости от их сложности.",
-      tags: [{ title: "IT - аудит", color: "bg-cloud" }],
-    },
-    {
-      iconPath: "/images/icons/services/education.svg",
-      mobileIconPath: "/images/icons/services/education-small.svg",
-      title: "Обучение пользователей:",
-      description:
-        "Провели обучающие мероприятия для повышения осведомлённости и навыков сотрудников в работе с новой системой.",
-      tags: [{ title: "IT - аудит", color: "bg-cloud" }],
-    },
-  ],
-};
-
 const CaseInfo = () => {
   const themeContext = useContext(ThemeContext);
   const [bgColor, setBgColor] = useState(themeContext.bgColor);
@@ -82,7 +32,8 @@ const CaseInfo = () => {
         >
           <div className="flex flex-col gap-30">
             <ServiceTags>{selectedCase.services}</ServiceTags>
-            <TechTags>{DUMMY_CASE_DATA.technologies}</TechTags>
+            {console.log(selectedCase.technologyTags)}
+            <TechTags>{selectedCase.technologyTags}</TechTags>
           </div>
         </ContentCard>
 

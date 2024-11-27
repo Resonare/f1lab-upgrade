@@ -13,6 +13,12 @@ export const getAll = async () => {
             case: true,
           },
         },
+        technologyTags: true,
+        CasesOnTechnologies: {
+          include: {
+            tag: true,
+          },
+        },
       },
     });
 
@@ -28,6 +34,7 @@ export const getOne = async (serviceCaseId) => {
       where: { id: +serviceCaseId },
       include: {
         services: true,
+        technologyTags: true,
         numbers: true,
         dones: true,
         client: {
@@ -76,6 +83,11 @@ export const add = async (serviceCaseData) => {
             id: +serviceId,
           })),
         },
+        technologyTags: {
+          connect: serviceCaseData.techTagIds.map((tagId) => ({
+            id: +tagId,
+          })),
+        },
         client: {
           connect: {
             id: +serviceCaseData.clientId,
@@ -96,6 +108,9 @@ export const update = async (serviceCaseData) => {
         services: {
           set: [], // This removes all existing connections
         },
+        technologyTags: {
+          set: [], // This removes all existing connections
+        },
       },
     });
 
@@ -109,6 +124,11 @@ export const update = async (serviceCaseData) => {
         services: {
           connect: serviceCaseData.serviceIds.map((serviceId) => ({
             id: +serviceId,
+          })),
+        },
+        technologyTags: {
+          connect: serviceCaseData.techTagIds.map((tagId) => ({
+            id: +tagId,
           })),
         },
         client: {

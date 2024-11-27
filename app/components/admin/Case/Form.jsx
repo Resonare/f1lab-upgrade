@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 
 import TaskDone from "./TaskDone";
 import AchievedIndicator from "./AchievedIndicator";
+import Tag from "../../misc/Tag";
 
 const ServiceCaseForm = ({
   closeHandler,
@@ -11,6 +12,7 @@ const ServiceCaseForm = ({
   serviceCase = {},
   branches = [],
   clients = [],
+  tags = [],
   numbersInCase = [],
   doneInCase = [],
 }) => {
@@ -56,6 +58,22 @@ const ServiceCaseForm = ({
     });
   };
 
+  const [selectedTechTags, setSelectedTechTags] = useState(
+    new Set(serviceCase.technologyTags?.map((tag) => tag.id) || [])
+  );
+
+  const handleSelectTechTag = (tagId) => {
+    setSelectedTechTags((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(tagId)) {
+        newSet.delete(tagId);
+      } else {
+        newSet.add(tagId);
+      }
+      return newSet;
+    });
+  };
+
   const submitHandler = (event) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -69,6 +87,11 @@ const ServiceCaseForm = ({
     // Add all selected services
     selectedServices.forEach((serviceId) => {
       formData.append("serviceIds", serviceId);
+    });
+
+    // Add all selected tech tags
+    selectedTechTags.forEach((tagId) => {
+      formData.append("techTagIds", tagId);
     });
 
     for (let i = 0; i < numbersInCaseCount; i++) {
@@ -196,6 +219,34 @@ const ServiceCaseForm = ({
             />
           </div>
         </div>
+
+        <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
+          <p className="font-expanded font-extrabold text-2xl">
+            Тэги технологий
+          </p>
+          <p>Нажмите на тэг, чтобы выбрать</p>
+
+          <div className="flex">
+            {tags.map((tagData) => (
+              <div
+                key={tagData.id}
+                className={
+                  selectedTechTags.has(tagData.id)
+                    ? `border-[5px] border-gray-400`
+                    : `p-5`
+                }
+              >
+                <Tag
+                  className={`bg-${tagData.color} w-fit select-none`}
+                  onClick={() => handleSelectTechTag(tagData.id)}
+                >
+                  {tagData.title}
+                </Tag>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
           <p className="font-expanded font-extrabold text-2xl">
             Достигнутые показатели

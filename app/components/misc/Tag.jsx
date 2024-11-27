@@ -2,13 +2,16 @@ const Tag = ({
   className = "",
   hoverable = true,
   inverseColor = false,
+  onClick,
   children,
 }) => {
   return (
     <div
       className={`${
-        hoverable && `group hover:text-gray-400 hover:bg-f1-light cursor-pointer`
+        hoverable &&
+        `group hover:text-gray-400 hover:bg-f1-light cursor-pointer select-none`
       } p-5 rounded-[5px] shadow transition-all ${className}`}
+      onClick={onClick}
     >
       <p
         className={`${inverseColor && `text-gray-100`} ${
