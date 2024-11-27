@@ -45,6 +45,7 @@ model Tag {
   title               String                @unique
   color               String                @default("gray-100")
   link                String                @default("")
+  inverseColor        Boolean               @default(false)
   addedAt             DateTime              @default(now())
   updatedAt           DateTime              @default(now())
   cases               ServiceCase[]

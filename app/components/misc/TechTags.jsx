@@ -22,6 +22,7 @@ const TechTags = ({ inverseColor = false, children }) => {
             key={technology.id}
             className={`bg-${technology.color}`}
             hoverable={technology.link}
+            inverseColor={technology.inverseColor}
             onClick={
               technology.link ? () => handleClick(technology.link) : null
             }

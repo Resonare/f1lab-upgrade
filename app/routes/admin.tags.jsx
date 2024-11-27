@@ -38,6 +38,8 @@ export async function action({ request }) {
   const formData = await request.formData();
   const tagData = Object.fromEntries(formData);
 
+  tagData.inverseColor = tagData.inverseColor == "on";
+
   const intent = formData.get("intent");
 
   if (intent === "add") {

@@ -35,7 +35,11 @@ export default function ListTags({ items = [] }) {
                 <td>{tag.color}</td>
                 <td>{tag.link}</td>
                 <td>
-                  <Tag className={`bg-${tag.color} w-fit`} hoverable={false}>
+                  <Tag
+                    className={`bg-${tag.color} w-fit`}
+                    inverseColor={tag.inverseColor}
+                    hoverable={false}
+                  >
                     {tag.title}
                   </Tag>
                 </td>

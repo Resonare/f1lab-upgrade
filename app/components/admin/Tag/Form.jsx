@@ -11,6 +11,13 @@ const TagForm = ({ tag = {}, intent = "update", closeHandler }) => {
       : intent === "update"
       ? "Изменить тэг"
       : "Удалить тэг";
+
+  const [inverseColor, setInverseColor] = useState(tag.inverseColor);
+
+  const handleInverseColorChange = () => {
+    setInverseColor((prev) => !prev);
+  };
+
   return (
     <>
       <AdminModal title={title} closeModal={closeHandler}>
@@ -29,6 +36,7 @@ const TagForm = ({ tag = {}, intent = "update", closeHandler }) => {
               className="border border-gray-200 px-10 text-md font-text h-40 w-full "
             />
           </div>
+
           <div className="mb-10">
             <label htmlFor="color">Цвет</label>
             <input
@@ -39,6 +47,7 @@ const TagForm = ({ tag = {}, intent = "update", closeHandler }) => {
               className="border border-gray-200 px-10 text-md font-text h-40 w-full "
             />
           </div>
+
           <div className="mb-10">
             <label htmlFor="link">Ссылка</label>
             <input
@@ -49,6 +58,20 @@ const TagForm = ({ tag = {}, intent = "update", closeHandler }) => {
               className="border border-gray-200 px-10 text-md font-text h-40 w-full "
             />
           </div>
+
+          <div className="mb-10 flex gap-10">
+            <label className="select-none" htmlFor="inverseColor">
+              Инвертированный цвет
+            </label>
+            <input
+              checked={inverseColor}
+              type="checkbox"
+              name="inverseColor"
+              id="inverseColor"
+              onChange={handleInverseColorChange}
+            />
+          </div>
+
           <input hidden type="text" name="intent" defaultValue={intent} />
           <input hidden type="text" name="id" defaultValue={tag.id} />
           <div className="flex gap-20">

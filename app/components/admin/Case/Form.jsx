@@ -238,6 +238,7 @@ const ServiceCaseForm = ({
               >
                 <Tag
                   className={`bg-${tagData.color} w-fit select-none`}
+                  inverseColor={tagData.inverseColor}
                   onClick={() => handleSelectTechTag(tagData.id)}
                 >
                   {tagData.title}

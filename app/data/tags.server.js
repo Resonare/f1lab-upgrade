@@ -17,6 +17,7 @@ export const add = async (tagData) => {
         title: tagData.title,
         color: tagData.color,
         link: tagData.link,
+        inverseColor: tagData.inverseColor,
       },
     });
   } catch (error) {
@@ -32,6 +33,7 @@ export const update = async (tagData) => {
         title: tagData.title,
         color: tagData.color,
         link: tagData.link,
+        inverseColor: tagData.inverseColor,
       },
     });
   } catch (error) {
