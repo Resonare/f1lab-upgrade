@@ -39,6 +39,10 @@ export default function AdminPanel() {
       title: "Пользователи",
       link: "users",
     },
+    {
+      title: "Тэги",
+      link: "tags",
+    },
   ];
 
   return (

@@ -40,11 +40,14 @@ model Service {
   CasesOnServices CasesOnServices[]
 }
 
-model Technology {
+model Tag {
   id                  Int                   @id @default(autoincrement())
   title               String                @unique
   color               String                @default("gray-100")
-  CasesOnTechnologies CasesOnTechnologies[]
+  link                String                @default("")
+  addedAt             DateTime              @default(now())
+  updatedAt           DateTime              @default(now())
+  CasesOnTags         CasesOnTags[]
 }
 
 model ServiceCase {
@@ -61,7 +64,7 @@ model ServiceCase {
   dones               DoneInCase[]
   services            Service[]
   CasesOnServices     CasesOnServices[]
-  CasesOnTechnologies CasesOnTechnologies[]
+  CasesOnTags         CasesOnTags[]
 }
 
 model CasesOnServices {
@@ -75,15 +78,15 @@ model CasesOnServices {
   @@id([serviceId, caseId])
 }
 
-model CasesOnTechnologies {
-  technology   Technology  @relation(fields: [technologyId], references: [id])
-  technologyId Int
+model CasesOnTags {
+  tag          Tag  @relation(fields: [tagId], references: [id])
+  tagId        Int
   case         ServiceCase @relation(fields: [caseId], references: [id])
   caseId       Int
   assignedAt   DateTime    @default(now())
   assignedBy   String
 
-  @@id([technologyId, caseId])
+  @@id([tagId, caseId])
 }
 
 model Client {
