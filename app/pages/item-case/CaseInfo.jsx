@@ -8,9 +8,7 @@ import { ThemeContext } from "../../store/theme-context";
 import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
 import ContentCard from "../../components/cards/ContentCard";
-import ServiceTags from "../../components/misc/ServiceTags";
 import CritiqueCard from "../../components/cards/CritiqueCard";
-import TechTags from "../../components/misc/TechTags";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import TagContainer from "../../components/misc/TagContainer";
 
@@ -31,8 +29,12 @@ const CaseInfo = () => {
           hideIconOnMobile={false}
         >
           <div className="flex flex-col gap-30">
-            <ServiceTags>{selectedCase.services}</ServiceTags>
-            <TechTags>{selectedCase.technologyTags}</TechTags>
+            <TagContainer title="Услуги в кейсе">
+              {selectedCase.services.map((service) => service.tag)}
+            </TagContainer>
+            <TagContainer title="Технологии">
+              {selectedCase.technologyTags}
+            </TagContainer>
           </div>
         </ContentCard>
 

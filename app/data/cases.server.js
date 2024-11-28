@@ -7,7 +7,7 @@ export const getAll = async () => {
         client: true,
         numbers: true,
         dones: { include: { tags: true } },
-        services: true,
+        services: { include: { tag: true } },
         CasesOnServices: {
           include: {
             case: true,
@@ -33,7 +33,7 @@ export const getOne = async (serviceCaseId) => {
     const serviceCase = await prisma.serviceCase.findUnique({
       where: { id: +serviceCaseId },
       include: {
-        services: true,
+        services: { include: { tag: true } },
         technologyTags: true,
         numbers: true,
         dones: { include: { tags: true } },
@@ -46,26 +46,6 @@ export const getOne = async (serviceCaseId) => {
     });
 
     return serviceCase;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export const getByService = async (service) => {
-  try {
-    const serviceCases = await prisma.serviceCase.findMany({
-      include: {
-        client: true,
-        services: true,
-        CasesOnServices: {
-          include: {
-            case: true,
-          },
-        },
-      },
-    });
-
-    return serviceCases;
   } catch (error) {
     console.log(error);
   }

@@ -1,6 +1,6 @@
 import Tag from "./Tag";
 
-const TechTags = ({ children }) => {
+const TechTags = ({ title, inverseColor = false, children }) => {
   if (!children || children.length == 0) return null;
 
   const handleClick = (tagLink) => {
@@ -8,18 +8,27 @@ const TechTags = ({ children }) => {
   };
 
   return (
-    <div className="flex flex-wrap gap-5">
-      {children.map((tag) => (
-        <Tag
-          key={tag.id}
-          className={`bg-${tag.color}`}
-          hoverable={tag.link}
-          inverseColor={tag.inverseColor}
-          onClick={tag.link ? () => handleClick(tag.link) : null}
-        >
-          {tag.title}
-        </Tag>
-      ))}
+    <div className="flex flex-col gap-5">
+      <p
+        className={`${
+          inverseColor && `text-gray-100`
+        } font-text font-normal text-sm leading-tight`}
+      >
+        {title}
+      </p>
+      <div className="flex flex-wrap gap-5">
+        {children.map((tag) => (
+          <Tag
+            key={tag.id}
+            className={`bg-${tag.color}`}
+            hoverable={tag.link}
+            inverseColor={tag.inverseColor}
+            onClick={tag.link ? () => handleClick(tag.link) : null}
+          >
+            {tag.title}
+          </Tag>
+        ))}
+      </div>
     </div>
   );
 };

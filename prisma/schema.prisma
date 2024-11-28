@@ -32,11 +32,13 @@ model Service {
   id              Int               @id @default(autoincrement())
   title           String            @default("")
   link            String            @default("")
-  cases           ServiceCase[]
-  branch          Branch            @relation(fields: [branchId], references: [id])
-  branchId        Int
   addedAt         DateTime          @default(now())
   updatedAt       DateTime          @default(now())
+  branch          Branch            @relation(fields: [branchId], references: [id])
+  branchId        Int
+  tag             Tag?               @relation(fields: [tagId], references: [id])
+  tagId           Int?               @unique
+  cases           ServiceCase[]
   CasesOnServices CasesOnServices[]
 }
 
@@ -48,6 +50,7 @@ model Tag {
   inverseColor        Boolean               @default(false)
   addedAt             DateTime              @default(now())
   updatedAt           DateTime              @default(now())
+  service             Service?
   cases               ServiceCase[]
   CasesOnTags         CasesOnTags[]
   doneInCase          DoneInCase[]
@@ -63,7 +66,7 @@ model ServiceCase {
   addedAt             DateTime              @default(now())
   updatedAt           DateTime              @default(now())
   client              Client                @relation(fields: [clientId], references: [id])
-  clientId            Int                   @default(-1)
+  clientId            Int
   numbers             NumberInCase[]
   dones               DoneInCase[]
   services            Service[]

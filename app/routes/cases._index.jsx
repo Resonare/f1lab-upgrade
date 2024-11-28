@@ -2,6 +2,7 @@ import Cases from "../pages/portfolio/Cases";
 import Pockets from "../pages/portfolio/Pockets";
 
 import { getAll as getAllCases } from "../data/cases.server";
+import { getAll as getAllBranches } from "../data/branches.server";
 
 export const meta = () => {
   return [{ title: "F1LAB" }, { name: "Кейсы", content: "Welcome to Remix!" }];
@@ -18,6 +19,7 @@ export default function Portfolio() {
 
 export async function loader() {
   const casesData = await getAllCases();
+  const branchesData = await getAllBranches();
 
-  return casesData;
+  return { casesData, branchesData };
 }

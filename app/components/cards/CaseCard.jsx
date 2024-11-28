@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import ArrowURSecondary from "../misc/svg/ArrowURSecondary";
-import ServiceTags from "../misc/ServiceTags";
+import TagContainer from "../../components/misc/TagContainer";
 
 import { ThemeContext } from "../../store/theme-context";
 import { LazyImage } from "../LazyImage";
@@ -10,16 +10,14 @@ import { NavLink } from "@remix-run/react";
 const CaseCard = ({
   row = "",
   col = "",
-  tags = [],
-  caseDataId,
-  logoPath,
+  caseData,
   className = "",
   outerClassName = "",
-  currentLocation = "",
   inverseColor = false,
-  children,
 }) => {
   const { bgColor } = useContext(ThemeContext);
+
+  if (!caseData) return;
 
   return (
     <div className={`${row} ${col} ${outerClassName} group bg-gray-400`}>
@@ -29,14 +27,14 @@ const CaseCard = ({
         } cursor-pointer h-full border-dashed sm:rounded-xl`}
       >
         <NavLink
-          to={String(caseDataId)}
+          to={String(caseData.id)}
           className={`hover:sm:bg-striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] sm:group h-full xl:p-30 p-15 gap-60 flex flex-col max-sm:justify-between transition-all duration-300`}
         >
-          {logoPath && (
+          {caseData.client.logoPath && (
             <div className="flex justify-between">
               <LazyImage
                 className={inverseColor ? `invert` : ``}
-                src={`${logoPath}`}
+                src={`${caseData.client.logoPath}`}
                 alt=""
               />
               <ArrowURSecondary
@@ -55,10 +53,12 @@ const CaseCard = ({
                 inverseColor ? `text-gray-100` : `text-gray-400`
               } sm:text-base sm:font-light font-[350] font-text sm:leading-relaxed leading-tight`}
             >
-              {children}
+              {caseData.description}
             </div>
 
-            <ServiceTags inverseColor={inverseColor}>{tags}</ServiceTags>
+            <TagContainer title="Услуги в кейсе">
+              {caseData?.services.map((service) => service.tag)}
+            </TagContainer>
           </div>
         </NavLink>
       </div>

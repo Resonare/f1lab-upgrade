@@ -101,8 +101,6 @@ export const remove = async (doneInCaseId) => {
       }),
       prisma.doneInCase.delete({ where: { id: doneInCaseId } }),
     ]);
-
-    await prisma.doneInCase.delete({ where: { id: doneInCaseId } });
   } catch (error) {
     console.log(error);
   }

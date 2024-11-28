@@ -1,4 +1,4 @@
-import { useLoaderData, useLocation } from "@remix-run/react";
+import { useLoaderData } from "@remix-run/react";
 
 import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
@@ -8,11 +8,6 @@ import Carousel from "../../components/misc/Carousel";
 
 const Cases = () => {
   const { allCases } = useLoaderData();
-
-  const location = useLocation();
-  const { pathname } = location;
-  const path = pathname.split("/");
-  const currentLocation = path[path.length - 1];
 
   return (
     <>
@@ -28,16 +23,11 @@ const Cases = () => {
         <div className="row-start-2 col-start-1 col-end-5 flex flex-wrap">
           {allCases.map((serviceCase) => (
             <CaseCard
+              key={serviceCase.id}
               className="border mr-[-1px]"
               outerClassName="mt-[-1px] mb-[-1px] lg:w-1/3 w-1/2"
-              caseDataId={serviceCase.id}
-              key={serviceCase.id}
-              tags={serviceCase.services}
-              logoPath={serviceCase.imageUrl}
-              currentLocation={currentLocation}
-            >
-              {serviceCase.description}
-            </CaseCard>
+              caseData={serviceCase}
+            />
           ))}
         </div>
 
@@ -57,16 +47,12 @@ const Cases = () => {
         <Carousel>
           {allCases.map((serviceCase, index) => (
             <CaseCard
+              key={serviceCase.id}
               className={`${index != allCases.length - 1 && `border-r`} ${
                 index != 0 && `border-l`
               } mr-[-1px]`}
-              key={serviceCase.id}
-              tags={serviceCase.services}
-              logoPath={serviceCase.imageUrl}
-              currentLocation={currentLocation}
-            >
-              {serviceCase.description}
-            </CaseCard>
+              caseData={serviceCase}
+            />
           ))}
         </Carousel>
 
