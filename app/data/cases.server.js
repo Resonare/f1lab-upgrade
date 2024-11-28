@@ -5,20 +5,10 @@ export const getAll = async () => {
     const serviceCases = await prisma.serviceCase.findMany({
       include: {
         client: true,
+        services: { include: { tag: true } },
+        technologyTags: true,
         numbers: true,
         dones: { include: { tags: true } },
-        services: { include: { tag: true } },
-        CasesOnServices: {
-          include: {
-            case: true,
-          },
-        },
-        technologyTags: true,
-        CasesOnTechnologies: {
-          include: {
-            tag: true,
-          },
-        },
       },
     });
 
@@ -37,11 +27,7 @@ export const getOne = async (serviceCaseId) => {
         technologyTags: true,
         numbers: true,
         dones: { include: { tags: true } },
-        client: {
-          include: {
-            critiques: true,
-          },
-        },
+        client: { include: { critiques: true } },
       },
     });
 
@@ -147,18 +133,6 @@ export const remove = async (serviceCaseId) => {
     }
 
     await prisma.$transaction([
-      prisma.casesOnServices.deleteMany({
-        where: {
-          caseId: serviceCaseId,
-        },
-      }),
-
-      prisma.casesOnTechnologies.deleteMany({
-        where: {
-          caseId: serviceCaseId,
-        },
-      }),
-
       prisma.numberInCase.deleteMany({
         where: {
           caseId: serviceCaseId,
@@ -177,13 +151,6 @@ export const remove = async (serviceCaseId) => {
         },
       }),
     ]);
-
-    const deletedServiceCase = await prisma.serviceCase.delete({
-      where: { id: serviceCaseId },
-    });
-
-    console.log("ServiceCase and related records deleted:", deletedServiceCase);
-    return deletedServiceCase;
   } catch (error) {
     console.log(error);
   }

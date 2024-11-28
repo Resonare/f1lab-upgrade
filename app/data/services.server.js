@@ -7,11 +7,6 @@ export const getAll = async () => {
         branch: true,
         tag: true,
         cases: true,
-        CasesOnServices: {
-          include: {
-            case: true,
-          },
-        },
       },
     });
 
@@ -94,9 +89,11 @@ export const remove = async (serviceId) => {
       where: { id: serviceId },
     });
 
+    const tagId = service.tagId;
+
     await prisma.$transaction([
-      prisma.tag.delete({ where: { id: service.tagId } }),
       prisma.service.delete({ where: { id: serviceId } }),
+      prisma.tag.delete({ where: { id: tagId } }),
     ]);
   } catch (error) {
     console.log(error);

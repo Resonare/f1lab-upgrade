@@ -5,11 +5,6 @@ export const getAll = async () => {
     const doneInCase = await prisma.doneInCase.findMany({
       include: {
         tags: true,
-        DoneOnTags: {
-          include: {
-            tag: true,
-          },
-        },
       },
     });
 
@@ -23,6 +18,9 @@ export const getAllByCaseId = async (caseId) => {
   try {
     const doneInCase = await prisma.doneInCase.findMany({
       where: { caseId: caseId },
+      include: {
+        tags: true,
+      },
     });
 
     return doneInCase;
@@ -93,14 +91,11 @@ export const update = async (doneInCaseData) => {
 
 export const remove = async (doneInCaseId) => {
   try {
-    await prisma.$transaction([
-      prisma.doneOnTags.deleteMany({
-        where: {
-          doneId: doneInCaseId,
-        },
-      }),
-      prisma.doneInCase.delete({ where: { id: doneInCaseId } }),
-    ]);
+    await prisma.doneInCase.delete({
+      where: {
+        id: doneInCaseId,
+      },
+    });
   } catch (error) {
     console.log(error);
   }
@@ -108,7 +103,11 @@ export const remove = async (doneInCaseId) => {
 
 export const removeByCaseId = async (caseId) => {
   try {
-    await prisma.doneInCase.delete({ where: { caseId: caseId } });
+    await prisma.doneInCase.delete({
+      where: {
+        caseId: caseId,
+      },
+    });
   } catch (error) {
     console.log(error);
   }

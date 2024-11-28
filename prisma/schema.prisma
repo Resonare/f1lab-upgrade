@@ -36,10 +36,9 @@ model Service {
   updatedAt       DateTime          @default(now())
   branch          Branch            @relation(fields: [branchId], references: [id])
   branchId        Int
-  tag             Tag?               @relation(fields: [tagId], references: [id])
-  tagId           Int?               @unique
+  tag             Tag               @relation(fields: [tagId], references: [id])
+  tagId           Int               @unique
   cases           ServiceCase[]
-  CasesOnServices CasesOnServices[]
 }
 
 model Tag {
@@ -52,9 +51,7 @@ model Tag {
   updatedAt           DateTime              @default(now())
   service             Service?
   cases               ServiceCase[]
-  CasesOnTags         CasesOnTags[]
   doneInCase          DoneInCase[]
-  DoneOnTags          DoneOnTags[]
 }
 
 model ServiceCase {
@@ -70,31 +67,7 @@ model ServiceCase {
   numbers             NumberInCase[]
   dones               DoneInCase[]
   services            Service[]
-  CasesOnServices     CasesOnServices[]
   technologyTags      Tag[]
-  CasesOnTechnologies CasesOnTags[]
-}
-
-model CasesOnServices {
-  service    Service     @relation(fields: [serviceId], references: [id])
-  serviceId  Int
-  case       ServiceCase @relation(fields: [caseId], references: [id])
-  caseId     Int
-  assignedAt DateTime    @default(now())
-  assignedBy String
-
-  @@id([serviceId, caseId])
-}
-
-model CasesOnTags {
-  tag          Tag         @relation(fields: [tagId], references: [id])
-  tagId        Int
-  case         ServiceCase @relation(fields: [caseId], references: [id])
-  caseId       Int
-  assignedAt   DateTime    @default(now())
-  assignedBy   String
-
-  @@id([tagId, caseId])
 }
 
 model Client {
@@ -141,16 +114,4 @@ model DoneInCase {
   case           ServiceCase @relation(fields: [caseId], references: [id])
   caseId         Int
   tags           Tag[]
-  DoneOnTags     DoneOnTags[]
-}
-
-model DoneOnTags {
-  tag          Tag        @relation(fields: [tagId], references: [id])
-  tagId        Int
-  done         DoneInCase @relation(fields: [doneId], references: [id])
-  doneId       Int
-  assignedAt   DateTime   @default(now())
-  assignedBy   String
-
-  @@id([tagId, doneId])
 }

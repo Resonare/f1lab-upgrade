@@ -61,7 +61,11 @@ export const update = async (numberInCaseData) => {
 
 export const remove = async (numberInCaseId) => {
   try {
-    await prisma.numberInCase.delete({ where: { id: numberInCaseId } });
+    await prisma.numberInCase.delete({
+      where: {
+        id: numberInCaseId,
+      },
+    });
   } catch (error) {
     console.log(error);
   }
@@ -69,7 +73,11 @@ export const remove = async (numberInCaseId) => {
 
 export const removeByCaseId = async (caseId) => {
   try {
-    await prisma.numberInCase.delete({ where: { caseId: caseId } });
+    await prisma.numberInCase.delete({
+      where: {
+        caseId: caseId,
+      },
+    });
   } catch (error) {
     console.log(error);
   }

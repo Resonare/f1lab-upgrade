@@ -8,7 +8,7 @@ export const getAll = async () => {
         critiques: true,
       },
     });
-    
+
     return clients;
   } catch (error) {
     console.log(error);
@@ -46,7 +46,19 @@ export const update = async (clientData) => {
 
 export const remove = async (clientId) => {
   try {
-    await prisma.client.delete({ where: { id: clientId } });
+    await prisma.$transaction([
+      prisma.critique.deleteMany({
+        where: {
+          clientId: clientId,
+        },
+      }),
+
+      prisma.client.delete({
+        where: {
+          id: clientId,
+        },
+      }),
+    ]);
   } catch (error) {
     console.log(error);
   }

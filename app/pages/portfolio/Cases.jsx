@@ -78,6 +78,7 @@ const Cases = () => {
 
         {branchesData.map((branchData) => (
           <SwitchButton
+            key={branchData.id}
             selected={branch == branchData.id}
             textColor={`text-${branchData.color}`}
             selectedColor="bg-gray-100"
