@@ -102,6 +102,7 @@ export async function action({ request }) {
   const doneInCaseMobileIconPaths = formData.getAll(
     "doneInCaseMobileIconPaths"
   );
+  const doneInCaseTags = formData.getAll("doneInCaseTags");
 
   doneInCaseIds.map((doneInCaseId, index) =>
     doneInCaseData.push({
@@ -111,6 +112,7 @@ export async function action({ request }) {
       iconPath: doneInCaseIconPaths[index],
       mobileIconPath: doneInCaseMobileIconPaths[index],
       caseId: formData.get("id"),
+      tagIds: doneInCaseTags[index].split("|").filter((tagId) => tagId),
     })
   );
 

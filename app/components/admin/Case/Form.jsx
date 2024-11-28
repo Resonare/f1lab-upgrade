@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import TaskDone from "./TaskDone";
 import AchievedIndicator from "./AchievedIndicator";
-import Tag from "../../misc/Tag";
+import TagPicker from "../TagPicker";
 
 const ServiceCaseForm = ({
   closeHandler,
@@ -39,6 +39,7 @@ const ServiceCaseForm = ({
 
   const handleAddNewDoneInCase = (event) => {
     event.preventDefault();
+    setSelectedDoneTags((prev) => [...prev, []]);
     setDoneInCaseCount((prevDoneInCaseCount) => prevDoneInCaseCount + 1);
   };
 
@@ -71,6 +72,26 @@ const ServiceCaseForm = ({
         newSet.add(tagId);
       }
       return newSet;
+    });
+  };
+
+  const [selectedDoneTags, setSelectedDoneTags] = useState(
+    Array.from({ length: doneInCaseCount }).map(
+      (_, index) => new Set(doneInCase[index]?.tags?.map((tag) => tag.id) || [])
+    )
+  );
+
+  const handleSelectDoneTag = (doneIndex, tagId) => {
+    setSelectedDoneTags((prev) => {
+      const newArray = [...prev];
+      const newSet = new Set(prev[doneIndex]);
+      if (newSet.has(tagId)) {
+        newSet.delete(tagId);
+      } else {
+        newSet.add(tagId);
+      }
+      newArray[doneIndex] = newSet;
+      return newArray;
     });
   };
 
@@ -120,6 +141,7 @@ const ServiceCaseForm = ({
       formData.append("doneInCaseDescriptions", description);
       formData.append("doneInCaseIconPaths", iconPath);
       formData.append("doneInCaseMobileIconPaths", mobileIconPath);
+      formData.append("doneInCaseTags", [...selectedDoneTags[i]].join("|"));
     }
 
     fetcher.submit(formData, {
@@ -225,27 +247,11 @@ const ServiceCaseForm = ({
             Тэги технологий
           </p>
           <p>Нажмите на тэг, чтобы выбрать</p>
-
-          <div className="flex">
-            {tags.map((tagData) => (
-              <div
-                key={tagData.id}
-                className={
-                  selectedTechTags.has(tagData.id)
-                    ? `border-[5px] border-gray-400`
-                    : `p-5`
-                }
-              >
-                <Tag
-                  className={`bg-${tagData.color} w-fit select-none`}
-                  inverseColor={tagData.inverseColor}
-                  onClick={() => handleSelectTechTag(tagData.id)}
-                >
-                  {tagData.title}
-                </Tag>
-              </div>
-            ))}
-          </div>
+          <TagPicker
+            tags={tags}
+            selectedTags={selectedTechTags}
+            handleSelectTag={handleSelectTechTag}
+          />
         </div>
 
         <div className="flex flex-col gap-10 border border-dashed p-15 my-10">
@@ -273,7 +279,14 @@ const ServiceCaseForm = ({
           </p>
 
           {Array.from({ length: doneInCaseCount }).map((_, index) => (
-            <TaskDone key={index} index={index} doneInCase={doneInCase} />
+            <TaskDone
+              key={index}
+              index={index}
+              doneInCase={doneInCase}
+              handleSelectTag={(tagId) => handleSelectDoneTag(index, tagId)}
+              selectedTags={selectedDoneTags[index]}
+              tags={tags}
+            />
           ))}
           <button
             className="border border-dashed border-gray-200 cursor-pointer w-fit py-5 px-10"

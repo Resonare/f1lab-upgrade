@@ -1,12 +1,21 @@
 import { useState } from "react";
 import ImagePicker from "../ImagePicker";
+import TagPicker from "../TagPicker";
+
 import PropTypes from "prop-types";
 
-const TaskDone = ({ index, doneInCase }) => {
+const TaskDone = ({
+  index,
+  doneInCase,
+  handleSelectTag,
+  selectedTags,
+  tags,
+}) => {
   const [iconPath, setIconPath] = useState(doneInCase[index]?.iconPath || "");
   const [mobileIconPath, setMobileIconPath] = useState(
     doneInCase[index]?.mobileIconPath || ""
   );
+
   return (
     <div className="border border-dashed p-15 my-10">
       <input
@@ -32,6 +41,14 @@ const TaskDone = ({ index, doneInCase }) => {
           rows={5}
           name={`doneInCaseDescription${index}`}
           className="border border-gray-200 px-10 text-md font-text w-full"
+        />
+      </div>
+      <div className="mb-10">
+        <p>Тэги</p>
+        <TagPicker
+          tags={tags}
+          selectedTags={selectedTags}
+          handleSelectTag={handleSelectTag}
         />
       </div>
       <div className="mb-10">

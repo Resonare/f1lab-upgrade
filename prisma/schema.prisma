@@ -50,6 +50,8 @@ model Tag {
   updatedAt           DateTime              @default(now())
   cases               ServiceCase[]
   CasesOnTags         CasesOnTags[]
+  doneInCase          DoneInCase[]
+  DoneOnTags          DoneOnTags[]
 }
 
 model ServiceCase {
@@ -82,7 +84,7 @@ model CasesOnServices {
 }
 
 model CasesOnTags {
-  tag          Tag  @relation(fields: [tagId], references: [id])
+  tag          Tag         @relation(fields: [tagId], references: [id])
   tagId        Int
   case         ServiceCase @relation(fields: [caseId], references: [id])
   caseId       Int
@@ -135,4 +137,17 @@ model DoneInCase {
   updatedAt      DateTime    @default(now())
   case           ServiceCase @relation(fields: [caseId], references: [id])
   caseId         Int
+  tags           Tag[]
+  DoneOnTags     DoneOnTags[]
+}
+
+model DoneOnTags {
+  tag          Tag        @relation(fields: [tagId], references: [id])
+  tagId        Int
+  done         DoneInCase @relation(fields: [doneId], references: [id])
+  doneId       Int
+  assignedAt   DateTime   @default(now())
+  assignedBy   String
+
+  @@id([tagId, doneId])
 }

@@ -11,8 +11,8 @@ import ContentCard from "../../components/cards/ContentCard";
 import ServiceTags from "../../components/misc/ServiceTags";
 import CritiqueCard from "../../components/cards/CritiqueCard";
 import TechTags from "../../components/misc/TechTags";
-import Tag from "../../components/misc/Tag";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
+import TagContainer from "../../components/misc/TagContainer";
 
 const CaseInfo = () => {
   const themeContext = useContext(ThemeContext);
@@ -32,7 +32,6 @@ const CaseInfo = () => {
         >
           <div className="flex flex-col gap-30">
             <ServiceTags>{selectedCase.services}</ServiceTags>
-            {console.log(selectedCase.technologyTags)}
             <TechTags>{selectedCase.technologyTags}</TechTags>
           </div>
         </ContentCard>
@@ -154,13 +153,7 @@ const CaseInfo = () => {
             <p className="text-gray-400 text-xl font-text font-light">
               {doneData.description}
             </p>
-            <div className="flex gap-10">
-              {doneData.tags?.map((tagData, index) => (
-                <Tag key={index} className={tagData.color}>
-                  {tagData.title}
-                </Tag>
-              ))}
-            </div>
+            <TagContainer>{doneData.tags}</TagContainer>
           </div>
         </ContentCard>
       ))}
