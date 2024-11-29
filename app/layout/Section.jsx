@@ -6,6 +6,7 @@ const Section = ({
   customBackground,
   customLinesColor,
   hero = false,
+  innerClassName = "",
   className = "",
   children,
 }) => {
@@ -25,7 +26,7 @@ const Section = ({
       <div
         className={`${inverseColor ? `sm:py-60` : ``} ${
           !hero && `max-sm:pt-60`
-        } z-[100] grid sm:grid-cols-4 xl:px-120 lg:px-60 sm:px-[44.1px] px-15`}
+        } ${innerClassName} z-[100] grid sm:grid-cols-4 xl:px-120 lg:px-60 sm:px-[44.1px] px-15`}
       >
         {children}
       </div>

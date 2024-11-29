@@ -2,7 +2,7 @@ import type { MetaFunction } from "@remix-run/node";
 
 import Hero from "../pages/home/Hero";
 import Why from "../pages/home/Why";
-import Cases from "../pages/home/Cases";
+import CasesSection from "../layout/CasesSection";
 import Pockets from "../pages/home/Pockets";
 import Benefits from "../pages/home/Benefits";
 import Solutions from "../pages/home/Solutions";
@@ -23,7 +23,10 @@ export default function Services() {
       <Why />
       <Solutions />
       <Benefits />
-      <Cases />
+      <CasesSection
+        title="Кейсы: как мы решаем задачи наших клиентов"
+        mobileInverseColor={true}
+      />
       <Pockets />
     </div>
   );

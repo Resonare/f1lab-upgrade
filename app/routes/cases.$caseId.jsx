@@ -2,9 +2,10 @@ import { getOne as getCase } from "../data/cases.server";
 import { getAll as getAllServiceCases } from "../data/cases.server";
 
 import CaseInfo from "../pages/item-case/CaseInfo";
-import Cases from "../pages/item-case/Cases";
+import CasesSection from "../layout/CasesSection";
 import Prices from "../pages/item-case/Prices";
 import Pockets from "../pages/item-case/Pockets";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta = () => {
   return [
@@ -14,10 +15,14 @@ export const meta = () => {
 };
 
 export default function Case() {
+  const { allCases } = useLoaderData();
+
   return (
     <div className="2xl:border-x border-gray-200 border-dashed flex flex-col lg:gap-200 sm:gap-[82px] lg:pt-90 pt-[70px]">
       <CaseInfo />
-      <Cases />
+      <CasesSection title="Похожие кейсы" withReviewCards={false}>
+        {allCases}
+      </CasesSection>
       <Prices />
       <Pockets />
     </div>

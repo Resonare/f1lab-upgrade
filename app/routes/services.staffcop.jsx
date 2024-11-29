@@ -2,10 +2,10 @@ import Hero from "../pages/staffcop/Hero";
 import Scenarios from "../pages/staffcop/Scenarios";
 import Offers from "../pages/staffcop/Offers";
 import Process from "../pages/staffcop/Process";
-import Cases from "../pages/staffcop/Cases";
 import Prices from "../pages/staffcop/Prices";
 import Pockets from "../pages/staffcop/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
+import CasesSection from "../layout/CasesSection";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
 
@@ -23,7 +23,7 @@ export default function Staffcop() {
       <Scenarios />
       <Offers />
       <Process />
-      <Cases />
+      <CasesSection title="Примеры кейсов со Staffcop" />
       <Prices />
       <Pockets />
       <TailwindCrutch />

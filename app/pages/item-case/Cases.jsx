@@ -42,7 +42,7 @@ const Cases = () => {
       </Section>
 
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
-        <SectionTitle>Примеры кейсов с аудитом</SectionTitle>
+        <SectionTitle>Похожие кейсы</SectionTitle>
 
         <Carousel>
           {allCases.map((serviceCase, index) => (

@@ -81,7 +81,7 @@ const ReviewCard = ({
       className={`${row} ${col} ${className} h-full gap-60 flex flex-col justify-start lg:pt-0 md:pt-60 sm:pt-30 pt-0`}
     >
       <div className="lg:border-y-[1px] sm:border-b-[1px] border-dashed">
-        <p className="pb-30 font-bold font-extended lg:text-[26px] sm:text-[22px] text-2xl max-sm:leading-[30px] lg:text-right max-sm:text-right">
+        <p className={`${inverseColor && `text-gray-100`} pb-30 font-bold font-extended lg:text-[26px] sm:text-[22px] text-2xl max-sm:leading-[30px] lg:text-right max-sm:text-right`}>
           Что о нас говорят?
         </p>
         <div className="max-lg:hidden">
@@ -152,7 +152,7 @@ const ReviewCard = ({
               variant={inverseColor ? `info` : `shaded`}
               className={`${
                 inverseColor &&
-                ` border-y border-gray-300 text-gray-100 bg-gray-400`
+                `border border-gray-300 text-gray-100 bg-gray-400`
               } text-base font-subtitle`}
             >
               Все отзывы

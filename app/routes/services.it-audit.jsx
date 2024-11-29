@@ -2,7 +2,7 @@ import Hero from "../pages/audit/Hero";
 import Scenarios from "../pages/audit/Scenarios";
 import Offers from "../pages/audit/Offers";
 import Process from "../pages/audit/Process";
-import Cases from "../pages/audit/Cases";
+import CasesSection from "../layout/CasesSection";
 import Prices from "../pages/audit/Prices";
 import Pockets from "../pages/audit/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
@@ -23,7 +23,7 @@ export default function ITAudit() {
       <Scenarios />
       <Offers />
       <Process />
-      <Cases />
+      <CasesSection title="Примеры кейсов с аудитом" />
       <Prices />
       <Pockets />
       <TailwindCrutch />

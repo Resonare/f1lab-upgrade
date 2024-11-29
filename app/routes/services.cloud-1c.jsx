@@ -2,7 +2,7 @@ import Hero from "../pages/cloud-1c/Hero";
 import Scenarios from "../pages/cloud-1c/Scenarios";
 import Offers from "../pages/cloud-1c/Offers";
 import Process from "../pages/cloud-1c/Process";
-import Cases from "../pages/cloud-1c/Cases";
+import CasesSection from "../layout/CasesSection";
 import Prices from "../pages/cloud-1c/Prices";
 import Pockets from "../pages/cloud-1c/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
@@ -23,7 +23,7 @@ export default function Cloud1C() {
       <Scenarios />
       <Offers />
       <Process />
-      <Cases />
+      <CasesSection title="Примеры кейсов с облачной инфраструктурой" />
       <Prices />
       <Pockets />
       <TailwindCrutch />
