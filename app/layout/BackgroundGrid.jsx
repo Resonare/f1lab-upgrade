@@ -17,7 +17,7 @@ const BackgroundGrid = ({
         striped && !inverseColor && `max-sm:bg-striped`
       } ${inverseColor ? `absolute z-[-1]` : `fixed z-[-10]`} ${
         customLinesColor ? customLinesColor : `border-gray-300`
-      } top-0 max-w-[1921px] w-full h-full border-dashed`}
+      } top-0 max-w-[1921.4px] w-full h-full border-dashed`}
     >
       {inverseColor && (
         <div
@@ -38,11 +38,25 @@ const BackgroundGrid = ({
         className={`h-full w-full grid grid-cols-4 xl:px-120 lg:px-60 sm:px-[44.1px] px-15 border-dashed`}
       >
         <div
-          className={`sm:border-x border-l border-dashed ${linesColor}`}
+          className={`sm:border-x border-l border-dashed ${
+            !inverseColor && `mr-[-1px]`
+          } ${linesColor}`}
         ></div>
-        <div className={`border-r border-dashed ${linesColor}`}></div>
-        <div className={`sm:border-r border-dashed ${linesColor}`}></div>
-        <div className={`border-r border-dashed ${linesColor}`}></div>
+        <div
+          className={`border-r border-dashed ${
+            !inverseColor && `mr-[-1px]`
+          } ${linesColor}`}
+        ></div>
+        <div
+          className={`sm:border-r border-dashed ${
+            !inverseColor && `mr-[-1px]`
+          } ${linesColor}`}
+        ></div>
+        <div
+          className={`border-r border-dashed ${
+            !inverseColor && `mr-[-1px]`
+          } ${linesColor}`}
+        ></div>
       </div>
     </div>
   );

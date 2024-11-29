@@ -28,7 +28,7 @@ const CasesSection = ({
   const caseCards = serviceCases.map((serviceCase, index) => (
     <CaseCard
       className={`${index != serviceCases.length - 1 && `max-sm:border-r`} ${
-        index != 0 && `max-sm:border-l`
+        index != 0 && `border-l`
       } sm:border mr-[-1px]`}
       outerClassName="sm:mt-[-1px] sm:mb-[-1px] lg:w-1/3 sm:w-1/2 min-h-[400px]"
       key={serviceCase.id}

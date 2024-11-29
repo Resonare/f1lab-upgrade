@@ -1,6 +1,6 @@
 import Tag from "./Tag";
 
-const TechTags = ({ title, inverseColor = false, children }) => {
+const TagContainer = ({ title, inverseColor = false, children }) => {
   if (!children || children.length == 0) return null;
 
   const handleClick = (tagLink) => {
@@ -11,7 +11,7 @@ const TechTags = ({ title, inverseColor = false, children }) => {
     <div className="flex flex-col gap-5">
       <p
         className={`${
-          inverseColor && `text-gray-100`
+          inverseColor ? `text-gray-100` : `text-gray-400`
         } font-text font-normal text-sm leading-tight`}
       >
         {title}
@@ -33,4 +33,4 @@ const TechTags = ({ title, inverseColor = false, children }) => {
   );
 };
 
-export default TechTags;
+export default TagContainer;

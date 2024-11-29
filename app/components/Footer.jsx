@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <Section
-      className="max-w-[1921.4px] sm:py-40 text-gray-100 border-t border-dashed border-gray-300 mt-[-1px]"
+      className="sm:py-40 text-gray-100 border-t border-dashed border-gray-300 mt-[-1px]"
       inverseColor={true}
     >
       <div className="col-start-1 lg:col-end-2 sm:col-end-3 col-end-5 flex flex-col gap-60 p-30">

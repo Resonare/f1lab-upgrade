@@ -181,7 +181,7 @@ export const navData = [
   {
     link: "experts",
     title: "Эксперты",
-    bgColor: "bg-security",
+    bgColor: "bg-gray-100",
     textColor: "text-security",
     items: [],
   },

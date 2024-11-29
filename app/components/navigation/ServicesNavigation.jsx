@@ -54,7 +54,7 @@ const ServicesNavigation = ({ items }) => {
           navbarContext.showServicesDropdown ? "top-90" : "-top-[1000px]"
         } bg-gray-400 font-subtitle text-sm transition-all duration-500`}
       >
-        <div className="flex flex-col w-1/2 bg-dark-striped xl:pl-120 lg:pl-60 border-b border-dashed border-gray-200">
+        <div className="flex flex-col w-1/2 bg-dark-striped xl:pl-120 lg:pl-60 border-b border-dashed border-gray-300">
           <div className="bg-gray-400 border-l border-b border-dashed border-gray-300">
             <ul className="pt-30 pl-60">
               {items.map((item) => (

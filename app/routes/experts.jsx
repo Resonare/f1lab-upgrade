@@ -1,3 +1,5 @@
+import Experts from "../pages/experts/Experts";
+
 export const meta = () => {
   return [
     { title: "F1LAB" },
@@ -7,8 +9,8 @@ export const meta = () => {
 
 export default function Services() {
   return (
-    <div className="text-5xl font-title p-100 h-[calc(100svh-90px)]">
-      Эксперты
+    <div className="2xl:border-x border-gray-200 border-dashed lg:pt-90 pt-[70px]">
+      <Experts />
     </div>
   );
 }
