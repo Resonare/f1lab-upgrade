@@ -1,11 +1,13 @@
+import { useLoaderData } from "@remix-run/react";
+
 import { getOne as getCase } from "../data/cases.server";
 import { getAll as getAllServiceCases } from "../data/cases.server";
+import { getAll as getAllCritiques } from "../data/critiques.server";
 
 import CaseInfo from "../pages/item-case/CaseInfo";
 import CasesSection from "../layout/CasesSection";
 import Prices from "../pages/item-case/Prices";
 import Pockets from "../pages/item-case/Pockets";
-import { useLoaderData } from "@remix-run/react";
 
 export const meta = () => {
   return [
@@ -15,14 +17,16 @@ export const meta = () => {
 };
 
 export default function Case() {
-  const { allCases } = useLoaderData();
+  const { allServiceCasesData, critiquesData } = useLoaderData();
 
   return (
     <div className="2xl:border-x border-gray-200 border-dashed flex flex-col lg:gap-200 sm:gap-[82px] lg:pt-90 pt-[70px]">
       <CaseInfo />
-      <CasesSection title="Похожие кейсы" withReviewCards={false}>
-        {allCases}
-      </CasesSection>
+      <CasesSection
+        title="Похожие кейсы"
+        serviceCasesData={allServiceCasesData}
+        critiquesData={critiquesData}
+      />
       <Prices />
       <Pockets />
     </div>
@@ -31,7 +35,8 @@ export default function Case() {
 
 export async function loader({ params }) {
   const selectedCase = await getCase(params.caseId);
-  const allCases = await getAllServiceCases();
+  const allServiceCasesData = await getAllServiceCases();
+  const critiquesData = await getAllCritiques();
 
-  return { selectedCase, allCases };
+  return { selectedCase, allServiceCasesData, critiquesData };
 }

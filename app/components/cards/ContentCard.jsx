@@ -25,10 +25,14 @@ const ContentCard = ({
           {mobileIconPath ? (
             <>
               <LazyImage className="sm:hidden" src={mobileIconPath} alt="" />
-              <LazyImage className="h-[80px] w-[80px] max-sm:hidden" src={iconPath} alt="" />
+              <LazyImage
+                className={`h-[80px] w-[80px] max-sm:hidden`}
+                src={iconPath}
+                alt=""
+              />
             </>
           ) : (
-            <LazyImage className="h-[80px] w-[80px]" src={iconPath} alt="" />
+            <LazyImage className={`h-[80px] w-[80px]`} src={iconPath} alt="" />
           )}
         </div>
       ) : null}

@@ -17,13 +17,19 @@ export const meta = () => {
 };
 
 export default function Cloud1C() {
+  const { serviceCasesData, critiquesData } = useLoaderData();
+
   return (
     <div className="2xl:border-x border-gray-200 border-dashed flex flex-col lg:gap-200 sm:gap-[82px] lg:pt-90 pt-[70px]">
       <Hero />
       <Scenarios />
       <Offers />
       <Process />
-      <CasesSection title="Примеры кейсов с облачной инфраструктурой" />
+      <CasesSection
+        title="Примеры кейсов с облачной инфраструктурой"
+        serviceCasesData={serviceCasesData}
+        critiquesData={critiquesData}
+      />
       <Prices />
       <Pockets />
       <TailwindCrutch />
@@ -33,5 +39,7 @@ export default function Cloud1C() {
 
 export async function loader() {
   const serviceCasesData = await getAllServiceCases();
-  return serviceCasesData;
+  const critiquesData = await getAllCritiques();
+
+  return { critiquesData, serviceCasesData };
 }

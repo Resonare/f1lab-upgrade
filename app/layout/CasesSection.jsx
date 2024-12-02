@@ -1,47 +1,35 @@
-import { useLoaderData } from "@remix-run/react";
-
 import Section from "./Section";
 import SectionTitle from "./SectionTitle";
 import CaseCard from "../components/cards/CaseCard";
-import ReviewCard from "../components/cards/ReviewCard";
 import SecondaryButton from "../components/buttons/SecondaryButton";
 import Carousel from "../components/misc/Carousel";
-
-const DUMMY_REVIEW_PATHS = [
-  "test-review.png",
-  "test-review.png",
-  "test-review.png",
-  "test-review.png",
-  "test-review.png",
-  "test-review.png",
-  "test-review.png",
-];
+import CritiqueCard from "../components/cards/CritiqueCard";
 
 const CasesSection = ({
   title = "Примеры кейсов",
   mobileInverseColor = false,
-  withReviewCards = true,
-  children,
+  critiquesData,
+  serviceCasesData,
 }) => {
-  const serviceCases = children ? children : useLoaderData();
+  if (!serviceCasesData || serviceCasesData.length <= 0) return;
 
-  const caseCards = serviceCases.map((serviceCase, index) => (
+  const caseCards = serviceCasesData.map((serviceCase, index) => (
     <CaseCard
-      className={`${index != serviceCases.length - 1 && `max-sm:border-r`} ${
-        index != 0 && `border-l`
-      } sm:border mr-[-1px]`}
-      outerClassName="sm:mt-[-1px] sm:mb-[-1px] lg:w-1/3 sm:w-1/2 min-h-[400px]"
+      className={`${
+        index != serviceCasesData.length - 1 && `max-sm:border-r`
+      } ${index != 0 && `border-l`} sm:border mr-[-1px]`}
+      outerClassName="sm:mt-[-1px] sm:mb-[-1px] sm:w-1/2 min-h-[400px]"
       key={serviceCase.id}
       caseData={serviceCase}
     />
   ));
 
-  const mobileCaseCards = serviceCases.map((serviceCase, index) => (
+  const mobileCaseCards = serviceCasesData.map((serviceCase, index) => (
     <CaseCard
-      className={`${index != serviceCases.length - 1 && `max-sm:border-r`} ${
-        index != 0 && `max-sm:border-l`
-      } sm:border mr-[-1px]`}
-      outerClassName="sm:mt-[-1px] sm:mb-[-1px] lg:w-1/3 sm:w-1/2"
+      className={`${
+        index != serviceCasesData.length - 1 && `max-sm:border-r`
+      } ${index != 0 && `max-sm:border-l`} sm:border mr-[-1px]`}
+      outerClassName="sm:mt-[-1px] sm:mb-[-1px] sm:w-1/2"
       key={serviceCase.id}
       caseData={serviceCase}
       inverseColor={mobileInverseColor}
@@ -59,32 +47,15 @@ const CasesSection = ({
           {title}
         </SectionTitle>
 
-        <div
-          className={`${
-            withReviewCards && `lg:col-end-4`
-          } col-start-1 col-end-5 flex flex-wrap`}
-        >
-          {caseCards}
+        <div className={`col-start-1 col-end-5 flex flex-wrap`}>
+          <div
+            className={`${critiquesData?.length > 0 && `w-2/3`} flex flex-wrap`}
+          >
+            {caseCards}
+          </div>
+
+          <CritiqueCard className={`w-1/3`} critiquesData={critiquesData} />
         </div>
-
-        {withReviewCards && (
-          <>
-            <ReviewCard
-              className="ml-[1px] mt-[-1px] max-lg:hidden"
-              row="row-start-2 row-end-4"
-              col="col-start-4 col-end-4"
-              reviewPaths={DUMMY_REVIEW_PATHS}
-            ></ReviewCard>
-
-            <ReviewCard
-              row="row-start-5"
-              col="col-start-1 col-end-5"
-              reviewPaths={DUMMY_REVIEW_PATHS}
-              reviewsOnPage={3}
-              className="lg:hidden"
-            ></ReviewCard>
-          </>
-        )}
 
         <SecondaryButton
           row="row-start-4"
@@ -116,13 +87,13 @@ const CasesSection = ({
           Все кейсы
         </SecondaryButton>
 
-        {withReviewCards && (
+        {/* {withReviewCards && (
           <ReviewCard
             className="h-fit"
             reviewPaths={DUMMY_REVIEW_PATHS}
             inverseColor={mobileInverseColor}
           ></ReviewCard>
-        )}
+        )} */}
       </Section>
     </>
   );

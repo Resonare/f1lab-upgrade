@@ -43,18 +43,12 @@ const CaseInfo = () => {
         </ContentCard>
       </div>
 
-      {selectedCase.client.critiques.map((critiqueData, index) => (
-        <CritiqueCard
-          key={index}
-          className={`${bgColor} max-sm:hidden border-y max-md:border-l`}
-          col="md:col-start-3 col-start-1 col-end-5"
-          avatarPath={critiqueData.avatarPath}
-          title={critiqueData.title}
-          subtitle={critiqueData.subtitle}
-        >
-          {critiqueData.body}
-        </CritiqueCard>
-      ))}
+      <CritiqueCard
+      className="mt-[-1px]"
+        col="md:col-start-3 col-start-1 col-end-5"
+        minimized={true}
+        critiquesData={selectedCase.client.critiques}
+      />
 
       <SectionTitle
         className="md:mt-60 sm:mt-30 md:mb-90 sm:mb-60 mb-30 max-sm:font-extended max-sm:font-bold max-sm:text-[28px] max-sm:leading-[30px]"
