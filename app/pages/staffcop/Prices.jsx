@@ -81,7 +81,7 @@ const Prices = () => {
             </SectionTitle>
 
             <PriceCard
-              className="border-l ml-[-1px]"
+              className="border-l"
               plan={plansData[0]}
               buttonTitle={plansData[0].buttonTitle}
             >

@@ -70,7 +70,7 @@ const CasesSection = ({
         {withReviewCards && (
           <>
             <ReviewCard
-              className="ml-[0.5px] mt-[-1px] max-lg:hidden"
+              className="ml-[1px] mt-[-1px] max-lg:hidden"
               row="row-start-2 row-end-4"
               col="col-start-4 col-end-4"
               reviewPaths={DUMMY_REVIEW_PATHS}

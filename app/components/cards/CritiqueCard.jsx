@@ -25,7 +25,7 @@ const CritiqueCard = ({
   );
 
   return (
-    <div className={`${row} ${col} mr-[1px] mt-[-1px]`}>
+    <div className={`${row} ${col}`}>
       <div
         className={`${className} gap-15 p-30 flex flex-col border-dashed border-gray-200`}
       >

@@ -25,9 +25,9 @@ const PocketCard = ({
         inverseColor ? `bg-gray-400 text-gray-100` : `${bgColor} text-gray-400`
       } ${
         inverseColor && `border-gray-300`
-      } ${row} ${col} max-sm:border-b relative border-dashed border-t ml-[0.5px] mr-[1px] `}
+      } ${row} ${col} ml-[1px] mr-[1px] max-sm:border-b relative border-dashed border-t`}
     >
-      <div className="absolute top-0 pt-30 h-full w-full">
+      <div className="absolute top-0 pt-30 h-full w-[calc(100%-3px)] left-1/2 -translate-x-1/2">
         <PrimaryButton
           className="h-60 sticky top-[50svh]"
           type={`${inverseColor ? `accent-to-light` : `accent`}`}

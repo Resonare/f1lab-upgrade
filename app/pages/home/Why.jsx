@@ -24,7 +24,7 @@ const Why = () => {
 
       <div className="col-start-1 col-end-5 row-start-3 flex max-md:flex-col">
         <ContentCard
-          className="bg-gray-400 border-y border-r sm:mr-[-1px] ml-[1px] basis-4/12"
+          className="bg-gray-400 border-y border-r basis-4/12"
           iconPath="/images/home/why-icon1.svg"
           hideIconOnMobile={false}
           inverseColor={true}
@@ -41,14 +41,14 @@ const Why = () => {
         </ContentCard>
 
         <ContentCard
-          className="bg-gray-400 sm:border-y border-b border-r max-sm:border-t sm:mr-[-1px] ml-[1px] basis-4/12"
+          className="bg-gray-400 sm:border-y border-b border-r max-sm:border-t basis-4/12"
           iconPath="/images/home/why-icon2.svg"
           hideIconOnMobile={false}
           inverseColor={true}
         >
           <div className="flex flex-col gap-15">
             <p className="text-[22px] font-extended font-bold">
-              Сосредоточтесь на главном
+              Сосредоточьтесь на главном
             </p>
             <p>
               Решение технических задач и предотвращение угроз безопасности —
