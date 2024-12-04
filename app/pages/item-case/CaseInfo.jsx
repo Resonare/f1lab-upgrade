@@ -44,7 +44,7 @@ const CaseInfo = () => {
       </div>
 
       <CritiqueCard
-      className="mt-[-1px]"
+        className="mt-[-1px] lg:border-t max-sm:hidden"
         col="md:col-start-3 col-start-1 col-end-5"
         minimized={true}
         critiquesData={selectedCase.client.critiques}

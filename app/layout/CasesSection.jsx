@@ -15,9 +15,7 @@ const CasesSection = ({
 
   const caseCards = serviceCasesData.map((serviceCase, index) => (
     <CaseCard
-      className={`${
-        index != serviceCasesData.length - 1 && `max-sm:border-r`
-      } ${index != 0 && `border-l`} sm:border mr-[-1px]`}
+      className={`sm:border mr-[-1px]`}
       outerClassName="sm:mt-[-1px] sm:mb-[-1px] sm:w-1/2 min-h-[400px]"
       key={serviceCase.id}
       caseData={serviceCase}
@@ -49,22 +47,25 @@ const CasesSection = ({
 
         <div className={`col-start-1 col-end-5 flex flex-wrap`}>
           <div
-            className={`${critiquesData?.length > 0 && `w-2/3`} flex flex-wrap`}
+            className={`${
+              critiquesData?.length > 0 && `lg:w-2/3`
+            } flex flex-wrap`}
           >
             {caseCards}
           </div>
 
-          <CritiqueCard className={`w-1/3`} critiquesData={critiquesData} />
-        </div>
+          <SecondaryButton
+            variant="shaded"
+            className="lg:border-t-0 lg:border-r lg:w-1/3 lg:order-last text-base font-subtitle"
+          >
+            Все кейсы
+          </SecondaryButton>
 
-        <SecondaryButton
-          row="row-start-4"
-          col="col-start-1 max-lg:col-end-5"
-          variant="shaded"
-          className="text-base font-subtitle"
-        >
-          Все кейсы
-        </SecondaryButton>
+          <CritiqueCard
+            className={`max-lg:mt-60 lg:border-t lg:w-1/3 mt-[-1px]`}
+            critiquesData={critiquesData}
+          />
+        </div>
       </Section>
 
       <Section
@@ -86,14 +87,12 @@ const CasesSection = ({
         >
           Все кейсы
         </SecondaryButton>
-
-        {/* {withReviewCards && (
-          <ReviewCard
-            className="h-fit"
-            reviewPaths={DUMMY_REVIEW_PATHS}
-            inverseColor={mobileInverseColor}
-          ></ReviewCard>
-        )} */}
+        {console.log(critiquesData)}
+        <CritiqueCard
+          className={`max-lg:mt-60 lg:border-t lg:w-1/3 mt-[-1px]`}
+          critiquesData={critiquesData}
+          inverseColor={mobileInverseColor}
+        />
       </Section>
     </>
   );
