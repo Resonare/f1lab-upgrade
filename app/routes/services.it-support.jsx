@@ -1,3 +1,5 @@
+import { useLoaderData } from "@remix-run/react";
+
 import Hero from "../pages/it-support/Hero";
 import Scenarios from "../pages/it-support/Scenarios";
 import Offers from "../pages/it-support/Offers";
@@ -8,6 +10,7 @@ import Pockets from "../pages/it-support/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
+import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta = () => {
   return [{ title: "F1LAB" }, { name: "ИТ-Техподдержка", content: "" }];

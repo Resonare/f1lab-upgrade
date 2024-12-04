@@ -1,3 +1,5 @@
+import { useLoaderData } from "@remix-run/react";
+
 import Hero from "../pages/audit/Hero";
 import Scenarios from "../pages/audit/Scenarios";
 import Offers from "../pages/audit/Offers";
@@ -8,6 +10,7 @@ import Pockets from "../pages/audit/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
 
 import { getAll as getAllServiceCases } from "../data/cases.server";
+import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta = () => {
   return [
