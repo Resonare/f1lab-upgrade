@@ -8,7 +8,63 @@ import ArrowPrev from "../misc/reviewButtons/ArrowPrev";
 import ArrowNext from "../misc/reviewButtons/ArrowNext";
 import Quote from "../misc/svg/Quote";
 
-const CritiquesCard = ({
+const DUMMY_TAGS_DATA = [
+  { id: 1, title: "ИТ-Аудит", color: "consulting" },
+  { id: 2, title: "Техподдержка", color: "consulting" },
+];
+
+const DUMMY_EXPERTS_DATA = [
+  {
+    avatarPath: "/images/avatars/experts/test-avatar.jpg",
+    name: "Мария Ивановна",
+    subtitle: "Специалист по всем направлениям",
+    description:
+      "Провели комплексную проверку текущих процессов F1 Lab и систем, выявили проблемные зоны и возможности F1 LAB для оптимизации.",
+    qualificationTags: DUMMY_TAGS_DATA,
+  },
+  {
+    avatarPath: "/images/avatars/experts/test-avatar.jpg",
+    name: "Мария Ивановна",
+    subtitle: "Специалист по всем направлениям",
+    description:
+      "Провели комплексную проверку текущих процессов F1 Lab и систем, выявили проблемные зоны и возможности F1 LAB для оптимизации.",
+    qualificationTags: DUMMY_TAGS_DATA,
+  },
+  {
+    avatarPath: "/images/avatars/experts/test-avatar.jpg",
+    name: "Мария Ивановна",
+    subtitle: "Специалист по всем направлениям",
+    description:
+      "Провели комплексную проверку текущих процессов F1 Lab и систем, выявили проблемные зоны и возможности F1 LAB для оптимизации.",
+    qualificationTags: DUMMY_TAGS_DATA,
+  },
+  {
+    avatarPath: "/images/avatars/experts/test-avatar.jpg",
+    name: "Мария Ивановна",
+    subtitle: "Специалист по всем направлениям",
+    description:
+      "Провели комплексную проверку текущих процессов F1 Lab и систем, выявили проблемные зоны и возможности F1 LAB для оптимизации.",
+    qualificationTags: DUMMY_TAGS_DATA,
+  },
+  {
+    avatarPath: "/images/avatars/experts/test-avatar.jpg",
+    name: "Мария Ивановна",
+    subtitle: "Специалист по всем направлениям",
+    description:
+      "Провели комплексную проверку текущих процессов F1 Lab и систем, выявили проблемные зоны и возможности F1 LAB для оптимизации.",
+    qualificationTags: DUMMY_TAGS_DATA,
+  },
+  {
+    avatarPath: "/images/avatars/experts/test-avatar.jpg",
+    name: "Мария Ивановна",
+    subtitle: "Специалист по всем направлениям",
+    description:
+      "Провели комплексную проверку текущих процессов F1 Lab и систем, выявили проблемные зоны и возможности F1 LAB для оптимизации.",
+    qualificationTags: DUMMY_TAGS_DATA,
+  },
+];
+
+const CritiquesCarousel = ({
   critiquesData,
   row = "",
   col = "",
@@ -96,45 +152,15 @@ const CritiquesCard = ({
             inverseColor ? `border-gray-300` : `border-gray-200`
           } max-lg:border-t gap-15 ml-[1px] max-sm:mr-[1px] sm:p-30 py-20 px-10 flex flex-col border-dashed`}
         >
-          <div className={`${!minimized && `order-last`} flex gap-30`}>
-            <LazyImage
-              className="lg:w-90 w-60 lg:h-90 h-60 rounded-[15px]"
-              src={critiquesData[curPage].avatarPath}
-              alt=""
-            />
-            <div className="flex flex-col justify-center gap-5">
-              <p
-                className={`${
-                  inverseColor ? `text-gray-100` : `text-gray-400`
-                } text-[22px] font-extended font-bold`}
-              >
-                {critiquesData[curPage].title}
-              </p>
-              <p
-                className={`${
-                  inverseColor ? `text-gray-200` : `text-gray-300`
-                } text-sm font-text font-bold uppercase tracking-wide`}
-              >
-                {critiquesData[curPage].subtitle}
-              </p>
-            </div>
-          </div>
-          <div className="flex gap-10">
-            <Quote inverseColor={inverseColor} />
-
-            <p
-              className={`${
-                inverseColor ? `text-gray-100` : `text-gray-400`
-              } sm:text-xl text-base font-text font-light`}
-            >
-              {critiquesData[curPage].body}
-            </p>
-
-            <Quote
-              className="flex flex-col justify-end"
-              inverseColor={inverseColor}
-            />
-          </div>
+          <ExpertCard
+            key={index}
+            className="border-b max-sm:ml-[1px]"
+            col={`lg:col-start-${col} sm:col-start-${smCol} col-start-1 lg:col-end-${
+              col + 1
+            } sm:col-end-${smCol + 2} col-end-5`}
+            row={`lg:row-start-${row + 2} sm:row-start-${index + 2}`}
+            expertData={expertData}
+          />
         </div>
 
         <SecondaryButton
@@ -170,4 +196,4 @@ const CritiquesCard = ({
   );
 };
 
-export default CritiquesCard;
+export default CritiquesCarousel;

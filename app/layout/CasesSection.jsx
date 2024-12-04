@@ -87,9 +87,9 @@ const CasesSection = ({
         >
           Все кейсы
         </SecondaryButton>
-        {console.log(critiquesData)}
+        
         <CritiqueCard
-          className={`max-lg:mt-60 lg:border-t lg:w-1/3 mt-[-1px]`}
+          className={`max-lg:mt-60 max-sm:mt-0 lg:border-t lg:w-1/3 mt-[-1px]`}
           critiquesData={critiquesData}
           inverseColor={mobileInverseColor}
         />

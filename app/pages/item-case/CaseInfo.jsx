@@ -24,7 +24,7 @@ const CaseInfo = () => {
     <Section className="lg:pt-60 max-sm:[&>div]:pt-15">
       <div className="col-start-1 md:col-end-3 col-end-5">
         <ContentCard
-          className={`${bgColor} md:justify-between border-t max-sm:border-x`}
+          className={`${bgColor} md:justify-between border-t max-sm:border-l`}
           iconPath={selectedCase.client.logoPath}
           hideIconOnMobile={false}
         >
@@ -38,7 +38,7 @@ const CaseInfo = () => {
           </div>
         </ContentCard>
 
-        <ContentCard className={`${bgColor} border-y max-sm:border-x`}>
+        <ContentCard className={`${bgColor} border-y max-sm:border-l`}>
           {selectedCase.client.description}
         </ContentCard>
       </div>
