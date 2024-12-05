@@ -3,6 +3,7 @@ import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
 import Carousel from "../../components/misc/Carousel";
 import ExpertCard from "../../components/cards/ExpertCard";
+import SecondaryButton from "../../components/buttons/SecondaryButton";
 
 const DUMMY_TAGS_DATA = [
   { id: 1, title: "ИТ-Аудит", color: "consulting" },
@@ -99,6 +100,8 @@ const Experts = ({ expertsData }) => {
           />
         ))}
       </Carousel>
+
+      <SecondaryButton className="border col-start-1 col-end-5" variant="info">Все сотрудники</SecondaryButton>
     </Section>
   );
 };
