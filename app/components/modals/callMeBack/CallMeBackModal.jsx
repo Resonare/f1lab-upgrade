@@ -55,7 +55,7 @@ const CallMeBackModal = () => {
           className={`xl:px-120 lg:py-90 lg:px-60 sm:py-[70px] sm:px-[44.1px] py-30 px-15`}
         >
           <div
-            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col bg-striped h-full border-[1px] border-dashed border-gray-200`}
+            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col striped h-full border-[1px] border-dashed border-gray-200`}
           >
             <CallMeBackInfo success={success} />
 

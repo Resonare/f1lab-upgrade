@@ -28,7 +28,7 @@ const CaseCard = ({
       >
         <NavLink
           to={String(caseData.id)}
-          className={`hover:sm:bg-striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] sm:group h-full xl:p-30 p-15 gap-60 flex flex-col justify-between transition-all duration-300`}
+          className={`hover:sm:striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] sm:group h-full xl:p-30 p-15 gap-60 flex flex-col justify-between transition-all duration-300`}
         >
           {caseData.client.logoPath && (
             <div className="flex justify-between">
@@ -38,10 +38,9 @@ const CaseCard = ({
                 alt=""
               />
               <ArrowURSecondary
-                hoverColor={
-                  inverseColor ? "stroke-gray-200" : "stroke-gray-400"
-                }
-                className="py-5 group-hover:p-5 group-hover:self-start sm:opacity-0 group-hover:sm:p-0 group-hover:sm:opacity-100"
+                className={`${
+                  inverseColor ? `stroke-gray-200` : `stroke-gray-400`
+                } py-5 group-hover:p-5 group-hover:self-start sm:opacity-0 group-hover:sm:p-0 group-hover:sm:opacity-100`}
               />
             </div>
           )}

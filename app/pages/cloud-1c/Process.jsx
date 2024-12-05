@@ -253,7 +253,7 @@ const Process = () => {
             <div className="flex flex-col gap-15">
               <Animation className="max-sm:h-[260px]" data={animationData} />
 
-              <SecondaryButton variant="light" onClick={showCallMeBackModal}>
+              <SecondaryButton variant="accent-light" onClick={showCallMeBackModal}>
                 <p className="text-base font-subtitle">Начать</p>
               </SecondaryButton>
             </div>

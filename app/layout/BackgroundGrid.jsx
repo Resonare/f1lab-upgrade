@@ -14,7 +14,7 @@ const BackgroundGrid = ({
   return (
     <div
       className={`${className} ${
-        striped && !inverseColor && `max-sm:bg-striped`
+        striped && !inverseColor && `max-sm:striped`
       } ${inverseColor ? `absolute z-[-1]` : `fixed z-[-10]`} ${
         customLinesColor ? customLinesColor : `border-gray-300`
       } top-0 max-w-[1921.4px] w-full h-full border-dashed`}
@@ -22,7 +22,7 @@ const BackgroundGrid = ({
       {inverseColor && (
         <div
           className={`${customBackground ? customBackground : `bg-gray-400`} ${
-            !customBackground && `max-sm:bg-dark-striped`
+            !customBackground && `max-sm:striped-dark`
           } h-full w-[calc(100svw)] z-[-9] absolute left-1/2 -translate-x-1/2`}
         ></div>
       )}

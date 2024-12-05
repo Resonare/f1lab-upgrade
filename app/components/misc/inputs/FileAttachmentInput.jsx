@@ -74,6 +74,7 @@ const FileAttachment = forwardRef(function MyInput({ className = "" }, ref) {
       </div>
 
       <SecondaryButton
+        variant="shaded"
         className="sm:hidden border-x"
         customIcon="/images/icons/paperclip-dark.svg"
         onClick={handleAttachClick}

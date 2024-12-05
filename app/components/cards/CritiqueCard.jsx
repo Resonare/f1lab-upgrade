@@ -139,9 +139,7 @@ const CritiquesCard = ({
 
         <SecondaryButton
           variant={inverseColor ? `info` : `shaded`}
-          className={`${minimized ? `hidden` : `lg:hidden`} ${
-            inverseColor && `max-sm:border border-gray-300 max-sm:text-gray-100`
-          } text-base font-subtitle`}
+          className={`${minimized ? `hidden` : `lg:hidden`} max-sm:border`}
         >
           Все отзывы
         </SecondaryButton>

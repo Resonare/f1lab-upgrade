@@ -5,14 +5,25 @@ import TagContainer from "../misc/TagContainer";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const ExpertCard = ({ expertData, col = "", row = "", className = "" }) => {
+const ExpertCard = ({
+  expertData,
+  inverseColor = false,
+  minimized = false,
+  col = "",
+  row = "",
+  style,
+  className = "",
+}) => {
   if (!expertData) return;
 
   const { bgColor } = useContext(ThemeContext);
 
   return (
     <div
-      className={`${className} max-sm:${bgColor} ${col} ${row} border-dashed sm:p-30 p-10 flex flex-col gap-30`}
+      className={`${className} ${col} ${row} ${
+        inverseColor ? `max-sm:bg-gray-400 border-gray-300` : `max-sm:${bgColor}`
+      } border-dashed sm:p-30 p-10 flex flex-col gap-30`}
+      style={style}
     >
       <div className="flex flex-col gap-30">
         <LazyImage
@@ -21,18 +32,26 @@ const ExpertCard = ({ expertData, col = "", row = "", className = "" }) => {
           alt=""
         />
         <div className="flex flex-col gap-5">
-          <p className="text-gray-400 text-[22px] font-extended font-bold">
+          <p
+            className={`${
+              inverseColor ? `text-gray-100` : `text-gray-400`
+            } text-[22px] font-extended font-bold`}
+          >
             {expertData.name}
           </p>
-          <p className="text-gray-300 text-sm font-text font-bold uppercase tracking-wide">
+          <p
+            className={`${
+              inverseColor ? `text-gray-200` : `text-gray-300`
+            } text-sm font-text font-bold uppercase tracking-wide`}
+          >
             {expertData.subtitle}
           </p>
         </div>
       </div>
 
       <div className="flex flex-col gap-15">
-        <p>{expertData.description}</p>
-        <TagContainer title="Эксперт в услугах">
+        <p className={`${minimized && `hidden`}`}>{expertData.description}</p>
+        <TagContainer title="Эксперт в услугах" inverseColor={inverseColor}>
           {expertData.qualificationTags}
         </TagContainer>
       </div>

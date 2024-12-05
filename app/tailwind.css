@@ -100,19 +100,19 @@
 }
 
 @layer utilities {
-  .bg-striped {
+  .striped {
     background-repeat: repeat;
     background-size: 5px;
     background-image: url("/images/misc/background-pattern-15.png");
   }
 
-  .bg-striped-25 {
+  .striped-25 {
     background-repeat: repeat;
     background-size: 5px;
     background-image: url("/images/misc/background-pattern-25.png");
   }
 
-  .bg-dark-striped {
+  .striped-dark {
     background-repeat: repeat;
     background-size: 5px;
     background-image: url("/images/misc/background-pattern-dark.png");

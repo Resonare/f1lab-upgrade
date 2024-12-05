@@ -122,7 +122,7 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
           <div className="h-[70px] flex-wrap lg:h-90 flex content-center justify-end">
             <SecondaryButton
               className="max-lg:hidden text-sm"
-              variant="light"
+              variant={inverseColor ? `accent-light` : `accent-dark`}
               onClick={showCallMeBackModal}
             >
               Связаться с нами

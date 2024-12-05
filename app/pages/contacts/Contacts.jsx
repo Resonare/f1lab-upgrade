@@ -86,7 +86,7 @@ const Contacts = () => {
         ></div>
 
         <ModalForm
-          className={`${success !== null && `hidden`} bg-striped max-sm:p-0`}
+          className={`${success !== null && `hidden`} striped max-sm:p-0`}
           title="Поговорим о сотрудничестве?"
           method="post"
           action="/services"
@@ -153,7 +153,7 @@ const Contacts = () => {
         <Result
           className={`${
             success === null && `hidden`
-          } max-sm:justify-between max-sm:h-[calc(100svh-30px*2)] max-sm:pb-0 bg-striped`}
+          } max-sm:justify-between max-sm:h-[calc(100svh-30px*2)] max-sm:pb-0 striped`}
           success={success}
           phone={values.phone}
         />

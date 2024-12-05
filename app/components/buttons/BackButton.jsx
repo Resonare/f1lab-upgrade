@@ -9,7 +9,7 @@ const BackButton = ({ bg, textColor, link, to, onClick, className = "" }) => {
 
   const buttonStyle = `flex group ${bg} ${
     textColor ? textColor : ""
-  } h-[52px] text-md justify-between border-y border-dashed border-gray-200 pl-10 pr-20 py-5 bg-striped transition-all duration-500`;
+  } h-[52px] text-md justify-between border-y border-dashed border-gray-200 pl-10 pr-20 py-5 striped transition-all duration-500`;
 
   return (
     <>

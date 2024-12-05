@@ -11,8 +11,10 @@ const TagContainer = ({ title, inverseColor = false, children }) => {
     <div className="flex flex-col gap-5">
       <p
         className={`${
-          inverseColor ? `text-gray-100` : `text-gray-400`
-        } font-text font-normal text-sm leading-tight`}
+          inverseColor
+            ? `text-gray-100 font-light`
+            : `text-gray-400 font-normal`
+        } font-text text-sm leading-tight`}
       >
         {title}
       </p>

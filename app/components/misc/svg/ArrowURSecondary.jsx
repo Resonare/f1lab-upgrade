@@ -5,7 +5,7 @@ const ArrowURSecondary = ({
 }) => {
   return (
     <span
-      className={`${color} ${hoverColor} transition-all duration-300 ${className}`}
+      className={`${color} ${hoverColor} ${className} transition-all duration-300`}
     >
       <svg
         width="16"

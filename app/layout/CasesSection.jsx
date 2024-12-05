@@ -81,13 +81,11 @@ const CasesSection = ({
 
         <SecondaryButton
           variant={mobileInverseColor ? `info` : `shaded`}
-          className={`${
-            mobileInverseColor && `border border-gray-300 text-gray-100`
-          } text-base font-subtitle`}
+          className={`${mobileInverseColor && `border`}`}
         >
           Все кейсы
         </SecondaryButton>
-        
+
         <CritiqueCard
           className={`max-lg:mt-60 max-sm:mt-0 lg:border-t lg:w-1/3 mt-[-1px]`}
           critiquesData={critiquesData}

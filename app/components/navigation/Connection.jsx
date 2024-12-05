@@ -109,7 +109,7 @@ const Connection = () => {
           После ввода, на ваш компьютер скачается файл, который предоставит
           специалисту доступ к вашей системе для решения задачи
         </p>
-        <SecondaryButton variant="light" onClick={handleConnect}>
+        <SecondaryButton variant="accent-light" onClick={handleConnect}>
           Предоставить доступ
         </SecondaryButton>
         <div className="flex justify-end">

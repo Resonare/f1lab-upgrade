@@ -55,6 +55,7 @@ const FileAttachmentArea = ({
             </div>
             <p>или</p>
             <SecondaryButton
+              variant="shaded"
               customIcon="/images/icons/desktop-upload.svg"
               className="text-gray-400 border-x"
               onClick={handleClick}
@@ -66,7 +67,7 @@ const FileAttachmentArea = ({
           <Cancel className="w-40 h-40" onClick={handleClose} />
         </div>
 
-        <div className="absolute w-full h-full left-0 top-0 bg-striped z-[0]"></div>
+        <div className="absolute w-full h-full left-0 top-0 striped z-[0]"></div>
       </div>
     </div>
   );

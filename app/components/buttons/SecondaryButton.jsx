@@ -3,7 +3,6 @@ import { useContext } from "react";
 import ArrowURSecondary from "../misc/svg/ArrowURSecondary";
 
 import { NavbarContext } from "../../store/navbar-context";
-import { ThemeContext } from "../../store/theme-context";
 import { LazyImage } from "../LazyImage";
 
 const SecondaryButton = ({
@@ -19,46 +18,57 @@ const SecondaryButton = ({
   children,
 }) => {
   const { showServicesDropdownHandler } = useContext(NavbarContext);
-  const { bgColor } = useContext(ThemeContext);
 
-  let buttonStyle = "";
-  let arrowColor = "#22282E";
-  let arrowHoverColor = "stroke-gray-400";
+  const styles = {
+    button: "",
+    arrow: "",
+  };
 
   switch (variant) {
     case "shaded":
-      buttonStyle = `flex group h-[52px] justify-between border-y border-dashed border-gray-200 pl-20 pr-10 py-5 sm:bg-striped bg-striped-25 hover:bg-none hover:bg-f1-light hover:border-none transition-all duration-500`;
-      arrowColor = "#22282E";
-      arrowHoverColor = "stroke-gray-400";
+      styles.button =
+        "border-y border-gray-200 sm:striped striped-25 hover:bg-none hover:bg-f1-light hover:border-none";
+      styles.arrow = "stroke-gray-400";
+      break;
+    case "dark-shaded":
+      styles.button =
+        "text-gray-100 border-y border-gray-300 striped-dark hover:striped hover:bg-gray-100 hover:text-gray-400";
+      styles.arrow = "stroke-gray-100 group-hover:stroke-gray-400";
       break;
     case "dark":
-      buttonStyle =
-        "flex group h-[52px] justify-between text-f1-light bg-gray-400 pl-20 pr-10 py-5 hover:bg-f1-light hover:text-gray-400 transition-all duration-500";
-      arrowColor = "#00FFC5";
-      arrowHoverColor = "stroke-gray-400";
+      styles.button =
+        "text-f1-light bg-gray-400 hover:bg-f1-light hover:text-gray-400";
+      styles.arrow = "stroke-gray-400";
       break;
     case "info":
-      buttonStyle =
-        "flex group h-[52px] justify-between text-f1-light bg-gray-400 pl-20 pr-10 py-5 hover:bg-gray-100 hover:text-gray-400 transition-all duration-500";
-      arrowColor = "stroke-gray-100";
-      arrowHoverColor = "group-hover:stroke-gray-400";
+      styles.button =
+        "border-gray-300 text-gray-100 bg-gray-400 hover:bg-gray-100 hover:text-gray-400";
+      styles.arrow = "stroke-gray-100 group-hover:stroke-gray-400";
       break;
     case "light":
-      buttonStyle =
-        "flex group h-[52px] justify-between text-gray-400 bg-f1-light pl-20 pr-10 py-5 hover:bg-gray-400 hover:text-f1-light transition-all duration-500";
-      arrowColor = "stroke-gray-400";
-      arrowHoverColor = "group-hover:stroke-f1-light";
+      styles.button =
+        "text-gray-400 bg-f1-light hover:bg-gray-400 hover:text-f1-light";
+      styles.arrow = "stroke-gray-400 group-hover:stroke-f1-light";
+      break;
+    case "accent-light":
+      styles.button = "text-gray-400 bg-f1-light hover:bg-gray-100";
+      styles.arrow = "stroke-gray-400";
+      break;
+    case "accent-dark":
+      styles.button =
+        "text-gray-400 bg-f1-light hover:bg-gray-400 hover:text-gray-100";
+      styles.arrow = "stroke-gray-400 group-hover:stroke-gray-100";
       break;
     default:
-      buttonStyle =
-        "flex group h-[52px] justify-between border-y border-dashed border-gray-200 pl-20 pr-10 py-5 hover:bg-f1-light hover:border-none transition-all duration-500";
+      styles.button =
+        "border-y border-gray-200 hover:bg-f1-light hover:border-none";
   }
 
   return (
     <>
       {!link && (
         <button
-          className={`text-base ${row} ${col} ${buttonStyle} ${className} gap-15 group flex items-center justify-between border-dashed w-full`}
+          className={`text-base ${row} ${col} ${styles.button} ${className} group flex justify-between border-dashed h-[52px] pl-20 pr-10 py-5 transition-all duration-500 gap-15 items-center w-full`}
           onClick={onClick}
         >
           <span
@@ -75,17 +85,14 @@ const SecondaryButton = ({
             {customIcon ? (
               <LazyImage src={customIcon} alt="" />
             ) : (
-              <ArrowURSecondary
-                color={arrowColor}
-                hoverColor={arrowHoverColor}
-              />
+              <ArrowURSecondary className={`${styles.arrow}`} />
             )}
           </div>
         </button>
       )}
       {link && (
         <NavLink
-          className={`${className} ${buttonStyle} min-w-full`}
+          className={`${className} ${styles.button} min-w-full group flex justify-between border-dashed h-[52px] pl-20 pr-10 py-5 transition-all duration-500`}
           viewTransition
           to={to}
           onClick={showServicesDropdownHandler}
@@ -94,11 +101,7 @@ const SecondaryButton = ({
           {customIcon ? (
             <LazyImage src={customIcon} alt="" />
           ) : (
-            <ArrowURSecondary
-              className="flex items-center"
-              color={arrowColor}
-              hoverColor={arrowHoverColor}
-            />
+            <ArrowURSecondary className={`${styles.arrow} flex items-center`} />
           )}
         </NavLink>
       )}

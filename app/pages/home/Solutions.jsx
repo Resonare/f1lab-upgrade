@@ -159,7 +159,7 @@ const Why = () => {
 
       <Carousel
         inverseColor={true}
-        className="w-full col-start-1 cold-end-5 row-start-3 sm:hidden overflow-hidden"
+        className="w-full col-start-1 col-end-5 row-start-3 sm:hidden overflow-hidden"
       >
         <ContentCard
           key={0}

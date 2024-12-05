@@ -56,7 +56,7 @@ const PlanModal = () => {
           className={`xl:pr-120 lg:py-90 lg:pr-60 sm:py-[70px] lg:pl-0 sm:px-[44.1px] py-30 px-15`}
         >
           <div
-            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col xl:pl-120 lg:pl-60 max-md:pl-0 bg-striped h-full border-[1px] border-dashed border-gray-200`}
+            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col xl:pl-120 lg:pl-60 max-md:pl-0 striped h-full border-[1px] border-dashed border-gray-200`}
           >
             <Result
               className={`${success === null && `hidden`} max-sm:h-fit sm:hidden`}
