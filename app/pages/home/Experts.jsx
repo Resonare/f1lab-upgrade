@@ -101,7 +101,10 @@ const Experts = ({ expertsData }) => {
         ))}
       </Carousel>
 
-      <SecondaryButton className="sm:hidden border col-start-1 col-end-5" variant="info">
+      <SecondaryButton
+        className="sm:hidden border col-start-1 col-end-5"
+        variant="info"
+      >
         Все сотрудники
       </SecondaryButton>
     </Section>

@@ -188,8 +188,8 @@ export const navData = [
   {
     link: "blog",
     title: "Блог",
-    bgColor: "bg-alert",
-    textColor: "text-alert",
+    bgColor: "bg-gray-100",
+    textColor: "text-gray-400",
     items: [],
   },
   {
