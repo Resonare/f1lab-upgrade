@@ -55,8 +55,8 @@ const ArticleCard = ({
 
         <p
           className={`${
-            small ? `text-[22px]` : `text-[28px]`
-          } text-gray-400 font-expanded font-extrabold leading-tight`}
+            small ? `text-[22px]` : `sm:text-[28px] text-[26px]`
+          } text-gray-400 sm:font-expanded font-extended font-extrabold sm:leading-tight leading-none`}
         >
           {articleData.title}
         </p>

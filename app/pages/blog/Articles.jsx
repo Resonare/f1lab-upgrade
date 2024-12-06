@@ -36,7 +36,7 @@ const Articles = () => {
 
   return (
     <Section hero={true}>
-      <SectionTitle col="col-start-1 lg:col-end-4 md:col-end-3 col-end-5 max-sm:mb-30">
+      <SectionTitle col="max-sm:[&>p]:text-[28px] col-start-1 lg:col-end-4 md:col-end-3 col-end-5 max-sm:mb-30">
         Следите за актуальными новостями
       </SectionTitle>
 
