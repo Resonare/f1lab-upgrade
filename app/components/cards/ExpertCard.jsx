@@ -21,7 +21,9 @@ const ExpertCard = ({
   return (
     <div
       className={`${className} ${col} ${row} ${
-        inverseColor ? `max-sm:bg-gray-400 border-gray-300` : `max-sm:${bgColor}`
+        inverseColor
+          ? `max-sm:bg-gray-400 border-gray-300`
+          : `max-sm:${bgColor}`
       } border-dashed sm:p-30 p-10 flex flex-col gap-30`}
       style={style}
     >
