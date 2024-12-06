@@ -1,6 +1,12 @@
 import Tag from "./Tag";
 
-const TagContainer = ({ title, inverseColor = false, children }) => {
+const TagContainer = ({
+  title,
+  titleClassName = "",
+  inverseColor = false,
+  className = "",
+  children,
+}) => {
   if (!children || children.length == 0) return null;
 
   const handleClick = (tagLink) => {
@@ -8,7 +14,7 @@ const TagContainer = ({ title, inverseColor = false, children }) => {
   };
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className={`${className} flex flex-col gap-5`}>
       <p
         className={`${
           inverseColor
@@ -16,7 +22,7 @@ const TagContainer = ({ title, inverseColor = false, children }) => {
             : `text-gray-400 font-normal`
         } font-text text-sm leading-tight`}
       >
-        {title}
+        <span className={`${titleClassName}`}>{title}</span>
       </p>
       <div className="flex flex-wrap gap-5">
         {children.map((tag) => (
