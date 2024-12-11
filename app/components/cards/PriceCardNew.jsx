@@ -35,18 +35,18 @@ const PriceCard = ({
 
   return (
     <div
-      className={`${row} ${col} ${className} max-sm:${bgColor} xl:pb-30 xl:px-30 pb-15 px-15 border-dashed flex flex-col sm:gap-60 gap-30 justify-between`}
+      className={`${row} ${col} ${className} max-sm:${bgColor} xl:pb-30 pb-15 border-dashed flex flex-col sm:gap-60 gap-30 justify-between`}
     >
       <div className="flex flex-col gap-15">
         <div
-          className={`${bgColor} flex flex-col gap-15 border-b pb-15 pt-100 border-dashed border-gray-200`}
+          className={`${bgColor} ml-[1px] xl:px-30 px-15 sticky top-[1svh] flex flex-col gap-15 pt-100`}
         >
-          <p className="font-extrabold font-expanded text-gray-400 sm:text-[40px] text-2xl leading-[44px]">
+          <p className="font-extrabold font-expanded border-b border-dashed border-gray-200 pb-15 text-gray-400 sm:text-[40px] text-2xl leading-[44px]">
             {title}
           </p>
         </div>
 
-        <div className="flex flex-col sm:gap-30 gap-15">
+        <div className="xl:px-30 px-15 flex flex-col sm:gap-30 gap-15">
           <Condition
             className="text-[22px] font-extended font-bold text-gray-400"
             icon="list-locked.svg"
@@ -72,7 +72,7 @@ const PriceCard = ({
         </div>
       </div>
 
-      <div className="flex flex-col gap-30">
+      <div className="xl:px-30 px-15 flex flex-col gap-30">
         <div className="flex flex-col gap-5">
           <Condition
             className="text-[22px] font-extended font-bold text-gray-400"
