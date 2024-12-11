@@ -45,7 +45,7 @@ export function LazyImage({
       alt={alt}
       className={`transition-opacity duration-300 ${
         isLoaded ? "opacity-100" : "opacity-0"
-      } ${className || ""}`}
+      } ${className}`}
     />
   );
 }

@@ -39,7 +39,7 @@ const CasesSection = ({
       <Section id="cases" className="max-sm:hidden my-60">
         <SectionTitle
           row="row-start-1"
-          col="md:col-start-2 col-start-1 lg:col-end-5 md:col-end-4 col-end-5"
+          col="md:col-start-2 col-start-1 lg:col-end-4 md:col-end-4 col-end-5"
           className="md:pb-60"
         >
           {title}
