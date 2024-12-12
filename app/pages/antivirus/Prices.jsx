@@ -66,63 +66,41 @@ const Prices = () => {
         </SectionTitle>
 
         <div className="col-start-1 col-end-5 flex lg:flex-row flex-col">
-          <PriceCard
-            className="border-y border-r lg:w-1/3"
-            plan={PLANS_DATA[0]}
-            allConditions={ALL_CONDITIONS_DATA}
-          >
-            {PLANS_DATA[0].description}
-          </PriceCard>
-
-          <PriceCard
-            className="border-y border-r lg:w-1/3"
-            plan={PLANS_DATA[1]}
-            allConditions={ALL_CONDITIONS_DATA}
-          >
-            {PLANS_DATA[1].description}
-          </PriceCard>
-
-          <PriceCard
-            className="border-y lg:w-1/3"
-            plan={PLANS_DATA[2]}
-            allConditions={ALL_CONDITIONS_DATA}
-          >
-            {PLANS_DATA[2].description}
-          </PriceCard>
+          {PLANS_DATA.map((planData, index) => (
+            <PriceCard
+              key={index}
+              className={`${
+                index != PLANS_DATA.length - 1 && `border-r`
+              } border-y lg:w-1/3`}
+              plan={planData}
+              allConditions={ALL_CONDITIONS_DATA}
+            >
+              {planData.description}
+            </PriceCard>
+          ))}
         </div>
       </Section>
 
-      {/* <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
-        <SectionTitle>Понятные цены</SectionTitle>
+      <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
+        <SectionTitle>
+          Лицензии PRO32 Office Security под любые задачи
+        </SectionTitle>
 
         <Carousel>
-          <PriceCard
-            className="border-r"
-            row="row-start-1"
-            col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-            plan={PLANS_DATA[0]}
-          >
-            {PLANS_DATA[0].description}
-          </PriceCard>
-
-          <PriceCard
-            className="border-r"
-            row="lg:row-start-1 row-start-2"
-            col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-            plan={PLANS_DATA[1]}
-          >
-            {PLANS_DATA[1].description}
-          </PriceCard>
-
-          <PriceCard
-            row="lg:row-start-1 row-start-2"
-            col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-            plan={PLANS_DATA[2]}
-          >
-            {PLANS_DATA[2].description}
-          </PriceCard>
+          {PLANS_DATA.map((planData, index) => (
+            <PriceCard
+              key={index}
+              className={`${
+                index != PLANS_DATA.length - 1 && `border-r`
+              } border-b`}
+              plan={planData}
+              allConditions={ALL_CONDITIONS_DATA}
+            >
+              {planData.description}
+            </PriceCard>
+          ))}
         </Carousel>
-      </div> */}
+      </div>
     </>
   );
 };

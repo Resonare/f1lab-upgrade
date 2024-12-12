@@ -136,11 +136,11 @@ const ModalForm = ({
         action={action}
         noValidate
       >
-        <div className="flex flex-col sm:gap-5 gap-15">
-          <p className="lg:text-[28px] sm:text-[22px] text-[28px] lg:font-expanded lg:font-extrabold font-extended font-bold lg:leading-loose sm:leading-relaxed leading-[24px]">
+        <div className="flex flex-col sm:gap-5 gap-10">
+          <p className="lg:text-[28px] sm:text-[22px] text-xl lg:font-expanded lg:font-extrabold font-extended font-bold lg:leading-loose sm:leading-relaxed leading-[24px]">
             {title}
           </p>
-          <p className="text-xl text-gray-300 font-text font-light sm:leading-relaxed leading-tight">
+          <p className="sm:text-xl text-sm text-gray-300 font-text sm:font-light font-normal sm:leading-relaxed leading-tight">
             Заполните форму и мы свяжемся с вами в течение 15 минут
           </p>
         </div>
@@ -173,7 +173,7 @@ const ModalForm = ({
                 value={values.policy}
                 error={errors.policy}
               />
-              <div className="select-none font-text max-sm:font-light text-base leading-tight">
+              <div className="select-none font-text text-base leading-tight">
                 <p>Я согласен на обработку персональных данных</p>
                 <p className="underline cursor-pointer">
                   Политика конфиденциальности

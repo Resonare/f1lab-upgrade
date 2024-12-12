@@ -38,9 +38,9 @@ const Trial = () => {
   const [success, setSuccess] = useState(null);
 
   return (
-    <Section className="max-sm:hidden">
+    <Section className="">
       <div className="col-start-1 lg:col-end-3 col-end-5 flex flex-col justify-between">
-        <SectionTitle className="md:leading-[55px] text-[56px]">
+        <SectionTitle className="sm:leading-[55px] leading-[30px] sm:text-[56px] text-2xl  ">
           <span className="text-f1-dark">Получите</span> бесплатный 14-дневный
           пробный период
         </SectionTitle>
@@ -52,7 +52,7 @@ const Trial = () => {
       </div>
 
       <div
-        className={`${bgColor} max-lg:mt-60 lg:col-start-3 col-start-1 col-end-5 border-y border-l border-dashed border-gray-200`}
+        className={`${bgColor} max-lg:mt-60 max-sm:mt-30 lg:col-start-3 col-start-1 col-end-5 border-y border-l border-dashed border-gray-200`}
       >
         <ContentCard>
           <div className="flex flex-col gap-15">
@@ -71,8 +71,7 @@ const Trial = () => {
         <ModalForm
           className={`${
             success !== null && `hidden`
-          } border-t striped max-sm:p-0`}
-          title=""
+          } border-t striped`}
           method="post"
           action="/services"
           values={values}
@@ -84,7 +83,6 @@ const Trial = () => {
           showContacts={false}
         >
           <FormInput
-            className="max-sm:border-x-[0px]"
             name="name"
             placeholder="Ваше имя"
             required
@@ -93,7 +91,6 @@ const Trial = () => {
             error={errors.name}
           />
           <FormInput
-            className="max-sm:border-x-[0px]"
             name="phone"
             placeholder="Телефон"
             type="tel"
@@ -103,7 +100,7 @@ const Trial = () => {
             error={errors.phone}
           />
           <FormInput
-            className="max-sm:border-y-[0px] border-b"
+            className="border-b"
             name="email"
             placeholder="E-mail"
             type="email"

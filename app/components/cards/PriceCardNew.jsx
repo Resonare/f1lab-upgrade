@@ -39,10 +39,10 @@ const PriceCard = ({
     >
       <div className="flex flex-col gap-15">
         <div
-          className={`${bgColor} ml-[1px] xl:px-30 px-15 sticky top-[1svh] flex flex-col gap-15 pt-100`}
+          className={`${bgColor} ml-[1px] xl:px-30 px-15 sticky top-[1svh] flex flex-col gap-15 sm:pt-100`}
         >
-          <div className="border-b border-dashed border-gray-200">
-            <p className="w-1/3 font-extrabold font-expanded  pb-15 text-gray-400 sm:text-[40px] text-2xl leading-[44px]">
+          <div className="sm:border-b border-dashed border-gray-200">
+            <p className="w-1/3 sm:font-extrabold font-bold sm:font-expanded font-extended pb-15 text-gray-400 sm:text-[40px] text-2xl sm:leading-[44px] leading-[30px]">
               {title}
             </p>
           </div>
@@ -50,7 +50,7 @@ const PriceCard = ({
 
         <div className="xl:px-30 px-15 flex flex-col sm:gap-30 gap-15">
           <Condition
-            className="text-[22px] font-extended font-bold text-gray-400"
+            className="sm:text-[22px] text-base sm:font-extended font-expanded font-bold text-gray-400 max-sm:leading-[18px]"
             icon="list-locked.svg"
           >
             Лицензия на 12 месяцев
@@ -77,14 +77,14 @@ const PriceCard = ({
       <div className="xl:px-30 px-15 flex flex-col gap-30">
         <div className="flex justify-between">
           <p
-            className={`${priceClassName} lg:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
+            className={`${priceClassName} lg:hidden max-sm:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
           >
             {price}
           </p>
 
           <div className="flex flex-col gap-5">
             <Condition
-              className="text-[22px] font-extended font-bold text-gray-400"
+              className="sm:text-[22px] text-base font-extended font-bold text-gray-400"
               icon="desktop-empty.svg"
             >
               Количество устройств
@@ -110,7 +110,7 @@ const PriceCard = ({
               </div>
 
               <p
-                className={`${priceClassName} max-lg:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
+                className={`${priceClassName} lg:block sm:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
               >
                 {price}
               </p>
@@ -127,7 +127,7 @@ const PriceCard = ({
         </PrimaryButton>
 
         <PrimaryButton
-          className="sm:hidden [&>button]:py-10 [&>button]:pl-20 [&>button]:pr-10"
+          className="sm:hidden"
           type="accent"
           onClick={() => showPlanModal(plan, devicesCount)}
         >
