@@ -94,7 +94,7 @@ const CritiquesCard = ({
             minimized ? `border-b` : `lg:border-b`
           } ${
             inverseColor ? `border-gray-300` : `border-gray-200`
-          } max-lg:border-t gap-15 ml-[1px] max-sm:mr-[1px] sm:p-30 py-20 px-10 flex flex-col border-dashed`}
+          } max-lg:border-t max-sm:border-b gap-15 ml-[1px] max-sm:mr-[1px] sm:p-30 py-20 px-10 flex flex-col border-dashed`}
         >
           <div className={`${!minimized && `order-last`} flex gap-30`}>
             <LazyImage
@@ -139,7 +139,7 @@ const CritiquesCard = ({
 
         <SecondaryButton
           variant={inverseColor ? `info` : `shaded`}
-          className={`${minimized ? `hidden` : `lg:hidden`} max-sm:border`}
+          className={`${minimized ? `hidden` : `lg:hidden max-sm:hidden`} max-sm:border`}
         >
           Все отзывы
         </SecondaryButton>
@@ -152,17 +152,28 @@ const CritiquesCard = ({
           </div>
           <div className={`flex max-sm:justify-between lg:gap-15 sm:gap-60`}>
             <ArrowNext
-              className="p-15 lg:pl-40 pl-20 sm:hover:pl-15 sm:hover:pr-20 lg:hover:pr-40 sm:w-full w-1/3 max-sm:border-b max-sm:border-r border-dashed border-gray-300"
+              className={`${
+                inverseColor ? `border-gray-300` : `border-gray-200`
+              } lg:pl-40 sm:p-15 sm:pl-20 lg:hover:pr-40 sm:hover:pl-15 sm:hover:pr-20 sm:w-full w-1/3 max-sm:border-b max-sm:border-r border-dashed`}
               inverseColor={inverseColor}
               onClick={handlePrev}
             />
             <ArrowPrev
-              className="p-15 lg:pr-40 pr-20 sm:hover:pr-15 sm:hover:pl-20 lg:hover:pl-40 sm:w-full w-1/3 max-sm:border-b max-sm:border-l border-dashed border-gray-300"
+              className={`${
+                inverseColor ? `border-gray-300` : `border-gray-200`
+              } lg:pr-40 sm:p-15 sm:pr-20 lg:hover:pl-40 sm:hover:pr-15 sm:hover:pl-20 sm:w-full w-1/3 max-sm:border-b max-sm:border-l border-dashed`}
               inverseColor={inverseColor}
               onClick={handleNext}
             />
           </div>
         </div>
+
+        <SecondaryButton
+          variant={`info`}
+          className={`${minimized ? `hidden` : `sm:hidden`}`}
+        >
+          Все отзывы
+        </SecondaryButton>
       </div>
     </div>
   );

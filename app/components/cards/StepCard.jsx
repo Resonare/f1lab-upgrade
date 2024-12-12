@@ -2,6 +2,8 @@ import { useContext } from "react";
 
 import { ThemeContext } from "../../store/theme-context";
 
+import TagContainer from "../misc/TagContainer";
+
 const StepCard = ({
   row = "",
   col = "",
@@ -62,9 +64,7 @@ const StepCard = ({
           {children}
         </div>
 
-        {tags.length != 0 ? (
-          <div className="flex flex-wrap gap-5">{tags}</div>
-        ) : null}
+        {tags.length != 0 ? <TagContainer>{tags}</TagContainer> : null}
       </div>
     </div>
   );

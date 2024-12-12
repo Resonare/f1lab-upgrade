@@ -12,9 +12,9 @@ const Offers = () => {
   return (
     <Section inverseColor={true} id="offers">
       <SectionTitle
-        className="text-f1-light mb-50"
+        className="text-f1-light sm:mb-[50px] mb-30"
         row="row-start-1"
-        col="sm:col-start-2 col-start-1 lg:col-end-5 sm:col-end-4 col-end-5"
+        col="lg:col-start-2 col-start-1 lg:col-end-4 col-end-5"
       >
         Почему антивирус PRO32 с технической поддержкой от F1Lab — верное
         решение?
@@ -147,9 +147,11 @@ const Offers = () => {
         реагирование специалистов F1Lab на инциденты.
       </ContentCard>
 
+      <div className="sm:hidden h-15 row-start-[20]"></div>
+
       <PrimaryButton
         type="light"
-        row="row-start-4"
+        row="lg:row-start-4 row-start-[21]"
         col="col-start-1 xl:col-end-3 lg:col-end-3 col-end-6"
         onClick={showCallMeBackModal}
       >

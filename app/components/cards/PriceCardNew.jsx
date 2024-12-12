@@ -41,9 +41,11 @@ const PriceCard = ({
         <div
           className={`${bgColor} ml-[1px] xl:px-30 px-15 sticky top-[1svh] flex flex-col gap-15 pt-100`}
         >
-          <p className="font-extrabold font-expanded border-b border-dashed border-gray-200 pb-15 text-gray-400 sm:text-[40px] text-2xl leading-[44px]">
-            {title}
-          </p>
+          <div className="border-b border-dashed border-gray-200">
+            <p className="w-1/3 font-extrabold font-expanded  pb-15 text-gray-400 sm:text-[40px] text-2xl leading-[44px]">
+              {title}
+            </p>
+          </div>
         </div>
 
         <div className="xl:px-30 px-15 flex flex-col sm:gap-30 gap-15">
@@ -73,38 +75,46 @@ const PriceCard = ({
       </div>
 
       <div className="xl:px-30 px-15 flex flex-col gap-30">
-        <div className="flex flex-col gap-5">
-          <Condition
-            className="text-[22px] font-extended font-bold text-gray-400"
-            icon="desktop-empty.svg"
+        <div className="flex justify-between">
+          <p
+            className={`${priceClassName} lg:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
           >
-            Количество устройств
-          </Condition>
+            {price}
+          </p>
 
-          <div className="flex items-center gap-30">
-            <div className="bg-gray-400 p-5 w-[180px] rounded-[5px] flex justify-between items-center">
-              <div
-                className="bg-gray-300 py-5 px-15 rounded-[5px] text-[28px] font-expanded font-extrabold text-gray-100 select-none cursor-pointer hover:bg-gray-250 transition-all"
-                onClick={handleRemoveDevice}
-              >
-                -
-              </div>
-              <p className="text-gray-100 text-xl font-expanded font-bold py-5">
-                {devicesCount}
-              </p>
-              <div
-                className="bg-f1-light py-5 px-15 rounded-[5px] text-[28px] font-expanded font-extrabold text-gray-400 select-none cursor-pointer hover:bg-[#63ffdc] transition-all"
-                onClick={handleAddDevice}
-              >
-                +
-              </div>
-            </div>
-
-            <p
-              className={`${priceClassName} font-title text-gray-400 md:text-[40px] sm:text-[30px] text-[26px] leading-[44px]`}
+          <div className="flex flex-col gap-5">
+            <Condition
+              className="text-[22px] font-extended font-bold text-gray-400"
+              icon="desktop-empty.svg"
             >
-              {price}
-            </p>
+              Количество устройств
+            </Condition>
+
+            <div className="flex xl:flex-row flex-col xl:items-center gap-30">
+              <div className="bg-gray-400 p-5 lg:w-[180px] rounded-[10px] flex justify-between items-center">
+                <div
+                  className="bg-gray-300 py-5 lg:px-15 px-30 rounded-[5px] text-[28px] font-expanded font-extrabold text-gray-100 select-none cursor-pointer hover:bg-gray-250 transition-all"
+                  onClick={handleRemoveDevice}
+                >
+                  -
+                </div>
+                <p className="text-gray-100 text-xl font-expanded font-bold py-5">
+                  {devicesCount}
+                </p>
+                <div
+                  className="bg-f1-light py-5 lg:px-15 px-30 rounded-[5px] text-[28px] font-expanded font-extrabold text-gray-400 select-none cursor-pointer hover:bg-[#63ffdc] transition-all"
+                  onClick={handleAddDevice}
+                >
+                  +
+                </div>
+              </div>
+
+              <p
+                className={`${priceClassName} max-lg:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
+              >
+                {price}
+              </p>
+            </div>
           </div>
         </div>
 

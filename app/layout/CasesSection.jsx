@@ -26,7 +26,7 @@ const CasesSection = ({
     <CaseCard
       className={`${
         index != serviceCasesData.length - 1 && `max-sm:border-r`
-      } ${index != 0 && `max-sm:border-l`} sm:border mr-[-1px]`}
+      } ${index != 0 && `max-sm:border-l`} sm:border border-b mr-[-1px]`}
       outerClassName="sm:mt-[-1px] sm:mb-[-1px] sm:w-1/2"
       key={serviceCase.id}
       caseData={serviceCase}

@@ -3,7 +3,7 @@ import { useLoaderData } from "@remix-run/react";
 import Hero from "../pages/antivirus/Hero";
 import Scenarios from "../pages/antivirus/Scenarios";
 import Offers from "../pages/antivirus/Offers";
-import Process from "../pages/antivirus/Process";
+import ProcessSection from "../layout/ProcessSection";
 import CasesSection from "../layout/CasesSection";
 import Prices from "../pages/antivirus/Prices";
 import Pockets from "../pages/antivirus/Pockets";
@@ -28,7 +28,7 @@ export default function ITAudit() {
       <Hero />
       <Scenarios />
       <Offers />
-      <Process />
+      <ProcessSection title="Процесс внедрения антивирусного решения" />
       <Trial />
       <CasesSection
         title="Кейсы: как мы решаем задачи наших клиентов"

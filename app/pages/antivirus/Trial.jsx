@@ -38,21 +38,21 @@ const Trial = () => {
   const [success, setSuccess] = useState(null);
 
   return (
-    <Section>
-      <div className="col-start-1 col-end-3 flex flex-col justify-between">
+    <Section className="max-sm:hidden">
+      <div className="col-start-1 lg:col-end-3 col-end-5 flex flex-col justify-between">
         <SectionTitle className="md:leading-[55px] text-[56px]">
           <span className="text-f1-dark">Получите</span> бесплатный 14-дневный
           пробный период
         </SectionTitle>
 
         <LazyImage
-          className="h-[45px] w-fit"
-          src="/images/antivirus/pro32.png"
+          className="max-lg:hidden h-[45px] w-fit"
+          src="/images/icons/pro32.svg"
         />
       </div>
 
       <div
-        className={`${bgColor} max-lg:mt-60 col-start-3 col-end-5 border-y border-l border-dashed border-gray-200`}
+        className={`${bgColor} max-lg:mt-60 lg:col-start-3 col-start-1 col-end-5 border-y border-l border-dashed border-gray-200`}
       >
         <ContentCard>
           <div className="flex flex-col gap-15">

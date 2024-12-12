@@ -60,7 +60,7 @@ const Carousel = ({
       <div
         className={`${
           inverseColor && `border-gray-300`
-        } border-y mx-[0.8px] border-dashed overflow-x-scroll flex [&>*]:min-w-[300px] [&>*]:snap-center snap-x-mandatory`}
+        } border-t mx-[0.8px] border-dashed overflow-x-scroll flex [&>*]:min-w-[300px] [&>*]:snap-center snap-x-mandatory`}
         onScroll={scrollHandle}
         ref={carouselRef}
       >

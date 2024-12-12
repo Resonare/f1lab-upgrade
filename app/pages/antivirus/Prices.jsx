@@ -65,9 +65,9 @@ const Prices = () => {
           Лицензии PRO32 Office Security под любые задачи
         </SectionTitle>
 
-        <div className="col-start-1 col-end-5 flex">
+        <div className="col-start-1 col-end-5 flex lg:flex-row flex-col">
           <PriceCard
-            className="border-y border-r w-1/3"
+            className="border-y border-r lg:w-1/3"
             plan={PLANS_DATA[0]}
             allConditions={ALL_CONDITIONS_DATA}
           >
@@ -75,7 +75,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
-            className="border-y border-r w-1/3"
+            className="border-y border-r lg:w-1/3"
             plan={PLANS_DATA[1]}
             allConditions={ALL_CONDITIONS_DATA}
           >
@@ -83,7 +83,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
-            className="border-y w-1/3"
+            className="border-y lg:w-1/3"
             plan={PLANS_DATA[2]}
             allConditions={ALL_CONDITIONS_DATA}
           >
