@@ -3,54 +3,79 @@ import SectionTitle from "../../layout/SectionTitle";
 import PriceCard from "../../components/cards/PriceCard";
 import Carousel from "../../components/misc/Carousel";
 
+const PLANS_DATA = [
+  {
+    title: "Аудит S",
+    price: 7200,
+    mainCondition: "1-5 рабочих мест",
+    mainConditionIcon: "desktop-icon.svg",
+    description: `Идеально подходит для стартапов и компаний с
+        небольшим числом сотрудников, которым необходима
+        надежная и доступная поддержка для IT инфраструктуры.`,
+    conditions: [
+      {
+        title: "12 часов удаленной поддержки",
+        enabled: true,
+      },
+      {
+        title: "2 экстренных выезда",
+        enabled: true,
+      },
+      {
+        title: "2 профилактических выезда",
+        enabled: true,
+      },
+    ],
+  },
+  {
+    title: "Аудит M",
+    price: 7200,
+    mainCondition: "1-5 рабочих мест",
+    mainConditionIcon: "desktop-icon.svg",
+    description: `Идеально подходит для стартапов и компаний с
+        небольшим числом сотрудников, которым необходима
+        надежная и доступная поддержка для IT инфраструктуры.`,
+    conditions: [
+      {
+        title: "12 часов удаленной поддержки",
+        enabled: true,
+      },
+      {
+        title: "2 экстренных выезда",
+        enabled: true,
+      },
+      {
+        title: "2 профилактических выезда",
+        enabled: true,
+      },
+    ],
+  },
+  {
+    title: "Аудит L",
+    price: 7200,
+    mainCondition: "1-5 рабочих мест",
+    mainConditionIcon: "desktop-icon.svg",
+    description: `Идеально подходит для стартапов и компаний с
+        небольшим числом сотрудников, которым необходима
+        надежная и доступная поддержка для IT инфраструктуры.`,
+    conditions: [
+      {
+        title: "12 часов удаленной поддержки",
+        enabled: true,
+      },
+      {
+        title: "2 экстренных выезда",
+        enabled: true,
+      },
+      {
+        title: "2 профилактических выезда",
+        enabled: true,
+      },
+    ],
+  },
+];
+
 const Prices = () => {
-  const plansData = [
-    {
-      title: "Аудит S",
-      price: "7 200 ₽",
-      annualPrice: "6 120 ₽",
-      mainConditions: ["1-5 рабочих мест"],
-      mainConditionIcons: ["desktop-icon.svg"],
-      conditions: [
-        "12 часов удаленной поддержки",
-        "2 экстренных выезда",
-        "2 профилактических выезда",
-      ],
-      description: `Идеально подходит для стартапов и компаний с
-        небольшим числом сотрудников, которым необходима
-        надежная и доступная поддержка для IT инфраструктуры.`,
-    },
-    {
-      title: "Аудит M",
-      price: "7 200 ₽",
-      annualPrice: "6 120 ₽",
-      mainConditions: ["1-5 рабочих мест"],
-      mainConditionIcons: ["desktop-icon.svg"],
-      conditions: [
-        "12 часов удаленной поддержки",
-        "2 экстренных выезда",
-        "2 профилактических выезда",
-      ],
-      description: `Идеально подходит для стартапов и компаний с
-        небольшим числом сотрудников, которым необходима
-        надежная и доступная поддержка для IT инфраструктуры.`,
-    },
-    {
-      title: "Аудит L",
-      price: "7 200 ₽",
-      annualPrice: "6 120 ₽",
-      mainConditions: ["1-5 рабочих мест"],
-      mainConditionIcons: ["desktop-icon.svg"],
-      conditions: [
-        "12 часов удаленной поддержки",
-        "2 экстренных выезда",
-        "2 профилактических выезда",
-      ],
-      description: `Идеально подходит для стартапов и компаний с
-        небольшим числом сотрудников, которым необходима
-        надежная и доступная поддержка для IT инфраструктуры.`,
-    },
-  ];
   return (
     <>
       <Section className="max-sm:hidden" id="prices">
@@ -61,63 +86,33 @@ const Prices = () => {
           Понятные цены
         </SectionTitle>
 
-        <PriceCard
-          className="border-y"
-          row="row-start-1"
-          col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-          plan={plansData[0]}
-        >
-          {plansData[0].description}
-        </PriceCard>
-
-        <PriceCard
-          className="border-y"
-          row="lg:row-start-1 row-start-2"
-          col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-          plan={plansData[1]}
-        >
-          {plansData[1].description}
-        </PriceCard>
-
-        <PriceCard
-          className="border-y"
-          row="lg:row-start-1 row-start-2"
-          col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-          plan={plansData[2]}
-        >
-          {plansData[2].description}
-        </PriceCard>
+        {PLANS_DATA.map((planData, index) => (
+          <PriceCard
+            key={index}
+            className={`border-y`}
+            col={`col-start-${index + 2}`}
+            plan={planData}
+          >
+            {planData.description}
+          </PriceCard>
+        ))}
       </Section>
 
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
         <SectionTitle>Понятные цены</SectionTitle>
 
         <Carousel>
-          <PriceCard
-            className="border-r"
-            row="row-start-1"
-            col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
-            plan={plansData[0]}
-          >
-            {plansData[0].description}
-          </PriceCard>
-
-          <PriceCard
-            className="border-r"
-            row="lg:row-start-1 row-start-2"
-            col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
-            plan={plansData[1]}
-          >
-            {plansData[1].description}
-          </PriceCard>
-
-          <PriceCard
-            row="lg:row-start-1 row-start-2"
-            col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
-            plan={plansData[2]}
-          >
-            {plansData[2].description}
-          </PriceCard>
+          {PLANS_DATA.map((planData, index) => (
+            <PriceCard
+              key={index}
+              className={`${
+                index != PLANS_DATA.length - 1 && `border-r`
+              } border-b`}
+              plan={planData}
+            >
+              {planData.description}
+            </PriceCard>
+          ))}
         </Carousel>
       </div>
     </>

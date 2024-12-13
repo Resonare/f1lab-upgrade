@@ -82,8 +82,10 @@ const PlanModal = () => {
             <PlanInfo
               title={selectedPlan.title}
               price={selectedPlan.price}
-              termCondition={selectedPlan.termCondition}
+              mainCondition={selectedPlan.mainCondition}
+              mainConditionIcon={selectedPlan.mainConditionIcon}
               conditions={selectedPlan.conditions}
+              description={selectedPlan.description}
               success={success}
               devicesCount={devicesCount}
               setDevicesCount={setDevicesCount}
@@ -181,7 +183,7 @@ const PlanModal = () => {
             </div>
 
             <Cancel
-              className="w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
+              className="max-md:hidden w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
               onClick={closePlanModal}
             />
           </div>

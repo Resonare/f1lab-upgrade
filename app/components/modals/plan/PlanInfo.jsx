@@ -10,13 +10,17 @@ import { ThemeContext } from "../../../store/theme-context";
 const PlanInfo = ({
   title,
   price,
-  termCondition,
+  mainCondition,
+  mainConditionIcon,
   conditions,
+  description,
   success,
   devicesCount,
   setDevicesCount,
   closePlanModal,
 }) => {
+  const countVersion = devicesCount !== undefined;
+
   const { bgColor } = useContext(ThemeContext);
 
   const allConditionsWrapperRef = useRef();
@@ -38,71 +42,91 @@ const PlanInfo = ({
 
   return (
     <div
-      className={`${bgColor} z-[1] xl:w-[40%] lg:w-[56%] w-full grow md:p-30 p-15 border-dashed flex flex-col sm:gap-60 gap-30`}
+      className={`${bgColor} z-[1] xl:w-[40%] lg:w-[56%] w-full grow md:p-30 p-15 border-dashed flex flex-col lg:gap-60 gap-30`}
     >
-      <div>
-        <div className={`${success !== null && `max-sm:hidden`}`}>
-          <SuccessCircle />
-        </div>
+      <SuccessCircle className={`${success !== null && `max-sm:hidden`}`} />
 
-        <Cancel
-          className="lg:hidden w-30 h-30 absolute top-15 right-15 cursor-pointer select-none"
-          onClick={closePlanModal}
-        />
-      </div>
+      <Cancel
+        className="lg:hidden w-30 h-30 absolute top-15 right-15 cursor-pointer select-none"
+        onClick={closePlanModal}
+      />
 
       <div className="h-full flex lg:flex-col md:flex-row flex-col gap-30">
-        <div className="flex flex-col gap-30 lg:w-full sm:w-1/2">
-          <div className="lg:w-full md:w-1/2 flex flex-col transition-all">
-            <p className="sm:w-1/3 sm:font-expanded font-extended sm:font-extrabold font-bold sm:text-[40px] text-[22px] sm:leading-[44px] leading-[28px]">
-              {title}
-            </p>
-
-            <p
-              className={`sm:hidden font-title text-gray-400 text-[28px] leading-[44px]`}
-            >
-              {(price * devicesCount)?.toLocaleString("ru-RU")} ₽
-            </p>
-          </div>
-
-          <div className="md:flex sm:hidden flex flex-col gap-15">
-            <Condition
-              className="sm:text-[22px] max-sm:w-1/3 text-base sm:font-extended font-expanded font-bold text-gray-400 leading-[18px]"
-              icon="desktop-empty.svg"
-            >
-              Количество устройств
-              <span className={`${success === null && `hidden`}`}>
-                : {devicesCount}
-              </span>
-            </Condition>
-
-            <div className="flex items-center gap-30">
-              <PlanDevicesCounter
+        <div className="flex flex-col gap-30 lg:w-full md:w-1/2">
+          <div
+            className={`${!countVersion ? `gap-5` : `gap-30`} flex flex-col`}
+          >
+            <div className={`lg:w-full flex flex-col transition-all`}>
+              <p
                 className={`${
-                  success !== null && `hidden`
-                } sm:min-w-[180px] w-full`}
-                buttonsClassName="px-15"
-                onAddDevice={handleAddDevice}
-                onRemoveDevice={handleRemoveDevice}
-                devicesCount={devicesCount}
-              />
+                  !countVersion
+                    ? `sm:text-[28px] text-[22px]`
+                    : `sm:text-[40px] text-[22px] sm:w-1/3`
+                } sm:font-expanded font-extended sm:font-extrabold font-bold sm:leading-[44px] leading-[28px]`}
+              >
+                {title}
+              </p>
 
               <p
-                className={`max-sm:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
+                className={`${
+                  !countVersion
+                    ? `sm:text-[40px] text-[28px] md:hidden`
+                    : `text-[28px] sm:hidden`
+                } font-title text-gray-400 leading-[44px]`}
               >
-                {(price * devicesCount)?.toLocaleString("ru-RU")} ₽
+                {(price * (devicesCount || 1))?.toLocaleString("ru-RU")} ₽
               </p>
             </div>
+
+            <div
+              className={`${
+                devicesCount !== undefined ? `gap-15` : `hidden`
+              } md:flex sm:hidden max-sm:hidden flex flex-col`}
+            >
+              <Condition
+                className={`${
+                  devicesCount === undefined && `hidden`
+                } sm:text-[22px] max-sm:w-1/3 text-base sm:font-extended font-expanded font-bold text-gray-400 leading-[18px]`}
+                iconClassName={`${devicesCount === undefined && `hidden`}`}
+                icon="desktop-empty.svg"
+              >
+                Количество устройств
+                <span className={`${success === null && `hidden`}`}>
+                  : {devicesCount}
+                </span>
+              </Condition>
+
+              <div className="flex items-center gap-30">
+                <PlanDevicesCounter
+                  className={`${success !== null && `hidden`} ${
+                    devicesCount === undefined && `hidden`
+                  } sm:min-w-[180px] max-sm:w-full`}
+                  buttonsClassName="px-15"
+                  onAddDevice={handleAddDevice}
+                  onRemoveDevice={handleRemoveDevice}
+                  devicesCount={devicesCount}
+                />
+
+                <p
+                  className={`font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
+                >
+                  {(price * (devicesCount || 1))?.toLocaleString("ru-RU")} ₽
+                </p>
+              </div>
+            </div>
+          </div>
+          <div className={`${!description && `hidden`} max-sm:hidden`}>
+            <p className="text-gray-300 text-base">{description}</p>
           </div>
         </div>
 
         <div className="grow lg:w-full md:w-1/2 flex flex-col gap-15">
           <div className="grow flex flex-col sm:gap-30 gap-15">
             <Condition
-              className="w-1/2 text-base font-bold font-expanded leading-[18px]"
-              icon="list-locked.svg"
+              className="text-base font-bold font-expanded leading-[18px]"
+              icon={mainConditionIcon}
             >
-              {termCondition}
+              {mainCondition}
             </Condition>
 
             <div
@@ -116,7 +140,7 @@ const PlanInfo = ({
               }}
             >
               <div
-                className={`${bgColor} md:w-[calc(100%+30px*2)] w-[calc(100%+15px*2)] md:translate-x-[-30px] translate-x-[-15px] px-30 lg:absolute overflow-hidden transition-all duration-500`}
+                className={`${bgColor} md:w-[calc(100%+30px*2)] w-[calc(100%+15px*2)] md:translate-x-[-30px] translate-x-[-15px] md:px-30 px-15 lg:absolute overflow-hidden transition-all duration-500`}
                 style={{
                   height: showAllConditions
                     ? allConditionsWrapperRef?.current?.offsetHeight +
@@ -146,7 +170,10 @@ const PlanInfo = ({
                 </div>
 
                 <div
-                  className={`${bgColor} pt-15 pb-5 w-full bottom-0 absolute flex gap-5 group hover:underline cursor-pointer select-none border-t border-dashed border-gray-200`}
+                  className={`${bgColor} ${
+                    allConditionsWrapperRef?.current?.offsetHeight < 180 &&
+                    `hidden`
+                  } pt-15 pb-5 w-full bottom-0 absolute flex gap-5 group hover:underline cursor-pointer select-none border-t border-dashed border-gray-200`}
                   onClick={handleShowAllConditions}
                 >
                   <p className="text-sm font-expanded font-bold">
@@ -180,11 +207,19 @@ const PlanInfo = ({
           </div>
         </div>
 
-        <div className="md:hidden sm:flex hidden justify-between">
+        <div
+          className={`${
+            !countVersion
+              ? `hidden`
+              : `${
+                  success !== null && `flex-col`
+                } md:hidden sm:flex gap-15 hidden`
+          } justify-between`}
+        >
           <p
             className={`font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
           >
-            {(price * devicesCount)?.toLocaleString("ru-RU")} ₽
+            {(price * (devicesCount || 1))?.toLocaleString("ru-RU")} ₽
           </p>
 
           <div className="flex flex-col gap-15">

@@ -1,6 +1,6 @@
-const SuccessCircle = () => {
+const SuccessCircle = ({ className = "" }) => {
   return (
-    <>
+    <div className={className}>
       <svg
         className="max-lg:hidden"
         width="102"
@@ -59,7 +59,7 @@ const SuccessCircle = () => {
           </clipPath>
         </defs>
       </svg>
-    </>
+    </div>
   );
 };
 

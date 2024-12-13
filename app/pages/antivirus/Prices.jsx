@@ -7,7 +7,8 @@ const PLANS_DATA = [
   {
     title: "Базовая защита",
     price: 2770,
-    termCondition: "Лицензия на 12 месяцев",
+    mainCondition: "Лицензия на 12 месяцев",
+    mainConditionIcon: "list-locked.svg",
     conditions: [
       {
         title: "Защита от вирусов, шпионского ПО и фишинговых атак",
