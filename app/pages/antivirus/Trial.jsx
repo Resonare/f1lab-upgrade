@@ -69,9 +69,7 @@ const Trial = () => {
         </ContentCard>
 
         <ModalForm
-          className={`${
-            success !== null && `hidden`
-          } border-t striped`}
+          className={`${success !== null && `hidden`} border-t striped`}
           method="post"
           action="/services"
           values={values}
@@ -119,7 +117,7 @@ const Trial = () => {
             className="hidden"
             name="request-type"
             type="text"
-            value="consultation-request"
+            value="antivirus-request"
           />
         </ModalForm>
 

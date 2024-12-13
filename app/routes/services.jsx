@@ -34,6 +34,16 @@ export async function action({ request }) {
     };
 
     message = `${data.requestType}\nСтраница: ${data.path}\nИмя: ${data.name}\nEmail: ${data.email}\nТелефон: ${data.phone}\nТариф: ${data.plan}\nПериод оплаты: ${data.paymentPeriod}`;
+  } else if (requestType === "antivirus-request") {
+    data = {
+      requestType: "Запрос антивируса",
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      path: formData.get("path"),
+    };
+
+    message = `${data.requestType}\nСтраница: ${data.path}\nИмя: ${data.name}\nEmail: ${data.email}\nТелефон: ${data.phone}\n`;
   }
 
   // Send data to Telegram
