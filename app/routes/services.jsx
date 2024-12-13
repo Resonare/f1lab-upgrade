@@ -25,7 +25,7 @@ export async function action({ request }) {
     data = {
       requestType: "Запрос услуги",
       plan: formData.get("plan-title"),
-      paymentPeriod: formData.get("payment-period"),
+      devicesCount: formData.get("device-count"),
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),

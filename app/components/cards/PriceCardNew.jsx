@@ -4,6 +4,7 @@ import useModalStore from "../../store/modal";
 
 import PrimaryButton from "../buttons/PrimaryButton";
 import Condition from "../misc/Condition";
+import PlanDevicesCounter from "../misc/PlanDevicesCounter";
 
 import { ThemeContext } from "../../store/theme-context";
 
@@ -79,7 +80,7 @@ const PriceCard = ({
           <p
             className={`${priceClassName} lg:hidden max-sm:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
           >
-            {price}
+            {(price * devicesCount)?.toLocaleString("ru-RU")} ₽
           </p>
 
           <div className="flex flex-col gap-5">
@@ -91,28 +92,17 @@ const PriceCard = ({
             </Condition>
 
             <div className="flex xl:flex-row flex-col xl:items-center gap-30">
-              <div className="bg-gray-400 p-5 lg:w-[180px] rounded-[10px] flex justify-between items-center">
-                <div
-                  className="bg-gray-300 py-5 lg:px-15 px-30 rounded-[5px] text-[28px] font-expanded font-extrabold text-gray-100 select-none cursor-pointer hover:bg-gray-250 transition-all"
-                  onClick={handleRemoveDevice}
-                >
-                  -
-                </div>
-                <p className="text-gray-100 text-xl font-expanded font-bold py-5">
-                  {devicesCount}
-                </p>
-                <div
-                  className="bg-f1-light py-5 lg:px-15 px-30 rounded-[5px] text-[28px] font-expanded font-extrabold text-gray-400 select-none cursor-pointer hover:bg-[#63ffdc] transition-all"
-                  onClick={handleAddDevice}
-                >
-                  +
-                </div>
-              </div>
+              <PlanDevicesCounter
+                buttonsClassName="lg:px-15 px-30"
+                onAddDevice={handleAddDevice}
+                onRemoveDevice={handleRemoveDevice}
+                devicesCount={devicesCount}
+              />
 
               <p
                 className={`${priceClassName} lg:block sm:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
               >
-                {price}
+                {(price * devicesCount)?.toLocaleString("ru-RU")} ₽
               </p>
             </div>
           </div>

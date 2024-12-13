@@ -13,11 +13,16 @@ const useModalStore = create((set) => ({
       return { callMeBackModalIsActive: false };
     }),
   planModalIsActive: false,
-  showPlanModal: (data) =>
-    set(() => {
+  showPlanModal: (planData, devicesCount) => {
+    return set(() => {
       document.body.style.overflow = "hidden";
-      return { selectedPlan: data, planModalIsActive: true };
-    }),
+      return {
+        selectedPlan: planData,
+        selectedDevicesCount: devicesCount,
+        planModalIsActive: true,
+      };
+    });
+  },
   closePlanModal: () =>
     set(() => {
       document.body.style.overflow = "auto";

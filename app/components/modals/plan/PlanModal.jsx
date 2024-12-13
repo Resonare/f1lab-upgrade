@@ -31,17 +31,22 @@ const INITIAL_VALUES = {
 
 const PlanModal = () => {
   const location = useLocation();
-  const { planModalIsActive, closePlanModal, selectedPlan } = useModalStore();
+  const {
+    planModalIsActive,
+    closePlanModal,
+    selectedPlan,
+    selectedDevicesCount,
+  } = useModalStore();
+
   const { bgColor } = useContext(ThemeContext);
+
+  const [devicesCount, setDevicesCount] = useState(selectedDevicesCount);
 
   const [errors, setErrors] = useState(INITIAL_ERRORS);
   const [values, setValues] = useState(INITIAL_VALUES);
 
   //States: false - submit failed, true - submit succeed, null - not submitted
   const [success, setSuccess] = useState(null);
-
-  //Variants: monthly, annual
-  const [annual, setAnnual] = useState(false);
 
   return (
     <BlurCurtain
@@ -56,10 +61,12 @@ const PlanModal = () => {
           className={`xl:pr-120 lg:py-90 lg:pr-60 sm:py-[70px] lg:pl-0 sm:px-[44.1px] py-30 px-15`}
         >
           <div
-            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col xl:pl-120 lg:pl-60 max-md:pl-0 striped h-full border-[1px] border-dashed border-gray-200`}
+            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col xl:pl-120 lg:pl-60 max-md:pl-0 striped h-full border mr-[-1px] border-dashed border-gray-200`}
           >
             <Result
-              className={`${success === null && `hidden`} max-sm:h-fit sm:hidden`}
+              className={`${
+                success === null && `hidden`
+              } max-sm:h-fit sm:hidden`}
               success={success}
               phone={values.phone}
               onClose={closePlanModal}
@@ -69,17 +76,12 @@ const PlanModal = () => {
             <PlanInfo
               title={selectedPlan.title}
               price={selectedPlan.price}
-              annualPrice={selectedPlan.annualPrice}
-              mainConditions={selectedPlan.mainConditions}
-              mainConditionIcons={selectedPlan.mainConditionIcons}
+              termCondition={selectedPlan.termCondition}
               conditions={selectedPlan.conditions}
-              annual={annual}
-              setAnnual={setAnnual}
               success={success}
-              opened={planModalIsActive}
-            >
-              {selectedPlan.description}
-            </PlanInfo>
+              devicesCount={devicesCount}
+              setDevicesCount={setDevicesCount}
+            />
 
             <ModalForm
               className={`${success !== null && `hidden`}`}
@@ -124,19 +126,19 @@ const PlanModal = () => {
                 className="hidden"
                 name="plan-title"
                 type="text"
-                value={selectedPlan.title ? selectedPlan.title : ""}
-              />
-              <FormInput
-                className="hidden"
-                name="payment-period"
-                type="text"
-                value={annual ? "год" : "месяц"}
+                value={selectedPlan.title || ""}
               />
               <FormInput
                 className="hidden"
                 name="path"
                 type="text"
                 value={location.pathname}
+              />
+              <FormInput
+                className="hidden"
+                name="devices-count"
+                type="text"
+                value={devicesCount}
               />
               <FormInput
                 className="hidden"

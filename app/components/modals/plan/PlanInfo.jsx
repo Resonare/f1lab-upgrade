@@ -1,31 +1,36 @@
-import { useContext } from "react";
+import { useContext, useState, useRef } from "react";
 
 import Condition from "../../misc/Condition";
-import PlanAnnualSwitch from "./PlanAnnualSwitch";
+import PlanDevicesCounter from "../../misc/PlanDevicesCounter";
 
 import { ThemeContext } from "../../../store/theme-context";
 
 const PlanInfo = ({
   title,
   price,
-  annualPrice,
-  mainConditions,
-  mainConditionIcons,
+  termCondition,
   conditions,
-  annual,
-  setAnnual,
-  opened,
   success,
-  children,
+  devicesCount = 5,
+  setDevicesCount,
 }) => {
   const { bgColor } = useContext(ThemeContext);
 
-  const handleMonthlyClick = () => {
-    setAnnual(false);
+  const allConditionsWrapperRef = useRef();
+  const [showAllConditions, setShowAllConditions] = useState(false);
+
+  const handleShowAllConditions = () => {
+    setShowAllConditions((prev) => !prev);
   };
 
-  const handleAnnualClick = () => {
-    setAnnual(true);
+  const handleAddDevice = () => {
+    setDevicesCount((prevDevicesCount) => prevDevicesCount + 1);
+  };
+
+  const handleRemoveDevice = () => {
+    if (devicesCount < 1) return;
+
+    setDevicesCount((prevDevicesCount) => prevDevicesCount - 1);
   };
 
   const successCircleBig = (
@@ -93,101 +98,139 @@ const PlanInfo = ({
 
   return (
     <div
-      className={`${bgColor} xl:w-[40%] lg:w-[56%] w-full grow md:p-30 p-15 border-dashed flex flex-col gap-30 justify-between`}
+      className={`${bgColor} xl:w-[40%] lg:w-[56%] w-full grow md:p-30 p-15 border-dashed flex flex-col gap-60`}
+      style={{
+        height: showAllConditions
+          ? allConditionsWrapperRef?.current?.offsetHeight +
+            30 +
+            50 +
+            60 +
+            30 +
+            36 +
+            20
+          : `auto`,
+      }}
     >
       <div className={`${success !== null && `max-sm:hidden`}`}>
         {successCircleBig}
 
         {successCircleSmall}
       </div>
-      <div className="flex lg:flex-col max-md:flex-col gap-30">
-        <div className="lg:w-full md:w-1/2 flex flex-col gap-30 transition-all">
-          <div className="flex flex-col gap-5">
-            <p className="sm:font-expanded font-extended sm:font-extrabold font-bold sm:text-[28px] text-[22px] sm:leading-[44px] leading-[28px]">
+
+      <div className="h-full flex lg:flex-col gap-30">
+        <div className="flex flex-col gap-30">
+          <div className="lg:w-full md:w-1/2 flex flex-col gap-30 transition-all">
+            <p className="w-1/3 sm:font-expanded font-extended sm:font-extrabold font-bold sm:text-[40px] text-[22px] sm:leading-[44px] leading-[28px]">
               {title}
             </p>
-            <p
-              className={`${
-                !annual && `opacity-0 mt-[-26px]`
-              } font-extended font-bold text-gray-200 text-[22px] line-through leading-[26px] transition-all`}
-            >
-              {price}
-            </p>
+          </div>
 
-            <div
-              className={`flex max-sm:flex-col justify-between transition-all`}
+          <div className="flex flex-col gap-15">
+            <Condition
+              className="sm:text-[22px] text-base font-extended font-bold text-gray-400"
+              icon="desktop-empty.svg"
             >
-              <p className="min-w-[180px] h-fit font-expanded font-extrabold sm:text-[40px] text-[28px] sm:leading-[44px] leading-[28px]">
-                {annual ? annualPrice : price}
+              Количество устройств
+              <span className={`${success === null && `hidden`}`}>
+                : {devicesCount}
+              </span>
+            </Condition>
+
+            <div className="flex items-center gap-30">
+              <PlanDevicesCounter
+                className={`${success !== null && `hidden`} min-w-[180px]`}
+                buttonsClassName="px-15"
+                onAddDevice={handleAddDevice}
+                onRemoveDevice={handleRemoveDevice}
+                devicesCount={devicesCount}
+              />
+
+              <p
+                className={`font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
+              >
+                {(price * devicesCount)?.toLocaleString("ru-RU")} ₽
               </p>
-              {annualPrice && (
-                <div
-                  className={`${
-                    !annual && ` opacity-0`
-                  } max-sm:pt-5 flex justify-start sm:gap-15 gap-5 text-f1-dark transition-all`}
-                >
-                  <p className="h-fit sm:text-[40px] text-sm font-title sm:leading-[44px]">
-                    -15%
-                  </p>
-                  <p className="h-fit sm:w-1/2 font-text font-light text-base leading-tight">
-                    при оплате за 12 месяцев
-                  </p>
-                </div>
-              )}
             </div>
           </div>
-
-          <div className="max-sm:hidden text-gray-300 text-base font-text font-light leading-tight">
-            {children}
-          </div>
-
-          {annualPrice && !success && (
-            <PlanAnnualSwitch
-              className="lg:hidden md:flex hidden"
-              submitted={success !== null}
-              annual={annual}
-              handleAnnualClick={handleAnnualClick}
-              handleMonthlyClick={handleMonthlyClick}
-            />
-          )}
         </div>
 
-        {opened && (
-          <div className="lg:w-full md:w-1/2 flex flex-col sm:gap-30 gap-15">
-            <div className="flex flex-col sm:gap-10 gap-5">
-              {mainConditions.map((condition, index) => (
-                <Condition
-                  key={index}
-                  className="text-gray-400 text-[22px] font-extended font-bold leading-relaxed"
-                  icon={mainConditionIcons[index]}
-                  iconClassName="w-30"
+        <div className="grow lg:w-full md:w-1/2 flex flex-col gap-15">
+          <div className="grow flex flex-col sm:gap-30 gap-15">
+            <Condition
+              className="w-1/3 text-base font-bold font-expanded leading-[18px]"
+              icon="list-locked.svg"
+            >
+              {termCondition}
+            </Condition>
+
+            <div className="grow relative">
+              <div
+                className={`${bgColor} md:w-[calc(100%+30px*2)] w-[calc(100%+15px*2)] md:translate-x-[-30px] translate-x-[-15px] px-30 lg:absolute overflow-hidden transition-all duration-500`}
+                style={{
+                  height: showAllConditions
+                    ? allConditionsWrapperRef?.current?.offsetHeight + 15
+                    : `100%`,
+                }}
+              >
+                <div
+                  className="absolute flex flex-col gap-15"
+                  ref={allConditionsWrapperRef}
                 >
-                  {condition}
-                </Condition>
-              ))}
-            </div>
-            <div className="flex flex-col gap-15">
-              {conditions?.map((condition, index) => (
-                <Condition
-                  key={index}
-                  className="text-xl font-light font-text leading-relaxed"
-                  icon="add-circle-icon.svg"
+                  {conditions?.map((condition, index) => (
+                    <Condition
+                      key={index}
+                      className="text-sm font-normal font-text leading-relaxed"
+                      icon="add-circle-icon.svg"
+                    >
+                      {condition}
+                    </Condition>
+                  ))}
+                  {conditions?.map((condition, index) => (
+                    <Condition
+                      key={index}
+                      className="text-sm font-normal font-text leading-relaxed"
+                      icon="add-circle-icon.svg"
+                    >
+                      {condition}
+                    </Condition>
+                  ))}
+                </div>
+
+                <div
+                  className={`${bgColor} pt-15 pb-5 w-full bottom-0 absolute flex gap-5 group hover:underline cursor-pointer select-none border-t border-dashed border-gray-200`}
+                  onClick={handleShowAllConditions}
                 >
-                  {condition}
-                </Condition>
-              ))}
+                  <p className="text-sm font-expanded font-bold">
+                    Показать все опции
+                  </p>
+
+                  <div
+                    className={`${
+                      showAllConditions && `rotate-180`
+                    } flex items-center transition-all`}
+                  >
+                    <svg
+                      width="17"
+                      height="16"
+                      viewBox="0 0 17 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M3.29492 6L8.29574 10.58L13.2949 6"
+                        stroke="#22282E"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
-
-      <PlanAnnualSwitch
-        className={`${(!annualPrice || success) && `hidden`} lg:flex md:hidden`}
-        submitted={success !== null}
-        annual={annual}
-        handleAnnualClick={handleAnnualClick}
-        handleMonthlyClick={handleMonthlyClick}
-      />
     </div>
   );
 };
