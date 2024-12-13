@@ -12,7 +12,6 @@ const PriceCard = ({
   row = "",
   col = "",
   plan,
-  allConditions,
   buttonTitle = "Купить",
   priceClassName = "",
   className = "",
@@ -58,17 +57,17 @@ const PriceCard = ({
           </Condition>
 
           <div className="flex flex-col gap-15">
-            {allConditions.map((condition, index) => (
+            {conditions.map((condition, index) => (
               <Condition
                 key={index}
                 className="text-gray-400 sm:text-xl text-sm sm:font-light font-normal font-text sm:leading-relaxed leading-tight"
                 icon={
-                  conditions.includes(condition)
+                  condition.enabled
                     ? "add-circle-icon.svg"
                     : "add-circle-disabled-icon.svg"
                 }
               >
-                {condition}
+                {condition.title}
               </Condition>
             ))}
           </div>

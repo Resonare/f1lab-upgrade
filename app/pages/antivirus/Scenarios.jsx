@@ -48,7 +48,7 @@ const Scenarios = () => {
       <ContentCard
         className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="lg:row-start-2 sm:row-start-4 row-start-6"
-        col="sm:col-start-2 col-start-1 sm:col-end-3 col-end-4"
+        col="lg:col-start-2 col-start-1 sm:col-end-3 col-end-4"
         iconPath="/images/antivirus/scenario-icon1.svg"
       >
         Обеспечить безопасные онлайн-платежи и предотвратить фишинговые атаки.

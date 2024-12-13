@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useLocation } from "@remix-run/react";
 
 import useModalStore from "../../../store/modal";
@@ -42,6 +42,12 @@ const PlanModal = () => {
 
   const [devicesCount, setDevicesCount] = useState(selectedDevicesCount);
 
+  useEffect(() => {
+    if (selectedDevicesCount !== undefined) {
+      setDevicesCount(selectedDevicesCount);
+    }
+  }, [selectedDevicesCount]);
+
   const [errors, setErrors] = useState(INITIAL_ERRORS);
   const [values, setValues] = useState(INITIAL_VALUES);
 
@@ -81,6 +87,7 @@ const PlanModal = () => {
               success={success}
               devicesCount={devicesCount}
               setDevicesCount={setDevicesCount}
+              closePlanModal={closePlanModal}
             />
 
             <ModalForm
