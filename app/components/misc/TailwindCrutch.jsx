@@ -2,7 +2,7 @@ const TailwindCrutch = () => {
   return (
     <div className="hidden">
       <p className="stroke-alert"></p>
-      <p className="stroke-gray-100 max-lg:bg-gray-100 lg:bg-gray-100 max-sm:bg-gray-100 max-md:bg-gray-100"></p>
+      <p className="stroke-gray-100 max-lg:bg-gray-100 lg:bg-gray-100 max-sm:bg-gray-100 max-md:bg-gray-100 group-hover:stroke-gray-100"></p>
       <p className="stroke-gray-200"></p>
       <p className="stroke-gray-250"></p>
       <p className="stroke-gray-300"></p>

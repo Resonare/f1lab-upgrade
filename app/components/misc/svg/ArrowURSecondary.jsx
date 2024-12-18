@@ -1,12 +1,6 @@
-const ArrowURSecondary = ({
-  className = "",
-  color = "stroke-gray-100",
-  hoverColor = "group-hover:stroke-gray-400",
-}) => {
+const ArrowURSecondary = ({ className = "" }) => {
   return (
-    <span
-      className={`${color} ${hoverColor} ${className} transition-all duration-300`}
-    >
+    <span className={`${className} transition-all duration-300`}>
       <svg
         width="16"
         height="16"
