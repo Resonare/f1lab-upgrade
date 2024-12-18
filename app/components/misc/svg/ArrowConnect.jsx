@@ -2,7 +2,7 @@ const ArrowConnect = ({ className, opened }) => {
   return (
     <div
       className={`${className} ${
-        opened && `rotate-180`
+        !opened && `rotate-180`
       } flex items-center transition-all`}
     >
       <svg

@@ -56,7 +56,7 @@ const ServicesNavigation = ({ items }) => {
       >
         <div className="flex flex-col w-1/2 striped-dark xl:pl-120 lg:pl-60 border-b border-dashed border-gray-300">
           <div className="bg-gray-400 border-l border-b border-dashed border-gray-300">
-            <ul className="pt-30 pl-60">
+            <ul className="pl-60 py-60">
               {items.map((item) => (
                 <ServicesNavigationItem key={item.link} item={item} />
               ))}

@@ -17,7 +17,8 @@ const Hero = () => {
             Передать задачи
             <br />
             <span className="text-f1-dark">
-              по обслуживанию <br /> и модернизации <br /> ИТ-инфраструктуры
+              по обслуживанию <br /> и модернизации <br />
+              <span className="text-nowrap">ИТ-инфраструктуры</span>
             </span>
             <br />
             выгодно

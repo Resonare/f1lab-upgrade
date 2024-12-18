@@ -59,10 +59,26 @@ const Connection = () => {
     <div
       className={`${
         !opened
-          ? `lg:top-[calc(90px-366px)] top-[calc(70px-366px)]`
-          : `lg:top-[calc(90px)] top-[calc(70px)]`
-      } z-[-1] max-sm:hidden bg-gray-400 fixed border-dashed border-l border-b border-gray-300 lg:right-0 overflow-hidden transition-all duration-500`}
+          ? `hover:top-[calc(100%-45px-10px)] top-[calc(100%-45px)]`
+          : `top-full -translate-y-full`
+      } z-[-1] max-sm:hidden bg-gray-400 fixed border-dashed border-l border-t border-gray-300 lg:right-0 overflow-hidden transition-all duration-500`}
     >
+      <button
+        className={`${
+          !opened && `hover:pb-15`
+        } w-full group flex justify-between items-center gap-60 cursor-pointer py-5 px-15`}
+        onClick={handleOpen}
+      >
+        <p
+          className={`${
+            opened ? `text-gray-200` : `text-gray-100`
+          } text-base font-expanded font-semibold leading-4 select-none`}
+        >
+          Подключение специалиста
+        </p>
+        <ArrowConnect className={`h-[35px] w-[35px]`} opened={opened} />
+      </button>
+
       <div className={`${!opened && ``} flex p-30 flex-col gap-15`}>
         <p className="text-gray-100 w-[370px] text-[22px] font-bold font-extended leading-tight">
           Введите 9 цифр, которые назовет оператор:
@@ -123,22 +139,6 @@ const Connection = () => {
           </div>
         </div>
       </div>
-
-      <button
-        className={`${
-          !opened && `hover:pt-15`
-        } group flex justify-between items-center gap-60 cursor-pointer py-5 px-15 transition-all duration-500`}
-        onClick={handleOpen}
-      >
-        <p
-          className={`${
-            opened ? `text-gray-200` : `text-gray-100`
-          } text-base font-expanded font-semibold leading-4 select-none`}
-        >
-          Подключение специалиста
-        </p>
-        <ArrowConnect className={`h-[35px] w-[35px]`} opened={opened} />
-      </button>
     </div>
   );
 };

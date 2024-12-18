@@ -13,26 +13,12 @@ const CasesSection = ({
 }) => {
   if (!serviceCasesData || serviceCasesData.length <= 0) return;
 
-  const caseCards = serviceCasesData.map((serviceCase, index) => (
-    <CaseCard
-      className={`sm:border mr-[-1px]`}
-      outerClassName="sm:mt-[-1px] sm:mb-[-1px] sm:w-1/2 min-h-[400px]"
-      key={serviceCase.id}
-      caseData={serviceCase}
-    />
-  ));
+  const splitArrayIntoTwo = (array) => {
+    const part1 = array.slice(0, Math.ceil(array.length / 2));
+    const part2 = array.slice(Math.ceil(array.length / 2));
 
-  const mobileCaseCards = serviceCasesData.map((serviceCase, index) => (
-    <CaseCard
-      className={`${
-        index != serviceCasesData.length - 1 && `max-sm:border-r`
-      } ${index != 0 && `max-sm:border-l`} sm:border border-b mr-[-1px]`}
-      outerClassName="sm:mt-[-1px] sm:mb-[-1px] sm:w-1/2"
-      key={serviceCase.id}
-      caseData={serviceCase}
-      inverseColor={mobileInverseColor}
-    />
-  ));
+    return [part1, part2];
+  };
 
   return (
     <>
@@ -45,24 +31,35 @@ const CasesSection = ({
           {title}
         </SectionTitle>
 
-        <div className={`col-start-1 col-end-5 flex flex-wrap`}>
-          <div
-            className={`${
-              critiquesData?.length > 0 && `lg:w-2/3`
-            } flex flex-wrap`}
-          >
-            {caseCards}
+        <div
+          className={`col-start-1 col-end-5 flex flex-wrap [&>div:last-child]:grow  items-start`}
+        >
+          <div className="flex flex-wrap lg:w-2/3 w-full">
+            <div className="flex h-fit w-full">
+              {splitArrayIntoTwo(serviceCasesData).map((partData, index) => (
+                <div key={index} className="basis-1/2 [&>div>div]:border">
+                  {partData.map((caseData) => (
+                    <CaseCard
+                      key={caseData.id}
+                      className="mr-[-1px]"
+                      outerClassName="sm:mt-[-1px]"
+                      caseData={caseData}
+                    />
+                  ))}
+                </div>
+              ))}
+            </div>
+
+            <SecondaryButton
+              variant="shaded"
+              className="lg:border-t-0 lg:border-r lg:w-[50%] mt-[-1px] text-base font-subtitle"
+            >
+              Все кейсы
+            </SecondaryButton>
           </div>
 
-          <SecondaryButton
-            variant="shaded"
-            className="lg:border-t-0 lg:border-r lg:w-1/3 lg:order-last text-base font-subtitle"
-          >
-            Все кейсы
-          </SecondaryButton>
-
           <CritiqueCard
-            className={`max-lg:mt-60 lg:border-t lg:w-1/3 mt-[-1px]`}
+            className={`max-lg:mt-60 lg:border-t w-1/3 mt-[-1px]`}
             critiquesData={critiquesData}
           />
         </div>
@@ -77,7 +74,18 @@ const CasesSection = ({
           {title}
         </SectionTitle>
 
-        <Carousel inverseColor={mobileInverseColor}>{mobileCaseCards}</Carousel>
+        <Carousel inverseColor={mobileInverseColor}>
+          {serviceCasesData.map((serviceCase, index) => (
+            <CaseCard
+              key={serviceCase.id}
+              className={`${
+                index != serviceCasesData.length - 1 && `max-sm:border-r`
+              } ${index != 0 && `max-sm:border-l`} border-b mr-[-1px]`}
+              caseData={serviceCase}
+              inverseColor={mobileInverseColor}
+            />
+          ))}
+        </Carousel>
 
         <SecondaryButton
           variant={mobileInverseColor ? `info` : `shaded`}

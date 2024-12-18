@@ -23,7 +23,7 @@ const BackgroundGrid = ({
         <div
           className={`${customBackground ? customBackground : `bg-gray-400`} ${
             !customBackground && `max-sm:striped-dark`
-          } h-full w-[calc(100svw)] z-[-9] absolute left-1/2 -translate-x-1/2`}
+          } h-full 2xl:w-[100vw] w-[100%] z-[-9] absolute left-1/2 -translate-x-1/2`}
         ></div>
       )}
 

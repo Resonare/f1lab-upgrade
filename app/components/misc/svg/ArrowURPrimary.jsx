@@ -1,6 +1,6 @@
 const ArrowURPrimary = ({ color, hoverColor }) => {
   return (
-    <span className={`${color} group-hover:${hoverColor}`}>
+    <span className={`${color} group-hover:${hoverColor} transition-all duration-300`}>
       <svg
         width="16"
         height="16"
@@ -12,14 +12,12 @@ const ArrowURPrimary = ({ color, hoverColor }) => {
           <path
             id="Vector 2608"
             d="M14 2L2 13.9139"
-            stroke="currentColor"
             strokeWidth="3"
             strokeLinecap="round"
           />
           <path
             id="Rectangle 1723"
             d="M2 2H13.9999V14"
-            stroke="currentColor"
             strokeWidth="3"
             strokeLinecap="round"
             strokeLinejoin="round"

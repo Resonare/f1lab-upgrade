@@ -7,8 +7,8 @@ const TailwindCrutch = () => {
       <p className="stroke-gray-250"></p>
       <p className="stroke-gray-300"></p>
       <p className="stroke-gray-400"></p>
-      <p className="stroke-f1-light"></p>
-      <p className="stroke-f1-dark"></p>
+      <p className="stroke-f1-light hover:stroke-f1-light group-hover:stroke-f1-light"></p>
+      <p className="stroke-f1-dark hover:stroke-f1-dark group-hover:stroke-f1-dark"></p>
       <p className="stroke-cloud"></p>
       <p className="stroke-consulting max-sm:bg-consulting has-[:focus]:bg-consulting"></p>
       <p className="stroke-security max-sm:bg-security"></p>

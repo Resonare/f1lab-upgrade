@@ -18,24 +18,28 @@ const Contacts = ({ className = "" }) => {
         className={`${className} max-sm:hidden flex flex-wrap lg:gap-30 justify-between`}
       >
         <Condition
+          outerClassName="cursor-pointer select-none hover:underline"
           className="text-sm font-text font-bold uppercase leading-[18px]"
           icon="mail.svg"
         >
           info@f1lab.ru
         </Condition>
         <Condition
-          className="text-sm font-text font-bold uppercase leading-[18px]"
+          outerClassName="cursor-pointer select-none hover:underline"
+          className="text-sm font-text font-bold uppercase leading-[18px] cursor-pointer select-none"
           icon="phone.svg"
         >
           +7 (423) 202-52-55
         </Condition>
         <Condition
+          outerClassName="cursor-pointer select-none hover:underline"
           className="text-sm font-text font-bold uppercase leading-[18px] cursor-pointer select-none"
           icon="telegram.svg"
         >
           Telegram
         </Condition>
         <Condition
+          outerClassName="cursor-pointer select-none hover:underline"
           className="text-sm font-text font-bold uppercase leading-[18px] cursor-pointer select-none"
           icon="whatsapp.svg"
         >

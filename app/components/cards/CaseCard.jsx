@@ -28,7 +28,7 @@ const CaseCard = ({
       >
         <NavLink
           to={String(caseData.id)}
-          className={`hover:sm:striped hover:xl:pb-60 hover:sm:gap-40 hover:sm:pb-[45px] sm:group h-full xl:p-30 p-15 gap-60 flex flex-col justify-between transition-all duration-300`}
+          className={`hover:sm:striped hover:xl:pb-[40px] hover:sm:pb-[40px] gap-60 hover:sm:gap-[55px] sm:group h-full xl:p-30 p-15 flex flex-col transition-all duration-300`}
         >
           {caseData.client.logoPath && (
             <div className="flex justify-between">
@@ -45,7 +45,7 @@ const CaseCard = ({
             </div>
           )}
           <div
-            className={`group-hover:sm:gap-5 gap-15 flex flex-col transition-all duration-300`}
+            className={`group-hover:sm:gap-10 gap-15 flex flex-col transition-all duration-300`}
           >
             <div
               className={`${

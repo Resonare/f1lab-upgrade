@@ -1,8 +1,14 @@
 import { LazyImage } from "../LazyImage";
 
-const Condition = ({ className = "", icon, iconClassName = "", children }) => {
+const Condition = ({
+  outerClassName = "",
+  className = "",
+  icon,
+  iconClassName = "",
+  children,
+}) => {
   return (
-    <div className="flex gap-10 justify-start">
+    <div className={`${outerClassName} flex gap-10 justify-start`}>
       <LazyImage
         className={`w-20 ${iconClassName}`}
         src={`/images/icons/${icon}`}

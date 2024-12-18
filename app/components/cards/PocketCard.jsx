@@ -29,7 +29,7 @@ const PocketCard = ({
     >
       <div className="absolute top-0 pt-30 h-full lg:w-[calc(100%-3px)] w-full left-1/2 -translate-x-1/2">
         <PrimaryButton
-          className="h-60 sticky top-[50svh]"
+          className="h-60 sticky top-[86vh]"
           type={`${inverseColor ? `accent-to-light` : `accent`}`}
           onClick={onCallMeBackModalOpen}
         >

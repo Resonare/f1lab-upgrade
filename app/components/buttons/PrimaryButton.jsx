@@ -20,27 +20,26 @@ const PrimaryButton = ({
   if (type === "accent") {
     buttonColor =
       "bg-f1-light text-gray-400 hover:bg-gray-400 hover:text-f1-light";
-    arrowColor = "bg-gray-400";
-    arrowHoverColor = "bg-f1-light";
+    arrowColor = "stroke-gray-400";
+    arrowHoverColor = "stroke-f1-light";
   } else if (type === "dark") {
     buttonColor =
       "bg-gray-400 text-f1-light hover:bg-f1-light hover:text-gray-400";
-    arrowColor = "bg-gray-400";
-    arrowHoverColor = "bg-f1-light";
+    arrowColor = "stroke-f1-light";
+    arrowHoverColor = "stroke-gray-400";
   } else if (type === "light") {
     buttonColor = "bg-gray-100 text-gray-400 hover:bg-f1-light";
-    arrowColor = "bg-gray-400";
-    arrowHoverColor = "bg-f1-light";
+    arrowColor = "stroke-gray-400";
+    arrowHoverColor = "stroke-f1-light";
   } else if (type === "dark-to-light") {
     buttonColor =
       "bg-gray-400 text-f1-light hover:bg-gray-100 hover:text-gray-400";
-    arrowColor = "bg-gray-400";
-    arrowHoverColor = "bg-gray-400";
+    arrowColor = "stroke-f1-light";
+    arrowHoverColor = "stroke-gray-400";
   } else if (type === "accent-to-light") {
-    buttonColor =
-      "bg-f1-light text-gray-400 hover:bg-gray-100";
-    arrowColor = "bg-gray-400";
-    arrowHoverColor = "bg-gray-400";
+    buttonColor = "bg-f1-light text-gray-400 hover:bg-gray-100";
+    arrowColor = "stroke-gray-400";
+    arrowHoverColor = "stroke-gray-400";
   }
 
   return (
