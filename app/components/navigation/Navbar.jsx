@@ -60,7 +60,7 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
             !inverseColor && bgColor
           } ${
             inverseColor ? `border-gray-300` : `border-gray-200`
-          } border-dashed border-b justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
+          } 2xl:border-x border-dashed border-b justify-between items-center inline-flex max-w-screen-2xl mx-auto`}
         >
           <NavLink
             to="/"
