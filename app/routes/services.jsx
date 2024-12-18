@@ -25,7 +25,7 @@ export async function action({ request }) {
     data = {
       requestType: "Запрос услуги",
       plan: formData.get("plan-title"),
-      devicesCount: formData.get("device-count"),
+      devicesCount: formData.get("devices-count"),
       name: formData.get("name"),
       email: formData.get("email"),
       phone: formData.get("phone"),
@@ -33,17 +33,13 @@ export async function action({ request }) {
       path: formData.get("path"),
     };
 
-    message = `${data.requestType}\nСтраница: ${data.path}\nИмя: ${data.name}\nEmail: ${data.email}\nТелефон: ${data.phone}\nТариф: ${data.plan}\nПериод оплаты: ${data.paymentPeriod}`;
-  } else if (requestType === "antivirus-request") {
-    data = {
-      requestType: "Запрос антивируса",
-      name: formData.get("name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      path: formData.get("path"),
-    };
-
-    message = `${data.requestType}\nСтраница: ${data.path}\nИмя: ${data.name}\nEmail: ${data.email}\nТелефон: ${data.phone}\n`;
+    message = `${data.requestType} \nСтраница: ${data.path} \nИмя: ${
+      data.name
+    } \nEmail: ${data.email} \nТелефон: ${data.phone} \nТариф: ${data.plan} ${
+      data.devicesCount > 0
+        ? `\nКоличество устройств: ${data.devicesCount}`
+        : ``
+    }`;
   }
 
   // Send data to Telegram
