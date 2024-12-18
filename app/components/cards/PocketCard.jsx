@@ -96,7 +96,7 @@ const PocketCard = ({
               </span>
             </p>
 
-            <p className="sm:hidden text-xl font-expanded font-bold leading-[24px]">
+            <p className="sm:hidden min-[356px]:text-xl font-expanded font-bold min-[356px]:leading-[24px] leading-[20px]">
               {whenTitle}
             </p>
 

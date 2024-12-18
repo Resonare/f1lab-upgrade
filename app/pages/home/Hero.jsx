@@ -13,16 +13,16 @@ const Hero = () => {
 
   const animationClasses = {
     width:
-      "xl:[&>div>svg]:w-[1950px] lg:[&>div>svg]:w-[1550px] md:[&>div>svg]:w-[1600px] sm:[&>div>svg]:w-[1160px] min-[560px]:[&>div>svg]:w-[900px] [&>div>svg]:w-[520px]",
+      "min-[1800px]:[&>div>svg]:w-[1950px] xl:[&>div>svg]:w-[1750px]  lg:[&>div>svg]:w-[1550px] md:[&>div>svg]:w-[1600px] sm:[&>div>svg]:w-[1160px] min-[560px]:[&>div>svg]:w-[900px] min-[384px]:[&>div>svg]:w-[600px] min-[356px]:[&>div>svg]:w-[550px] [&>div>svg]:w-[500px]",
     translate:
-      "xl:[&>div>svg>g]:translate-y-[5%] lg:[&>div>svg>g]:translate-y-[16%] md:[&>div>svg>g]:translate-y-[30%] sm:[&>div>svg>g]:translate-y-[60%] [&>div>svg>g]:translate-y-[0]",
+      "min-[1800px]:[&>div>svg>g]:translate-y-[0] xl:[&>div>svg>g]:translate-y-[7%] lg:[&>div>svg>g]:translate-y-[10%] md:[&>div>svg>g]:translate-y-[30%] sm:[&>div>svg>g]:translate-y-[60%] min-[560px]:[&>div>svg>g]:translate-y-[10%] min-[454px]:[&>div>svg>g]:translate-y-[8%] min-[428px]:[&>div>svg>g]:translate-y-[14%] min-[384px]:[&>div>svg>g]:translate-y-[24%] min-[355px]:[&>div>svg>g]:translate-y-[28%] [&>div>svg>g]:translate-y-[32%] ",
     other: "[&>div>svg]:right-0 ",
   };
 
   return (
     <div className="">
       <Section
-        className="relative 2xl:border-gray-250 text-5xl sm:font-expanded font-extended sm:font-extrabold font-bold lg:mt-90 mt-[70px]"
+        className="relative 2xl:border-gray-250 text-5xl sm:font-expanded font-extended sm:font-extrabold font-bold lg:mt-90 sm:mt-[70px] mt-15"
         inverseColor={true}
         customBackground="bg-f1-light"
         customLinesColor="border-gray-250"
@@ -61,7 +61,7 @@ const Hero = () => {
           <div className="lg:h-90 md:h-60 sm:h-30 min-[560px]:h-[280px] h-[160px] col-start-1 col-end-5 row-start-2"></div>
 
           <ContentCard
-            className="border-t border-gray-250"
+            className="border-t border-gray-250 font-light"
             row="row-start-3"
             col="col-start-1 lg:col-end-2 md:col-end-3 sm:col-end-4 col-end-5"
           >
