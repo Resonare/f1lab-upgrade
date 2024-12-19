@@ -29,7 +29,7 @@ const PocketCard = ({
     >
       <div className="absolute top-0 pt-30 h-full lg:w-[calc(100%-3px)] w-full left-1/2 -translate-x-1/2">
         <PrimaryButton
-          className="h-60 sticky top-[86vh]"
+          className="h-60 sticky top-[76vh]"
           type={`${inverseColor ? `accent-to-light` : `accent`}`}
           onClick={onCallMeBackModalOpen}
         >
@@ -37,7 +37,13 @@ const PocketCard = ({
         </PrimaryButton>
       </div>
 
-      <div className="backdrop-blur-xl sm:pb-15 pb-30 flex flex-col sm:gap-[50px] gap-15">
+      <div
+        className={`${
+          inverseColor
+            ? `bg-gray-400 bg-opacity-50`
+            : `${bgColor} bg-opacity-30`
+        } backdrop-blur-xl sm:pb-15 pb-30 flex flex-col sm:gap-[50px] gap-15`}
+      >
         <div className="xl:pt-30 xl:pl-30 xl:pr-60 lg:pt-15 lg:px-15 sm:pt-30 sm:pl-30 sm:pr-60 pt-15 pl-15 pr-30 flex flex-col gap-5">
           <p className="font-text text-sm uppercase leading-[18px] tracking-wide">
             {subTitle}

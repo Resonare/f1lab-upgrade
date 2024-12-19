@@ -30,7 +30,7 @@ const PrimaryButton = ({
   } else if (type === "light") {
     buttonColor = "bg-gray-100 text-gray-400 hover:bg-f1-light";
     arrowColor = "stroke-gray-400";
-    arrowHoverColor = "stroke-f1-light";
+    arrowHoverColor = "stroke-gray-400";
   } else if (type === "dark-to-light") {
     buttonColor =
       "bg-gray-400 text-f1-light hover:bg-gray-100 hover:text-gray-400";

@@ -53,8 +53,8 @@ const Hero = () => {
               />
             </div>
             <p className="mt-[-10px] lg:leading-[60px] sm:leading-[48px] leading-[32px]">
-              для малого и среднего бизнеса, вдохновлённый практиками
-              топ-компаний
+              для малого и среднего бизнеса, вдохновлённый практиками{" "}
+              <span className="text-nowrap">топ-компаний</span>
             </p>
           </div>
 
