@@ -11,13 +11,14 @@ const Hero = () => {
       customBackground="bg-f1-light"
       customLinesColor="border-gray-250"
     >
-      <div className="col-start-1 col-end-5 xl:flex lg:grid flex max-lg:flex-col xl:gap-15 lg:gap-0 gap-15 items-stretch grid-cols-4">
+      <div className="col-start-1 col-end-5 xl:flex lg:grid flex max-lg:flex-col sm:gap-60 gap-30 items-stretch grid-cols-4">
         <div className="flex lg:flex-col gap-60 xl:basis-1/3 basis-1/2 justify-between col-start-1 col-end-3">
-          <SectionTitle className="md:pb-60">
+          <SectionTitle className="md:pb-0 sm:pb-0">
             Передать задачи
             <br />
             <span className="text-f1-dark">
-              по обслуживанию <br /> и модернизации <br /> ИТ-инфраструктуры
+              по обслуживанию <br /> и модернизации <br />
+              <span className="text-nowrap">ИТ-инфраструктуры</span>
             </span>
             <br />
             выгодно

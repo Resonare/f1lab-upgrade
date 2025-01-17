@@ -42,11 +42,10 @@ const PlanModal = () => {
 
   const [devicesCount, setDevicesCount] = useState(selectedDevicesCount);
 
-  useEffect(() => {
-    if (selectedDevicesCount !== undefined) {
-      setDevicesCount(selectedDevicesCount);
-    }
-  }, [selectedDevicesCount]);
+  useEffect(
+    () => setDevicesCount(selectedDevicesCount),
+    [selectedDevicesCount]
+  );
 
   const [errors, setErrors] = useState(INITIAL_ERRORS);
   const [values, setValues] = useState(INITIAL_VALUES);
@@ -75,7 +74,10 @@ const PlanModal = () => {
               } max-sm:h-fit sm:hidden`}
               success={success}
               phone={values.phone}
-              onClose={closePlanModal}
+              onClose={() => {
+                setSuccess(null);
+                closePlanModal();
+              }}
               showContacts={false}
             />
 
@@ -89,7 +91,10 @@ const PlanModal = () => {
               success={success}
               devicesCount={devicesCount}
               setDevicesCount={setDevicesCount}
-              closePlanModal={closePlanModal}
+              closePlanModal={() => {
+                setSuccess(null);
+                closePlanModal();
+              }}
             />
 
             <ModalForm
@@ -147,7 +152,7 @@ const PlanModal = () => {
                 className="hidden"
                 name="devices-count"
                 type="text"
-                value={devicesCount}
+                value={devicesCount || 0}
               />
               <FormInput
                 className="hidden"
@@ -161,7 +166,10 @@ const PlanModal = () => {
               className={`${success === null && `hidden`} max-sm:hidden`}
               success={success}
               phone={values.phone}
-              onClose={closePlanModal}
+              onClose={() => {
+                setSuccess(null);
+                closePlanModal();
+              }}
             />
 
             <div
@@ -169,7 +177,10 @@ const PlanModal = () => {
             >
               <PrimaryButton
                 className={success === null && `hidden`}
-                onClick={closePlanModal}
+                onClick={() => {
+                  setSuccess(null);
+                  closePlanModal();
+                }}
               >
                 Жду звонка
               </PrimaryButton>
@@ -184,7 +195,10 @@ const PlanModal = () => {
 
             <Cancel
               className="max-md:hidden w-40 h-40 absolute top-30 right-30 cursor-pointer select-none"
-              onClick={closePlanModal}
+              onClick={() => {
+                setSuccess(null);
+                closePlanModal();
+              }}
             />
           </div>
         </div>

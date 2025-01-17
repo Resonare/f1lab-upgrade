@@ -11,7 +11,7 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
   const { pathname } = location;
   const segments = pathname.split("/");
   const currentSegment = segments[segments.length - 1];
-
+  console.log(segments, currentSegment);
   const staticLinks = [
     <Link
       viewTransition
@@ -37,6 +37,7 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
         if (item.link === targetLink) {
           return item;
         }
+
         if (item.items && item.items.length > 0) {
           const foundInChildren = recursiveSearch(item.items);
           if (foundInChildren) {
@@ -48,7 +49,7 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
     }
 
     const foundItem = recursiveSearch(items);
-    return foundItem || items[0]; // Return the found item or the first top-level item
+    return foundItem || null; // Return the found item or the first top-level item
   };
 
   const BreadCrumbLinks = segments
@@ -57,6 +58,8 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
       url += `/${segment}`;
 
       const navItem = findItem(navs, segment);
+
+      if (navItem === null) return;
 
       return (
         <Fragment key={i}>
@@ -72,14 +75,14 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
             to={`${segments[0]}${url}`}
             onClick={closeServicesDropdownHandler}
             className={
-              currentSegment === navItem.link
+              currentSegment === navItem?.link
                 ? `${
                     inverseColor ? `text-gray-200` : `text-gray-400`
                   } text-sm font-text`
                 : "text-gray-200 text-sm font-text hover:underline hover:underline-offset-4"
             }
           >
-            {navItem.title || "Not found"}
+            {navItem?.title || "Not found"}
           </NavLink>
         </Fragment>
       );

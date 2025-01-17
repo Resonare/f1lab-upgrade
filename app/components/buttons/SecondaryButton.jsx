@@ -27,7 +27,7 @@ const SecondaryButton = ({
   switch (variant) {
     case "shaded":
       styles.button =
-        "border-y border-gray-200 sm:striped striped-25 hover:bg-none hover:bg-f1-light hover:border-none";
+        "border-y border-gray-200 sm:striped striped-25 hover:bg-none hover:bg-f1-light hover:border-[transparent]";
       styles.arrow = "stroke-gray-400";
       break;
     case "dark-shaded":
@@ -61,7 +61,7 @@ const SecondaryButton = ({
       break;
     default:
       styles.button =
-        "border-y border-gray-200 hover:bg-f1-light hover:border-none";
+        "border-y border-gray-200 hover:bg-f1-light hover:border-[transparent]";
   }
 
   return (
