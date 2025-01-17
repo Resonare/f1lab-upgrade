@@ -47,13 +47,6 @@ export const navData = [
             items: [],
           }, */
           /* {
-            link: "voip",
-            title: "Обслуживание VOIP",
-            bgColor: "bg-consulting",
-            textColor: "text-consulting",
-            items: [],
-          }, */
-          /* {
             link: "1c-optimization",
             title: "Оптимизация работы 1С",
             bgColor: "bg-consulting",
@@ -108,6 +101,13 @@ export const navData = [
             title: "Развёртывание инфраструктуры в облаке",
             bgColor: "bg-cloud",
             textColor: "text-cloud",
+            items: [],
+          }, */
+          /* {
+            link: "voip",
+            title: "Обслуживание VOIP",
+            bgColor: "bg-consulting",
+            textColor: "text-consulting",
             items: [],
           }, */
           {
