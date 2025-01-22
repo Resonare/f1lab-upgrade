@@ -1,4 +1,5 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "@remix-run/react";
 
 import { ThemeContext } from "../../store/theme-context";
 
@@ -16,6 +17,8 @@ const CritiquesCard = ({
   inverseColor = false,
   className = "",
 }) => {
+const navigate = useNavigate();
+
   if (!critiquesData || critiquesData.length <= 0) return;
 
   const { bgColor } = useContext(ThemeContext);
@@ -84,6 +87,7 @@ const CritiquesCard = ({
           <SecondaryButton
             variant="shaded"
             className={`max-lg:hidden text-base font-subtitle`}
+            onClick={() => navigate("/cases")}
           >
             Все отзывы
           </SecondaryButton>
@@ -140,6 +144,7 @@ const CritiquesCard = ({
         <SecondaryButton
           variant={inverseColor ? `info` : `shaded`}
           className={`${minimized ? `hidden` : `lg:hidden max-sm:hidden`} max-sm:border`}
+          onClick={() => navigate("/cases")}
         >
           Все отзывы
         </SecondaryButton>
@@ -171,6 +176,7 @@ const CritiquesCard = ({
         <SecondaryButton
           variant={`info`}
           className={`${minimized ? `hidden` : `sm:hidden`}`}
+          onClick={() => navigate("/cases")}
         >
           Все отзывы
         </SecondaryButton>

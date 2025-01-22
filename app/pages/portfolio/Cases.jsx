@@ -17,14 +17,14 @@ const Cases = () => {
   const handleSwitchClick = (newBranch, event) => {
     setBranch(newBranch);
 
-    if (branch === null) {
+    if (newBranch === null) {
       setCases(casesData);
       return;
     }
 
     const foundCases = casesData.filter(
       (caseData) =>
-        caseData.services.filter((service) => service.branchId == branch)
+        caseData.services.filter((service) => service.branchId == newBranch)
           .length > 0
     );
 

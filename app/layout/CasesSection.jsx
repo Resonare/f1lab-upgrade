@@ -1,3 +1,5 @@
+import { useNavigate } from "@remix-run/react";
+
 import Section from "./Section";
 import SectionTitle from "./SectionTitle";
 import CaseCard from "../components/cards/CaseCard";
@@ -11,6 +13,8 @@ const CasesSection = ({
   critiquesData,
   serviceCasesData,
 }) => {
+  const navigate = useNavigate();
+
   if (!serviceCasesData || serviceCasesData.length <= 0) return;
 
   const splitArrayIntoTwo = (array) => {
@@ -53,6 +57,7 @@ const CasesSection = ({
             <SecondaryButton
               variant="shaded"
               className="lg:border-t-0 lg:border-r lg:w-[50%] mt-[-1px] text-base font-subtitle"
+              onClick={() => navigate("/cases")}
             >
               Все кейсы
             </SecondaryButton>
@@ -90,6 +95,7 @@ const CasesSection = ({
         <SecondaryButton
           variant={mobileInverseColor ? `info` : `shaded`}
           className={`${mobileInverseColor && `border`}`}
+          onClick={() => navigate("/some/path")}
         >
           Все кейсы
         </SecondaryButton>
