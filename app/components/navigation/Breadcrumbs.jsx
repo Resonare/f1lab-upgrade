@@ -11,7 +11,6 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
   const { pathname } = location;
   const segments = pathname.split("/");
   const currentSegment = segments[segments.length - 1];
-  console.log(segments, currentSegment);
   const staticLinks = [
     <Link
       viewTransition

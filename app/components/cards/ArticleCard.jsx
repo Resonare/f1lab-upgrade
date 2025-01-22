@@ -63,7 +63,7 @@ const ArticleCard = ({
           {articleData.title}
         </p>
 
-        <TagContainer>{articleData.tags}</TagContainer>
+        <TagContainer hoverable={false}>{articleData.tags}</TagContainer>
       </div>
     </NavLink>
   );

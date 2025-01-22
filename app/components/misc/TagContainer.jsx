@@ -5,6 +5,7 @@ const TagContainer = ({
   titleClassName = "",
   inverseColor = false,
   className = "",
+  hoverable,
   children,
 }) => {
   if (!children || children.length == 0) return null;
@@ -28,8 +29,9 @@ const TagContainer = ({
         {children.map((tag) => (
           <Tag
             key={tag.id}
-            className={`bg-${tag.color}`}
-            hoverable={tag.link}
+            className={`bg-[var(--tag-color)]`}
+            style={{ "--tag-color": tag.color }}
+            hoverable={hoverable !== undefined ? hoverable : tag.link}
             inverseColor={tag.inverseColor}
             onClick={tag.link ? () => handleClick(tag.link) : null}
           >

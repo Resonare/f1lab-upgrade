@@ -3,6 +3,7 @@ const Tag = ({
   hoverable = true,
   inverseColor = false,
   onClick,
+  style,
   children,
 }) => {
   return (
@@ -11,6 +12,7 @@ const Tag = ({
         hoverable &&
         `group hover:text-gray-400 hover:bg-f1-light cursor-pointer select-none`
       } p-5 rounded-[5px] shadow transition-all ${className}`}
+      style={style}
       onClick={onClick}
     >
       <p

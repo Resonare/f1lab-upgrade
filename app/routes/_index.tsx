@@ -29,9 +29,9 @@ export default function Services() {
       <Hero />
       <Why />
       <Solutions />
-      <Experts
-        // expertsData={expertsData}
-      />
+      {/* <Experts
+        expertsData={expertsData}
+      /> */}
       <Benefits />
       <CasesSection
         title="Кейсы: как мы решаем задачи наших клиентов"

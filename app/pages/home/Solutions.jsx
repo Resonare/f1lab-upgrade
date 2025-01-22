@@ -121,7 +121,7 @@ const Why = () => {
         Решения
       </SectionTitle>
 
-      <div className="col-start-1 lg:col-end-2 sm:col-end-3 col-end-2 row-start-2 flex gap-5 mb-30 p-5">
+      {/* <div className="col-start-1 lg:col-end-2 sm:col-end-3 col-end-2 row-start-2 flex gap-5 mb-30 p-5">
         <SwitchButton
           className="max-sm:w-1/2"
           selected={sortingByIndustry}
@@ -137,7 +137,7 @@ const Why = () => {
         >
           По задачам
         </SwitchButton>
-      </div>
+      </div> */}
 
       <SolutionsCarousel className="max-lg:hidden border-t col-start-1 col-end-5 row-start-3">
         {carouselContent}

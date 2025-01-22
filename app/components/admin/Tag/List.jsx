@@ -7,6 +7,7 @@ import TagForm from "./Form";
 import DeleteTag from "./Delete";
 
 import PropTypes from "prop-types";
+import TagContainer from "../../misc/TagContainer";
 
 export default function ListTags({ items = [] }) {
   const [addTag, setAddTag] = useState(false);
@@ -35,13 +36,7 @@ export default function ListTags({ items = [] }) {
                 <td>{tag.color}</td>
                 <td>{tag.link}</td>
                 <td>
-                  <Tag
-                    className={`bg-${tag.color} w-fit`}
-                    inverseColor={tag.inverseColor}
-                    hoverable={false}
-                  >
-                    {tag.title}
-                  </Tag>
+                  <TagContainer hoverable={false}>{[tag]}</TagContainer>
                 </td>
 
                 <td>
