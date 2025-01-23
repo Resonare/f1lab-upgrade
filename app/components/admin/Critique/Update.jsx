@@ -31,6 +31,13 @@ const UpdateCritique = ({ critique = {}, clients = [], closeHandler }) => {
             placeholder="Путь до аватара"
             className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
           />
+          <input
+            defaultValue={critique.logoPath}
+            type="text"
+            name="logoPath"
+            placeholder="Путь до логотипа"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
+          />
           <textarea
             defaultValue={critique.body}
             type="text"

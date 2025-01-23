@@ -18,6 +18,7 @@ export const add = async (critiqueData) => {
         subtitle: critiqueData.subtitle,
         body: critiqueData.body,
         avatarPath: critiqueData.avatarPath,
+        logoPath: critiqueData.logoPath,
         client: {
           connect: {
             id: +critiqueData.clientId,
@@ -39,6 +40,7 @@ export const update = async (critiqueData) => {
         subtitle: critiqueData.subtitle,
         body: critiqueData.body,
         avatarPath: critiqueData.avatarPath,
+        logoPath: critiqueData.logoPath,
         client: {
           connect: {
             id: +critiqueData.clientId,

@@ -29,6 +29,12 @@ const AddCritique = ({ closeHandler, clients = [] }) => {
             placeholder="Путь до аватара"
             className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full "
           />
+          <input
+            type="text"
+            name="logoPath"
+            placeholder="Путь до логотипа"
+            className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full "
+          />
           <textarea
             type="text"
             rows={5}

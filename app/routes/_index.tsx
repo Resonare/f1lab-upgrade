@@ -22,6 +22,8 @@ export const meta: MetaFunction = () => {
 
 export default function Services() {
   const { serviceCasesData, critiquesData } = useLoaderData();
+  critiquesData[2] = critiquesData[0];
+  critiquesData[3] = critiquesData[0];
   // const { serviceCasesData, critiquesData, expertsData } = useLoaderData();
 
   return (

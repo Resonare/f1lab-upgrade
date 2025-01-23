@@ -87,6 +87,7 @@ model Critique {
   subtitle   String   @default("")
   body       String   @default("")
   avatarPath String   @default("")
+  logoPath   String   @default("")
   addedAt    DateTime @default(now())
   updatedAt  DateTime @default(now())
   client     Client   @relation(fields: [clientId], references: [id])

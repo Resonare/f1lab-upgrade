@@ -5,7 +5,7 @@ import SectionTitle from "./SectionTitle";
 import CaseCard from "../components/cards/CaseCard";
 import SecondaryButton from "../components/buttons/SecondaryButton";
 import Carousel from "../components/misc/Carousel";
-import CritiqueCard from "../components/cards/CritiqueCard";
+import CritiqueSection from "./CritiquesSection";
 
 const CasesSection = ({
   title = "Примеры кейсов",
@@ -36,7 +36,7 @@ const CasesSection = ({
         </SectionTitle>
 
         <div
-          className={`col-start-1 col-end-5 flex flex-wrap [&>div:last-child]:grow  items-start`}
+          className={`col-start-1 col-end-5 flex flex-wrap [&>div:last-child]:grow items-start`}
         >
           <div className="flex flex-wrap lg:w-2/3 w-full">
             <div className="flex h-fit w-full">
@@ -56,18 +56,34 @@ const CasesSection = ({
 
             <SecondaryButton
               variant="shaded"
-              className="lg:border-t-0 lg:border-r lg:w-[50%] mt-[-1px] text-base font-subtitle"
+              className="lg:border-t-0 lg:w-[50%] mt-[-1px] text-base font-subtitle"
               onClick={() => navigate("/cases")}
             >
               Все кейсы
             </SecondaryButton>
           </div>
-
-          <CritiqueCard
-            className={`max-lg:mt-60 lg:border-t w-1/3 mt-[-1px]`}
-            critiquesData={critiquesData}
-          />
         </div>
+
+        <CritiqueSection
+          className={`mt-120 max-xl:hidden`}
+          col="col-start-1 col-end-5"
+          cardsOnPage={3}
+          critiquesData={critiquesData}
+        />
+
+        <CritiqueSection
+          className={`mt-120 xl:hidden max-md:hidden`}
+          col="col-start-1 col-end-5"
+          cardsOnPage={2}
+          critiquesData={critiquesData}
+        />
+
+        <CritiqueSection
+          className={`mt-120 md:hidden max-sm:hidden`}
+          col="col-start-1 col-end-5"
+          cardsOnPage={1}
+          critiquesData={critiquesData}
+        />
       </Section>
 
       <Section
@@ -100,10 +116,12 @@ const CasesSection = ({
           Все кейсы
         </SecondaryButton>
 
-        <CritiqueCard
-          className={`max-lg:mt-60 max-sm:mt-0 lg:border-t lg:w-1/3 mt-[-1px]`}
-          critiquesData={critiquesData}
+        <CritiqueSection
+          className={`sm:hidden`}
+          col="col-start-1 col-end-5"
+          minimized={true}
           inverseColor={mobileInverseColor}
+          critiquesData={critiquesData}
         />
       </Section>
     </>

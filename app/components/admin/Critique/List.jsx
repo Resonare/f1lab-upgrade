@@ -25,15 +25,17 @@ export default function ListCritiques({ items = [], clients = [] }) {
               <th className="text-start">Имя</th>
               <th className="text-start">Должность</th>
               <th className="text-start">Путь до аватара</th>
+              <th className="text-start">Путь до логотипа</th>
               <th className="text-start">Текст отзыва</th>
             </tr>
           </thead>
           <tbody>
             {items.map((critique) => (
-              <tr key={critique.id} className="border-y ">
+              <tr key={critique.id} className="border-y">
                 <td>{critique.title}</td>
                 <td>{critique.subtitle}</td>
                 <td>{critique.avatarPath}</td>
+                <td>{critique.logoPath}</td>
                 <td>{critique.body}</td>
                 <td>
                   <div className="flex gap-20">

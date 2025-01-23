@@ -9,6 +9,7 @@ import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
 import ContentCard from "../../components/cards/ContentCard";
 import CritiqueCard from "../../components/cards/CritiqueCard";
+import CritiquesSection from "../../layout/CritiquesSection";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import TagContainer from "../../components/misc/TagContainer";
 
@@ -43,8 +44,8 @@ const CaseInfo = () => {
         </ContentCard>
       </div>
 
-      <CritiqueCard
-        className="mt-[-1px] lg:border-t max-sm:hidden"
+      <CritiquesSection
+        className="mt-[-1px] lg:border-t max-sm:hidden col-start-3 col-end-5 border-l"
         col="md:col-start-3 col-start-1 col-end-5"
         minimized={true}
         critiquesData={selectedCase.client.critiques}
