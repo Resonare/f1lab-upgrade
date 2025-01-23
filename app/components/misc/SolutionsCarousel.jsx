@@ -54,9 +54,7 @@ const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
   return (
     <div className={`${className} border-dashed border-gray-300 grid grid-cols-4`}>
       <div
-        className={` ${
-          content.length != cardsOnPage ? `border-x` : `border-l`
-        } col-start-1 col-end-5 border-y border-gray-300 border-dashed bg-gray-400 flex`}
+        className={`border-l col-start-1 col-end-5 border-y border-gray-300 border-dashed bg-gray-400 flex`}
       >
         {content}
       </div>

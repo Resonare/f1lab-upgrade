@@ -50,13 +50,23 @@ const CasesSection = ({
                       caseData={caseData}
                     />
                   ))}
+
+                  {index == 0 && (
+                    <SecondaryButton
+                      variant="shaded"
+                      className="lg:border-t-0 mt-[-1px] text-base font-subtitle max-md:hidden"
+                      onClick={() => navigate("/cases")}
+                    >
+                      Все кейсы
+                    </SecondaryButton>
+                  )}
                 </div>
               ))}
             </div>
 
             <SecondaryButton
               variant="shaded"
-              className="lg:border-t-0 lg:w-[50%] mt-[-1px] text-base font-subtitle"
+              className="md:hidden mt-[-1px] text-base font-subtitle"
               onClick={() => navigate("/cases")}
             >
               Все кейсы
