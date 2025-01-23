@@ -2,13 +2,15 @@ import Tag from "../misc/Tag";
 
 const TagPicker = ({ tags, handleSelectTag, selectedTags }) => {
   return (
-    <div className="flex">
+    <div className="flex overflow-x-scroll">
       {tags?.map((tagData) => (
         <div
           key={tagData.id}
           className={
-            selectedTags?.has(tagData.id)
-              ? `border-[5px] border-gray-400`
+            selectedTags && selectedTags.has
+              ? selectedTags?.has(tagData.id)
+                ? `border-[5px] border-gray-400`
+                : `p-5`
               : `p-5`
           }
         >

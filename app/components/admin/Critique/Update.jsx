@@ -20,7 +20,7 @@ const UpdateCritique = ({ critique = {}, clients = [], closeHandler }) => {
           <input
             defaultValue={critique.subtitle}
             type="text"
-            name="description"
+            name="subtitle"
             placeholder="Должность"
             className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
           />
