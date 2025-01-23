@@ -9,7 +9,7 @@ import Prices from "../pages/antivirus/Prices";
 import Pockets from "../pages/antivirus/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
 
-import { getAll as getAllServiceCases } from "../data/cases.server";
+import { getAllPublished as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllCritiques } from "../data/critiques.server";
 import Trial from "../pages/antivirus/Trial";
 

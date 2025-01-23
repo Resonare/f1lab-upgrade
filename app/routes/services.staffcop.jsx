@@ -9,7 +9,7 @@ import Pockets from "../pages/staffcop/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
 import CasesSection from "../layout/CasesSection";
 
-import { getAll as getAllServiceCases } from "../data/cases.server";
+import { getAllPublished as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta = () => {

@@ -9,7 +9,7 @@ import Prices from "../pages/cloud-1c/Prices";
 import Pockets from "../pages/cloud-1c/Pockets";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
 
-import { getAll as getAllServiceCases } from "../data/cases.server";
+import { getAllPublished as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta = () => {

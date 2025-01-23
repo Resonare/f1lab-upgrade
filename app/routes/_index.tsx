@@ -9,7 +9,7 @@ import Experts from "../pages/home/Experts";
 import Benefits from "../pages/home/Benefits";
 import Solutions from "../pages/home/Solutions";
 
-import { getAll as getAllServiceCases } from "../data/cases.server";
+import { getAllPublished as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllCritiques } from "../data/critiques.server";
 // import { getAll as getAllExperts } from "../data/experts.server";
 
@@ -22,8 +22,8 @@ export const meta: MetaFunction = () => {
 
 export default function Services() {
   const { serviceCasesData, critiquesData } = useLoaderData();
-  critiquesData[2] = critiquesData[0];
-  critiquesData[3] = critiquesData[0];
+  // critiquesData[2] = critiquesData[0];
+  // critiquesData[3] = critiquesData[0];
   // const { serviceCasesData, critiquesData, expertsData } = useLoaderData();
 
   return (

@@ -1,7 +1,7 @@
 import Cases from "../pages/portfolio/Cases";
 import Pockets from "../pages/portfolio/Pockets";
 
-import { getAll as getAllCases } from "../data/cases.server";
+import { getAllPublished as getAllCases } from "../data/cases.server";
 import { getAll as getAllBranches } from "../data/branches.server";
 
 export const meta = () => {

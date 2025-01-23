@@ -1,7 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 
 import { getOne as getCase } from "../data/cases.server";
-import { getAll as getAllServiceCases } from "../data/cases.server";
+import { getAllPublished as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllCritiques } from "../data/critiques.server";
 
 import CaseInfo from "../pages/item-case/CaseInfo";
