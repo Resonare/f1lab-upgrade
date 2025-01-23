@@ -24,7 +24,7 @@ const Why = () => {
 
       <div className="col-start-1 col-end-5 row-start-3 flex max-md:flex-col">
         <ContentCard
-          className="bg-gray-400 border-y border-r basis-4/12"
+          className="bg-gray-400 border-t md:border-b max-sm:border-x basis-4/12"
           iconPath="/images/home/why-icon1.svg"
           hideIconOnMobile={false}
           inverseColor={true}
@@ -41,7 +41,7 @@ const Why = () => {
         </ContentCard>
 
         <ContentCard
-          className="bg-gray-400 sm:border-y border-b border-r max-sm:border-t basis-4/12"
+          className="bg-gray-400 border-t md:border-b max-sm:border-x md:border-l basis-4/12"
           iconPath="/images/home/why-icon2.svg"
           hideIconOnMobile={false}
           inverseColor={true}
@@ -57,7 +57,7 @@ const Why = () => {
           </div>
         </ContentCard>
         <ContentCard
-          className="bg-gray-400 border-y max-sm:border-x basis-4/12"
+          className="bg-gray-400 border-y max-sm:border-x md:border-l basis-4/12"
           iconPath="/images/home/why-icon3.svg"
           hideIconOnMobile={false}
           inverseColor={true}

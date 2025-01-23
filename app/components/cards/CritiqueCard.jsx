@@ -25,7 +25,7 @@ const CritiqueCard = ({
       <div className={`${!minimized && `order-last`} flex gap-30`}>
         <div className={`${!minimized && `w-full`} flex justify-between`}>
           <LazyImage
-            className={`${!minimized && `h-[65px] max-w-[50%]`} rounded-[15px]`}
+            className={`${!minimized ? `h-[65px] max-w-[50%]` : `h-[90px]`} rounded-[15px]`}
             src={
               !minimized
                 ? critiqueData?.logoPath

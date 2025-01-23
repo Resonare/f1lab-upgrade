@@ -163,7 +163,7 @@ const Why = () => {
       >
         <ContentCard
           key={0}
-          className="bg-gray-400 gap-30 border-r max-sm:mr-[1px] border-gray-300"
+          className="bg-gray-400 gap-30 border-r border-b max-sm:mr-[1px] border-gray-300"
           iconPath="/images/home/solutions-icon1-mobile.svg"
           notInGrid={true}
           hideIconOnMobile={false}
@@ -180,7 +180,7 @@ const Why = () => {
         </ContentCard>
         <ContentCard
           key={1}
-          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
+          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r border-b max-sm:mr-[1px] border-gray-300"
           iconPath="/images/home/solutions-icon1-mobile.svg"
           notInGrid={true}
           hideIconOnMobile={false}
@@ -197,7 +197,7 @@ const Why = () => {
         </ContentCard>
         <ContentCard
           key={2}
-          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
+          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r border-b max-sm:mr-[1px] border-gray-300"
           iconPath="/images/home/solutions-icon1-mobile.svg"
           notInGrid={true}
           hideIconOnMobile={false}
@@ -215,7 +215,7 @@ const Why = () => {
         </ContentCard>
         <ContentCard
           key={3}
-          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r max-sm:mr-[1px] border-gray-300"
+          className="bg-gray-400 max-sm:ml-[-1px] gap-30 border-r border-b max-sm:mr-[1px] border-gray-300"
           iconPath="/images/home/solutions-icon1-mobile.svg"
           notInGrid={true}
           hideIconOnMobile={false}
@@ -233,7 +233,7 @@ const Why = () => {
         </ContentCard>
         <ContentCard
           key={4}
-          className="bg-gray-400 gap-30 sm:border-r border-gray-300"
+          className="bg-gray-400 gap-30 border-b border-gray-300"
           iconPath="/images/home/solutions-icon1-mobile.svg"
           notInGrid={true}
           hideIconOnMobile={false}
