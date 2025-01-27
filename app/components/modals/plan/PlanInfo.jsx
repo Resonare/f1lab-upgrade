@@ -158,13 +158,15 @@ const PlanInfo = ({
                     <Condition
                       key={index}
                       className="text-sm font-normal font-text leading-relaxed"
-                      icon={
-                        condition.enabled
-                          ? "add-circle-icon.svg"
+                      /* icon={
+                         condition.enabled
+                          ?
                           : "add-circle-disabled-icon.svg"
-                      }
+
+                          }*/
+                      icon={"add-circle-icon.svg"}
                     >
-                      {condition.title}
+                      {condition}
                     </Condition>
                   ))}
                 </div>

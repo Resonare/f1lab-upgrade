@@ -56,7 +56,7 @@ const PriceCard = ({
                 className="text-gray-400 sm:text-xl text-sm sm:font-light font-normal font-text sm:leading-relaxed leading-tight"
                 icon="add-circle-icon.svg"
               >
-                {condition.title}
+                {condition}
               </Condition>
             ))}
           </div>
