@@ -34,7 +34,7 @@ export default function ITAudit() {
         critiquesData={critiquesData}
       />
       <Prices />
-      <Pockets />
+      {/*  <Pockets /> */}
       <TailwindCrutch />
     </div>
   );

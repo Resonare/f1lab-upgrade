@@ -34,7 +34,7 @@ export default function Cloud1C() {
         critiquesData={critiquesData}
       />
       <Prices />
-      <Pockets />
+      {/*  <Pockets /> */}
       <TailwindCrutch />
     </div>
   );

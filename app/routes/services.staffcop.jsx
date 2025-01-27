@@ -34,7 +34,7 @@ export default function Staffcop() {
         critiquesData={critiquesData}
       />
       <Prices />
-      <Pockets />
+      {/*  <Pockets /> */}
       <TailwindCrutch />
     </div>
   );
