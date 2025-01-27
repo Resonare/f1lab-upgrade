@@ -18,13 +18,13 @@ export const navData = [
         bgColor: "bg-consulting",
         textColor: "text-consulting",
         items: [
-          {
+          /* {
             link: "it-audit",
             title: "ИТ-аудит",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          },
+          }, */
           /*{
             link: "server-manage",
             title: "Обслуживание серверов",
@@ -89,13 +89,13 @@ export const navData = [
             textColor: "text-cloud",
             items: [],
           }, */
-          {
+          /* {
             link: "cloud-migration",
             title: "Миграция в облако",
             bgColor: "bg-cloud",
             textColor: "text-cloud",
             items: [],
-          },
+          }, */
           /* {
             link: "cloud-deployment",
             title: "Развёртывание инфраструктуры в облаке",
@@ -117,13 +117,13 @@ export const navData = [
             textColor: "text-cloud",
             items: [],
           },
-          {
+          /* {
             link: "cloud-backup",
             title: "Резервное копирование критически важных данных",
             bgColor: "bg-cloud",
             textColor: "text-cloud",
             items: [],
-          },
+          }, */
         ],
       },
       {

@@ -16,7 +16,7 @@ export const meta = () => {
   return [{ title: "F1LAB" }, { name: "ИТ-Техподдержка", content: "" }];
 };
 
-export default function ITAudit() {
+export default function ITSupport() {
   const { serviceCasesData, critiquesData } = useLoaderData();
 
   return (

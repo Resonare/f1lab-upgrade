@@ -28,7 +28,7 @@ const TagContainer = ({
       <div className="flex flex-wrap gap-5">
         {children.map((tag) => (
           <Tag
-            key={tag.id}
+            key={tag.id || Math.random()}
             className={`bg-[var(--tag-color)]`}
             style={{ "--tag-color": tag.color }}
             hoverable={hoverable !== undefined ? hoverable : tag.link}

@@ -62,27 +62,31 @@ const BreadCrumbs = ({ navs, inverseColor = false }) => {
 
       return (
         <Fragment key={i}>
-          <div className="px-5 shrink-0">
-            <LazyImage
-              className={`${inverseColor && `invert`}`}
-              src="/images/arrow-right.svg"
-              alt=""
-            />
-          </div>
-          <NavLink
-            viewTransition
-            to={`${segments[0]}${url}`}
-            onClick={closeServicesDropdownHandler}
-            className={
-              currentSegment === navItem?.link
-                ? `${
-                    inverseColor ? `text-gray-200` : `text-gray-400`
-                  } text-sm font-text`
-                : "text-gray-200 text-sm font-text hover:underline hover:underline-offset-4"
-            }
-          >
-            {navItem?.title || "Not found"}
-          </NavLink>
+          {navItem?.title !== "Услуги" && (
+            <>
+              <div className="px-5 shrink-0">
+                <LazyImage
+                  className={`${inverseColor && `invert`}`}
+                  src="/images/arrow-right.svg"
+                  alt=""
+                />
+              </div>
+              <NavLink
+                viewTransition
+                to={`${segments[0]}${url}`}
+                onClick={closeServicesDropdownHandler}
+                className={
+                  currentSegment === navItem?.link
+                    ? `${
+                        inverseColor ? `text-gray-200` : `text-gray-400`
+                      } text-sm font-text`
+                    : "text-gray-200 text-sm font-text hover:underline hover:underline-offset-4"
+                }
+              >
+                {navItem?.title || "Not found"}
+              </NavLink>
+            </>
+          )}
         </Fragment>
       );
     });

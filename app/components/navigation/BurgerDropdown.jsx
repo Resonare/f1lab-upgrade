@@ -75,6 +75,7 @@ const BurgerDropdown = ({ navs }) => {
               Навигация по сайту
             </div>
             {navs
+              .filter((nav) => !nav.isHidden)
               .filter((nav) => nav.link !== "services")
               .map((nav) => (
                 <div key={nav.link}>

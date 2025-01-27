@@ -121,7 +121,7 @@ const CasesSection = ({
         <SecondaryButton
           variant={mobileInverseColor ? `info` : `shaded`}
           className={`${mobileInverseColor && `border`}`}
-          onClick={() => navigate("/some/path")}
+          onClick={() => navigate("/cases")}
         >
           Все кейсы
         </SecondaryButton>
