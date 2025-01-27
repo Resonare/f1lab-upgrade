@@ -12,7 +12,7 @@ export default function Portfolio() {
   return (
     <div className="2xl:border-x border-gray-200 border-dashed lg:pt-90 pt-[70px]">
       <Cases />
-      <Pockets />
+      {/* <Pockets /> */}
     </div>
   );
 }

@@ -27,8 +27,8 @@ export default function Case() {
         serviceCasesData={allServiceCasesData}
         critiquesData={critiquesData}
       />
-      <Prices />
-      <Pockets />
+      {/* <Prices />
+      <Pockets /> */}
     </div>
   );
 }

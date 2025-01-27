@@ -178,20 +178,20 @@ export const navData = [
     textColor: "text-cloud",
     items: [],
   },
-  {
+  /* {
     link: "experts",
     title: "Эксперты",
     bgColor: "bg-gray-100",
     textColor: "text-security",
     items: [],
-  },
-  {
+    }, */
+  /* {
     link: "blog",
     title: "Блог",
     bgColor: "bg-gray-100",
     textColor: "text-gray-400",
     items: [],
-  },
+    }, */
   {
     link: "contacts",
     title: "Контакты",

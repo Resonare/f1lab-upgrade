@@ -30,7 +30,7 @@ export default function Services() {
     <div className="2xl:border-x border-gray-200 border-dashed flex flex-col">
       <Hero />
       <Why />
-      <Solutions />
+      {/* <Solutions /> */}
       {/* <Experts
         expertsData={expertsData}
       /> */}
@@ -41,7 +41,7 @@ export default function Services() {
         serviceCasesData={serviceCasesData}
         critiquesData={critiquesData}
       />
-      <Pockets />
+      {/* <Pockets /> */}
     </div>
   );
 }
@@ -52,5 +52,5 @@ export async function loader() {
   // const expertsData = await getAllExperts();
 
   // return {critiquesData, serviceCasesData, expertsData};
-  return {critiquesData, serviceCasesData};
+  return { critiquesData, serviceCasesData };
 }

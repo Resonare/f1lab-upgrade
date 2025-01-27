@@ -176,7 +176,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <BackgroundGrid />
           <ScrollRestoration />
           <Scripts />
-          <Footer />
+          {/* <Footer /> */}
         </body>
       </ThemeContext.Provider>
     </html>

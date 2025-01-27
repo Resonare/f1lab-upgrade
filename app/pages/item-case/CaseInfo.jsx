@@ -44,12 +44,12 @@ const CaseInfo = () => {
         </ContentCard>
       </div>
 
-      <CritiquesSection
+      {/* <CritiquesSection
         className="mt-[-1px] lg:border-t max-sm:hidden col-start-3 col-end-5 border-l"
         col="md:col-start-3 col-start-1 col-end-5"
         minimized={true}
         critiquesData={selectedCase.client.critiques}
-      />
+        /> */}
 
       <SectionTitle
         className="md:mt-60 sm:mt-30 md:mb-90 sm:mb-60 mb-30 max-sm:font-extended max-sm:font-bold max-sm:text-[28px] max-sm:leading-[30px]"

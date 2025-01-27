@@ -74,7 +74,7 @@ const CasesSection = ({
           </div>
         </div>
 
-        <CritiqueSection
+        {/* <CritiqueSection
           className={`mt-120 max-xl:hidden`}
           col="col-start-1 col-end-5"
           cardsOnPage={3}
@@ -93,7 +93,7 @@ const CasesSection = ({
           col="col-start-1 col-end-5"
           cardsOnPage={1}
           critiquesData={critiquesData}
-        />
+        /> */}
       </Section>
 
       <Section
@@ -126,13 +126,13 @@ const CasesSection = ({
           Все кейсы
         </SecondaryButton>
 
-        <CritiqueSection
+        {/* <CritiqueSection
           className={`sm:hidden`}
           col="col-start-1 col-end-5"
           minimized={true}
           inverseColor={mobileInverseColor}
           critiquesData={critiquesData}
-        />
+        /> */}
       </Section>
     </>
   );
