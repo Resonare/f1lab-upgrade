@@ -56,9 +56,11 @@ const Contacts = () => {
               Владивосток, ул. Батарейная, 3А
             </Condition>
             <Condition icon="mail-lg.svg">info@f1lab.ru</Condition>
-            <Condition icon="phone-lg.svg">8-800-888-88-88</Condition>
+            <Condition icon="phone-lg.svg">
+              <a href="tel:84232025255">8-423-202-52-55</a>
+            </Condition>
 
-            <div className="flex gap-20">
+            {/* <div className="flex gap-20">
               <LazyImage
                 className="invert"
                 src="images/icons/instagram-lg.svg"
@@ -75,7 +77,7 @@ const Contacts = () => {
                 className="invert"
                 src="images/icons/play-store-lg.svg"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
