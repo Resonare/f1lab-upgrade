@@ -6,7 +6,17 @@ import Carousel from "../../components/misc/Carousel";
 const PLANS_DATA = [
   {
     title: "Базовая защита",
-    price: 2770,
+    basePrice: 498,
+    min: 5,
+    max: 20,
+    step: 5,
+    maxOnRequest: false,
+    canInput: false,
+    breakpoints: [
+      { number: 10, discount: -0.0021 },
+      { number: 15, discount: 0.0106 },
+      { number: 20, discount: 0.007 },
+    ],
     mainCondition: "Лицензия на 12 месяцев",
     mainConditionIcon: "list-locked.svg",
     conditions: [
@@ -58,7 +68,18 @@ const PLANS_DATA = [
   },
   {
     title: "Стандартная защита",
-    price: 2770,
+    basePrice: 2374,
+    min: 5,
+    max: 200,
+    step: 1,
+    maxOnRequest: true,
+    canInput: true,
+    breakpoints: [
+      { number: 11, discount: 0.15542 },
+      { number: 26, discount: 0.28475 },
+      { number: 50, discount: 0.328559 },
+      { number: 100, discount: 0.333612 },
+    ],
     termCondition: "Лицензия на 12 месяцев",
     conditions: [
       {
@@ -109,7 +130,18 @@ const PLANS_DATA = [
   },
   {
     title: "Расширенная защита",
-    price: 2770,
+    basePrice: 2770,
+    min: 5,
+    max: 200,
+    step: 1,
+    maxOnRequest: true,
+    canInput: true,
+    breakpoints: [
+      { number: 11, discount: 0.12887 },
+      { number: 26, discount: 0.2498122 },
+      { number: 50, discount: 0.25884112 },
+      { number: 100, discount: 0.273285 },
+    ],
     termCondition: "Лицензия на 12 месяцев",
     conditions: [
       {

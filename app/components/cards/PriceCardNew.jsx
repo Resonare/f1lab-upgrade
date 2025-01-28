@@ -19,18 +19,51 @@ const PriceCard = ({
   const { showPlanModal } = useModalStore();
   const { bgColor } = useContext(ThemeContext);
 
-  const { title, price, conditions } = plan;
+  const {
+    title,
+    basePrice,
+    min,
+    max,
+    step,
+    maxOnRequest,
+    canInput,
+    breakpoints,
+    conditions,
+  } = plan;
 
-  const [devicesCount, setDevicesCount] = useState(5);
+  const [devicesCount, setDevicesCount] = useState(min);
+
+  const countPrice = (devicesCount) => {
+    let totalPrice = 0;
+    let discount = 0;
+
+    discount = breakpoints.reduce((acc, breakpoint) => {
+      if (devicesCount >= breakpoint.number) {
+        acc = breakpoint.discount;
+      }
+      return acc;
+    }, 0);
+
+    const count = devicesCount >= min ? devicesCount : min;
+
+    totalPrice = basePrice * (1 - discount) * count;
+
+    if (devicesCount > max && maxOnRequest) {
+      return "по запросу";
+    }
+
+    return `${Math.floor(totalPrice).toLocaleString("ru-RU")} ₽`;
+  };
 
   const handleAddDevice = () => {
-    setDevicesCount((prevDevicesCount) => prevDevicesCount + 1);
+    if (devicesCount >= max && !maxOnRequest) return;
+    setDevicesCount((prevDevicesCount) => +prevDevicesCount + step);
   };
 
   const handleRemoveDevice = () => {
-    if (devicesCount < 1) return;
+    if (devicesCount <= min) return;
 
-    setDevicesCount((prevDevicesCount) => prevDevicesCount - 1);
+    setDevicesCount((prevDevicesCount) => +prevDevicesCount - step);
   };
 
   return (
@@ -79,7 +112,7 @@ const PriceCard = ({
           <p
             className={`${priceClassName} lg:hidden max-sm:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
           >
-            {(price * devicesCount)?.toLocaleString("ru-RU")} ₽
+            {countPrice(devicesCount).toLocaleString("ru-RU")} ₽
           </p>
 
           <div className="flex flex-col gap-5">
@@ -96,12 +129,16 @@ const PriceCard = ({
                 onAddDevice={handleAddDevice}
                 onRemoveDevice={handleRemoveDevice}
                 devicesCount={devicesCount}
+                canInput={canInput}
+                min={min}
+                max={max}
+                setDevicesCount={setDevicesCount}
               />
 
               <p
                 className={`${priceClassName} lg:block sm:hidden font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
               >
-                {(price * devicesCount)?.toLocaleString("ru-RU")} ₽
+                {countPrice(devicesCount)}
               </p>
             </div>
           </div>
