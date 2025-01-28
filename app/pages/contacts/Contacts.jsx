@@ -53,9 +53,17 @@ const Contacts = () => {
         <div className="flex h-fit">
           <div className="flex flex-col gap-30 font-text text-xl text-gray-400">
             <Condition icon="location-lg.svg">
-              Владивосток, ул. Батарейная, 3А
+              <a
+                href="https://go.2gis.com/L6MnY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Владивосток, ул. Батарейная, 3А
+              </a>
             </Condition>
-            <Condition icon="mail-lg.svg">info@f1lab.ru</Condition>
+            <Condition icon="mail-lg.svg">
+              <a href="mailto:info@f1lab.ru">info@f1lab.ru</a>
+            </Condition>
             <Condition icon="phone-lg.svg">
               <a href="tel:84232025255">8-423-202-52-55</a>
             </Condition>
