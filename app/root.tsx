@@ -23,21 +23,21 @@ import { LinksFunction } from "@remix-run/node";
 export const links: LinksFunction = () => {
   return [
     {
-      rel: "preload",
+      // rel: "preload",
       href: "/fonts/Bahnschrift.ttf",
       as: "font",
       type: "font/ttf",
       crossOrigin: "anonymous",
     },
     {
-      rel: "preload",
+      // rel: "preload",
       href: "/fonts/RFDewiExpanded-Bold.woff2",
       as: "font",
       type: "font/woff2",
       crossOrigin: "anonymous",
     },
     {
-      rel: "preload",
+      // rel: "preload",
       href: "/fonts/RFDewiExpanded-Ultrabold.woff2",
       as: "font",
       type: "font/woff2",
