@@ -3,79 +3,56 @@ import SectionTitle from "../../layout/SectionTitle";
 import PriceCard from "../../components/cards/PriceCard";
 import Carousel from "../../components/misc/Carousel";
 
-const PLANS_DATA = [
-  {
-    title: "Аудит S",
-    price: 7200,
-    mainCondition: "1-5 рабочих мест",
-    mainConditionIcon: "desktop-icon.svg",
-    description: `Идеально подходит для стартапов и компаний с
-        небольшим числом сотрудников, которым необходима
-        надежная и доступная поддержка для IT инфраструктуры.`,
-    conditions: [
-      {
-        title: "12 часов удаленной поддержки",
-        enabled: true,
-      },
-      {
-        title: "2 экстренных выезда",
-        enabled: true,
-      },
-      {
-        title: "2 профилактических выезда",
-        enabled: true,
-      },
-    ],
-  },
-  {
-    title: "Аудит M",
-    price: 7200,
-    mainCondition: "1-5 рабочих мест",
-    mainConditionIcon: "desktop-icon.svg",
-    description: `Идеально подходит для стартапов и компаний с
-        небольшим числом сотрудников, которым необходима
-        надежная и доступная поддержка для IT инфраструктуры.`,
-    conditions: [
-      {
-        title: "12 часов удаленной поддержки",
-        enabled: true,
-      },
-      {
-        title: "2 экстренных выезда",
-        enabled: true,
-      },
-      {
-        title: "2 профилактических выезда",
-        enabled: true,
-      },
-    ],
-  },
-  {
-    title: "Аудит L",
-    price: 7200,
-    mainCondition: "1-5 рабочих мест",
-    mainConditionIcon: "desktop-icon.svg",
-    description: `Идеально подходит для стартапов и компаний с
-        небольшим числом сотрудников, которым необходима
-        надежная и доступная поддержка для IT инфраструктуры.`,
-    conditions: [
-      {
-        title: "12 часов удаленной поддержки",
-        enabled: true,
-      },
-      {
-        title: "2 экстренных выезда",
-        enabled: true,
-      },
-      {
-        title: "2 профилактических выезда",
-        enabled: true,
-      },
-    ],
-  },
-];
-
 const Prices = () => {
+  const plansData = [
+    {
+      title: "Аудит S",
+      price: "от 30 000",
+      annualPrice: "от 30 000",
+      mainCondition: ["До 10 единиц"],
+      mainConditionIcon: ["desktop-icon.svg"],
+      conditions: [
+        "Анализ оборудования",
+        "Рекомендации по оптимизации",
+        "Подробный отчет",
+      ],
+      description:
+        "Проверка требований. Для компаний, которые планируют внедрение нового программного обеспечения или оборудования. Проверка серверов, сетевого оборудования, виртуальных машин и выборочных рабочих мест.",
+    },
+    {
+      title: "Аудит M",
+      price: "от 50 000",
+      annualPrice: "от 50 000",
+      mainCondition: ["До 20 единиц"],
+      mainConditionIcon: ["desktop-icon.svg"],
+      conditions: [
+        "Анализ оборудования",
+        "Диагностика отказоустойчивости",
+        "Безопасность инфраструктуры",
+        "Рекомендации по оптимизации",
+        "Подробный отчет",
+      ],
+      description:
+        "Комплексный аудит. Для компаний, которым нужен детальный обзор текущей инфраструктуры и рекомендации по улучшению. Проверка серверов, сетевого оборудования, виртуальных машин.",
+    },
+    {
+      title: "Аудит L",
+      price: "от 100 000",
+      annualPrice: "от 100 000",
+      mainCondition: ["До 50 единиц"],
+      mainConditionIcon: ["desktop-icon.svg"],
+      conditions: [
+        "Анализ оборудования",
+        "Диагностика отказоустойчивости",
+        "Безопасность инфраструктуры",
+        "Инвентаризация рабочих мест",
+        "Рекомендации по оптимизации",
+        "Подробный отчет",
+      ],
+      description:
+        "Комплексный аудит + инвентаризация. Для компаний, которым нужен глубокий анализ и подробная инвентаризация. Проверка серверов, сетевого оборудования, виртуальных машин и рабочих мест.",
+    },
+  ];
   return (
     <>
       <Section className="max-sm:hidden" id="prices">
@@ -86,7 +63,7 @@ const Prices = () => {
           Понятные цены
         </SectionTitle>
 
-        {PLANS_DATA.map((planData, index) => (
+        {plansData.map((planData, index) => (
           <PriceCard
             key={index}
             className={`border-y`}
@@ -102,11 +79,11 @@ const Prices = () => {
         <SectionTitle>Понятные цены</SectionTitle>
 
         <Carousel>
-          {PLANS_DATA.map((planData, index) => (
+          {plansData.map((planData, index) => (
             <PriceCard
               key={index}
               className={`${
-                index != PLANS_DATA.length - 1 && `border-r`
+                index != plansData.length - 1 && `border-r`
               } border-b`}
               plan={planData}
             >

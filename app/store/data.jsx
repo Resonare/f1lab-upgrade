@@ -18,13 +18,13 @@ export const navData = [
         bgColor: "bg-consulting",
         textColor: "text-consulting",
         items: [
-          /* {
+          {
             link: "it-audit",
             title: "ИТ-аудит",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
             items: [],
-          }, */
+          },
           /*{
             link: "server-manage",
             title: "Обслуживание серверов",
