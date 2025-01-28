@@ -37,7 +37,7 @@ const Prices = () => {
     },
     {
       title: "Аудит L",
-      price: "от 100 000",
+      price: "от 90 000",
       annualPrice: "от 100 000",
       mainCondition: ["До 50 единиц"],
       mainConditionIcon: ["desktop-icon.svg"],
