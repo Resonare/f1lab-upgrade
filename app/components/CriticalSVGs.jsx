@@ -1,7 +1,7 @@
 export function CriticalSVGs() {
   return (
     <>
-      <link
+      {/* <link
         rel="preload"
         href="/images/logo.svg"
         as="image"
@@ -18,7 +18,7 @@ export function CriticalSVGs() {
         href="/images/arrow-up.svg"
         as="image"
         type="image/svg+xml"
-      />
+      />*/}
     </>
   );
 }
