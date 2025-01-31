@@ -1,4 +1,4 @@
-const Cancel = ({ className, onClick }) => {
+const Cancel = ({ className, onClick, inverseColor = false }) => {
   return (
     <div className={`${className} cursor-pointer group`} onClick={onClick}>
       <span>
@@ -10,7 +10,9 @@ const Cancel = ({ className, onClick }) => {
         >
           <g id="delete-1--remove-add-button-buttons-delete-cross-x-mathematics-multiply-math">
             <path
-              className="group-hover:stroke-f1-dark stroke-gray-400"
+              className={`${
+                inverseColor ? `stroke-gray-100` : `stroke-gray-400`
+              } group-hover:stroke-f1-dark`}
               id="Vector"
               d="M35.1666 2.33301L1.83325 35.6663"
               strokeWidth="3"
@@ -18,7 +20,9 @@ const Cancel = ({ className, onClick }) => {
               strokeLinejoin="round"
             />
             <path
-              className="group-hover:stroke-f1-dark stroke-gray-400"
+              className={`${
+                inverseColor ? `stroke-gray-100` : `stroke-gray-400`
+              } group-hover:stroke-f1-dark`}
               id="Vector_2"
               d="M1.83325 2.33301L35.1666 35.6663"
               strokeWidth="3"

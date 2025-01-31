@@ -11,6 +11,7 @@ const FormInput = ({
   required = false,
   value,
   setValues,
+  inverseColor = false,
 }) => {
   const [focused, setFocused] = useState(false);
 
@@ -48,11 +49,13 @@ const FormInput = ({
 
   return (
     <button
-      className={`${className} ${value && bgColor} ${
+      className={`${className} ${
+        value && (inverseColor ? `bg-gray-400` : bgColor)
+      } ${inverseColor ? `border-gray-300` : `border-gray-200`} ${
         focused || value
-          ? `pb-10 lg:pt-40 pt-20 ${bgColor}`
+          ? `pb-10 lg:pt-40 pt-20 ${inverseColor ? `bg-gray-400` : bgColor}`
           : `lg:py-[25px] py-[15px]`
-      } overflow-hidden border-gray-200 border-x border-t relative sm:px-30 px-15 text-gray-300 sm:text-xl font-text sm:font-normal font-light leading-7 border-dashed cursor-text transition-all`}
+      } overflow-hidden border-x border-t relative sm:px-30 px-15 text-gray-300 sm:text-xl font-text sm:font-normal font-light leading-7 border-dashed cursor-text transition-all`}
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
     >
@@ -82,7 +85,11 @@ const FormInput = ({
         {type == "textarea" ? (
           <textarea
             className={`${
-              error ? `text-alert` : `text-gray-400`
+              error
+                ? `text-alert`
+                : inverseColor
+                ? `text-gray-100`
+                : `text-gray-400`
             } resize-none focus:outline-none bg-[transparent]`}
             cols="5"
             rows="10"
@@ -98,7 +105,11 @@ const FormInput = ({
         ) : (
           <input
             className={`${
-              error ? `text-alert` : `text-gray-400`
+              error
+                ? `text-alert`
+                : inverseColor
+                ? `text-gray-100`
+                : `text-gray-400`
             } pointer-events-none focus:outline-none bg-[transparent]`}
             wrap="soft"
             value={value}

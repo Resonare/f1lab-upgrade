@@ -30,7 +30,13 @@ const INITIAL_VALUES = {
   policy: false,
 };
 
-const CallMeBackModal = () => {
+const CallMeBackModal = ({
+  title = "Давайте уточним детали",
+  subtitle = "Заполните форму и мы свяжемся с вами в течение 15 минут",
+  submitText = "Заказать звонок",
+  minimized = false,
+  inverseColor = false,
+}) => {
   const location = useLocation();
   const { bgColor } = useContext(ThemeContext);
 
@@ -44,9 +50,9 @@ const CallMeBackModal = () => {
 
   return (
     <BlurCurtain
-      className={`${
-        !callMeBackModalIsActive && `fixed bottom-[-100%]`
-      } text-gray-400 left-0 bottom-0`}
+      className={`${!callMeBackModalIsActive && `fixed bottom-[-100%]`} ${
+        inverseColor ? `text-gray-100` : `text-gray-400`
+      } left-0 bottom-0`}
     >
       <div className="m-auto h-full max-w-[1920px] overflow-auto">
         <BackgroundGrid className="flex" />
@@ -55,9 +61,13 @@ const CallMeBackModal = () => {
           className={`xl:px-120 lg:py-90 lg:px-60 sm:py-[70px] sm:px-[44.1px] py-30 px-15`}
         >
           <div
-            className={`${bgColor} lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col striped h-full border mr-[-1px] border-dashed border-gray-200`}
+            className={`${
+              inverseColor
+                ? `bg-gray-400 border-gray-300`
+                : `border-gray-200 ${bgColor}`
+            } lg:min-h-[calc(100svh-90px*2)] sm:min-h-[calc(100svh-70px*2)] min-h-[calc(100svh-30px*2)] relative flex max-lg:flex-col striped h-full border mr-[-1px] border-dashed`}
           >
-            <CallMeBackInfo success={success} />
+            {!minimized && <CallMeBackInfo success={success} />}
 
             <ModalForm
               className={`${success !== null && `hidden`}`}
@@ -68,6 +78,10 @@ const CallMeBackModal = () => {
               errors={errors}
               setErrors={setErrors}
               setSuccess={setSuccess}
+              title={title}
+              subtitle={subtitle}
+              submitText={submitText}
+              inverseColor={inverseColor}
               attachable={true}
               showContacts={false}
             >
@@ -79,6 +93,7 @@ const CallMeBackModal = () => {
                 setValues={setValues}
                 value={values.name}
                 error={errors.name}
+                inverseColor={inverseColor}
               />
               <FormInput
                 // className="border-b-0"
@@ -89,6 +104,7 @@ const CallMeBackModal = () => {
                 setValues={setValues}
                 value={values.phone}
                 error={errors.phone}
+                inverseColor={inverseColor}
               />
               <FormInput
                 // className="border-b-0"
@@ -99,6 +115,7 @@ const CallMeBackModal = () => {
                 setValues={setValues}
                 value={values.email}
                 error={errors.email}
+                inverseColor={inverseColor}
               />
               <FormInput
                 className="lg:h-[150px] sm:h-[120px] h-[70px] border-b"
@@ -108,18 +125,21 @@ const CallMeBackModal = () => {
                 setValues={setValues}
                 value={values.details}
                 error={errors.details}
+                inverseColor={inverseColor}
               />
               <FormInput
                 className="hidden"
                 name="path"
                 type="text"
                 value={location.pathname}
+                inverseColor={inverseColor}
               />
               <FormInput
                 className="hidden"
                 name="request-type"
                 type="text"
                 value="consultation-request"
+                inverseColor={inverseColor}
               />
             </ModalForm>
 
@@ -130,6 +150,7 @@ const CallMeBackModal = () => {
               success={success}
               phone={values.phone}
               onClose={closeCallMeBackModal}
+              inverseColor={inverseColor}
             />
 
             <div
@@ -140,6 +161,7 @@ const CallMeBackModal = () => {
               <PrimaryButton
                 className={success === null && `hidden`}
                 onClick={closeCallMeBackModal}
+                type={inverseColor ? `accent-to-light` : `accent`}
               >
                 Жду звонка
               </PrimaryButton>
@@ -155,6 +177,7 @@ const CallMeBackModal = () => {
             <Cancel
               className="w-40 h-40 absolute sm:top-30 top-15 sm:right-30 right-15"
               onClick={closeCallMeBackModal}
+              inverseColor={inverseColor}
             />
           </div>
         </div>

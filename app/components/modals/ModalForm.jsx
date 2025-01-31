@@ -58,7 +58,9 @@ const validateForm = (values, setErrors) => {
 };
 
 const ModalForm = ({
-  title = "Давайте уточним детали",
+  title,
+  subtitle,
+  submitText,
   method = "POST",
   action = "",
   values,
@@ -69,6 +71,7 @@ const ModalForm = ({
   className,
   attachable = false,
   showContacts = false,
+  inverseColor = false,
   children,
 }) => {
   const fileAttachmentInputRef = useRef();
@@ -141,7 +144,7 @@ const ModalForm = ({
             {title}
           </p>
           <p className="sm:text-xl text-sm text-gray-300 font-text sm:font-light font-normal sm:leading-relaxed leading-tight">
-            Заполните форму и мы свяжемся с вами в течение 15 минут
+            {subtitle}
           </p>
         </div>
         <div className="flex flex-col gap-30">
@@ -172,6 +175,7 @@ const ModalForm = ({
                 setValues={setValues}
                 value={values.policy}
                 error={errors.policy}
+                inverseColor={inverseColor}
               />
               <div className="select-none font-text text-base leading-tight">
                 <p>Я согласен на обработку персональных данных</p>
@@ -194,7 +198,9 @@ const ModalForm = ({
           {showContacts && <Contacts />}
 
           <div className="h-[68px] flex items-center">
-            <PrimaryButton>Заказать звонок</PrimaryButton>
+            <PrimaryButton type={inverseColor ? `accent-to-light` : `accent`}>
+              {submitText}
+            </PrimaryButton>
           </div>
         </div>
       </fetcher.Form>

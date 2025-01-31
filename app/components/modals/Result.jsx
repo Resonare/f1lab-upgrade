@@ -12,6 +12,7 @@ const Result = ({
   success,
   showContacts = true,
   onClose,
+  inverseColor = false,
 }) => {
   const { bgColor } = useContext(ThemeContext);
 
@@ -96,13 +97,21 @@ const Result = ({
         <div
           className={`max-sm:${bgColor} flex flex-col gap-15 max-sm:p-15 max-sm:h-full max-sm:justify-between`}
         >
-          <PrimaryButton className="max-lg:hidden" onClick={onClose}>
+          <PrimaryButton
+            type={inverseColor ? `accent-to-light` : `accent`}
+            className="max-lg:hidden"
+            onClick={onClose}
+          >
             Жду звонка
           </PrimaryButton>
 
           <Contacts className="lg:hidden" />
 
-          <PrimaryButton className="lg:hidden" onClick={onClose}>
+          <PrimaryButton
+            type={inverseColor ? `accent-to-light` : `accent`}
+            className="lg:hidden"
+            onClick={onClose}
+          >
             Жду звонка
           </PrimaryButton>
         </div>

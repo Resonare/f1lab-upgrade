@@ -12,7 +12,7 @@ const Hero = () => {
       customLinesColor="border-gray-250"
     >
       <div className="col-start-1 col-end-5 xl:flex lg:grid flex max-lg:flex-col sm:gap-60 gap-30 items-stretch grid-cols-4">
-        <div className="flex lg:flex-col gap-60 xl:basis-1/3 basis-1/2 justify-between col-start-1 col-end-3">
+        <div className="flex lg:flex-col md:gap-60 gap-15 xl:basis-1/3 basis-1/2 justify-between col-start-1 col-end-3">
           <SectionTitle className="md:pb-0 sm:pb-0">
             Передать задачи
             <br />

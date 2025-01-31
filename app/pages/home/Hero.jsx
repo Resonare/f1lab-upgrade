@@ -12,11 +12,10 @@ const Hero = () => {
   const { showCallMeBackModal } = useModalStore();
 
   const animationClasses = {
-    width:
-      "min-[1800px]:[&>div>svg]:w-[1950px] xl:[&>div>svg]:w-[1750px]  lg:[&>div>svg]:w-[1550px] md:[&>div>svg]:w-[1600px] sm:[&>div>svg]:w-[1160px] min-[560px]:[&>div>svg]:w-[900px] min-[384px]:[&>div>svg]:w-[600px] min-[356px]:[&>div>svg]:w-[550px] [&>div>svg]:w-[500px]",
+    width: "min-[1100px]:[&>div>svg]:w-[1950px] sm:[&>div>svg]:w-[730px] min-[615px]:[&>div>svg]:w-[600px] min-[470px]:[&>div>svg]:w-[450px] min-[400px]:[&>div>svg]:w-[380px] [&>div>svg]:w-[320px]",
     translate:
-      "min-[1800px]:[&>div>svg>g]:translate-y-[0] xl:[&>div>svg>g]:translate-y-[7%] lg:[&>div>svg>g]:translate-y-[10%] md:[&>div>svg>g]:translate-y-[30%] sm:[&>div>svg>g]:translate-y-[60%] min-[560px]:[&>div>svg>g]:translate-y-[10%] min-[454px]:[&>div>svg>g]:translate-y-[8%] min-[428px]:[&>div>svg>g]:translate-y-[14%] min-[384px]:[&>div>svg>g]:translate-y-[24%] min-[355px]:[&>div>svg>g]:translate-y-[28%] [&>div>svg>g]:translate-y-[32%] ",
-    other: "[&>div>svg]:right-0 ",
+      "min-[1100px]:[&>div>svg>g]:translate-x-[45%] [&>div>svg>g]:translate-x-[0%] min-[1634px]:[&>div>svg>g]:translate-y-[-360px] xl:[&>div>svg>g]:translate-y-[-330px] min-[1300px]:[&>div>svg>g]:translate-y-[-390px] min-[1100px]:[&>div>svg>g]:translate-y-[-200px] min-[869px]:[&>div>svg>g]:translate-y-[-100px] sm:[&>div>svg>g]:translate-y-[0px] min-[711px]:[&>div>svg>g]:translate-y-[-580px] min-[615px]:[&>div>svg>g]:translate-y-[-530px] min-[560px]:[&>div>svg>g]:translate-y-[-560px] min-[470px]:[&>div>svg>g]:translate-y-[-800px] min-[454px]:[&>div>svg>g]:translate-y-[-870px] min-[426px]:[&>div>svg>g]:translate-y-[-780px] min-[400px]:[&>div>svg>g]:translate-y-[-690px] [&>div>svg>g]:translate-y-[-720px]",
+    other: "[&>div>svg]:right-0",
   };
 
   return (

@@ -1,4 +1,10 @@
-const Checkbox = ({ name = "", setValues, value, error }) => {
+const Checkbox = ({
+  name = "",
+  setValues,
+  value,
+  error,
+  inverseColor = false,
+}) => {
   const handleClick = () => {
     setValues((prevValues) => ({
       ...prevValues,
@@ -9,7 +15,11 @@ const Checkbox = ({ name = "", setValues, value, error }) => {
   return (
     <div
       className={`${
-        error ? `border-alert` : `border-gray-400`
+        error
+          ? `border-alert`
+          : inverseColor
+          ? `border-gray-100`
+          : `border-gray-400`
       } flex items-center justify-center cursor-pointer bg-[transparent] rounded-[5px] border-[2px] min-w-[24px] w-[24px] h-[24px]`}
       onClick={handleClick}
     >
@@ -31,7 +41,13 @@ const Checkbox = ({ name = "", setValues, value, error }) => {
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            className={`${error ? `stroke-alert` : `stroke-gray-400`}`}
+            className={`${
+              error
+                ? `stroke-alert`
+                : inverseColor
+                ? `stroke-gray-100`
+                : `stroke-gray-400`
+            }`}
             id="Vector_2"
             d="M14.5 1L5.83333 12L1.5 8.7"
             strokeWidth="2"

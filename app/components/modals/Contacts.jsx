@@ -5,7 +5,11 @@ import SecondaryButton from "../buttons/SecondaryButton";
 
 import { ThemeContext } from "../../store/theme-context";
 
-const Contacts = ({ className = "" }) => {
+const Contacts = ({
+  className = "",
+  inverseColor = false,
+  minimized = false,
+}) => {
   const { bgColor } = useContext(ThemeContext);
 
   const dummyClickHandler = (event) => {
@@ -15,42 +19,60 @@ const Contacts = ({ className = "" }) => {
   return (
     <>
       <div
-        className={`${className} max-sm:hidden flex flex-wrap lg:gap-30 justify-between`}
+        className={`${className} ${
+          minimized ? `` : `max-sm:hidden`
+        } flex flex-wrap lg:gap-30 justify-between`}
       >
         <Condition
           outerClassName="cursor-pointer select-none hover:underline"
-          className="text-sm font-text font-bold uppercase leading-[18px]"
-          icon="mail.svg"
+          className={`${
+            inverseColor ? `font-medium` : `font-bold`
+          } text-sm font-text uppercase leading-[18px]`}
+          icon={inverseColor ? `mail.svg` : `mail-dark.svg`}
         >
           info@f1lab.ru
         </Condition>
         <Condition
           outerClassName="cursor-pointer select-none hover:underline"
-          className="text-sm font-text font-bold uppercase leading-[18px] cursor-pointer select-none"
-          icon="phone.svg"
+          className={`${
+            inverseColor ? `font-medium` : `font-bold`
+          } text-sm font-text uppercase leading-[18px] cursor-pointer select-none`}
+          icon={inverseColor ? `phone.svg` : `phone-dark.svg`}
         >
           +7 (423) 202-52-55
         </Condition>
         <Condition
           outerClassName="cursor-pointer select-none hover:underline"
-          className="text-sm font-text font-bold uppercase leading-[18px] cursor-pointer select-none"
-          icon="telegram.svg"
+          className={`${
+            inverseColor ? `font-medium` : `font-bold`
+          } text-sm font-text uppercase leading-[18px] cursor-pointer select-none`}
+          icon={inverseColor ? `telegram.svg` : `telegram-dark.svg`}
         >
           Telegram
         </Condition>
         <Condition
           outerClassName="cursor-pointer select-none hover:underline"
-          className="text-sm font-text font-bold uppercase leading-[18px] cursor-pointer select-none"
-          icon="whatsapp.svg"
+          className={`${
+            inverseColor ? `font-medium` : `font-bold`
+          } text-sm font-text uppercase leading-[18px] cursor-pointer select-none`}
+          icon={inverseColor ? `whatsapp.svg` : `whatsapp-dark.svg`}
         >
           Whatsapp
         </Condition>
       </div>
 
-      <div className={`${className} sm:hidden flex flex-col gap-15`}>
+      <div
+        className={`${className} ${
+          minimized ? `hidden` : `sm:hidden`
+        } flex flex-col gap-15`}
+      >
         <SecondaryButton
           className="uppercase border-x"
-          customIcon="/images/icons/mail.svg"
+          customIcon={
+            inverseColor
+              ? `/images/icons/mail.svg`
+              : `/images/icons/mail-dark.svg`
+          }
           titleClassName="font-text"
           variant="shaded"
           onClick={dummyClickHandler}
@@ -60,7 +82,11 @@ const Contacts = ({ className = "" }) => {
 
         <SecondaryButton
           className="uppercase border-x"
-          customIcon="/images/icons/phone.svg"
+          customIcon={
+            inverseColor
+              ? `/images/icons/phone.svg`
+              : `/images/icons/phone-dark.svg`
+          }
           titleClassName="font-text"
           variant="shaded"
           onClick={dummyClickHandler}
@@ -70,7 +96,11 @@ const Contacts = ({ className = "" }) => {
 
         <SecondaryButton
           className="uppercase border-x"
-          customIcon="/images/icons/telegram.svg"
+          customIcon={
+            inverseColor
+              ? `/images/icons/telegram.svg`
+              : `/images/icons/telegram-dark.svg`
+          }
           titleClassName="font-text"
           variant="shaded"
           onClick={dummyClickHandler}
@@ -80,7 +110,11 @@ const Contacts = ({ className = "" }) => {
 
         <SecondaryButton
           className="uppercase border-x"
-          customIcon="/images/icons/whatsapp.svg"
+          customIcon={
+            inverseColor
+              ? `/images/icons/whatsapp.svg`
+              : `/images/icons/whatsapp-dark.svg`
+          }
           titleClassName="font-text"
           variant="shaded"
           onClick={dummyClickHandler}

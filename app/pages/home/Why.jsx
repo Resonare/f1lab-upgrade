@@ -18,7 +18,7 @@ const Why = () => {
         Почему F1LAB?
       </SectionTitle>
 
-      <div className="sm:h-[360px] h-200 col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">
+      <div className="sm:h-[360px] h-[300px] col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">
         <Animation data={whyAnimationJson} />
       </div>
 
