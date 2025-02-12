@@ -30,13 +30,7 @@ const INITIAL_VALUES = {
   policy: false,
 };
 
-const CallMeBackModal = ({
-  title = "Давайте уточним детали",
-  subtitle = "Заполните форму и мы свяжемся с вами в течение 15 минут",
-  submitText = "Заказать звонок",
-  minimized = false,
-  inverseColor = false,
-}) => {
+const CallMeBackModal = () => {
   const location = useLocation();
   const { bgColor } = useContext(ThemeContext);
 
@@ -46,7 +40,10 @@ const CallMeBackModal = ({
   //States: false - submit failed, true - submit succeed, null - not submitted
   const [success, setSuccess] = useState(null);
 
-  const { callMeBackModalIsActive, closeCallMeBackModal } = useModalStore();
+  const { callMeBackModalIsActive, closeCallMeBackModal, modalData } =
+    useModalStore();
+
+  const { title, subtitle, submitText, minimized, inverseColor } = modalData;
 
   return (
     <BlurCurtain
@@ -55,7 +52,7 @@ const CallMeBackModal = ({
       } left-0 bottom-0`}
     >
       <div className="m-auto h-full max-w-[1920px] overflow-auto">
-        <BackgroundGrid className="flex" />
+        <BackgroundGrid className="flex" customLinesColor="border-gray-300"/>
 
         <div
           className={`xl:px-120 lg:py-90 lg:px-60 sm:py-[70px] sm:px-[44.1px] py-30 px-15`}

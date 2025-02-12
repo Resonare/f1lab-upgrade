@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { useFetcher } from "@remix-run/react";
+import { NavLink } from "@remix-run/react";
 
 import useModalStore from "../store/modal";
 import Section from "../layout/Section";
 import PrimaryButton from "./buttons/PrimaryButton";
-import { LazyImage } from "./LazyImage";
 import Contacts from "./modals/Contacts";
 import FormInput from "./misc/inputs/FormInput";
 import SecondaryButton from "./buttons/SecondaryButton";
@@ -16,11 +17,48 @@ const INITIAL_VALUES = {
   email: "",
 };
 
+const isEmail = (email) => {
+  const regexp = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
+  return regexp.test(email);
+};
+
 const Footer = () => {
   const [errors, setErrors] = useState(INITIAL_ERRORS);
   const [values, setValues] = useState(INITIAL_VALUES);
+  const [subscribed, setSubscribed] = useState(false);
 
-  const { showCallMeBackModal } = useModalStore();
+  const { showFooterModal } = useModalStore();
+
+  const fetcher = useFetcher();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!validateForm(values, setErrors)) return;
+
+    const formData = new FormData(event.target);
+
+    console.log(formData);
+
+    fetcher.submit(formData, { method: "POST", action: "/subscribe" });
+    fetcher.data?.success ? setSubscribed(true) : setSubscribed(false);
+  };
+
+  const validateForm = (values, setErrors) => {
+    const currentErrors = { ...INITIAL_ERRORS };
+
+    if (values.email.length <= 0) currentErrors.email = "Введите Email";
+    else if (!isEmail(values.email))
+      currentErrors.email = "Введён некорректный Email";
+
+    if (currentErrors.email) {
+      setErrors({ ...currentErrors });
+      return false;
+    } else {
+      setErrors(INITIAL_ERRORS);
+      return true;
+    }
+  };
 
   return (
     <Section
@@ -31,13 +69,27 @@ const Footer = () => {
         <div className="flex flex-col gap-30">
           <p className="uppercase font-text text-sm font-semibold">Кейсы</p>
           <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
-            <p className="hover:underline cursor-pointer">IT-консалтинг</p>
-            <p className="hover:underline cursor-pointer">
+            <NavLink
+              className="hover:underline cursor-pointer"
+              to="/cases"
+              viewTransition
+            >
+              IT-консалтинг
+            </NavLink>
+            <NavLink
+              className="hover:underline cursor-pointer"
+              to="/cases"
+              viewTransition
+            >
               Информационная безопасность
-            </p>
-            <p className="hover:underline cursor-pointer">
+            </NavLink>
+            <NavLink
+              className="hover:underline cursor-pointer"
+              to="/cases"
+              viewTransition
+            >
               Менеджмент облачной инфраструктуры
-            </p>
+            </NavLink>
           </div>
         </div>
 
@@ -69,24 +121,39 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="grid grid-cols-2">
+          <fetcher.Form
+            className={`${subscribed && `hidden`} grid grid-cols-2`}
+            onSubmit={(event) => {
+              handleSubmit(event);
+            }}
+          >
             <FormInput
               className="border-b border-gray-300 border-l-0 col-start-1 col-end-3"
               placeholder="E-mail"
-              name="name"
+              name="email"
               setValues={setValues}
-              value={values.name}
-              error={errors.name}
+              value={values.email}
+              error={errors.email}
+              inverseColor={true}
             ></FormInput>
 
             <SecondaryButton
               variant="dark-shaded"
               className="sm:py-30 border-gray-300 lg:col-start-2 col-start-1 col-end-3 border-t-0"
               titleClassName="text-base"
+              onClick={() => {}}
             >
               Подписаться на рассылку
             </SecondaryButton>
-          </div>
+          </fetcher.Form>
+
+          <p
+            className={`${
+              !subscribed && `hidden`
+            } uppercase font-text text-sm font-semibold`}
+          >
+            Вы подписаны на рассылку
+          </p>
         </div>
 
         {/* <div className="flex gap-30">
@@ -98,7 +165,7 @@ const Footer = () => {
       <PrimaryButton
         className="col-start-1 col-end-5 mt-60"
         type="light"
-        onClick={showCallMeBackModal}
+        onClick={showFooterModal}
       >
         Обратная связь с руководством
       </PrimaryButton>

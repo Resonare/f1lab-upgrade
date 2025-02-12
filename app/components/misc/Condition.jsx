@@ -5,10 +5,11 @@ const Condition = ({
   className = "",
   icon,
   iconClassName = "",
+  onClick,
   children,
 }) => {
   return (
-    <div className={`${outerClassName} flex gap-10 justify-start`}>
+    <div className={`${outerClassName} flex gap-10 justify-start`} onClick={onClick}>
       <LazyImage
         className={`w-20 ${iconClassName}`}
         src={`/images/icons/${icon}`}
