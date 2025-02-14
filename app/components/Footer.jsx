@@ -8,6 +8,12 @@ import PrimaryButton from "./buttons/PrimaryButton";
 import Contacts from "./modals/Contacts";
 import FormInput from "./misc/inputs/FormInput";
 import SecondaryButton from "./buttons/SecondaryButton";
+import { LazyImage } from "./LazyImage";
+
+const CONTACTS_DATA = {
+  dzen: "https://dzen.ru/f1lab",
+  habr: "",
+};
 
 const INITIAL_ERRORS = {
   email: "",
@@ -112,11 +118,10 @@ const Footer = () => {
             <ul className="text-lg font-light">
               <li>
                 <span className="px-10">•</span>Анонсы новых направлений и услуг
-                F1Lab
               </li>
               <li>
                 <span className="px-10">•</span>Ссылки на полезные новости и
-                статьи F1Lab
+                наши статьи
               </li>
             </ul>
           </div>
@@ -156,10 +161,20 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* <div className="flex gap-30">
-          <LazyImage src="/images/icons/habr.svg" />
-          <LazyImage src="/images/icons/dzen.svg" />
-        </div> */}
+        <div className="flex gap-30">
+          <NavLink to={CONTACTS_DATA.habr}>
+            <LazyImage
+              className="cursor-pointer"
+              src="/images/icons/habr.svg"
+            />
+          </NavLink>
+          <NavLink to={CONTACTS_DATA.dzen}>
+            <LazyImage
+              className="cursor-pointer"
+              src="/images/icons/dzen.svg"
+            />
+          </NavLink>
+        </div>
       </div>
 
       <PrimaryButton

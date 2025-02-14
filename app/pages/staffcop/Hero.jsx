@@ -6,9 +6,12 @@ import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ContentCard from "../../components/cards/ContentCard";
+import Animation from "../../components/misc/animations/Animation";
 
 import { ThemeContext } from "../../store/theme-context";
 import { LazyImage } from "../../components/LazyImage";
+
+import homeAnimationJson from "../../animations/service-staffcop.json";
 
 const Hero = () => {
   const themeContext = useContext(ThemeContext);
@@ -106,12 +109,13 @@ const Hero = () => {
         <div className="h-full flex"></div>
       </div>
 
-      <div className="max-md:h-[400px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 sm:row-end-5 md:col-start-3 col-start-1 col-end-5">
-        <LazyImage
+      <div className="max-md:h-[400px] max-sm:h-[280px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 sm:row-end-5 md:col-start-3 col-start-1 col-end-5">
+        {/* <LazyImage
           className="w-full h-full object-cover"
           src="/images/staffcop/hero-banner.png"
           alt=""
-        />
+        /> */}
+        <Animation data={homeAnimationJson} />
       </div>
     </Section>
   );

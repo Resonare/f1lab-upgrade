@@ -3,7 +3,7 @@ import SectionTitle from "../../layout/SectionTitle";
 import ContentCard from "../../components/cards/ContentCard";
 import Animation from "../../components/misc/animations/Animation";
 
-import whyAnimationJson from "../../components/misc/animations/why-animation.json";
+import whyAnimationJson from "../../animations/why-animation.json";
 
 const Why = () => {
   return (

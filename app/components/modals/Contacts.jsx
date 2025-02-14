@@ -37,8 +37,9 @@ const Contacts = ({
           icon={inverseColor ? `mail.svg` : `mail-dark.svg`}
           onClick={(event) => {
             event.preventDefault();
-            navigator.clipboard.writeText(CONTACTS_DATA.mail);
-            showCopiedAlert();
+            window.location.replace(`mailto:${CONTACTS_DATA.mail}`);
+            // navigator.clipboard.writeText(CONTACTS_DATA.mail);
+            // showCopiedAlert();
           }}
         >
           {CONTACTS_DATA.mail}

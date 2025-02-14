@@ -19,7 +19,9 @@ const AnimationLazy = ({ className, data, hero = false }) => {
       const svgElement = animationContainerRef.current.querySelector("svg");
       if (svgElement) {
         svgElement.style = {};
-        svgElement.setAttribute("width", "100%")
+        svgElement.setAttribute("width", "100%");
+
+        if (!hero) svgElement.setAttribute("height", "100%");
       }
     }
   }, [animationContainerRef]);

@@ -6,9 +6,12 @@ import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ContentCard from "../../components/cards/ContentCard";
+import Animation from "../../components/misc/animations/Animation";
 
 import { ThemeContext } from "../../store/theme-context";
 import { LazyImage } from "../../components/LazyImage";
+
+import homeAnimationJson from "../../animations/service-antivirus.json";
 
 const Hero = () => {
   const themeContext = useContext(ThemeContext);
@@ -31,7 +34,7 @@ const Hero = () => {
       <ContentCard
         className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
         row="row-start-3"
-        col="xl:col-start-2 col-start-1 col-end-3"
+        col="xl:col-start-2 col-start-1 md:col-end-3 col-end-5"
         bg={themeContext.bgColor}
       >
         В современном цифровом мире защита корпоративных данных и
@@ -69,11 +72,12 @@ const Hero = () => {
         </PrimaryButton>
       </div>
 
-      <div className="flex justify-center lg:row-start-1 sm:row-start-2 row-start-4 lg:row-end-5 sm:row-end-5 md-row-end-5 lg:col-start-3 sm:col-start-3 col-start-1 lg:col-end-5 col-end-5">
-        <LazyImage
+      <div className="max-md:pt-30 max-sm:pt-0 max-md:h-[400px] max-sm:h-[280px] flex justify-center lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-5 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
+        {/* <LazyImage
           className="xl:h-full md:h-[410px] h-[285px]"
           src="/images/antivirus/hero-banner.svg"
-        />
+        /> */}
+        <Animation data={homeAnimationJson} />
       </div>
     </Section>
   );

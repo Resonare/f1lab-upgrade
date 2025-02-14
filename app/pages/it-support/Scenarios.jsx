@@ -7,7 +7,7 @@ import ImageCard from "../../components/cards/ImageCard";
 import SectionTitle from "../../layout/SectionTitle";
 import Animation from "../../components/misc/animations/Animation";
 
-import scenariosAnimationJson from "../../components/misc/animations/scenarios-animation.json";
+import scenariosAnimationJson from "../../animations/scenarios-animation.json";
 
 const Scenarios = () => {
   const { bgColor } = useContext(ThemeContext);
