@@ -71,21 +71,21 @@ const Footer = () => {
           <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
             <NavLink
               className="hover:underline cursor-pointer"
-              to="/cases"
+              to="/cases?branchId=1"
               viewTransition
             >
               IT-консалтинг
             </NavLink>
             <NavLink
               className="hover:underline cursor-pointer"
-              to="/cases"
+              to="/cases?branchId=3"
               viewTransition
             >
               Информационная безопасность
             </NavLink>
             <NavLink
               className="hover:underline cursor-pointer"
-              to="/cases"
+              to="/cases?branchId=4"
               viewTransition
             >
               Менеджмент облачной инфраструктуры

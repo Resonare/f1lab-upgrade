@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useLoaderData } from "@remix-run/react";
+import { useState, useEffect } from "react";
+import { useLoaderData, useSearchParams } from "@remix-run/react";
 
 import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
@@ -8,13 +8,16 @@ import SwitchButton from "../../components/buttons/SwitchButton";
 import CaseCard from "../../components/cards/CaseCard";
 import Carousel from "../../components/misc/Carousel";
 
-const Cases = ({branchId = null}) => {
+const Cases = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
+  const defaultBranch = searchParams.get("branchId") || null;
+
   const { casesData, branchesData } = useLoaderData();
 
-  const [branch, setBranch] = useState(branchId);
+  const [branch, setBranch] = useState(defaultBranch);
   const [cases, setCases] = useState(casesData);
 
-  const handleSwitchClick = (newBranch, event) => {
+  const changeBranch = (newBranch) => {
     setBranch(newBranch);
 
     if (newBranch === null) {
@@ -28,12 +31,20 @@ const Cases = ({branchId = null}) => {
           .length > 0
     );
 
+    setCases(foundCases);
+  };
+
+  useEffect(() => {
+    if (defaultBranch != branch) changeBranch(defaultBranch);
+  }, [defaultBranch]);
+
+  const handleSwitchClick = (newBranch, event) => {
+    changeBranch(newBranch);
+
     event.target.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
     });
-
-    setCases(foundCases);
   };
 
   const splitArrayIntoThree = (array) => {
