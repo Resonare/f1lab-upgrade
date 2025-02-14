@@ -151,7 +151,7 @@ const CallMeBackModal = () => {
             />
 
             <div
-              className={`${bgColor} ${
+              className={`${inverseColor ? `bg-gray-400` : bgColor} ${
                 success !== null ? `hidden` : `sm:hidden`
               } flex flex-col sm:gap-15 gap-30 p-15 h-full justify-between`}
             >
@@ -167,7 +167,7 @@ const CallMeBackModal = () => {
                 <p className="font-extended font-bold text-[22px] leading-6">
                   Контакты:
                 </p>
-                <Contacts />
+                <Contacts inverseColor={inverseColor} />
               </div>
             </div>
 

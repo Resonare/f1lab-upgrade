@@ -25,7 +25,10 @@ const ERROR_MESSAGES = {
   wrongMIME: `Неверный тип файла.`,
 };
 
-const FileAttachment = forwardRef(function MyInput({ className = "" }, ref) {
+const FileAttachment = forwardRef(function MyInput(
+  { inverseColor = false, className = "" },
+  ref
+) {
   const fileInputRef = useRef(null);
   const [fileName, setFileName] = useState("");
   const [error, setError] = useState("");
@@ -75,7 +78,7 @@ const FileAttachment = forwardRef(function MyInput({ className = "" }, ref) {
 
       <SecondaryButton
         variant="shaded"
-        className="sm:hidden border-x"
+        className={`${inverseColor && `border-gray-300`} sm:hidden border-x`}
         customIcon="/images/icons/paperclip-dark.svg"
         onClick={handleAttachClick}
       >

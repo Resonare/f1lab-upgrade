@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFetcher } from "@remix-run/react";
-import { NavLink } from "@remix-run/react";
+import { NavLink, Link } from "@remix-run/react";
 
 import useModalStore from "../store/modal";
 import Section from "../layout/Section";
@@ -162,18 +162,18 @@ const Footer = () => {
         </div>
 
         <div className="flex gap-30">
-          <NavLink to={CONTACTS_DATA.habr}>
+          {/* <Link to={CONTACTS_DATA.habr} target="_blank">
             <LazyImage
               className="cursor-pointer"
               src="/images/icons/habr.svg"
             />
-          </NavLink>
-          <NavLink to={CONTACTS_DATA.dzen}>
+          </Link> */}
+          <Link to={CONTACTS_DATA.dzen} target="_blank">
             <LazyImage
               className="cursor-pointer"
               src="/images/icons/dzen.svg"
             />
-          </NavLink>
+          </Link>
         </div>
       </div>
 

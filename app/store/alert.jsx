@@ -1,30 +1,27 @@
 import { create } from "zustand";
 
-const TEST_ALERT_DATA = {
-  message: "This is a test alert!",
-  danger: false,
-};
-
-const COPIED_ALERT_DATA = {
-  message: "Данные скопированы ✓",
-  danger: false,
+const DEFAULT_ALERT_DATA = {
+  message: "Ошибка",
+  duration: 1000,
+  position: {
+    x: -100,
+    y: -100,
+  },
 };
 
 const useAlertStore = create((set) => ({
   alertVisible: false,
-  alertData: TEST_ALERT_DATA,
-  showTestAlert: () =>
+  alertData: DEFAULT_ALERT_DATA,
+  showAlert: (position, message) =>
     set(() => {
-      return {
-        alertVisible: true,
-        alertData: TEST_ALERT_DATA,
+      const alertData = {
+        message: message,
+        position: position,
       };
-    }),
-  showCopiedAlert: () =>
-    set(() => {
+
       return {
         alertVisible: true,
-        alertData: COPIED_ALERT_DATA,
+        alertData: alertData,
       };
     }),
   closeAlert: () =>

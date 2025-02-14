@@ -4,10 +4,12 @@ export function LazyImage({
   src,
   alt = "",
   className,
+  draggable,
 }: {
   src: string;
   alt: string;
   className?: string;
+  draggable?: boolean;
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
@@ -46,6 +48,7 @@ export function LazyImage({
       className={`transition-opacity duration-300 ${
         isLoaded ? "opacity-100" : "opacity-0"
       } ${className}`}
+      draggable={draggable}
     />
   );
 }
