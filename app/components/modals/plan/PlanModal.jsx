@@ -36,6 +36,7 @@ const PlanModal = () => {
     closePlanModal,
     selectedPlan,
     selectedDevicesCount,
+    modalData,
   } = useModalStore();
 
   const { bgColor } = useContext(ThemeContext);
@@ -52,6 +53,10 @@ const PlanModal = () => {
 
   //States: false - submit failed, true - submit succeed, null - not submitted
   const [success, setSuccess] = useState(null);
+
+  const { title, subtitle, submitText, inverseColor } = modalData;
+
+  console.log(selectedPlan.price);
 
   return (
     <BlurCurtain
@@ -106,6 +111,10 @@ const PlanModal = () => {
               errors={errors}
               setErrors={setErrors}
               setSuccess={setSuccess}
+              title={title}
+              subtitle={subtitle}
+              submitText={submitText}
+              inverseColor={inverseColor}
             >
               <FormInput
                 className="border-b-0"

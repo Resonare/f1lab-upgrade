@@ -40,6 +40,7 @@ const useModalStore = create((set) => ({
         selectedPlan: planData,
         selectedDevicesCount: devicesCount,
         planModalIsActive: true,
+        modalData: CALL_ME_BACK_MODAL_DATA,
       };
     });
   },
