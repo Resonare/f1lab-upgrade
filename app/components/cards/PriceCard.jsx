@@ -19,7 +19,8 @@ const PriceCard = ({
   const { showPlanModal } = useModalStore();
   const { bgColor } = useContext(ThemeContext);
 
-  const { title, price, mainCondition, mainConditionIcon, conditions } = plan;
+  const { title, name, price, mainCondition, mainConditionIcon, conditions } =
+    plan;
 
   return (
     <div
@@ -33,7 +34,7 @@ const PriceCard = ({
           <p
             className={`${priceClassName} font-title text-gray-400 2xl:text-[40px] lg:text-[36px] md:text-[40px] sm:text-[30px] text-[26px] leading-[44px]`}
           >
-            {price?.toLocaleString("ru-RU")} ₽
+            {price ? `${price?.toLocaleString(`ru-RU`)} ₽` : name}
           </p>
         </div>
         <div className="flex flex-col sm:gap-30 gap-15">

@@ -21,7 +21,7 @@ const PriceCard = ({
 
   const {
     title,
-    basePrice,
+    price,
     min,
     max,
     step,
@@ -46,7 +46,7 @@ const PriceCard = ({
 
     const count = devicesCount >= min ? devicesCount : min;
 
-    totalPrice = basePrice * (1 - discount) * count;
+    totalPrice = price * (1 - discount) * count;
 
     if (devicesCount > max && maxOnRequest) {
       return "по запросу";

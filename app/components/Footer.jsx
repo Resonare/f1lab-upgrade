@@ -44,8 +44,6 @@ const Footer = () => {
 
     const formData = new FormData(event.target);
 
-    console.log(formData);
-
     fetcher.submit(formData, { method: "POST", action: "/subscribe" });
     fetcher.data?.success ? setSubscribed(true) : setSubscribed(false);
   };

@@ -10,6 +10,10 @@ import { ThemeContext } from "../../../store/theme-context";
 const PlanInfo = ({
   title,
   price,
+  name,
+  max,
+  min,
+  step,
   mainCondition,
   mainConditionIcon,
   conditions,
@@ -24,20 +28,24 @@ const PlanInfo = ({
   const { bgColor } = useContext(ThemeContext);
 
   const allConditionsWrapperRef = useRef();
-  const [showAllConditions, setShowAllConditions] = useState(false);
+  const [showAllConditions, setShowAllConditions] = useState(true);
 
   const handleShowAllConditions = () => {
     setShowAllConditions((prev) => !prev);
   };
 
   const handleAddDevice = () => {
-    setDevicesCount((prevDevicesCount) => prevDevicesCount + 1);
+    setDevicesCount((prevDevicesCount) =>
+      prevDevicesCount + step <= max
+        ? prevDevicesCount + step
+        : prevDevicesCount
+    );
   };
 
   const handleRemoveDevice = () => {
-    if (devicesCount < 1) return;
+    if (devicesCount <= min) return;
 
-    setDevicesCount((prevDevicesCount) => prevDevicesCount - 1);
+    setDevicesCount((prevDevicesCount) => prevDevicesCount - step);
   };
 
   return (
@@ -74,7 +82,13 @@ const PlanInfo = ({
                     : `text-[28px] sm:hidden`
                 } font-title text-gray-400 leading-[44px]`}
               >
-                {(price * (devicesCount || 1))?.toLocaleString("ru-RU")} ₽
+                {price
+                  ? `${
+                      isNaN(price)
+                        ? price
+                        : (price * (devicesCount || 1))?.toLocaleString(`ru-RU`)
+                    } ₽`
+                  : name}
               </p>
             </div>
 
@@ -110,7 +124,15 @@ const PlanInfo = ({
                 <p
                   className={`font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
                 >
-                  {(price * (devicesCount || 1))?.toLocaleString("ru-RU")} ₽
+                  {price
+                    ? `${
+                        isNaN(price)
+                          ? price
+                          : (price * (devicesCount || 1))?.toLocaleString(
+                              `ru-RU`
+                            )
+                      } ₽`
+                    : name}
                 </p>
               </div>
             </div>
@@ -133,7 +155,7 @@ const PlanInfo = ({
               className="grow max-md:h-[150px] relative transition-all duration-500"
               style={{
                 height:
-                  showAllConditions &&
+                  !showAllConditions &&
                   window.matchMedia("(max-width: 1300px)").matches
                     ? allConditionsWrapperRef?.current?.offsetHeight + 40
                     : 150,
@@ -142,7 +164,7 @@ const PlanInfo = ({
               <div
                 className={`${bgColor} md:w-[calc(100%+30px*2)] w-[calc(100%+15px*2)] md:translate-x-[-30px] translate-x-[-15px] md:px-30 px-15 lg:absolute overflow-hidden transition-all duration-500`}
                 style={{
-                  height: showAllConditions
+                  height: !showAllConditions
                     ? allConditionsWrapperRef?.current?.offsetHeight +
                       (window.matchMedia("(max-width: 1300px)").matches
                         ? 40
@@ -158,15 +180,16 @@ const PlanInfo = ({
                     <Condition
                       key={index}
                       className="text-sm font-normal font-text leading-relaxed"
-                      /* icon={
-                         condition.enabled
-                          ?
+                      icon={
+                        condition.enabled || condition.enabled === undefined
+                          ? "add-circle-icon.svg"
                           : "add-circle-disabled-icon.svg"
-
-                          }*/
-                      icon={"add-circle-icon.svg"}
+                      }
+                      // icon={"add-circle-icon.svg"}
                     >
-                      {condition}
+                      {condition.enabled === undefined
+                        ? condition
+                        : condition.title}
                     </Condition>
                   ))}
                 </div>
@@ -184,7 +207,7 @@ const PlanInfo = ({
 
                   <div
                     className={`${
-                      showAllConditions && `rotate-180`
+                      !showAllConditions && `rotate-180`
                     } flex items-center transition-all`}
                   >
                     <svg

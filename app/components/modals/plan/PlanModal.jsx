@@ -56,8 +56,6 @@ const PlanModal = () => {
 
   const { title, subtitle, submitText, inverseColor } = modalData;
 
-  console.log(selectedPlan.price);
-
   return (
     <BlurCurtain
       className={`${
@@ -89,6 +87,10 @@ const PlanModal = () => {
             <PlanInfo
               title={selectedPlan.title}
               price={selectedPlan.price}
+              name={selectedPlan.name}
+              max={selectedPlan.max}
+              min={selectedPlan.min}
+              step={selectedPlan.step}
               mainCondition={selectedPlan.mainCondition}
               mainConditionIcon={selectedPlan.mainConditionIcon}
               conditions={selectedPlan.conditions}

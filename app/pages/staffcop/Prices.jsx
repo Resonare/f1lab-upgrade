@@ -13,7 +13,7 @@ const Prices = () => {
   const plansData = [
     {
       title: "тариф",
-      price: "«Бессрочный»",
+      name: "«Бессрочный»",
       annualPrice: "",
       mainConditions: ["5+ пользователей", "Бессрочная лицензия"],
       mainConditionIcons: ["profile-check.svg", "file-lock.svg"],
@@ -27,7 +27,7 @@ const Prices = () => {
     },
     {
       title: "тариф",
-      price: "«Стандарт»",
+      name: "«Стандарт»",
       annualPrice: "",
       mainConditions: ["5+ пользователей", "Лицензия на 3/12/24 месяцев"],
       mainConditionIcons: ["profile-check.svg", "file-lock.svg"],
@@ -41,7 +41,7 @@ const Prices = () => {
     },
     {
       title: "тариф",
-      price: "«Pro»",
+      name: "«Pro»",
       annualPrice: "",
       mainConditions: ["50+ пользователей", "Бессрочная лицензия"],
       mainConditionIcons: ["profile-check.svg", "file-lock.svg"],
@@ -55,7 +55,7 @@ const Prices = () => {
     },
     {
       title: "тариф",
-      price: "«ФСТЭК»",
+      name: "«ФСТЭК»",
       annualPrice: "",
       mainConditions: ["5+ пользователей", "Бессрочная лицензия"],
       mainConditionIcons: ["profile-check.svg", "file-lock.svg"],

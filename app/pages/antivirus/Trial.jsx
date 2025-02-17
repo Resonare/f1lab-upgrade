@@ -77,6 +77,8 @@ const Trial = () => {
           errors={errors}
           setErrors={setErrors}
           setSuccess={setSuccess}
+          subtitle="Заполните форму и мы свяжемся с вами в течение 15 минут"
+          submitText="Оставить заявку"
           attachable={false}
           showContacts={false}
         >
