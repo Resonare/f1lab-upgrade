@@ -25,7 +25,9 @@ const CritiqueCard = ({
       <div className={`${!minimized && `order-last`} flex gap-30`}>
         <div className={`${!minimized && `w-full`} flex justify-between`}>
           <LazyImage
-            className={`${!minimized ? `h-[65px] max-w-[50%]` : `h-[90px]`} rounded-[15px]`}
+            className={`${
+              !minimized ? `h-[65px] max-w-[50%]` : `h-[90px]`
+            } rounded-[15px]`}
             src={
               !minimized
                 ? critiqueData?.logoPath
@@ -35,8 +37,8 @@ const CritiqueCard = ({
             }
             alt=""
           />
-          
-          <div className={`${minimized && `hidden`} flex content-center flex-wrap`}>
+
+          {/* <div className={`${minimized && `hidden`} flex content-center flex-wrap`}>
             <p className="select-none font-expanded font-semibold text-sm group-hover:opacity-100 opacity-0 transition-all">
               Перейти к кейсу
             </p>
@@ -45,7 +47,7 @@ const CritiqueCard = ({
                 inverseColor ? `stroke-gray-200` : `stroke-gray-400`
               } py-5 pl-30`}
             />
-          </div>
+            </div> */}
         </div>
 
         <div
