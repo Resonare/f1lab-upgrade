@@ -1,19 +1,52 @@
-import { useContext } from "react";
-
 import Condition from "../misc/Condition";
 import SecondaryButton from "../buttons/SecondaryButton";
 
-import { ThemeContext } from "../../store/theme-context";
+import useAlertStore from "../../store/alert";
+
+const CONTACTS_DATA = {
+  mail: "info@f1lab.ru",
+  phone: "+7 (423) 202-52-55",
+  telegram: "https://t.me/f1lab_it",
+  whatsapp: "https://wa.me/79240424058",
+};
 
 const Contacts = ({
   className = "",
   inverseColor = false,
   minimized = false,
 }) => {
-  const { bgColor } = useContext(ThemeContext);
+  const { showAlert, closeAlert } = useAlertStore();
 
-  const dummyClickHandler = (event) => {
+  const getPosition = (event) => {
+    return {
+      x:
+        event.target.parentElement.getBoundingClientRect().left +
+        window.scrollX +
+        event.target.parentElement.offsetWidth / 2,
+      y:
+        event.target.parentElement.getBoundingClientRect().top +
+        window.scrollY -
+        event.target.parentElement.offsetHeight,
+    };
+  };
+
+  const copyPhone = (event) => {
     event.preventDefault();
+
+    navigator.clipboard.writeText(CONTACTS_DATA.phone);
+
+    const alertPosition = getPosition(event);
+    showAlert(alertPosition, "Скопировано");
+  };
+
+  const showCanCopyPhoneAlert = (event) => {
+    const alertPosition = getPosition(event);
+
+    showAlert(alertPosition, "Скопировать в буфер обмена");
+  };
+
+  const closeCanCopyAlert = () => {
+    closeAlert();
   };
 
   return (
@@ -24,22 +57,31 @@ const Contacts = ({
         } flex flex-wrap lg:gap-30 justify-between`}
       >
         <Condition
-          outerClassName="cursor-pointer select-none hover:underline"
+          outerClassName="cursor-pointer hover:underline select-none"
           className={`${
             inverseColor ? `font-medium` : `font-bold`
-          } text-sm font-text uppercase leading-[18px]`}
+          } text-sm font-text uppercase leading-[18px] select-text`}
           icon={inverseColor ? `mail.svg` : `mail-dark.svg`}
+          onClick={(event) => {
+            event.preventDefault();
+            window.open(`mailto:${CONTACTS_DATA.mail}`);
+            // navigator.clipboard.writeText(CONTACTS_DATA.mail);
+            // showCopiedAlert();
+          }}
         >
-          info@f1lab.ru
+          {CONTACTS_DATA.mail}
         </Condition>
         <Condition
-          outerClassName="cursor-pointer select-none hover:underline"
+          outerClassName="cursor-pointer hover:underline select-none"
           className={`${
             inverseColor ? `font-medium` : `font-bold`
-          } text-sm font-text uppercase leading-[18px] cursor-pointer select-none`}
+          } text-sm font-text uppercase leading-[18px] cursor-pointer select-text`}
           icon={inverseColor ? `phone.svg` : `phone-dark.svg`}
+          onClick={copyPhone}
+          onMouseEnter={showCanCopyPhoneAlert}
+          onMouseLeave={closeCanCopyAlert}
         >
-          +7 (423) 202-52-55
+          {CONTACTS_DATA.phone}
         </Condition>
         <Condition
           outerClassName="cursor-pointer select-none hover:underline"
@@ -47,6 +89,10 @@ const Contacts = ({
             inverseColor ? `font-medium` : `font-bold`
           } text-sm font-text uppercase leading-[18px] cursor-pointer select-none`}
           icon={inverseColor ? `telegram.svg` : `telegram-dark.svg`}
+          onClick={(event) => {
+            event.preventDefault();
+            window.open(CONTACTS_DATA.telegram);
+          }}
         >
           Telegram
         </Condition>
@@ -56,6 +102,10 @@ const Contacts = ({
             inverseColor ? `font-medium` : `font-bold`
           } text-sm font-text uppercase leading-[18px] cursor-pointer select-none`}
           icon={inverseColor ? `whatsapp.svg` : `whatsapp-dark.svg`}
+          onClick={(event) => {
+            event.preventDefault();
+            window.open(CONTACTS_DATA.whatsapp);
+          }}
         >
           Whatsapp
         </Condition>
@@ -67,7 +117,7 @@ const Contacts = ({
         } flex flex-col gap-15`}
       >
         <SecondaryButton
-          className="uppercase border-x"
+          className={`${inverseColor && `border-gray-300`} uppercase border-x`}
           customIcon={
             inverseColor
               ? `/images/icons/mail.svg`
@@ -75,13 +125,18 @@ const Contacts = ({
           }
           titleClassName="font-text"
           variant="shaded"
-          onClick={dummyClickHandler}
+          onClick={(event) => {
+            event.preventDefault();
+            window.open(`mailto:${CONTACTS_DATA.mail}`);
+            // navigator.clipboard.writeText(CONTACTS_DATA.mail);
+            // showCopiedAlert();
+          }}
         >
-          info@f1lab.ru
+          {CONTACTS_DATA.mail}
         </SecondaryButton>
 
         <SecondaryButton
-          className="uppercase border-x"
+          className={`${inverseColor && `border-gray-300`} uppercase border-x`}
           customIcon={
             inverseColor
               ? `/images/icons/phone.svg`
@@ -89,13 +144,18 @@ const Contacts = ({
           }
           titleClassName="font-text"
           variant="shaded"
-          onClick={dummyClickHandler}
+          onClick={(event) => {
+            event.preventDefault();
+            window.open(`tel:${CONTACTS_DATA.phone}`);
+            // navigator.clipboard.writeText(CONTACTS_DATA.phone);
+            // showCopiedAlert();
+          }}
         >
-          +7 (423) 202-52-55
+          {CONTACTS_DATA.phone}
         </SecondaryButton>
 
         <SecondaryButton
-          className="uppercase border-x"
+          className={`${inverseColor && `border-gray-300`} uppercase border-x`}
           customIcon={
             inverseColor
               ? `/images/icons/telegram.svg`
@@ -103,13 +163,16 @@ const Contacts = ({
           }
           titleClassName="font-text"
           variant="shaded"
-          onClick={dummyClickHandler}
+          onClick={(event) => {
+            event.preventDefault();
+            window.open(CONTACTS_DATA.telegram);
+          }}
         >
           Telegram
         </SecondaryButton>
 
         <SecondaryButton
-          className="uppercase border-x"
+          className={`${inverseColor && `border-gray-300`} uppercase border-x`}
           customIcon={
             inverseColor
               ? `/images/icons/whatsapp.svg`
@@ -117,7 +180,10 @@ const Contacts = ({
           }
           titleClassName="font-text"
           variant="shaded"
-          onClick={dummyClickHandler}
+          onClick={(event) => {
+            event.preventDefault();
+            window.open(CONTACTS_DATA.whatsapp);
+          }}
         >
           Whatsapp
         </SecondaryButton>

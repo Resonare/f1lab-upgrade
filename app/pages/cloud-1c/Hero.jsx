@@ -7,8 +7,11 @@ import SectionTitle from "../../layout/SectionTitle";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ContentCard from "../../components/cards/ContentCard";
 import SchemaCanvas from "../../components/heroSchema/SchemaCanvas";
+import Animation from "../../components/misc/animations/Animation";
 
 import { ThemeContext } from "../../store/theme-context";
+
+import homeAnimationJson from "../../animations/service-cloud.json";
 
 const Hero = () => {
   const themeContext = useContext(ThemeContext);
@@ -87,8 +90,9 @@ const Hero = () => {
         </PrimaryButton>
       </div>
 
-      <div className="lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
-        <SchemaCanvas />
+      <div className="max-md:h-[400px] max-sm:h-[280px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
+        {/* <SchemaCanvas /> */}
+        <Animation data={homeAnimationJson} />
       </div>
     </Section>
   );

@@ -12,40 +12,53 @@ import Carousel from "../../components/misc/Carousel";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
 import Animation from "../../components/misc/animations/Animation";
 
-import animationData from "../../components/misc/animations/circles-animation.json";
+import animationData from "../../animations/circles-animation.json";
+
+const STEPS_DATA = [
+  {
+    title: "Анализ текущего состояния ПО и определение необходимых улучшений",
+    upperLabels: ["Этап 1", "Начальная консультация и оценка"],
+    description: `Проведем оценку вашего специализированного ПО и определим, какие
+      обновления и улучшения необходимы для обеспечения его стабильной и
+      эффективной работы, чтобы соответствовать изменяющимся
+      бизнес-требованиям и избежать сбоев`,
+  },
+  {
+    title: "Регулярное обновление и управление версиями ПО",
+    upperLabels: ["Этап 2", "Поддержка ПО"],
+    description: `Обеспечим регулярные обновления и управление версиями вашего ПО, чтобы
+      гарантировать его актуальность, безопасность и соответствие
+      требованиям бизнеса, минимизируя риски устаревания и уязвимостей`,
+  },
+  {
+    title:
+      "Оперативное решение возникающих проблем и техническая поддержка пользователей",
+    upperLabels: ["Этап 3", "Техническая поддержка", "и решение проблем"],
+    description: `Предоставим круглосуточную техническую поддержку и оперативное решение
+      проблем, чтобы пользователи могли продолжать свою работу без простоев
+      и задержек, повышая удовлетворенность и продуктивность`,
+  },
+  {
+    title: "Внедрение и интеграция новых функций в ПО",
+    upperLabels: ["Этап 4", "Интеграция новых функций"],
+    description: `Интегрируем новые функции и возможности в ваше ПО, чтобы оно могло
+      адаптироваться к изменяющимся бизнес-процессам и требованиям,
+      обеспечивая конкурентоспособность и инновационность ваших решений`,
+  },
+  {
+    title: "Постоянный мониторинг производительности и оптимизация работы ПО",
+    upperLabels: ["Этап 5", "Мониторинг и оптимизация"],
+    description: `Будем мониторить производительность вашего ПО и проводить регулярную
+      оптимизацию, чтобы обеспечить его бесперебойную работу и высокую
+      эффективность, что особенно важно для быстрореагирующих бизнесов и
+      стартапов`,
+  },
+];
 
 const Process = () => {
   const { bgColor } = useContext(ThemeContext);
 
   const { showCallMeBackModal } = useModalStore();
-  //REDO NEEDED
-  const tags = {
-    siemCons: (
-      <Tag key="1" className="bg-consulting">
-        SIEM система
-      </Tag>
-    ),
-    siemSec: (
-      <Tag key="2" className="bg-security">
-        SIEM система
-      </Tag>
-    ),
-    siemCloud: (
-      <Tag key="3" className="bg-cloud">
-        SIEM система
-      </Tag>
-    ),
-    itil: (
-      <Tag key="4" className="bg-cloud">
-        ITIL
-      </Tag>
-    ),
-    zabbix: (
-      <Tag key="5" className="bg-[#D40000]" inverseColor={true}>
-        ZABBIX
-      </Tag>
-    ),
-  };
 
   return (
     <>
@@ -58,93 +71,50 @@ const Process = () => {
           className={`${bgColor}`}
           row="row-start-2"
           col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
-          title="Определение целей и объема аудита"
-          tags={[
-            tags.zabbix,
-            tags.siemCons,
-            tags.siemSec,
-            tags.siemCloud,
-            tags.itil,
-          ]}
-          upperLabels={["Этап 1", "Начальная консультация"]}
+          title={STEPS_DATA[0].title}
+          upperLabels={STEPS_DATA[0].upperLabels}
         >
-          Чтобы определить ключевые области, требующие проверки и анализа. Это
-          помогает установить общие ожидания и план действий для проведения
-          аудита.
+          {STEPS_DATA[0].description}
         </StepCard>
 
         <StepCard
           className={`${bgColor}`}
           row="row-start-3"
           col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
-          title="Инвентаризация оборудования, ПО и сетей"
-          tags={[
-            tags.zabbix,
-            tags.siemCons,
-            tags.siemSec,
-            tags.siemCloud,
-            tags.itil,
-          ]}
-          upperLabels={["Этап 2", "Сбор данных"]}
+          title={STEPS_DATA[1].title}
+          upperLabels={STEPS_DATA[1].upperLabels}
         >
-          Собранные данные служат основой для дальнейшего анализа и оценки
-          состояния IT инфраструктуры.
+          {STEPS_DATA[1].description}
         </StepCard>
 
         <StepCard
           className={`${bgColor}`}
           row="row-start-4"
           col="xl:col-start-4 lg:col-start-4 col-start-1 xl:col-end-5 lg:col-end-5 col-end-3"
-          title="Оценка производительности, безопасности и соответствия нормативным требованиям"
-          tags={[
-            tags.zabbix,
-            tags.siemCons,
-            tags.siemSec,
-            tags.siemCloud,
-            tags.itil,
-          ]}
-          upperLabels={["Этап 3", "Анализ"]}
+          title={STEPS_DATA[2].title}
+          upperLabels={STEPS_DATA[2].upperLabels}
         >
-          Специалисты выявляют узкие места и потенциальные риски, которые могут
-          повлиять на работу бизнеса.
+          {STEPS_DATA[2].description}
         </StepCard>
 
         <StepCard
           className={`${bgColor}`}
           row="row-start-5"
           col="col-start-3 xl:col-end-4 lg:col-end-4 col-end-5"
-          title="Проведение тестов на уязвимости и отказоустойчивость "
-          tags={[
-            tags.zabbix,
-            tags.siemCons,
-            tags.siemSec,
-            tags.siemCloud,
-            tags.itil,
-          ]}
-          upperLabels={["Этап 4", "Тестирование"]}
+          title={STEPS_DATA[3].title}
+          upperLabels={STEPS_DATA[3].upperLabels}
         >
-          Тесты помогают определить, насколько устойчива инфраструктура к сбоям
-          и насколько она защищена от возможных угроз.
+          {STEPS_DATA[3].description}
         </StepCard>
 
         <StepCard
           className={`${bgColor}`}
           row="row-start-6"
           col="xl:col-start-2 lg:col-start-2 col-start-1 col-end-3"
-          title="Составление отчета с результатами и рекомендациями по улучшению."
-          tags={[
-            tags.zabbix,
-            tags.siemCons,
-            tags.siemSec,
-            tags.siemCloud,
-            tags.itil,
-          ]}
-          upperLabels={["Этап 5", "Отчет и рекомендации"]}
+          title={STEPS_DATA[4].title}
+          upperLabels={STEPS_DATA[4].upperLabels}
         >
-          По завершении аудита составляется подробный отчет, включающий
-          результаты проведенного анализа и тестирования. В отчете также
-          предлагаются конкретные рекомендации по улучшению производительности,
-          безопасности и соответствия нормативным требованиям IT инфраструктуры.
+          {STEPS_DATA[4].description}
         </StepCard>
 
         <div className="sticky top-0 lg:mt-0 md:mt-60 sm:mt-30 col-start-1 max-lg:col-end-5 lg:row-start-2 row-start-7 lg:row-end-3 lg:h-full h-fit">
@@ -164,86 +134,42 @@ const Process = () => {
         <Carousel lastIndicatorIsLight={true}>
           <StepCard
             className="border-r"
-            title="Определение целей и объема аудита"
-            tags={[
-              tags.zabbix,
-              tags.siemCons,
-              tags.siemSec,
-              tags.siemCloud,
-              tags.itil,
-            ]}
-            upperLabels={["Этап 1", "Начальная консультация"]}
+            title={STEPS_DATA[0].title}
+            upperLabels={STEPS_DATA[0].upperLabels}
           >
-            Чтобы определить ключевые области, требующие проверки и анализа. Это
-            помогает установить общие ожидания и план действий для проведения
-            аудита.
+            {STEPS_DATA[0].description}
           </StepCard>
 
           <StepCard
             className="border-r"
-            title="Инвентаризация оборудования, ПО и сетей"
-            tags={[
-              tags.zabbix,
-              tags.siemCons,
-              tags.siemSec,
-              tags.siemCloud,
-              tags.itil,
-            ]}
-            upperLabels={["Этап 2", "Сбор данных"]}
+            title={STEPS_DATA[1].title}
+            upperLabels={STEPS_DATA[1].upperLabels}
           >
-            Собранные данные служат основой для дальнейшего анализа и оценки
-            состояния IT инфраструктуры.
+            {STEPS_DATA[1].description}
           </StepCard>
 
           <StepCard
             className="border-r"
-            title="Оценка производительности, безопасности и соответствия нормативным требованиям"
-            tags={[
-              tags.zabbix,
-              tags.siemCons,
-              tags.siemSec,
-              tags.siemCloud,
-              tags.itil,
-            ]}
-            upperLabels={["Этап 3", "Анализ"]}
+            title={STEPS_DATA[2].title}
+            upperLabels={STEPS_DATA[2].upperLabels}
           >
-            Специалисты выявляют узкие места и потенциальные риски, которые
-            могут повлиять на работу бизнеса.
+            {STEPS_DATA[2].description}
           </StepCard>
 
           <StepCard
             className="border-r"
-            title="Проведение тестов на уязвимости и отказоустойчивость"
-            tags={[
-              tags.zabbix,
-              tags.siemCons,
-              tags.siemSec,
-              tags.siemCloud,
-              tags.itil,
-            ]}
-            upperLabels={["Этап 4", "Тестирование"]}
+            title={STEPS_DATA[3].title}
+            upperLabels={STEPS_DATA[3].upperLabels}
           >
-            Тесты помогают определить, насколько устойчива инфраструктура к
-            сбоям и насколько она защищена от возможных угроз.
+            {STEPS_DATA[3].description}
           </StepCard>
 
           <StepCard
             className="border-r"
-            title="Составление отчета с результатами и рекомендациями по улучшению"
-            tags={[
-              tags.zabbix,
-              tags.siemCons,
-              tags.siemSec,
-              tags.siemCloud,
-              tags.itil,
-            ]}
-            upperLabels={["Этап 5", "Отчет и рекомендации"]}
+            title={STEPS_DATA[4].title}
+            upperLabels={STEPS_DATA[4].upperLabels}
           >
-            По завершении аудита составляется подробный отчет, включающий
-            результаты проведенного анализа и тестирования. В отчете также
-            предлагаются конкретные рекомендации по улучшению
-            производительности, безопасности и соответствия нормативным
-            требованиям IT инфраструктуры.
+            {STEPS_DATA[4].description}
           </StepCard>
 
           <StepCard
@@ -253,7 +179,10 @@ const Process = () => {
             <div className="flex flex-col gap-15">
               <Animation className="max-sm:h-[260px]" data={animationData} />
 
-              <SecondaryButton variant="accent-light" onClick={showCallMeBackModal}>
+              <SecondaryButton
+                variant="accent-light"
+                onClick={showCallMeBackModal}
+              >
                 <p className="text-base font-subtitle">Начать</p>
               </SecondaryButton>
             </div>

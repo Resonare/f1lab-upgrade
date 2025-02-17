@@ -14,6 +14,7 @@ import CallMeBackModal from "~/components/modals/callMeBack/CallMeBackModal";
 import PlanModal from "~/components/modals/plan/PlanModal";
 import BackgroundGrid from "~/layout/BackgroundGrid";
 import Footer from "~/components/Footer";
+import Alert from "~/components/misc/Alert";
 
 import { CriticalSVGs } from "./components/CriticalSVGs";
 
@@ -171,6 +172,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Navbar navsChangeHandler={navsChangeHandler} />
           </header>
           <div>{children}</div>
+          <Alert />
           <PlanModal />
           <CallMeBackModal />
           <BackgroundGrid />

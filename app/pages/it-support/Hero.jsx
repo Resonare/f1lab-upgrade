@@ -8,8 +8,11 @@ import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ContentCard from "../../components/cards/ContentCard";
 import SchemaCanvas from "../../components/heroSchema/SchemaCanvas";
 import ShoppingCart from "../../components/shoppingCart/ShoppingCart";
+import Animation from "../../components/misc/animations/Animation";
 
 import { ThemeContext } from "../../store/theme-context";
+
+import homeAnimationJson from "../../animations/service-it-support.json";
 
 const Hero = () => {
   const themeContext = useContext(ThemeContext);
@@ -61,7 +64,7 @@ const Hero = () => {
           Консультация
         </PrimaryButton>
 
-        <div className="flex justify-between items-start">
+        {/* <div className="flex justify-between items-start">
           <div className="sm:hidden flex flex-col justify-between items-start">
             <div className="text-sm font-text font-normal">
               Средняя стоимость аудита
@@ -70,7 +73,7 @@ const Hero = () => {
               100 000 ₽
             </div>
           </div>
-        </div>
+        </div> */}
 
         <PrimaryButton
           className="h-full max-lg:grow sm:hidden"
@@ -82,8 +85,9 @@ const Hero = () => {
         </PrimaryButton>
       </div>
 
-      <div className="lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
-        <SchemaCanvas />
+      <div className="max-md:h-[400px] max-sm:h-[280px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
+        {/* <SchemaCanvas /> */}
+        <Animation data={homeAnimationJson} />
       </div>
     </Section>
   );

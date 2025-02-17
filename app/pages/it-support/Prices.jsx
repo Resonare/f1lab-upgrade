@@ -7,8 +7,8 @@ const Prices = () => {
   const plansData = [
     {
       title: "Техподдержка S",
-      price: "25 000",
-      annualPrice: "20 000 ₽",
+      price: 25000,
+      annualPrice: 20000,
       mainCondition: ["24 часа"],
       mainConditionIcon: ["desktop-icon.svg"],
       conditions: [
@@ -97,7 +97,7 @@ const Prices = () => {
 
         <Carousel>
           <PriceCard
-            className="border-r"
+            className="border-r border-b"
             row="row-start-1"
             col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
             plan={plansData[0]}
@@ -106,7 +106,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
-            className="border-r"
+            className="border-r border-b"
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
             plan={plansData[1]}
@@ -115,6 +115,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
+            className="border-b"
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
             plan={plansData[2]}

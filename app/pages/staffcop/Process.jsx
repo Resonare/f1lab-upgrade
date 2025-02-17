@@ -12,7 +12,7 @@ import Carousel from "../../components/misc/Carousel";
 import SecondaryButton from "../../components/buttons/SecondaryButton";
 import Animation from "../../components/misc/animations/Animation";
 
-import animationData from "../../components/misc/animations/circles-animation.json";
+import animationData from "../../animations/circles-animation.json";
 
 const Process = () => {
   const { bgColor } = useContext(ThemeContext);

@@ -160,6 +160,7 @@ const ModalForm = ({
           {attachable && (
             <FileAttachmentInput
               ref={fileAttachmentInputRef}
+              inverseColor={inverseColor}
               className="sm:hidden"
             />
           )}

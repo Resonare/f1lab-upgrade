@@ -6,7 +6,7 @@ import Section from "../../layout/Section";
 import PrimaryButton from "../../components/buttons/PrimaryButton";
 import Animation from "../../components/misc/animations/Animation";
 
-import homeAnimationJson from "../../components/misc/animations/home-animation.json";
+import homeAnimationJson from "../../animations/home-animation.json";
 
 const Hero = () => {
   const { showCallMeBackModal } = useModalStore();

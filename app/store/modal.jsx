@@ -1,11 +1,31 @@
 import { create } from "zustand";
 
+const CALL_ME_BACK_MODAL_DATA = {
+  title: "Давайте уточним детали",
+  subtitle: "Заполните форму и мы свяжемся с вами в течение 15 минут",
+  submitText: "Заказать звонок",
+  minimized: false,
+  inverseColor: false,
+};
+
+const FOOTER_MODAL_DATA = {
+  title: "Обратная связь с руководством",
+  subtitle: "",
+  submitText: "Отправить",
+  minimized: true,
+  inverseColor: true,
+};
+
 const useModalStore = create((set) => ({
   callMeBackModalIsActive: false,
+  modalData: CALL_ME_BACK_MODAL_DATA,
   showCallMeBackModal: () =>
     set(() => {
       document.body.style.overflow = "hidden";
-      return { callMeBackModalIsActive: true };
+      return {
+        callMeBackModalIsActive: true,
+        modalData: CALL_ME_BACK_MODAL_DATA,
+      };
     }),
   closeCallMeBackModal: () =>
     set(() => {
@@ -20,6 +40,7 @@ const useModalStore = create((set) => ({
         selectedPlan: planData,
         selectedDevicesCount: devicesCount,
         planModalIsActive: true,
+        modalData: CALL_ME_BACK_MODAL_DATA,
       };
     });
   },
@@ -29,6 +50,19 @@ const useModalStore = create((set) => ({
       return { planModalIsActive: false };
     }),
   selectedPlan: {},
+  showFooterModal: () =>
+    set(() => {
+      document.body.style.overflow = "hidden";
+      return {
+        callMeBackModalIsActive: true,
+        modalData: FOOTER_MODAL_DATA,
+      };
+    }),
+  closeFooterModal: () =>
+    set(() => {
+      document.body.style.overflow = "auto";
+      return { callMeBackModalIsActive: false };
+    }),
 }));
 
 export default useModalStore;

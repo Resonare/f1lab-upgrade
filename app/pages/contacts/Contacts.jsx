@@ -12,7 +12,7 @@ import ModalForm from "../../components/modals/ModalForm";
 import FormInput from "../../components/misc/inputs/FormInput";
 import Result from "../../components/modals/Result";
 
-import whyAnimationJson from "../../components/misc/animations/why-animation.json";
+import whyAnimationJson from "../../animations/why-animation.json";
 
 const INITIAL_ERRORS = {
   name: "",

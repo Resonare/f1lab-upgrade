@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useLoaderData } from "@remix-run/react";
+import { useState, useEffect } from "react";
+import { useLoaderData, useSearchParams } from "@remix-run/react";
 
 import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
@@ -9,12 +9,15 @@ import CaseCard from "../../components/cards/CaseCard";
 import Carousel from "../../components/misc/Carousel";
 
 const Cases = () => {
+  let [searchParams, setSearchParams] = useSearchParams();
+  const defaultBranch = searchParams.get("branchId") || null;
+
   const { casesData, branchesData } = useLoaderData();
 
-  const [branch, setBranch] = useState(null);
+  const [branch, setBranch] = useState(defaultBranch);
   const [cases, setCases] = useState(casesData);
 
-  const handleSwitchClick = (newBranch, event) => {
+  const changeBranch = (newBranch) => {
     setBranch(newBranch);
 
     if (newBranch === null) {
@@ -28,12 +31,20 @@ const Cases = () => {
           .length > 0
     );
 
+    setCases(foundCases);
+  };
+
+  useEffect(() => {
+    if (defaultBranch != branch) changeBranch(defaultBranch);
+  }, [defaultBranch]);
+
+  const handleSwitchClick = (newBranch, event) => {
+    changeBranch(newBranch);
+
     event.target.scrollIntoView({
       behavior: "smooth",
       block: "nearest",
     });
-
-    setCases(foundCases);
   };
 
   const splitArrayIntoThree = (array) => {
@@ -58,9 +69,16 @@ const Cases = () => {
     <Section className="lg:pb-200 pb-[82px]" hero={true}>
       <SectionTitle
         className="max-sm:font-extended md:pb-15 xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px]"
-        col="col-start-1 col-end-5"
+        col="col-start-1 xl:col-end-4 col-end-5 max-lg:hidden"
       >
         Кейсы: как мы решаем задачи наших клиентов
+      </SectionTitle>
+
+      <SectionTitle
+        className="max-sm:font-extended md:pb-15 xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px]"
+        col="col-start-1 col-end-5 lg:hidden"
+      >
+        Портфолио
       </SectionTitle>
 
       <p className="max-sm:mt-30 mb-15 row-start-2 col-start-1 col-end-5 max-sm:uppercase sm:text-[26px] text-sm sm:font-extended font-text font-bold leading-[30px] max-sm:tracking-wide sm:text-gray-400 text-gray-300">
