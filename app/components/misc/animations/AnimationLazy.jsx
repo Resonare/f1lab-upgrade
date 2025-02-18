@@ -15,6 +15,8 @@ const AnimationLazy = ({ className, data, hero = false }) => {
   const { View, animationContainerRef } = useLottie(options);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     if (animationContainerRef.current) {
       const svgElement = animationContainerRef.current.querySelector("svg");
       if (svgElement) {
@@ -24,7 +26,7 @@ const AnimationLazy = ({ className, data, hero = false }) => {
         if (!hero) svgElement.setAttribute("height", "100%");
       }
     }
-  }, [animationContainerRef]);
+  }, [animationContainerRef, hero]);
 
   return (
     <div
