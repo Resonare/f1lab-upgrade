@@ -14,8 +14,12 @@ import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta = () => {
   return [
-    { title: "F1LAB" },
-    { name: "Staffcop", content: "ИТ‑аудит с применимыми рекомендациями" },
+    { title: "F1Lab | Защита от утечек" },
+    {
+      name: "Staffcop",
+      content:
+        "Cистема расследования инцидентов внутренней безопасности от F1Lab",
+    },
   ];
 };
 

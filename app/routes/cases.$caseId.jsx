@@ -11,8 +11,8 @@ import Pockets from "../pages/item-case/Pockets";
 
 export const meta = () => {
   return [
-    { title: "F1LAB" },
-    { name: "Портфолио", content: "Welcome to Remix!" },
+    { title: "F1Lab | Кейсы" },
+    { name: "Кейсы", content: "Кейсы ит-услуг F1Lab" },
   ];
 };
 

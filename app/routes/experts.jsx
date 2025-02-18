@@ -2,8 +2,8 @@ import Experts from "../pages/experts/Experts";
 
 export const meta = () => {
   return [
-    { title: "F1LAB" },
-    { name: "Эксперты", content: "Welcome to Remix!" },
+    { title: "F1Lab | Эксперты" },
+    { name: "Эксперты", content: "Эксперты F1Lab" },
   ];
 };
 

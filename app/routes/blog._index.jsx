@@ -1,7 +1,10 @@
 import Articles from "../pages/blog/Articles";
 
 export const meta = () => {
-  return [{ title: "F1LAB" }, { name: "Блог", content: "Welcome to Remix!" }];
+  return [
+    { title: "F1Lab | Блог" },
+    { name: "Блог", content: "Блог компании F1Lab" },
+  ];
 };
 
 export default function Blog() {

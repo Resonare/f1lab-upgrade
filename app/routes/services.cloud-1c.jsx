@@ -14,8 +14,11 @@ import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta = () => {
   return [
-    { title: "F1LAB" },
-    { name: "ИТ-Аудит", content: "ИТ‑аудит с применимыми рекомендациями" },
+    { title: "F1Lab | Облачная 1С" },
+    {
+      name: "Облачная 1С",
+      content: "Защищённая 1С-инфраструктура в облаке от F1Lab",
+    },
   ];
 };
 

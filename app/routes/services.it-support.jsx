@@ -13,7 +13,10 @@ import { getAllPublished as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta = () => {
-  return [{ title: "F1LAB" }, { name: "ИТ-Техподдержка", content: "" }];
+  return [
+    { title: "F1Lab | ИТ-Техподдержка" },
+    { name: "ИТ-Техподдержка", content: "Быстрая IT-техподдержка от F1Lab" },
+  ];
 };
 
 export default function ITSupport() {

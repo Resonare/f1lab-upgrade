@@ -27,7 +27,7 @@ export async function action({ request }) {
 }
 
 export const meta = () => {
-  return [{ title: "F1LAB" }, { name: "Услуги" }];
+  return [{ title: "F1Lab" }, { name: "Услуги" }];
 };
 
 export default function Subscribe() {

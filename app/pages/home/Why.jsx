@@ -15,7 +15,7 @@ const Why = () => {
         className="sm:text-gray-100 text-f1-light max-sm:font-extended flex sm:justify-center max-sm:pb-30"
         col="col-start-1 col-end-5"
       >
-        Почему F1LAB?
+        Почему F1Lab?
       </SectionTitle>
 
       <div className="sm:h-[360px] h-[100px] col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">

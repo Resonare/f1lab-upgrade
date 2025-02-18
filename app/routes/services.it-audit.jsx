@@ -14,7 +14,7 @@ import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta = () => {
   return [
-    { title: "F1LAB" },
+    { title: "F1Lab | ИТ-Аудит" },
     { name: "ИТ-Аудит", content: "ИТ‑аудит с применимыми рекомендациями" },
   ];
 };

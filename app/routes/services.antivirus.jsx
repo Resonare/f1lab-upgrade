@@ -15,8 +15,11 @@ import Trial from "../pages/antivirus/Trial";
 
 export const meta = () => {
   return [
-    { title: "F1LAB" },
-    { name: "Pro32", content: "ИТ‑аудит с применимыми рекомендациями" },
+    { title: "F1Lab | Антивирус" },
+    {
+      name: "PRO32 Endpoint Security",
+      content: "Антивирусная защита для вашего бизнеса",
+    },
   ];
 };
 

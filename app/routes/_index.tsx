@@ -15,8 +15,12 @@ import { getAll as getAllCritiques } from "../data/critiques.server";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "F1LAB" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "F1Lab" },
+    {
+      name: "F1Lab",
+      content:
+        "IT- услуги для малого и среднего бизнеса, вдохновлённые практиками топ-компаний",
+    },
   ];
 };
 

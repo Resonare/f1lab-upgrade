@@ -5,7 +5,10 @@ import { getAllPublished as getAllCases } from "../data/cases.server";
 import { getAll as getAllBranches } from "../data/branches.server";
 
 export const meta = () => {
-  return [{ title: "F1LAB" }, { name: "Кейсы", content: "Welcome to Remix!" }];
+  return [
+    { title: "F1Lab | Кейсы" },
+    { name: "Кейсы", content: "Кейсы ит-услуг F1Lab" },
+  ];
 };
 
 export default function Portfolio() {

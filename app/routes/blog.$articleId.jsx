@@ -5,8 +5,8 @@ import Articles from "../pages/item-article/Articles";
 
 export const meta = () => {
   return [
-    { title: "F1LAB" },
-    { name: "Портфолио", content: "Welcome to Remix!" },
+    { title: "F1Lab | Блог" },
+    { name: "Блог", content: "Блог компании F1Lab" },
   ];
 };
 

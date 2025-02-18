@@ -2,8 +2,8 @@ import Contacts from "../pages/contacts/Contacts";
 
 export const meta = () => {
   return [
-    { title: "F1LAB" },
-    { name: "Контакты", content: "Welcome to Remix!" },
+    { title: "F1Lab | Контакты" },
+    { name: "Контакты", content: "Контакты компании F1Lab" },
   ];
 };
 
