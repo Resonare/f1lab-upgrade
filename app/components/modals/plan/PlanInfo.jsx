@@ -2,14 +2,19 @@ import { useContext, useState, useRef } from "react";
 
 import Condition from "../../misc/Condition";
 import PlanDevicesCounter from "../../misc/PlanDevicesCounter";
+import PlanAnnualSwitch from "../../misc/PlanAnnualSwitch";
 import Cancel from "../Cancel";
 import SuccessCircle from "../../misc/svg/SuccessCircle";
 
 import { ThemeContext } from "../../../store/theme-context";
 
+const CONDITION_HEIGHT = 37.75;
+const SHOW_ALL_CONDITIONS_BUTTON_HEIGHT = 41;
+
 const PlanInfo = ({
   title,
   price,
+  annualPrice,
   name,
   max,
   min,
@@ -23,12 +28,22 @@ const PlanInfo = ({
   setDevicesCount,
   closePlanModal,
 }) => {
+  const [annual, setAnnual] = useState(false);
+
   const countVersion = devicesCount !== undefined;
+  const annualVersion = annualPrice !== undefined;
 
   const { bgColor } = useContext(ThemeContext);
 
-  const allConditionsWrapperRef = useRef();
-  const [showAllConditions, setShowAllConditions] = useState(true);
+  const [showAllConditions, setShowAllConditions] = useState(false);
+
+  const conditionsContainerHeight = showAllConditions
+    ? CONDITION_HEIGHT * conditions?.length + SHOW_ALL_CONDITIONS_BUTTON_HEIGHT
+    : `100%`;
+
+  const isVisibleShowAllConditions = () => {
+    return conditions?.length > (annualVersion ? 3 : 7);
+  };
 
   const handleShowAllConditions = () => {
     setShowAllConditions((prev) => !prev);
@@ -48,6 +63,26 @@ const PlanInfo = ({
     setDevicesCount((prevDevicesCount) => prevDevicesCount - step);
   };
 
+  const getFormattedPrice = (price, devicesCount, name) => {
+    return price
+      ? `${
+          isNaN(price)
+            ? price
+            : countVersion
+            ? (price * (devicesCount || 1))?.toLocaleString(`ru-RU`)
+            : price?.toLocaleString(`ru-RU`)
+        } ₽`
+      : name;
+  };
+
+  const handleMonthlyClick = () => {
+    if (annual === true) setAnnual(false);
+  };
+
+  const handleAnnualClick = () => {
+    if (annual === false) setAnnual(true);
+  };
+
   return (
     <div
       className={`${bgColor} z-[1] xl:w-[40%] lg:w-[56%] w-full grow md:p-30 p-15 border-dashed flex flex-col lg:gap-60 gap-30`}
@@ -64,12 +99,12 @@ const PlanInfo = ({
           <div
             className={`${!countVersion ? `gap-5` : `gap-30`} flex flex-col`}
           >
-            <div className={`lg:w-full flex flex-col transition-all`}>
+            <div className={`lg:w-full flex flex-col transition-all gap-[3px]`}>
               <p
                 className={`${
-                  !countVersion
+                  countVersion
                     ? `sm:text-[28px] text-[22px]`
-                    : `sm:text-[40px] text-[22px] sm:w-1/3`
+                    : `sm:text-[40px] text-[22px]`
                 } sm:font-expanded font-extended sm:font-extrabold font-bold sm:leading-[44px] leading-[28px]`}
               >
                 {title}
@@ -77,19 +112,36 @@ const PlanInfo = ({
 
               <p
                 className={`${
-                  !countVersion
-                    ? `sm:text-[40px] text-[28px] md:hidden`
-                    : `text-[28px] sm:hidden`
-                } font-title text-gray-400 leading-[44px]`}
+                  (!annual || !annualVersion) && `opacity-0 mt-[-26px]`
+                } font-extended font-bold text-gray-200 text-[22px] line-through leading-[26px] transition-all`}
               >
-                {price
-                  ? `${
-                      isNaN(price)
-                        ? price
-                        : (price * (devicesCount || 1))?.toLocaleString(`ru-RU`)
-                    } ₽`
-                  : name}
+                {getFormattedPrice(price, null, name)}
               </p>
+
+              <div
+                className={`flex max-sm:flex-col justify-between transition-all`}
+              >
+                <p className="min-w-[180px] h-fit font-expanded font-extrabold sm:text-[40px] text-[28px] sm:leading-[44px] leading-[28px]">
+                  {annual
+                    ? getFormattedPrice(annualPrice, null, name)
+                    : getFormattedPrice(price, devicesCount, name)}
+                </p>
+                {annualVersion && (
+                  <div
+                    className={`${
+                      !annual && ` opacity-0`
+                    } max-sm:pt-5 flex justify-start sm:gap-15 gap-5 text-f1-dark transition-all`}
+                  >
+                    <p className="h-fit sm:text-[40px] text-sm font-title sm:leading-[44px]">
+                      -15%
+                    </p>
+                    <p className="h-fit sm:w-1/2 font-text font-light text-base leading-tight">
+                      при оплате
+                      <br className="max-sm:hidden" /> за 12 месяцев
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
 
             <div
@@ -121,19 +173,11 @@ const PlanInfo = ({
                   devicesCount={devicesCount}
                 />
 
-                <p
+                {/* <p
                   className={`font-title text-gray-400 2xl:text-[40px] xl:text-[34px] text-[40px] leading-[44px]`}
                 >
-                  {price
-                    ? `${
-                        isNaN(price)
-                          ? price
-                          : (price * (devicesCount || 1))?.toLocaleString(
-                              `ru-RU`
-                            )
-                      } ₽`
-                    : name}
-                </p>
+                  {getFormattedPrice(price, deviceCount, name)}
+                </p> */}
               </div>
             </div>
           </div>
@@ -151,31 +195,14 @@ const PlanInfo = ({
               {mainCondition}
             </Condition>
 
-            <div
-              className="grow max-md:h-[150px] relative transition-all duration-500"
-              style={{
-                height:
-                  !showAllConditions &&
-                  window.matchMedia("(max-width: 1300px)").matches
-                    ? allConditionsWrapperRef?.current?.offsetHeight + 40
-                    : 150,
-              }}
-            >
+            <div className="grow max-md:h-[150px] relative transition-all duration-500">
               <div
                 className={`${bgColor} md:w-[calc(100%+30px*2)] w-[calc(100%+15px*2)] md:translate-x-[-30px] translate-x-[-15px] md:px-30 px-15 lg:absolute overflow-hidden transition-all duration-500`}
                 style={{
-                  height: !showAllConditions
-                    ? allConditionsWrapperRef?.current?.offsetHeight +
-                      (window.matchMedia("(max-width: 1300px)").matches
-                        ? 40
-                        : 15)
-                    : `100%`,
+                  height: conditionsContainerHeight,
                 }}
               >
-                <div
-                  className="absolute z-4 flex flex-col gap-15"
-                  ref={allConditionsWrapperRef}
-                >
+                <div className="absolute z-4 flex flex-col gap-15">
                   {conditions?.map((condition, index) => (
                     <Condition
                       key={index}
@@ -196,8 +223,7 @@ const PlanInfo = ({
 
                 <div
                   className={`${bgColor} ${
-                    allConditionsWrapperRef?.current?.offsetHeight < 180 &&
-                    `hidden`
+                    !isVisibleShowAllConditions() && `hidden`
                   } pt-15 pb-5 w-full bottom-0 absolute flex gap-5 group hover:underline cursor-pointer select-none border-t border-dashed border-gray-200`}
                   onClick={handleShowAllConditions}
                 >
@@ -207,7 +233,7 @@ const PlanInfo = ({
 
                   <div
                     className={`${
-                      !showAllConditions && `rotate-180`
+                      showAllConditions && `rotate-180`
                     } flex items-center transition-all`}
                   >
                     <svg
@@ -229,6 +255,16 @@ const PlanInfo = ({
                 </div>
               </div>
             </div>
+
+            {annualVersion && !success && (
+              <PlanAnnualSwitch
+                className=""
+                submitted={success !== null}
+                annual={annual}
+                handleAnnualClick={handleAnnualClick}
+                handleMonthlyClick={handleMonthlyClick}
+              />
+            )}
           </div>
         </div>
 

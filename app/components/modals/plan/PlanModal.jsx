@@ -87,6 +87,7 @@ const PlanModal = () => {
             <PlanInfo
               title={selectedPlan.title}
               price={selectedPlan.price}
+              annualPrice={selectedPlan.annualPrice}
               name={selectedPlan.name}
               max={selectedPlan.max}
               min={selectedPlan.min}
