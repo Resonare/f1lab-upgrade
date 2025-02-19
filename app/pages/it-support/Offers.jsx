@@ -34,7 +34,7 @@ const Offers = () => {
         iconPath="/images/it-support/offer-icon1.svg"
         inverseColor={true}
       >
-        Наши специалисты всегда на связи и готовы помочь в любой момент.
+        Реагирование на любые инциденты в течение 15 минут
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-4"></div>
@@ -54,7 +54,7 @@ const Offers = () => {
         iconPath="/images/it-support/offer-icon2.svg"
         inverseColor={true}
       >
-        Реагируем на любые инциденты в течение 15 минут.
+        Постоянный мониторинг оборудования и минимизация времени простоя
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-7"></div>
@@ -74,7 +74,8 @@ const Offers = () => {
         iconPath="/images/it-support/offer-icon3.svg"
         inverseColor={true}
       >
-        Регулярно проверяем работу серверов для предотвращения проблем.
+        Регулярные резервные копии данных для их защиты в непредвиденных
+        ситуациях
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-10"></div>
@@ -94,30 +95,9 @@ const Offers = () => {
         iconPath="/images/it-support/offer-icon4.svg"
         inverseColor={true}
       >
-        Настраиваем серверы для надёжной и стабильной работы.
+        Удобные каналы связи: телефон, почта, мессенджеры, telegram-бот,
+        веб-портал
       </ContentCard>
-
-      <div className="sm:hidden h-15 row-start-13"></div>
-
-      <ImageCard
-        row="row-start-[14]"
-        col="col-start-1"
-        className="sm:hidden border-r border-y"
-        imagePath="it-support/offer-icon5.svg"
-        inverseColor={true}
-      />
-
-      <ContentCard
-        className="border-y max-sm:border-x max-sm:ml-[-1px]"
-        row="lg:row-start-3 sm:row-start-4 row-start-[15]"
-        col="lg:col-start-2 sm:col-start-1 col-start-2 lg:col-end-3 sm:col-end-3 col-end-5"
-        iconPath="/images/it-support/offer-icon5.svg"
-        inverseColor={true}
-      >
-        Резервируем данные для их защиты в непредвиденных ситуациях.
-      </ContentCard>
-
-      <div className="sm:hidden h-15 row-start-[16]"></div>
 
       <ImageCard
         row="row-start-[18]"
@@ -134,7 +114,8 @@ const Offers = () => {
         iconPath="/images/it-support/offer-icon6.svg"
         inverseColor={true}
       >
-        Собираем данные для повышения эффективности вашего бизнеса.
+        Ведение истории обращений и изменений в ит-инфраструктуре для повышения
+        эффективности нашей работы
       </ContentCard>
 
       <PrimaryButton
