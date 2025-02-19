@@ -6,6 +6,8 @@ import {
   Scripts,
   ScrollRestoration,
   useLocation,
+  isRouteErrorResponse,
+  useRouteError,
 } from "@remix-run/react";
 import "./tailwind.css";
 
@@ -15,6 +17,7 @@ import PlanModal from "~/components/modals/plan/PlanModal";
 import BackgroundGrid from "~/layout/BackgroundGrid";
 import Footer from "~/components/Footer";
 import Alert from "~/components/misc/Alert";
+import ErrorNotFound from "~/pages/not-found-alert/Error";
 
 import { CriticalSVGs } from "./components/CriticalSVGs";
 
@@ -136,32 +139,32 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
         <style>
           {`
-                   .content-wrapper {
-                     visibility: hidden;
-                   }
+            .content-wrapper {
+              visibility: hidden;
+            }
 
-                   .fonts-loaded .content-wrapper {
-                     visibility: visible;
-                     animation: fadeIn 0.2s ease-in;
-                   }
+            .fonts-loaded .content-wrapper {
+              visibility: visible;
+              animation: fadeIn 0.2s ease-in;
+            }
 
-                   @keyframes fadeIn {
-                     from { opacity: 0; }
-                     to { opacity: 1; }
-                   }
+            @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
 
-                   #font-loader {
-                     position: fixed;
-                     inset: 0;
-                     display: flex;
-                     align-items: center;
-                     justify-content: center;
-                   }
+            #font-loader {
+              position: fixed;
+              inset: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
 
-                   .fonts-loaded #font-loader {
-                     display: none;
-                   }
-                 `}
+            .fonts-loaded #font-loader {
+              display: none;
+            }
+          `}
         </style>
       </head>
       <ThemeContext.Provider value={{ bgColor: bgColor }}>
@@ -187,4 +190,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return <Outlet />;
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+
+  if (isRouteErrorResponse(error) && error.status == 404) {
+    return (
+      <ErrorNotFound />
+    );
+  }
 }
