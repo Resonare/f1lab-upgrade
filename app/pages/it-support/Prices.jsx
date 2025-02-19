@@ -7,6 +7,7 @@ const Prices = () => {
   const plansData = [
     {
       title: "Техподдержка S",
+      name: null,
       price: 25000,
       annualPrice: 20000,
       mainCondition: ["24 часа"],
@@ -23,6 +24,7 @@ const Prices = () => {
     },
     {
       title: "Техподдержка M",
+      name: null,
       price: 45000,
       annualPrice: 36000,
       mainCondition: ["48 часов"],
@@ -39,6 +41,7 @@ const Prices = () => {
     },
     {
       title: "Техподдержка L",
+      name: null,
       price: 58000,
       annualPrice: 46400,
       mainCondition: ["72 часа"],

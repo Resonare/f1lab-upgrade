@@ -6,7 +6,9 @@ import Carousel from "../../components/misc/Carousel";
 const PLANS_DATA = [
   {
     title: "Базовая защита",
+    name: null,
     price: 498,
+    annualPrice: null,
     min: 5,
     max: 20,
     step: 5,
@@ -68,7 +70,9 @@ const PLANS_DATA = [
   },
   {
     title: "Стандартная защита",
+    name: null,
     price: 2374,
+    annualPrice: null,
     min: 5,
     max: 200,
     step: 1,
@@ -130,7 +134,9 @@ const PLANS_DATA = [
   },
   {
     title: "Расширенная защита",
+    name: null,
     price: 2770,
+    annualPrice: null,
     min: 5,
     max: 200,
     step: 1,

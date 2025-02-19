@@ -31,7 +31,7 @@ const PlanInfo = ({
   const [annual, setAnnual] = useState(false);
 
   const countVersion = devicesCount !== undefined;
-  const annualVersion = annualPrice !== undefined;
+  const annualVersion = annualPrice !== undefined && annualPrice !== null;
 
   const { bgColor } = useContext(ThemeContext);
 

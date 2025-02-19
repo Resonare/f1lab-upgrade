@@ -14,7 +14,8 @@ const Prices = () => {
     {
       title: "тариф",
       name: "«Бессрочный»",
-      annualPrice: "",
+      price: null,
+      annualPrice: null,
       mainConditions: ["5+ пользователей", "Бессрочная лицензия"],
       mainConditionIcons: ["profile-check.svg", "file-lock.svg"],
       conditions: [
@@ -28,7 +29,8 @@ const Prices = () => {
     {
       title: "тариф",
       name: "«Стандарт»",
-      annualPrice: "",
+      price: null,
+      annualPrice: null,
       mainConditions: ["5+ пользователей", "Лицензия на 3/12/24 месяцев"],
       mainConditionIcons: ["profile-check.svg", "file-lock.svg"],
       conditions: [
@@ -42,7 +44,8 @@ const Prices = () => {
     {
       title: "тариф",
       name: "«Pro»",
-      annualPrice: "",
+      price: null,
+      annualPrice: null,
       mainConditions: ["50+ пользователей", "Бессрочная лицензия"],
       mainConditionIcons: ["profile-check.svg", "file-lock.svg"],
       conditions: [
@@ -56,7 +59,8 @@ const Prices = () => {
     {
       title: "тариф",
       name: "«ФСТЭК»",
-      annualPrice: "",
+      price: null,
+      annualPrice: null,
       mainConditions: ["5+ пользователей", "Бессрочная лицензия"],
       mainConditionIcons: ["profile-check.svg", "file-lock.svg"],
       conditions: [
@@ -120,7 +124,7 @@ const Prices = () => {
 
         <div className="grid grid-cols-4 lg:hidden col-start-1 col-end-5">
           <SectionTitle row="row-start-1" col="col-start-1 col-end-3">
-          Лицензии под любые задачи
+            Лицензии под любые задачи
           </SectionTitle>
 
           <PriceCard

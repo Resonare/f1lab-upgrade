@@ -7,6 +7,7 @@ const Prices = () => {
   const plansData = [
     {
       title: "Облако S",
+      name: null,
       price: 19000,
       annualPrice: 15200,
       mainConditions: "До 10 пользователей",
@@ -24,6 +25,7 @@ const Prices = () => {
     },
     {
       title: "Облако M",
+      name: null,
       price: 39000,
       annualPrice: 31200,
       mainConditions: "До 50 пользователей",
@@ -42,6 +44,7 @@ const Prices = () => {
     },
     {
       title: "Облако L",
+      name: null,
       price: 69000,
       annualPrice: 55200,
       mainConditions: "До 100 пользователей",

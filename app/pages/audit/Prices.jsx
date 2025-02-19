@@ -8,6 +8,8 @@ const Prices = () => {
     {
       title: "Аудит S",
       name: "от 30 000 ₽",
+      price: null,
+      annualPrice: null,
       mainCondition: ["До 10 единиц"],
       mainConditionIcon: ["desktop-icon.svg"],
       conditions: [
@@ -21,6 +23,8 @@ const Prices = () => {
     {
       title: "Аудит M",
       name: "от 50 000 ₽",
+      price: null,
+      annualPrice: null,
       mainCondition: ["До 20 единиц"],
       mainConditionIcon: ["desktop-icon.svg"],
       conditions: [
@@ -36,6 +40,8 @@ const Prices = () => {
     {
       title: "Аудит L",
       name: "от 90 000 ₽",
+      price: null,
+      annualPrice: null,
       mainCondition: ["До 50 единиц"],
       mainConditionIcon: ["desktop-icon.svg"],
       conditions: [
