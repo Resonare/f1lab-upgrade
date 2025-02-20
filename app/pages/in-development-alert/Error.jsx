@@ -20,7 +20,7 @@ const Error = () => {
   };
 
   return (
-    <Section className="sm:mb-100 mb-60">
+    <Section className="sm:mb-100 mb-60 xl:mt-90 mt-30">
       <div className="col-start-1 col-end-5 xl:border-t-0 sm:border-y border-dashed max-xl:mt-90 max-sm:mt-0">
         <div className="lg:h-[500px] md:h-[400px] sm:h-[300px] h-[120px]">
           <Animation
