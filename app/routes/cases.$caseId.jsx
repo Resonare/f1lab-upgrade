@@ -35,6 +35,12 @@ export default function Case() {
 
 export async function loader({ params }) {
   const selectedCase = await getCase(params.caseId);
+
+  if (selectedCase === undefined) {
+    // If case not found
+    throw new Response("Not Found", { status: 404 });
+  }
+
   const allServiceCasesData = await getAllServiceCases();
   const critiquesData = await getAllCritiques();
 

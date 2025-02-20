@@ -1,5 +1,3 @@
-import { useNavigate } from "@remix-run/react";
-
 import Section from "../../layout/Section";
 import Animation from "../../components/misc/animations/Animation";
 import BackButton from "../../components/buttons/BackButton";
@@ -7,15 +5,9 @@ import BackButton from "../../components/buttons/BackButton";
 import animationData from "../../animations/404-animation.json";
 
 const Error = () => {
-  const navigate = useNavigate();
-
-  const goBack = (document, allowedOrigin) => {
-    if (allowedOrigin !== null) {
-      if (document.referrer.startsWith(allowedOrigin)) {
-        navigate(-1);
-      } else {
-        navigate("/");
-      }
+  const goBack = (window) => {
+    if (window) {
+      window.location.replace("/");
     }
   };
 
@@ -37,8 +29,9 @@ const Error = () => {
 
       <BackButton
         className="mt-60 lg:col-start-2 col-start-1 lg:col-end-4 col-end-5 font-expanded font-bold"
+        text="На главную"
         onClick={() => {
-          goBack(document, window.location.origin);
+          goBack(window);
         }}
       />
     </Section>

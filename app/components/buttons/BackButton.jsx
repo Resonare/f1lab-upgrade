@@ -4,7 +4,15 @@ import ArrowBack from "../misc/svg/ArrowBack";
 
 import { NavbarContext } from "../../store/navbar-context";
 
-const BackButton = ({ bg, textColor, link, to, onClick, className = "" }) => {
+const BackButton = ({
+  bg,
+  textColor,
+  link,
+  to,
+  onClick,
+  text = "Назад",
+  className = "",
+}) => {
   const { showServicesDropdownHandler } = useContext(NavbarContext);
 
   const buttonStyle = `flex group ${bg} ${
@@ -19,7 +27,7 @@ const BackButton = ({ bg, textColor, link, to, onClick, className = "" }) => {
           onClick={onClick}
         >
           <ArrowBack color={textColor?.substring(5)} />
-          <span className="place-self-center">Назад</span>
+          <span className="place-self-center">{text}</span>
         </button>
       )}
       {link && (
@@ -30,7 +38,7 @@ const BackButton = ({ bg, textColor, link, to, onClick, className = "" }) => {
           onClick={showServicesDropdownHandler}
         >
           <ArrowBack color={textColor?.substring(5)} />
-          <span className="place-self-center">Назад</span>
+          <span className="place-self-center">{text}</span>
         </NavLink>
       )}
     </>
