@@ -1,3 +1,6 @@
+import { useNavigate } from "@remix-run/react";
+import useHydrated from "../../hooks/useHydrated";
+
 import Section from "../../layout/Section";
 import Animation from "../../components/misc/animations/Animation";
 import BackButton from "../../components/buttons/BackButton";
@@ -5,9 +8,12 @@ import BackButton from "../../components/buttons/BackButton";
 import animationData from "../../animations/404-animation.json";
 
 const Error = () => {
-  const goBack = (window) => {
-    if (window) {
-      window.location.replace("/");
+  const hydrated = useHydrated();
+  const navigate = useNavigate();
+
+  const goBack = () => {
+    if (hydrated) {
+      navigate("/");
     }
   };
 
@@ -30,9 +36,7 @@ const Error = () => {
       <BackButton
         className="mt-60 lg:col-start-2 col-start-1 lg:col-end-4 col-end-5 font-expanded font-bold"
         text="На главную"
-        onClick={() => {
-          goBack(window);
-        }}
+        onClick={goBack}
       />
     </Section>
   );
