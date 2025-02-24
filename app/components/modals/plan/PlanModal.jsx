@@ -185,7 +185,7 @@ const PlanModal = () => {
             />
 
             <div
-              className={`${bgColor} sm:hidden flex flex-col sm:gap-15 gap-30 p-15 h-full justify-between`}
+              className={`${bgColor} ${success !== null && `hidden`} sm:hidden flex flex-col sm:gap-15 gap-30 p-15 h-full justify-between`}
             >
               <PrimaryButton
                 className={success === null && `hidden`}
