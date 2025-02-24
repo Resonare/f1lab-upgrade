@@ -15,7 +15,7 @@ import Navbar from "~/components/navigation/Navbar";
 import CallMeBackModal from "~/components/modals/callMeBack/CallMeBackModal";
 import PlanModal from "~/components/modals/plan/PlanModal";
 import BackgroundGrid from "~/layout/BackgroundGrid";
-import Footer from "~/components/Footer";
+import Footer from "~/layout/Footer";
 import Alert from "~/components/misc/Alert";
 import ErrorNotFound from "~/pages/not-found-alert/Error";
 import YandexMetrika from "~/components/misc/YandexMetrika";

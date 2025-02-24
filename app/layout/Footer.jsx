@@ -3,12 +3,12 @@ import { useFetcher } from "@remix-run/react";
 import { NavLink, Link } from "@remix-run/react";
 
 import useModalStore from "../store/modal";
-import Section from "../layout/Section";
-import PrimaryButton from "./buttons/PrimaryButton";
-import Contacts from "./modals/Contacts";
-import FormInput from "./misc/inputs/FormInput";
-import SecondaryButton from "./buttons/SecondaryButton";
-import { LazyImage } from "./LazyImage";
+import Section from "./Section";
+import PrimaryButton from "../components/buttons/PrimaryButton";
+import Contacts from "../components/modals/Contacts";
+import FormInput from "../components/misc/inputs/FormInput";
+import SecondaryButton from "../components/buttons/SecondaryButton";
+import { LazyImage } from "../components/LazyImage";
 
 const CONTACTS_DATA = {
   dzen: "https://dzen.ru/f1lab",
