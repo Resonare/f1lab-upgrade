@@ -18,6 +18,7 @@ import BackgroundGrid from "~/layout/BackgroundGrid";
 import Footer from "~/components/Footer";
 import Alert from "~/components/misc/Alert";
 import ErrorNotFound from "~/pages/not-found-alert/Error";
+import YandexMetrika from "~/components/misc/YandexMetrika";
 
 import { CriticalSVGs } from "./components/CriticalSVGs";
 
@@ -171,6 +172,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <body
           className={`overflow-x-hidden content-wrapper ${bgColor} max-w-[1921.4px] mx-auto transition-full duration-300 `}
         >
+          <YandexMetrika />
           <header className="fixed top-0 left-0 w-full z-10">
             <Navbar navsChangeHandler={navsChangeHandler} />
           </header>

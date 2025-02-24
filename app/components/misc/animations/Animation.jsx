@@ -1,16 +1,8 @@
-import { lazy, Suspense, useEffect, useState } from "react";
+import { lazy, Suspense } from "react";
+
+import useHydrated from "../../../hooks/useHydrated";
 
 const AnimationLazy = lazy(() => import("./AnimationLazy"));
-
-function useHydrated() {
-  const [isHydrated, setIsHydrated] = useState(false);
-
-  useEffect(() => {
-    setIsHydrated(true);
-  }, []);
-
-  return isHydrated;
-}
 
 const Animation = (props) => {
   const isHydrated = useHydrated();
