@@ -2,6 +2,7 @@ import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
 import PriceCard from "../../components/cards/PriceCard";
 import Carousel from "../../components/misc/Carousel";
+import IndividualOfferCard from "../../components/cards/IndividualOfferCard";
 
 const Prices = () => {
   const plansData = [
@@ -93,6 +94,8 @@ const Prices = () => {
         >
           {plansData[2].description}
         </PriceCard>
+
+        <IndividualOfferCard />
       </Section>
 
       <div className="sm:hidden flex flex-col gap-30 pt-60 px-15">
@@ -126,6 +129,8 @@ const Prices = () => {
             {plansData[2].description}
           </PriceCard>
         </Carousel>
+
+        <IndividualOfferCard />
       </div>
     </>
   );

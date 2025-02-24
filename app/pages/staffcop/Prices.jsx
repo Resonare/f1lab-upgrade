@@ -4,6 +4,7 @@ import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
 import PriceCard from "../../components/cards/PriceCard";
 import Carousel from "../../components/misc/Carousel";
+import IndividualOfferCard from "../../components/cards/IndividualOfferCard";
 
 import { ThemeContext } from "../../store/theme-context";
 
@@ -167,6 +168,8 @@ const Prices = () => {
             {plansData[3].description}
           </PriceCard>
         </div>
+
+        <IndividualOfferCard fullBorder={false} />
       </Section>
 
       <div id="prices" className="sm:hidden flex flex-col gap-30 pt-60 px-15">
@@ -209,6 +212,8 @@ const Prices = () => {
             {plansData[3].description}
           </PriceCard>
         </Carousel>
+
+        <IndividualOfferCard />
       </div>
     </>
   );
