@@ -37,6 +37,29 @@ export const getAllPublished = async () => {
   }
 };
 
+export const getAllPublishedExceptOne = async (exceptionServiceCaseId) => {
+  try {
+    const serviceCases = await prisma.serviceCase.findMany({
+      where: {
+        NOT: {
+          id: +exceptionServiceCaseId,
+        }
+      },
+      include: {
+        client: true,
+        services: { include: { tag: true } },
+        technologyTags: true,
+        numbers: true,
+        dones: { include: { tags: true } },
+      },
+    });
+
+    return serviceCases;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const getOne = async (serviceCaseId) => {
   try {
     const serviceCase = await prisma.serviceCase.findUnique({

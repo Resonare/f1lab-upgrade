@@ -1,7 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 
 import { getOne as getCase } from "../data/cases.server";
-import { getAllPublished as getAllServiceCases } from "../data/cases.server";
+import { getAllPublishedExceptOne as getAllServiceCasesExceptCurrent } from "../data/cases.server";
 import { getAll as getAllCritiques } from "../data/critiques.server";
 
 import CaseInfo from "../pages/item-case/CaseInfo";
@@ -40,7 +40,7 @@ export async function loader({ params }) {
     throw new Response("Not Found", { status: 404 });
   }
 
-  const allServiceCasesData = await getAllServiceCases();
+  const allServiceCasesData = await getAllServiceCasesExceptCurrent(params.caseId);
   const critiquesData = await getAllCritiques();
 
   return { selectedCase, allServiceCasesData, critiquesData };
