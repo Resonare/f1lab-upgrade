@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { useLoaderData } from "@remix-run/react";
 
 import useModalStore from "../../store/modal";
@@ -15,7 +15,6 @@ import TagContainer from "../../components/misc/TagContainer";
 
 const CaseInfo = () => {
   const themeContext = useContext(ThemeContext);
-  const [bgColor, setBgColor] = useState(themeContext.bgColor);
 
   const { showCallMeBackModal } = useModalStore();
 
@@ -25,7 +24,7 @@ const CaseInfo = () => {
     <Section className="lg:pt-60 max-sm:[&>div]:pt-15">
       <div className="col-start-1 md:col-end-3 col-end-5">
         <ContentCard
-          className={`${bgColor} md:justify-between border-t max-sm:border-l`}
+          className={`${themeContext.bgColor} md:justify-between border-t max-sm:border-l`}
           iconPath={selectedCase.client.logoPath}
           hideIconOnMobile={false}
         >
@@ -39,7 +38,9 @@ const CaseInfo = () => {
           </div>
         </ContentCard>
 
-        <ContentCard className={`${bgColor} border-y max-sm:border-l`}>
+        <ContentCard
+          className={`${themeContext.bgColor} border-y max-sm:border-l`}
+        >
           {selectedCase.client.description}
         </ContentCard>
       </div>
@@ -60,14 +61,14 @@ const CaseInfo = () => {
       </SectionTitle>
 
       <div
-        className={`lg:${bgColor} md:pt-0 sm:pt-60 pt-0 max-sm:mx-[1px] lg:border-x border-dashed border-gray-200 lg:flex lg:flex-wrap grid grid-cols-4 row-start-4 col-start-1 col-end-5`}
+        className={`lg:${themeContext.bgColor} md:pt-0 sm:pt-60 pt-0 max-sm:mx-[1px] lg:border-x border-dashed border-gray-200 lg:flex lg:flex-wrap grid grid-cols-4 row-start-4 col-start-1 col-end-5`}
       >
         {selectedCase.numbers.map((numberData, index) => (
           <ContentCard
             key={index}
-            className={`${
-              (index + 1) % 3 != 0 && `lg:border-r`
-            } max-lg:${bgColor} 2xl:w-[33.18%] lg:w-[33.13%] border-y`}
+            className={`${(index + 1) % 3 != 0 && `lg:border-r`} max-lg:${
+              themeContext.bgColor
+            } 2xl:w-[33.18%] lg:w-[33.13%] border-y`}
             col={
               index % 2 == 0
                 ? "col-start-1 md:col-end-3 col-end-5"
@@ -87,7 +88,7 @@ const CaseInfo = () => {
       <ContentCard
         row="row-start-5"
         col="lg:col-start-1 md:col-start-3 col-start-1 lg:col-end-3 col-end-5"
-        className={`${bgColor} border-y max-sm:mx-[1px]`}
+        className={`${themeContext.bgColor} border-y max-sm:mx-[1px]`}
       >
         <div className="flex flex-col gap-15">
           <p className="text-gray-400 text-[22px] font-extended font-bold">
@@ -102,7 +103,7 @@ const CaseInfo = () => {
       <ContentCard
         row="row-start-6"
         col="lg:col-start-3 col-start-1 lg:col-end-5 md:col-end-3 col-end-5"
-        className={`${bgColor} border-y max-sm:mx-[1px]`}
+        className={`${themeContext.bgColor} border-y max-sm:mx-[1px]`}
       >
         <div className="flex flex-col gap-15">
           <p className="text-gray-400 text-[22px] font-extended font-bold">
@@ -132,7 +133,7 @@ const CaseInfo = () => {
       {selectedCase.dones.map((doneData, index) => (
         <ContentCard
           key={index}
-          className={`${bgColor} max-sm:mx-[1px] border-y`}
+          className={`${themeContext.bgColor} max-sm:mx-[1px] border-y`}
           iconPath={doneData.iconPath}
           mobileIconPath={doneData.mobileIconPath}
           hideIconOnMobile={false}

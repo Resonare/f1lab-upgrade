@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useContext } from "react";
 
 import { ThemeContext } from "../../store/theme-context";
 
@@ -57,7 +57,6 @@ const Prices = () => {
   ];
 
   const themeContext = useContext(ThemeContext);
-  const [bgColor, setBgColor] = useState(themeContext.bgColor);
 
   return (
     <>
@@ -70,7 +69,7 @@ const Prices = () => {
         </SectionTitle>
 
         <PriceCard
-          className={`${bgColor} border-t lg:border-b border-r`}
+          className={`${themeContext.bgColor} border-t lg:border-b border-r`}
           row="row-start-1"
           col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
           plan={plansData[0]}
@@ -79,7 +78,7 @@ const Prices = () => {
         </PriceCard>
 
         <PriceCard
-          className={`${bgColor} border-y border-r`}
+          className={`${themeContext.bgColor} border-y border-r`}
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
           plan={plansData[1]}
@@ -88,7 +87,7 @@ const Prices = () => {
         </PriceCard>
 
         <PriceCard
-          className={`${bgColor} border-y border-r`}
+          className={`${themeContext.bgColor} border-y border-r`}
           row="lg:row-start-1 row-start-2"
           col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
           plan={plansData[2]}
@@ -102,7 +101,7 @@ const Prices = () => {
 
         <Carousel>
           <PriceCard
-            className={`${bgColor} border-r`}
+            className={`${themeContext.bgColor} border-r`}
             row="row-start-1"
             col="lg:col-start-2 col-start-3 lg:col-end-3 col-end-5"
             plan={plansData[0]}
@@ -111,7 +110,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
-            className={`${bgColor} border-r`}
+            className={`${themeContext.bgColor} border-r`}
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-3 col-start-1 lg:col-end-4 col-end-3"
             plan={plansData[1]}
@@ -120,7 +119,7 @@ const Prices = () => {
           </PriceCard>
 
           <PriceCard
-            className={`${bgColor}`}
+            className={`${themeContext.bgColor}`}
             row="lg:row-start-1 row-start-2"
             col="lg:col-start-4 col-start-3 lg:col-end-5 col-end-5"
             plan={plansData[2]}
