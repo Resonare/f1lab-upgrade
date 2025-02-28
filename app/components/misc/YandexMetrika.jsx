@@ -1,24 +1,17 @@
-import useHydrated from "../../hooks/useHydrated";
+import { useEffect } from "react";
 
 const YandexMetrika = () => {
-  const isHydrated = useHydrated();
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = `/scripts/yandex_metrika.js`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
 
-  if (isHydrated) {
-    return (
-      <>
-        <script src="/scripts/yandex_metrika.js"></script>
-        <noscript>
-          <div>
-            <img
-              src="https://mc.yandex.ru/watch/99932894"
-              style={{ position: `absolute`, left: `-9999px` }}
-              alt=""
-            />
-          </div>
-        </noscript>
-      </>
-    );
-  }
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
 };
 
 export default YandexMetrika;
