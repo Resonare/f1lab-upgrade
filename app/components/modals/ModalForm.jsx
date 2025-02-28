@@ -1,5 +1,5 @@
 import { useFetcher } from "@remix-run/react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 import PrimaryButton from "../buttons/PrimaryButton";
 import Checkbox from "../misc/inputs/Checkbox";
@@ -57,6 +57,20 @@ const validateForm = (values, setErrors) => {
   }
 };
 
+const executeRecaptcha = () => {
+  return new Promise((resolve) => {
+    grecaptcha.ready(() => {
+      grecaptcha
+        .execute("6LfC-uMqAAAAAFPrCfBr4FJzwglSX-Sj2hxOV0rL", {
+          action: "submit",
+        })
+        .then((token) => {
+          resolve(token);
+        });
+    });
+  });
+};
+
 const ModalForm = ({
   title,
   subtitle,
@@ -81,15 +95,23 @@ const ModalForm = ({
 
   const fetcher = useFetcher();
 
-  const handleSubmit = (event) => {
+  useEffect(() => {
+    if (fetcher.state === "idle" && fetcher.data) {
+      fetcher.data.success ? setSuccess(true) : setSuccess(false);
+    }
+  }, [fetcher.state, fetcher.data]);
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!validateForm(values, setErrors)) return;
+    // if (!validateForm(values, setErrors)) return;
+
+    const recaptchaToken = await executeRecaptcha();
 
     const formData = new FormData(event.target);
+    formData.append("recaptcha-token", recaptchaToken);
 
     fetcher.submit(formData, { method: "POST", action: "/services" });
-    fetcher.data?.success ? setSuccess(true) : setSuccess(false);
   };
 
   const handleDragEnter = (event) => {

@@ -5,6 +5,22 @@ import SidebarButtons from "../components/navigation/SidebarButtons";
 export async function action({ request }) {
   const formData = await request.formData();
 
+  const captchaToken = formData.get("recaptcha-token");
+  const captchaSecretKey = import.meta.env.VITE_RECAPTCHA_SECRET;
+
+  const captchaResponse = await fetch(
+    `https://www.google.com/recaptcha/api/siteverify?secret=${captchaSecretKey}&response=${captchaToken}`,
+    { method: "POST" }
+  );
+
+  const captchaData = await captchaResponse.json();
+  const captchaScore = captchaData?.score;
+
+  // if (captchaScore < 0.8) {
+  //   // Failed captcha
+  //   return { success: false };
+  // }
+
   const requestType = formData.get("request-type");
 
   let data = {};
@@ -20,7 +36,7 @@ export async function action({ request }) {
       path: formData.get("path"),
     };
 
-    message = `${data.requestType}\nСтраница: ${data.path}\nИмя: ${data.name}\nEmail: ${data.email}\nТелефон: ${data.phone}\nДетали: ${data.details}`;
+    message = `${data.requestType}\nСтраница: ${data.path}\nИмя: ${data.name}\nEmail: ${data.email}\nТелефон: ${data.phone}\nДетали: ${data.details}\nCaptcha score: ${captchaScore}`;
   } else if (requestType === "service-request") {
     data = {
       requestType: "Запрос услуги",
@@ -39,7 +55,7 @@ export async function action({ request }) {
       data.devicesCount > 0
         ? `\nКоличество устройств: ${data.devicesCount}`
         : ``
-    }`;
+    } \nCaptcha score: ${captchaScore}`;
   }
 
   // Send data to Telegram
