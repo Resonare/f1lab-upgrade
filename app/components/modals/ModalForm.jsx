@@ -61,7 +61,7 @@ const executeRecaptcha = () => {
   return new Promise((resolve) => {
     grecaptcha.ready(() => {
       grecaptcha
-        .execute("6LfC-uMqAAAAAFPrCfBr4FJzwglSX-Sj2hxOV0rL", {
+        .execute(import.meta.env.VITE_RECAPTCHA_SITE, {
           action: "submit",
         })
         .then((token) => {

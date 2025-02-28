@@ -173,7 +173,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <body
           className={`overflow-x-hidden content-wrapper ${bgColor} max-w-[1921.4px] mx-auto transition-full duration-300 `}
         >
-          <Recaptcha siteKey={"6LfC-uMqAAAAAFPrCfBr4FJzwglSX-Sj2hxOV0rL"} />
+          <Recaptcha siteKey={import.meta.env.VITE_RECAPTCHA_SITE} />
           <YandexMetrika />
           <header className="fixed top-0 left-0 w-full z-10">
             <Navbar navsChangeHandler={navsChangeHandler} />
