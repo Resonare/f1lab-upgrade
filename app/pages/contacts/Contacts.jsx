@@ -98,6 +98,7 @@ const Contacts = () => {
         <ModalForm
           className={`${success !== null && `hidden`} striped max-sm:p-0`}
           title="Поговорим о сотрудничестве?"
+          submitText="Заказать звонок"
           method="post"
           action="/services"
           values={values}
