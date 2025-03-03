@@ -100,6 +100,10 @@
 }
 
 @layer utilities {
+  .rc-anchor {
+    opacity: 0;
+  }
+
   .striped {
     background-repeat: repeat;
     background-size: 5px;
