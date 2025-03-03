@@ -16,10 +16,9 @@ export async function action({ request }) {
   const captchaData = await captchaResponse.json();
   const captchaScore = captchaData?.score;
 
-  // if (captchaScore < 0.8) {
-  //   // Failed captcha
-  //   return { success: false };
-  // }
+  if (captchaScore == undefined) {
+    return { success: false };
+  }
 
   const requestType = formData.get("request-type");
 
