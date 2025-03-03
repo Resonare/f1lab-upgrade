@@ -104,7 +104,7 @@ const ModalForm = ({
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // if (!validateForm(values, setErrors)) return;
+    if (!validateForm(values, setErrors)) return;
 
     const recaptchaToken = await executeRecaptcha();
 
