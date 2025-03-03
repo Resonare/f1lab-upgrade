@@ -1,7 +1,16 @@
 import { useRef, useState } from "react";
 
-const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
-  const [curPage, setCurPage] = useState(0);
+const SolutionsCarousel = ({
+  cardsOnPage = 4,
+  maxHeight = "h-[450px]",
+  className,
+  children,
+}) => {
+  const carouselRef = useRef(null);
+
+  const [pageData, setPageData] = useState({
+    currentIndex: 0,
+  });
 
   const pagesAmount = Math.ceil(children.length / cardsOnPage);
 
@@ -10,11 +19,27 @@ const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
     counter > max ? min : counter < min ? max : counter;
 
   const handleNext = () => {
-    setCurPage((prevPage) => handleOverflow(prevPage + 1, 0, pagesAmount - 1));
+    setPageData((prevPageData) => {
+      return {
+        currentIndex: handleOverflow(
+          prevPageData.currentIndex + 1,
+          0,
+          pagesAmount - 1
+        ),
+      };
+    });
   };
 
   const handlePrev = () => {
-    setCurPage((prevPage) => handleOverflow(prevPage - 1, 0, pagesAmount - 1));
+    setPageData((prevPageData) => {
+      return {
+        currentIndex: handleOverflow(
+          prevPageData.currentIndex - 1,
+          0,
+          pagesAmount - 1
+        ),
+      };
+    });
   };
 
   const getPageIndicators = () => {
@@ -25,7 +50,7 @@ const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
         <div
           key={i}
           className={`${
-            i == curPage ? `text-f1-light` : `text-gray-200`
+            i == pageData.currentIndex ? `text-f1-light` : `text-gray-200`
           } flex-1 flex justify-center max-w-[400px] text-[40px] transition-all duration-300 select-none`}
         >
           <p>•</p>
@@ -38,8 +63,8 @@ const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
 
   const getCurContent = () => {
     const curContent = children.slice(
-      curPage * cardsOnPage,
-      curPage * cardsOnPage + cardsOnPage
+      pageData.currentIndex * cardsOnPage,
+      pageData.currentIndex * cardsOnPage + cardsOnPage
     );
 
     return curContent.map((content, index) => (
@@ -52,9 +77,12 @@ const SolutionsCarousel = ({ cardsOnPage = 4, className, children }) => {
   let content = getCurContent();
 
   return (
-    <div className={`${className} border-dashed border-gray-300 grid grid-cols-4`}>
+    <div
+      className={`${className} border-dashed border-gray-300 grid grid-cols-4`}
+      ref={carouselRef}
+    >
       <div
-        className={`border-l col-start-1 col-end-5 border-y border-gray-300 border-dashed bg-gray-400 flex`}
+        className={`${maxHeight} border-l col-start-1 col-end-5 border-y border-gray-300 border-dashed bg-gray-400 flex`}
       >
         {content}
       </div>
