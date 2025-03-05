@@ -24,7 +24,7 @@ const ServicesNavigationItem = ({ item }) => {
 
   return (
     <li key={item.link} className={`${currentTextColor} bg-gray-400`}>
-      <div className={`${currentBgColor}`}>
+      <div className={`${currentBgColor} transition-all duration-300`}>
         <div className={`h-15 rounded-br-full bg-gray-400`}></div>
       </div>
       <button
@@ -38,7 +38,7 @@ const ServicesNavigationItem = ({ item }) => {
         {item.title}
         <ArrowTertiary color={item.textColor.substring(5)} />
       </button>
-      <div className={`${currentBgColor}`}>
+      <div className={`${currentBgColor} transition-all duration-300`}>
         <div className={`h-15 rounded-tr-full bg-gray-400`}></div>
       </div>
     </li>

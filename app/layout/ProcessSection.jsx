@@ -13,94 +13,16 @@ import Animation from "../components/misc/animations/Animation";
 
 import animationData from "../animations/circles-animation.json";
 
-const TAGS_DATA = {
-  siemCons: {
-    id: 0,
-    title: "SIEM система",
-    color: "consulting",
-  },
-  siemSec: {
-    id: 1,
-    title: "SIEM система",
-    color: "security",
-  },
-  siemCloud: {
-    id: 2,
-    title: "SIEM система",
-    color: "cloud",
-  },
-  itil: {
-    id: 3,
-    title: "ITIL",
-    color: "cloud",
-  },
-  zabbix: {
-    id: 4,
-    title: "ZABBIX",
-    color: "[#D40000]",
-    inverseColor: true,
-  },
-};
-
-const DUMMY_STEPS_DATA = [
-  {
-    title: "Анализ и оценка потребностей",
-    tags: [
-      TAGS_DATA.zabbix,
-      TAGS_DATA.siemCons,
-      TAGS_DATA.siemSec,
-      TAGS_DATA.siemCloud,
-      TAGS_DATA.itil,
-    ],
-    upperLabels: ["Этап 1", "Подбор лицензии"],
-    body: "Наши специалисты проводят детальную проверку IT-инфраструктуры, определяя оптимальную лицензию для вашей компании",
-  },
-  {
-    title: "Установка и настройка программного обеспечения",
-    tags: [
-      TAGS_DATA.zabbix,
-      TAGS_DATA.siemCons,
-      TAGS_DATA.siemSec,
-      TAGS_DATA.siemCloud,
-      TAGS_DATA.itil,
-    ],
-    upperLabels: ["Этап 2", "Внедрение"],
-    body: "Профессиональная установка и конфигурация антивируса PRO32 на всех целевых устройствах, обеспечивая максимальную эффективность защиты.",
-  },
-  {
-    title: "Обучение сотрудников",
-    tags: [
-      TAGS_DATA.zabbix,
-      TAGS_DATA.siemCons,
-      TAGS_DATA.siemSec,
-      TAGS_DATA.siemCloud,
-      TAGS_DATA.itil,
-    ],
-    upperLabels: ["Этап 3", "обучение"],
-    body: "Проведение обучающих сессий для сотрудников и руководства по эффективному использованию PRO32 и основам кибербезопасности.",
-  },
-  {
-    title: "Техническая поддержка и сопровождение",
-    tags: [
-      TAGS_DATA.zabbix,
-      TAGS_DATA.siemCons,
-      TAGS_DATA.siemSec,
-      TAGS_DATA.siemCloud,
-      TAGS_DATA.itil,
-    ],
-    upperLabels: ["Этап 4", "сопровождение"],
-    body: "Предоставление технической поддержки, регулярные обновления и мониторинг системы для поддержания высокого уровня безопасности.",
-  },
-];
-
-const ProcessSection = ({ stepsData, title = "Процесс" }) => {
-  stepsData = DUMMY_STEPS_DATA; //<---------------------------------------DELETE
-
+const ProcessSection = ({ stepsData, tagsData, title = "Процесс" }) => {
   if (!stepsData || stepsData.length <= 0) return;
 
   const { bgColor } = useContext(ThemeContext);
 
   const { showCallMeBackModal } = useModalStore();
+
+  const findTag = (targetTitle) => {
+    return tagsData.filter((tagData) => tagData.title == targetTitle)[0];
+  };
 
   return (
     <>
@@ -127,7 +49,7 @@ const ProcessSection = ({ stepsData, title = "Процесс" }) => {
                 colStart + 1
               } lg:col-end-${lgColStart + 1} col-end-${colStart + 3}`}
               title={stepData.title}
-              tags={stepData.tags}
+              tagsData={stepData.tagTitles.map((title) => findTag(title))}
               upperLabels={stepData.upperLabels}
             >
               {stepData.body}
@@ -155,7 +77,7 @@ const ProcessSection = ({ stepsData, title = "Процесс" }) => {
               key={index}
               className="border-r"
               title={stepData.title}
-              tags={stepData.tags}
+              tagsData={stepData.tagTitles.map((title) => findTag(title))}
               upperLabels={stepData.upperLabels}
             >
               {stepData.body}

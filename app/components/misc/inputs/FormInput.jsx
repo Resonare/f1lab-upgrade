@@ -56,7 +56,7 @@ const FormInput = ({
           ? `pb-10 lg:pt-40 pt-20 ${inverseColor ? `bg-gray-400` : bgColor}`
           : `lg:py-[25px] py-[15px]`
       } overflow-hidden border-x border-t relative sm:px-30 px-15 text-gray-300 sm:text-xl font-text sm:font-normal font-light leading-7 border-dashed cursor-text transition-all`}
-      tabindex="-1"
+      tabIndex="-1"
       onClick={handleClick}
       onDoubleClick={handleDoubleClick}
     >

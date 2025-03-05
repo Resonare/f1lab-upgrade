@@ -8,7 +8,7 @@ const StepCard = ({
   row = "",
   col = "",
   title = "",
-  tags = [],
+  tagsData = [],
   upperLabels = [],
   inverseColor = false,
   className = "",
@@ -46,7 +46,7 @@ const StepCard = ({
       ) : null}
       <div
         className={`${
-          tags.length == 0 ? "" : "lg:gap-30 gap-15"
+          tagsData.length == 0 ? "" : "lg:gap-30 gap-15"
         } flex h-full flex-col w-fit justify-between`}
       >
         <p
@@ -58,13 +58,13 @@ const StepCard = ({
         </p>
         <div
           className={`${
-            tags.length == 0 ? "mt-30" : ""
+            tagsData.length == 0 ? "mt-30" : ""
           } sm:text-xl text-[1rem] text-gray-300 font-light font-text`}
         >
           {children}
         </div>
 
-        {tags.length != 0 ? <TagContainer>{tags}</TagContainer> : null}
+        {tagsData.length != 0 ? <TagContainer>{tagsData}</TagContainer> : null}
       </div>
     </div>
   );
