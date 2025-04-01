@@ -26,4 +26,6 @@ services:
       - ./prisma:/app/prisma
     environment:
       - DATABASE_URL=file:/app/prisma/data.db
-    command: npx prisma studio --host 0.0.0.0
+      - PORT=5555
+      - HOST=0.0.0.0
+    command: npx prisma studio
