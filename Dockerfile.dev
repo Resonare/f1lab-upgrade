@@ -1,0 +1,24 @@
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Установка необходимых зависимостей для Prisma и SQLite
+RUN apk add --no-cache openssl openssl-dev libc6-compat
+
+# Установка зависимостей для разработки
+COPY package*.json ./
+RUN npm install
+
+# Копирование Prisma схемы
+COPY prisma ./prisma/
+
+# Генерация Prisma клиента
+RUN npx prisma generate
+
+# Добавление исходников
+COPY . .
+
+EXPOSE 5173
+EXPOSE 5555
+
+CMD ["npm", "run", "dev"]
