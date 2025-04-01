@@ -63,7 +63,7 @@ TagContainer.propTypes = {
   children: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      title: PropTypes.string.isRequired,
+      title: PropTypes.string,
       color: PropTypes.string,
       link: PropTypes.string,
       inverseColor: PropTypes.bool,
