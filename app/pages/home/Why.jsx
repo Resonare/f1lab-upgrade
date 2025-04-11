@@ -18,11 +18,8 @@ const Why = () => {
         Почему F1Lab?
       </SectionTitle>
 
-      <div className="sm:h-[360px] h-[100px] col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">
-        <Animation
-          className="max-sm:[&>div>svg]:h-[100px]"
-          data={whyAnimationJson}
-        />
+      <div className="col-start-1 col-end-5 border-t border-gray-300 border-dashed row-start-2 flex justify-center">
+        <Animation className="[&>svg]:w-full w-full" data={whyAnimationJson} />
       </div>
 
       <div className="col-start-1 col-end-5 row-start-3 flex max-md:flex-col">
