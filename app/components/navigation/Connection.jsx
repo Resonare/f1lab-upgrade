@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 import ArrowConnect from "../misc/svg/ArrowConnect";
 import SecondaryButton from "../buttons/SecondaryButton";
@@ -55,13 +57,19 @@ const Connection = () => {
     window.open(`https://go.pro32connect.ru/invite/${first + second + third}`);
   };
 
+  const connectionRef = useRef(null);
+  useOutsideClick(connectionRef, () => {
+    setOpened(false);
+  });
+
   return (
     <div
+      ref={connectionRef}
       className={`${
         !opened
           ? `hover:top-[calc(100%-45px-10px)] top-[calc(100%-45px)]`
           : `top-full -translate-y-full`
-      } z-[-1] max-sm:hidden bg-gray-400 fixed border-dashed border-l border-t border-gray-300 lg:right-0 overflow-hidden transition-all duration-500`}
+      } z-[-1] max-sm:hidden bg-gray-400 fixed border-dashed lg:border-l max-lg:border-r border-t border-gray-300 lg:right-0 overflow-hidden transition-all duration-500`}
     >
       <button
         className={`${
