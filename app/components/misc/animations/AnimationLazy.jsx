@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLottie } from "lottie-react";
 
-const AnimationLazy = ({ className, data, hero = false }) => {
+const AnimationLazy = ({ className, data }) => {
   const [loaded, setLoaded] = useState(false);
 
   const options = {
@@ -21,19 +21,14 @@ const AnimationLazy = ({ className, data, hero = false }) => {
       const svgElement = animationContainerRef.current.querySelector("svg");
       if (svgElement) {
         svgElement.style = {};
-        svgElement.setAttribute("width", "100%");
-
-        if (!hero) svgElement.setAttribute("height", "100%");
+        svgElement.removeAttribute("width");
+        svgElement.removeAttribute("height");
       }
     }
-  }, [animationContainerRef, hero]);
+  }, [animationContainerRef]);
 
   return (
-    <div
-      className={`${className} ${!loaded && `opacity-0`} ${
-        !hero && `[&>div>svg]:left-1/2 [&>div>svg]:-translate-x-1/2`
-      } [&>div>svg>g]:no-clip [&>div>svg]:absolute transition-all duration-500 overflow-hidden w-full h-full [&>div]:h-full [&>div]:relative`}
-    >
+    <div ref={animationContainerRef} className={className}>
       {View}
     </div>
   );
