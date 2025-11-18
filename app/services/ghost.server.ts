@@ -2,8 +2,8 @@ import GhostContentAPI from "@tryghost/content-api";
 
 // Initialize Ghost API
 const api = new GhostContentAPI({
-  url: process.env.GHOST_URL || "https://blog.f1lab.ru",
-  key: process.env.GHOST_CONTENT_API_KEY!,
+  url: import.meta.env.VITE_GHOST_URL || "https://blog.f1lab.ru",
+  key: import.meta.env.VITE_GHOST_CONTENT_API_KEY!,
   version: "v5.0",
 });
 
