@@ -22,14 +22,14 @@ const Scenarios = () => {
         row="row-start-2"
         col="col-start-1"
         className="sm:hidden border-r border-y"
-        imagePath="it-support/scenario-icon1.svg"
+        imagePath="scenarios/balance.svg"
       />
 
       <ContentCard
         className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-2 row-start-3"
         col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
-        iconPath="/images/it-support/scenario-icon1.svg"
+        iconPath="/images/scenarios/balance.svg"
       >
         Снижение затрат на обслуживание и улучшение качества ит-сервиса
       </ContentCard>
@@ -40,14 +40,14 @@ const Scenarios = () => {
         row="row-start-5"
         col="col-start-4"
         className="sm:hidden border-l border-y"
-        imagePath="audit/audit-scenario-icon2.svg"
+        imagePath="scenarios/system-structure.svg"
       />
 
       <ContentCard
         className={`${bgColor} border-y max-sm:border-x max-sm:mr-[-1px]`}
         row="sm:row-start-2 row-start-6"
         col="sm:col-start-3 col-start-1 xl:col-end-4 lg:col-end-4 sm:col-end-5 col-end-4"
-        iconPath="/images/it-support/scenario-icon2.svg"
+        iconPath="/images/scenarios/system-structure.svg"
       >
         Нехватка ИТ‑компетенций при наличии сложных инфраструктур
       </ContentCard>
@@ -58,20 +58,20 @@ const Scenarios = () => {
         row="row-start-8"
         col="col-start-1"
         className="sm:hidden border-r border-y"
-        imagePath="it-support/scenario-icon3.svg"
+        imagePath="scenarios/exit-circle.svg"
       />
 
       <ContentCard
         className={`${bgColor} border-y max-sm:border-x max-sm:ml-[-1px]`}
         row="sm:row-start-3 row-start-9"
         col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
-        iconPath="/images/it-support/scenario-icon3.svg"
+        iconPath="/images/scenarios/exit-circle.svg"
       >
         Высвобождение времени ит-директора и избавление от выполнения рутинных
         задач
       </ContentCard>
 
-      <div className="max-sm:hidden bg-gray-400 xl:px-[110px] lg:px-90 md:px-200 sm:px-100 border-y border-dashed sm:row-start-3 row-start-10 lg:col-start-4 sm:col-start-3 col-end-5">
+      <div className="max-sm:hidden bg-gray-400 xl:px-[110px] xl:py-[50px] lg:px-90 lg:py-[50px] md:px-200 md:py-[50px] sm:px-100 sm:py-40 border-y border-dashed sm:row-start-3 row-start-10 lg:col-start-4 sm:col-start-3 col-end-5">
         <Animation data={scenariosAnimationJson} />
       </div>
     </Section>

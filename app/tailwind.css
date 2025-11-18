@@ -147,4 +147,258 @@
     background-color: darkgrey;
     /* outline: 1px solid slategrey; */
   }
+
+  /* Ghost content typography */
+  .ghost-content {
+    color: #22282e; /* Custom gray-400 */
+  }
+
+  .ghost-content p {
+    font-family: "Bahnschrift", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 24px;
+  }
+
+  .ghost-content h1,
+  .ghost-content h2,
+  .ghost-content h3,
+  .ghost-content h4,
+  .ghost-content h5,
+  .ghost-content h6 {
+    font-family: "RFDewiExtended", sans-serif;
+    font-weight: 700;
+    color: #22282e; /* Custom gray-400 */
+    margin-top: 40px;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .ghost-content h1 {
+    font-size: 32px;
+    margin-top: 0;
+  }
+
+  .ghost-content h2 {
+    font-size: 28px;
+  }
+
+  .ghost-content h3 {
+    font-size: 24px;
+  }
+
+  .ghost-content h4 {
+    font-size: 22px;
+  }
+
+  .ghost-content strong,
+  .ghost-content b {
+    font-weight: 700;
+    color: #22282e; /* Custom gray-400 */
+  }
+
+  .ghost-content em,
+  .ghost-content i {
+    font-style: italic;
+  }
+
+  .ghost-content ul,
+  .ghost-content ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+  }
+
+  .ghost-content ul li,
+  .ghost-content ol li {
+    font-family: "Bahnschrift", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .ghost-content ul {
+    list-style-type: disc;
+  }
+
+  .ghost-content ol {
+    list-style-type: decimal;
+  }
+
+  .ghost-content a {
+    color: #01ca9a; /* f1-dark color */
+    text-decoration: none;
+    transition: all 0.2s;
+    font-weight: 600;
+  }
+
+  .ghost-content a:hover {
+    text-decoration: underline;
+    color: #00ffc5; /* f1-light color */
+  }
+
+  .ghost-content blockquote {
+    border-left: 4px solid #bdbdbd; /* Custom gray-200 */
+    padding-left: 20px;
+    margin: 32px 0;
+    font-style: italic;
+    color: #606467; /* Custom gray-300 */
+    font-size: 18px;
+  }
+
+  .ghost-content code {
+    background-color: #f1f1f1; /* Custom gray-100 */
+    color: #22282e;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: "Courier New", monospace;
+  }
+
+  .ghost-content pre {
+    background-color: #f1f1f1; /* Custom gray-100 */
+    color: #22282e;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 32px 0;
+    border: 1px dashed #bdbdbd;
+  }
+
+  .ghost-content pre code {
+    background: none;
+    padding: 0;
+  }
+
+  .ghost-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 32px 0;
+  }
+
+  .ghost-content figure {
+    margin: 32px 0;
+  }
+
+  .ghost-content figcaption {
+    font-size: 14px;
+    color: #606467; /* Custom gray-300 */
+    text-align: center;
+    margin-top: 8px;
+    font-style: italic;
+    font-family: "Bahnschrift", sans-serif;
+  }
+
+  .ghost-content hr {
+    border: none;
+    border-top: 1px dashed #bdbdbd; /* Custom gray-200 */
+    margin: 40px 0;
+  }
+
+  .ghost-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+  }
+
+  .ghost-content th,
+  .ghost-content td {
+    border: 1px solid #bdbdbd; /* Custom gray-200 */
+    padding: 12px;
+    text-align: left;
+    font-family: "Bahnschrift", sans-serif;
+  }
+
+  .ghost-content th {
+    background-color: #f1f1f1; /* Custom gray-100 */
+    font-weight: 600;
+    color: #22282e;
+  }
+
+  .ghost-content td {
+    font-size: 18px;
+    font-weight: 300;
+  }
+
+  /* Ensure proper spacing for first and last elements */
+  .ghost-content > *:first-child {
+    margin-top: 0;
+  }
+
+  .ghost-content > *:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 769px) {
+    .ghost-content p {
+      font-size: 18px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .ghost-content h1 {
+      font-size: 26px;
+    }
+
+    .ghost-content h2 {
+      font-size: 24px;
+    }
+
+    .ghost-content h3 {
+      font-size: 22px;
+    }
+
+    .ghost-content h4 {
+      font-size: 20px;
+    }
+
+    .ghost-content ul li,
+    .ghost-content ol li {
+      font-size: 18px;
+    }
+
+    .ghost-content blockquote {
+      font-size: 16px;
+      padding-left: 15px;
+      margin: 24px 0;
+    }
+
+    .ghost-content pre {
+      padding: 15px;
+      margin: 24px 0;
+    }
+
+    .ghost-content code {
+      font-size: 14px;
+    }
+
+    .ghost-content th,
+    .ghost-content td {
+      padding: 8px;
+      font-size: 16px;
+    }
+
+    .ghost-content ul,
+    .ghost-content ol {
+      padding-left: 20px;
+    }
+
+    .ghost-content h1,
+    .ghost-content h2,
+    .ghost-content h3,
+    .ghost-content h4,
+    .ghost-content h5,
+    .ghost-content h6 {
+      margin-top: 30px;
+      margin-bottom: 12px;
+    }
+
+    .ghost-content img,
+    .ghost-content figure {
+      margin: 24px 0;
+    }
+  }
 }

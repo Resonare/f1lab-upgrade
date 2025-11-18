@@ -12,6 +12,8 @@ const Recaptcha = ({ siteKey }) => {
       document.head.removeChild(script);
     };
   }, []);
+
+  return null;
 };
 
 export default Recaptcha;

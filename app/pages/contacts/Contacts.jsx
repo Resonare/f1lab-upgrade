@@ -47,7 +47,7 @@ const Contacts = () => {
       </SectionTitle>
 
       <div className="col-start-1 col-end-5 row-start-2 flex lg:flex-row flex-col lg:items-center sm:gap-60 gap-30 border-t border-gray-200 border-dashed">
-        <div className="bg-[#070D14] sm:z-[-11] lg:h-[320px] sm:h-[260px] h-100 lg:basis-8/12 flex justify-center">
+        <div className="bg-[#070D14] sm:z-[-11] lg:h-[320px] sm:h-[260px] h-[200px] lg:basis-8/12 py-20 sm:py-30">
           <Animation data={whyAnimationJson} />
         </div>
         <div className="flex h-fit">

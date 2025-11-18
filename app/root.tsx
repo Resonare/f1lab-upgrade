@@ -29,21 +29,21 @@ import { LinksFunction } from "@remix-run/node";
 export const links: LinksFunction = () => {
   return [
     {
-      // rel: "preload",
+      rel: "preload",
       href: "/fonts/Bahnschrift.ttf",
       as: "font",
       type: "font/ttf",
       crossOrigin: "anonymous",
     },
     {
-      // rel: "preload",
+      rel: "preload",
       href: "/fonts/RFDewiExpanded-Bold.woff2",
       as: "font",
       type: "font/woff2",
       crossOrigin: "anonymous",
     },
     {
-      // rel: "preload",
+      rel: "preload",
       href: "/fonts/RFDewiExpanded-Ultrabold.woff2",
       as: "font",
       type: "font/woff2",
@@ -66,7 +66,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
   const segments = pathname.split("/");
   const currentSegment = segments[segments.length - 1];
 
-  const [navs, setNavs] = useState([{}]);
+  const [navs, setNavs] = useState<NavItem[]>([]);
+
+  interface NavItem {
+    link: string;
+    title: string;
+    bgColor: string;
+    textColor: string;
+    items: NavItem[];
+  }
 
   const navsChangeHandler = (
     updatedNavs: {
@@ -74,15 +82,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
       title: "string";
       bgColor: string;
       textColor: string;
-      items: Array<any>;
+      items: NavItem[];
     }[]
   ) => {
     setNavs(updatedNavs);
   };
 
-  const findItem = (items, targetLink) => {
+  const findItem = (items: NavItem[], targetLink: string) => {
     // Inner recursive function to search within nested structures
-    function recursiveSearch(items) {
+    function recursiveSearch(items: NavItem[]): NavItem | null {
       for (const item of items) {
         if (item.link === targetLink) {
           return item;
@@ -101,10 +109,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
     return foundItem || items[0]; // Return the found item or the first top-level item
   };
 
-  const currentItem = findItem(navs, currentSegment);
+  const currentItem = navs.length > 0 ? findItem(navs, currentSegment) : null;
 
   useEffect(() => {
-    bgColorChangeHandler(currentItem.bgColor);
+    if (currentItem) {
+      bgColorChangeHandler(currentItem.bgColor);
+    }
   }, [currentItem]);
 
   const [fontsLoaded, setFontsLoaded] = useState(false);
@@ -173,7 +183,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <body
           className={`overflow-x-hidden content-wrapper ${bgColor} max-w-[1921.4px] mx-auto transition-full duration-300 `}
         >
-          <Recaptcha siteKey={import.meta.env.VITE_RECAPTCHA_SITE} />
+          {!import.meta.env.DEV && (
+            <Recaptcha siteKey={import.meta.env.VITE_RECAPTCHA_SITE} />
+          )}
           <YandexMetrika />
           <header className="fixed top-0 left-0 w-full z-10">
             <Navbar navsChangeHandler={navsChangeHandler} />
@@ -182,7 +194,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Alert />
           <PlanModal />
           <CallMeBackModal />
-          <BackgroundGrid />
+          <BackgroundGrid customBackground="" />
           <ScrollRestoration />
           <Scripts />
           <Footer />
@@ -200,8 +212,6 @@ export function ErrorBoundary() {
   const error = useRouteError();
 
   if (isRouteErrorResponse(error) && error.status == 404) {
-    return (
-      <ErrorNotFound />
-    );
+    return <ErrorNotFound />;
   }
 }

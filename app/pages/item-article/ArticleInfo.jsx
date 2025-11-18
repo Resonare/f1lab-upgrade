@@ -1,7 +1,4 @@
-import { useContext } from "react";
 import DOMPurify from "isomorphic-dompurify";
-
-import { ThemeContext } from "../../store/theme-context";
 
 import ContentCard from "../../components/cards/ContentCard";
 import Section from "../../layout/Section";
@@ -9,52 +6,10 @@ import { LazyImage } from "../../components/LazyImage";
 import SectionTitle from "../../layout/SectionTitle";
 import TagContainer from "../../components/misc/TagContainer";
 
-const DUMMY_TAGS_DATA = [
-  { id: 1, title: "ИТ-Аудит", color: "consulting" },
-  { id: 2, title: "Тэг", color: "alert" },
-];
+import PropTypes from "prop-types";
 
-const DUMMY_ARTICLE_DATA = {
-  id: 1,
-  date: new Date(3600 * 24 * 1000 * 365 * 55),
-  author: {
-    title: "Антон Швецов",
-    subtitle: "Кто?...",
-    avatarPath: "/images/avatars/critiques/samarga.png",
-  },
-  imagePath: "/images/articles/article-test.png",
-  title:
-    "Как провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесе",
-  subtitle:
-    "Как провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесе",
-  paragraphs: [
-    {
-      title: "Подзаголовок текста",
-      body: `С ростом компании возникла необходимость в организации современной службы техподдержки для обеспечения пользователей быстрым и качественным обслуживанием. Заказчик поручил задачу ИТ-директору, который в свою очередь обратился к нам.
-        <br><br><b>С ростом компании возникла необходимость в организации</b> современной службы техподдержки для обеспечения пользователей быстрым и качественным обслуживанием. Заказчик поручил задачу ИТ-директору, который в свою очередь обратился к нам.
-        С ростом компании возникла необходимость в организации современной службы техподдержки для обеспечения пользователей быстрым и качественным обслуживанием. Заказчик поручил задачу ИТ-директору, который в свою очередь обратился к нам.
-        С ростом компании возникла необходимость в организации современной службы техподдержки для обеспечения пользователей быстрым и качественным обслуживанием. Заказчик поручил задачу ИТ-директору, который в свою очередь обратился к нам.
-        <br><br>С ростом компании возникла необходимость в организации современной службы техподдержки для обеспечения пользователей быстрым и качественным обслуживанием. Заказчик поручил задачу ИТ-директору, который в свою очередь обратился к нам.`,
-      tags: DUMMY_TAGS_DATA,
-    },
-    {
-      imagePath: "/images/articles/article-test.png",
-      body: `Как провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесеКак провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесеКак провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесе`,
-    },
-    {
-      imagePath: "/images/articles/article-test.png",
-      body: `Как провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесеКак провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесеКак провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесе`,
-    },
-  ],
-  tags: DUMMY_TAGS_DATA,
-};
-
-const ArticleInfo = () => {
-  const articleData = DUMMY_ARTICLE_DATA;
-
-  if (articleData == null || articleData.length == 0) return;
-
-  const { bgColor } = useContext(ThemeContext);
+const ArticleInfo = ({ post, bgColor }) => {
+  if (!post) return null;
 
   const createMarkup = (html) => {
     if (!html) return null;
@@ -62,6 +17,30 @@ const ArticleInfo = () => {
     return {
       __html: DOMPurify.sanitize(html),
     };
+  };
+
+  // Transform Ghost data to match component structure
+  const articleData = {
+    id: post.id,
+    date: new Date(post.published_at),
+    author: {
+      title: post.authors?.[0]?.name || "F1Lab",
+      subtitle: "Автор блога F1Lab",
+      avatarPath:
+        post.authors?.[0]?.profile_image ||
+        "/images/avatars/default-author.png",
+    },
+    imagePath: post.feature_image,
+    title: post.title,
+    subtitle: post.excerpt || "",
+    content: post.html,
+    tags:
+      post.tags?.map((tag) => ({
+        id: tag.id,
+        title: tag.name,
+        color: tag.color || "consulting",
+      })) || [],
+    reading_time: post.reading_time,
   };
 
   return (
@@ -74,11 +53,11 @@ const ArticleInfo = () => {
                 Автор
               </p>
               <div className="flex gap-15">
-                <LazyImage
+                {/** <LazyImage
                   className="w-60 h-60 rounded-[15px]"
                   src={articleData.author.avatarPath}
                   alt=""
-                />
+                /> **/}
 
                 <div className="flex flex-col gap-10 justify-center">
                   <p className="text-[22px] font-extended font-bold leading-none">
@@ -91,91 +70,92 @@ const ArticleInfo = () => {
               </div>
             </div>
 
-            <div className="max-lg:w-1/2 flex flex-col">
-              <p className="font-text text-sm uppercase font-semibold">
-                Дата публикации
-              </p>
-              <p className="text-[22px] font-extended font-bold">
-                {articleData.date.toLocaleString("ru", {
-                  day: "numeric",
-                  month: "long",
-                  year: "numeric",
-                })}
-              </p>
+            <div className="max-lg:w-1/2 flex flex-col gap-15">
+              <div className="flex flex-col">
+                <p className="text-gray-300 font-text text-sm uppercase font-semibold">
+                  Дата публикации
+                </p>
+                <p className="text-[22px] font-extended font-bold">
+                  {articleData.date.toLocaleString("ru", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                </p>
+              </div>
+
+              {articleData.reading_time && (
+                <div className="flex flex-col">
+                  <p className="text-gray-300 font-text text-sm uppercase font-semibold">
+                    Время чтения
+                  </p>
+                  <p className="text-[22px] font-extended font-bold">
+                    {articleData.reading_time} мин
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </ContentCard>
-
-        <ContentCard className="border-b">
-          <TagContainer
-            titleClassName="text-gray-300 uppercase font-bold"
-            title="Тэги"
-          >
-            {articleData.tags}
-          </TagContainer>
-        </ContentCard>
+        {post.tags?.length > 0 && (
+          <ContentCard className="border-b">
+            <TagContainer
+              titleClassName="text-gray-300 uppercase font-bold"
+              title="Тэги"
+            >
+              {articleData.tags}
+            </TagContainer>
+          </ContentCard>
+        )}
       </div>
 
-      <div className="lg:col-start-2 col-start-1 col-end-5 row-start-1">
-        <div className="flex flex-col gap-5 border-t border-dashed border-gray-200 mt-[-1px] sm:pt-30 sm:px-30 p-15">
-          <p className="text-gray-300 text-sm uppercase font-text font-bold">
-            Пост в блоге
-          </p>
+      <div className="lg:col-start-2 col-start-1 lg:col-end-5 col-end-5 row-start-1  ">
+        {/** articleData.subtitle && (
+        <p
+          className={`${bgColor} max-sm:border-b border-dashed ml-[1px] lg:col-start-2 col-start-1 lg:col-end-5 col-end-5 sm:pt-30 sm:px-30 p-15 font-expanded font-extrabold text-[28px] leading-tight`}
+        >
+          {articleData.subtitle}
+        </p>
+      ) **/}
 
-          <SectionTitle>{articleData.title}</SectionTitle>
+        {/* Ghost post content */}
+        <div>
+          <div className="flex flex-col gap-5 border-t border-s border-dashed border-gray-200 mt-[-1px] sm:pt-30 sm:px-30 pt-60 px-15 bg-gray-100 bg-opacity-100 z-90">
+            <SectionTitle>{articleData.title}</SectionTitle>
+          </div>
+
+          {articleData.imagePath && (
+            <div className="max-lg:hidden relative overflow-hidden h-[300px]">
+              <LazyImage
+                className="w-full absolute -translate-y-1/2 top-1/2 object-cover"
+                src={articleData.imagePath}
+                alt={articleData.title}
+              />
+            </div>
+          )}
         </div>
 
-        <div className="max-lg:hidden relative overflow-hidden h-[300px]">
-          <LazyImage
-            className="w-full absolute -translate-y-1/2 top-1/2"
-            src={articleData.imagePath}
-          />
-        </div>
-      </div>
-
-      <div className="lg:hidden relative overflow-hidden sm:h-[300px] col-start-1 col-end-5">
-        <LazyImage
-          className="w-full sm:absolute sm:-translate-y-1/2 sm:top-1/2"
-          src={articleData.imagePath}
+        {articleData.imagePath && (
+          <div className="lg:hidden relative overflow-hidden sm:h-[300px] col-start-1 col-end-5">
+            <LazyImage
+              className="w-full sm:absolute sm:-translate-y-1/2 sm:top-1/2 object-cover"
+              src={articleData.imagePath}
+              alt={articleData.title}
+            />
+          </div>
+        )}
+        <div
+          className={`${bgColor} ml-[1px] sm:p-30 p-15 ghost-content`}
+          dangerouslySetInnerHTML={createMarkup(articleData.content)}
         />
       </div>
-
-      <p
-        className={`${bgColor} max-sm:border-b border-dashed ml-[1px] lg:col-start-2 col-start-1 lg:col-end-4 col-end-5 sm:pt-30 sm:px-30 p-15 font-expanded font-extrabold text-[28px] leading-tight`}
-      >
-        {articleData.subtitle}
-      </p>
-
-      {articleData.paragraphs.map((paragraph, index) => (
-        <div
-          key={index}
-          className="lg:col-start-2 col-start-1 lg:col-end-4 col-end-5"
-        >
-          {paragraph.imagePath && (
-            <LazyImage
-              className="max-h-[400px] w-full object-cover"
-              src={paragraph.imagePath}
-            />
-          )}
-          <div
-            key={index}
-            className={`${bgColor} flex flex-col gap-15 ml-[1px] sm:p-30 p-15`}
-          >
-            {paragraph.title && (
-              <p className="text-[22px] font-bold font-extended leading-none">
-                {paragraph.title}
-              </p>
-            )}
-            <p
-              className="text-xl font-text font-light leading-tight"
-              dangerouslySetInnerHTML={createMarkup(paragraph.body)}
-            />
-            <TagContainer>{paragraph.tags}</TagContainer>
-          </div>
-        </div>
-      ))}
     </Section>
   );
+};
+
+ArticleInfo.propTypes = {
+  post: PropTypes.object,
+  bgColor: PropTypes.string,
 };
 
 export default ArticleInfo;

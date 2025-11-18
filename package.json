@@ -12,9 +12,11 @@
   },
   "dependencies": {
     "@prisma/client": "^5.18.0",
-    "@remix-run/node": "2.14.0",
-    "@remix-run/react": "2.14.0",
-    "@remix-run/serve": "2.14.0",
+    "@remix-run/node": "^2.17.0",
+    "@remix-run/react": "^2.17.0",
+    "@remix-run/serve": "^2.17.0",
+    "@tryghost/content-api": "^1.12.0",
+    "clsx": "^2.1.1",
     "dompurify": "^3.2.2",
     "isbot": "^4.1.0",
     "isomorphic-dompurify": "^2.18.0",
@@ -22,10 +24,11 @@
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "tailwind-merge": "^3.4.0",
     "zustand": "^5.0.0-rc.2"
   },
   "devDependencies": {
-    "@remix-run/dev": "2.14.0",
+    "@remix-run/dev": "^2.17.0",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",

@@ -23,7 +23,7 @@ const Offers = () => {
         row="row-start-2"
         col="col-start-1"
         className="sm:hidden border-r border-y"
-        imagePath="it-support/offer-icon1.svg"
+        imagePath="offers/lightning.svg"
         inverseColor={true}
       />
 
@@ -31,7 +31,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="sm:row-start-2 row-start-3"
         col="lg:col-start-2 sm:col-start-1 col-start-2 lg:col-end-3 sm:col-end-3 col-end-5"
-        iconPath="/images/it-support/offer-icon1.svg"
+        iconPath="/images/offers/lightning.svg"
         inverseColor={true}
       >
         Реагирование на любые инциденты в течение 15 минут
@@ -43,7 +43,7 @@ const Offers = () => {
         row="row-start-5"
         col="col-start-4"
         className="sm:hidden border-l border-y"
-        imagePath="it-support/offer-icon2.svg"
+        imagePath="offers/heartbeat.svg"
         inverseColor={true}
       />
 
@@ -51,7 +51,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-2 row-start-6"
         col="lg:col-start-3 sm:col-start-3 col-start-1 lg:col-end-4 sm:col-end-5 col-end-4"
-        iconPath="/images/it-support/offer-icon2.svg"
+        iconPath="/images/offers/heartbeat.svg"
         inverseColor={true}
       >
         Постоянный мониторинг оборудования и минимизация времени простоя
@@ -63,7 +63,7 @@ const Offers = () => {
         row="row-start-8"
         col="col-start-1"
         className="sm:hidden border-r border-y"
-        imagePath="it-support/offer-icon3.svg"
+        imagePath="offers/backup.svg"
         inverseColor={true}
       />
 
@@ -71,7 +71,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-2 sm:row-start-3 row-start-9"
         col="lg:col-start-4 sm:col-start-1 col-start-2 lg:col-end-5 sm:col-end-3 col-end-5"
-        iconPath="/images/it-support/offer-icon3.svg"
+        iconPath="/images/offers/backup.svg"
         inverseColor={true}
       >
         Регулярные резервные копии данных для их защиты в непредвиденных
@@ -84,7 +84,7 @@ const Offers = () => {
         row="row-start-11"
         col="col-start-4"
         className="sm:hidden border-l border-y"
-        imagePath="it-support/offer-icon4.svg"
+        imagePath="offers/smile.svg"
         inverseColor={true}
       />
 
@@ -92,7 +92,7 @@ const Offers = () => {
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="sm:row-start-3 row-start-12"
         col="lg:col-start-1 sm:col-start-3 col-start-1 lg:col-end-2 sm:col-end-5 col-end-4"
-        iconPath="/images/it-support/offer-icon4.svg"
+        iconPath="/images/offers/smile.svg"
         inverseColor={true}
       >
         Удобные каналы связи: телефон, почта, мессенджеры, telegram-бот,
@@ -103,15 +103,15 @@ const Offers = () => {
         row="row-start-[18]"
         col="col-start-4"
         className="sm:hidden border-l border-y"
-        imagePath="it-support/offer-icon6.svg"
+        imagePath="offers/brilliant.svg"
         inverseColor={true}
       />
 
       <ContentCard
         className="border-y max-sm:border-x max-sm:mr-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[19]"
-        col="lg:col-start-3 sm:col-start-3 col-start-1 lg:col-end-4 sm:col-end-5 col-end-4"
-        iconPath="/images/it-support/offer-icon6.svg"
+        col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
+        iconPath="/images/offers/brilliant.svg"
         inverseColor={true}
       >
         Ведение истории обращений и изменений в ит-инфраструктуре для повышения
@@ -121,7 +121,7 @@ const Offers = () => {
       <PrimaryButton
         type="light"
         row="lg:row-start-4 sm:row-start-5"
-        col="lg:col-start-4 col-start-1 col-end-5"
+        col="lg:col-start-3 col-start-1 col-end-5"
         className="max-sm:hidden"
         onClick={showCallMeBackModal}
       >

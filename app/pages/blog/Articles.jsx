@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "@remix-run/react";
 
 import { ThemeContext } from "../../store/theme-context";
 
@@ -7,34 +8,31 @@ import SectionTitle from "../../layout/SectionTitle";
 import ContentCard from "../../components/cards/ContentCard";
 import ArticleCard from "../../components/cards/ArticleCard";
 
-const DUMMY_TAGS_DATA = [
-  { id: 1, title: "ИТ-Аудит", color: "consulting" },
-  { id: 2, title: "Тэг", color: "alert" },
-];
+import PropTypes from "prop-types";
 
-const DUMMY_ARTICLES_DATA = [
-  {
-    id: 1,
-    date: new Date(3600 * 24 * 1000 * 365 * 55),
-    author: "Антон Швецов",
-    imagePath: "/images/articles/article-test.png",
-    title:
-      "Как провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесе",
-    tags: DUMMY_TAGS_DATA,
-  },
-  {
-    id: 2,
-    date: new Date(3600 * 24 * 1000 * 365 * 55),
-    author: "Антон Швецов",
-    imagePath: "/images/articles/article-test.png",
-    title:
-      "Как провести аудит IT-инфраструктуры и устранить слабые места в любом бизнесе",
-    tags: DUMMY_TAGS_DATA,
-  },
-];
-
-const Articles = () => {
+const Articles = ({ posts = [] }) => {
   const { bgColor } = useContext(ThemeContext);
+
+  // Transform Ghost posts to match your existing ArticleCard structure
+  const transformGhostPost = (post) => ({
+    id: post.id,
+    date: new Date(post.published_at),
+    author: post.authors?.[0]?.name || "F1Lab",
+    imagePath: post.feature_image,
+    title: post.title,
+    excerpt: post.excerpt,
+    slug: post.slug,
+    tags:
+      post.tags?.map((tag) => ({
+        id: tag.id,
+        title: tag.name,
+        color: tag.color || "consulting", // Use Ghost color or default
+      })) || [],
+  });
+
+  const transformedPosts = posts.map(transformGhostPost);
+  const featuredPost = transformedPosts[0];
+  const regularPosts = transformedPosts.slice(1);
 
   return (
     <Section hero={true}>
@@ -48,32 +46,50 @@ const Articles = () => {
         </ContentCard>
       </div>
 
-      <ArticleCard
-        className="my-[50px]"
-        col="col-start-1 col-end-5"
-        articleData={DUMMY_ARTICLES_DATA[0]}
-        small={false}
-      />
+      {featuredPost && (
+        <Link to={`/blog/${featuredPost.slug}`} className="contents">
+          <ArticleCard
+            className="my-[50px]"
+            col="col-start-1 col-end-5"
+            articleData={featuredPost}
+            small={false}
+            bgColor={bgColor}
+          />
+        </Link>
+      )}
 
-      {DUMMY_ARTICLES_DATA.map((articleData, index) => {
-        if (index == 0) return null;
+      {regularPosts.length === 0 && !featuredPost && (
+        <div className="col-start-1 col-end-5 text-center py-20">
+          <p className="text-gray-500">Статьи не найдены</p>
+        </div>
+      )}
 
+      {regularPosts.map((articleData, index) => {
         const col =
-          index % 2 != 0
+          index % 2 === 0
             ? `col-start-1 lg:col-end-3 col-end-5`
             : `lg:col-start-3 col-start-1 col-end-5`;
 
         return (
-          <ArticleCard
-            className="lg:mb-60 mb-30"
-            key={index}
-            col={col}
-            articleData={articleData}
-          />
+          <Link
+            to={`/blog/${articleData.slug}`}
+            key={articleData.id}
+            className="contents"
+          >
+            <ArticleCard
+              className="lg:mb-60 mb-30"
+              col={col}
+              articleData={articleData}
+            />
+          </Link>
         );
       })}
     </Section>
   );
+};
+
+Articles.propTypes = {
+  posts: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default Articles;
