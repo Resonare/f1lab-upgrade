@@ -5,6 +5,8 @@ services:
       - "3002:3000"
     environment:
       - NODE_ENV=production
+      - GHOST_URL=${GHOST_URL}
+      - GHOST_CONTENT_API_KEY=${GHOST_CONTENT_API_KEY}
     restart: always
     volumes:
       - sqlite_data:/app/prisma/data

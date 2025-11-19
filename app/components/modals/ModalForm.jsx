@@ -1,3 +1,4 @@
+/* global grecaptcha */
 import { useFetcher } from "@remix-run/react";
 import { useRef, useState, useEffect } from "react";
 
@@ -6,6 +7,8 @@ import Checkbox from "../misc/inputs/Checkbox";
 import Contacts from "./Contacts";
 import FileAttachmentInput from "../misc/inputs/FileAttachmentInput";
 import FileAttachmentArea from "../misc/inputs/FileAttachmentArea";
+
+import PropTypes from "prop-types";
 
 const INITIAL_ERRORS = {
   name: "",
@@ -234,6 +237,24 @@ const ModalForm = ({
       </fetcher.Form>
     </>
   );
+};
+
+ModalForm.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  submitText: PropTypes.string,
+  method: PropTypes.string,
+  action: PropTypes.string,
+  values: PropTypes.object,
+  setValues: PropTypes.func,
+  errors: PropTypes.object,
+  setErrors: PropTypes.func,
+  setSuccess: PropTypes.func,
+  className: PropTypes.string,
+  attachable: PropTypes.bool,
+  showContacts: PropTypes.bool,
+  inverseColor: PropTypes.bool,
+  children: PropTypes.node,
 };
 
 export default ModalForm;
