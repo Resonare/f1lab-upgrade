@@ -51,7 +51,7 @@ export interface GhostTag {
 export async function getPosts(options?: {
   limit?: number;
   page?: number;
-  include?: string[];
+  include?: ("tags" | "authors" | "count.posts")[];
   filter?: string;
   order?: string;
 }): Promise<GhostPost[]> {

@@ -14,15 +14,7 @@ const useCookiesStore = create((set) => ({
       localStorage.setItem("f1lab-cookies-notification-dismissed", "true");
     }
   },
-  dismissNotification: () => {
-    set(() => ({
-      showCookiesNotification: false,
-    }));
-    // Store dismissal in localStorage
-    if (typeof window !== "undefined") {
-      localStorage.setItem("f1lab-cookies-notification-dismissed", "true");
-    }
-  },
+
   resetCookiesState: () =>
     set(() => ({
       cookiesAccepted: false,
@@ -32,12 +24,9 @@ const useCookiesStore = create((set) => ({
     if (typeof window !== "undefined") {
       const cookiesAccepted =
         localStorage.getItem("f1lab-cookies-accepted") === "true";
-      const notificationDismissed =
-        localStorage.getItem("f1lab-cookies-notification-dismissed") === "true";
-
       set(() => ({
         cookiesAccepted,
-        showCookiesNotification: !notificationDismissed && !cookiesAccepted,
+        showCookiesNotification: !cookiesAccepted,
       }));
     }
   },
