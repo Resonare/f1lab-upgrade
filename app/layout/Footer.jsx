@@ -103,12 +103,6 @@ const Footer = () => {
           </div>
         </div> **/}
 
-        <div>
-          <div className="p-0">{COMPANY_DATA.company}</div>
-          <div>ИНН {COMPANY_DATA.inn}</div>
-          <div>ОГРН {COMPANY_DATA.ogrn}</div>
-        </div>
-
         <div className="flex flex-col gap-30 pr-30">
           <p className="uppercase font-text text-sm font-semibold">Контакты</p>
           <Contacts
@@ -116,6 +110,12 @@ const Footer = () => {
             inverseColor={true}
             minimized={true}
           />
+        </div>
+
+        <div>
+          <div className="p-0">{COMPANY_DATA.company}</div>
+          <div>ИНН {COMPANY_DATA.inn}</div>
+          <div>ОГРН {COMPANY_DATA.ogrn}</div>
         </div>
       </div>
 

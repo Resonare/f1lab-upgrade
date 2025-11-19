@@ -177,6 +177,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             .fonts-loaded #font-loader {
               display: none;
             }
+
+            .grecaptcha-badge {
+              display: none !important;
+            }
           `}
         </style>
       </head>
