@@ -4,7 +4,7 @@ import GhostContentAPI from "@tryghost/content-api";
 const api = new GhostContentAPI({
   url: process.env.GHOST_URL || "https://blog.f1lab.ru",
   key: process.env.GHOST_CONTENT_API_KEY!,
-  version: "v5.0",
+  version: "v6.7",
 });
 
 export interface GhostPost {
