@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFetcher } from "@remix-run/react";
-import { NavLink, Link } from "@remix-run/react";
+import { Link } from "@remix-run/react";
 
 import useModalStore from "../store/modal";
 import Section from "./Section";
@@ -13,6 +13,12 @@ import { LazyImage } from "../components/LazyImage";
 const CONTACTS_DATA = {
   dzen: "https://dzen.ru/f1lab",
   habr: "",
+};
+
+const COMPANY_DATA = {
+  company: `ООО "Ф1"`,
+  inn: "2540198038",
+  ogrn: "1132540012241 от 23 декабря 2013г.",
 };
 
 const INITIAL_ERRORS = {
@@ -70,7 +76,7 @@ const Footer = () => {
       inverseColor={true}
     >
       <div className="col-start-1 md:col-end-3 col-end-5 flex flex-col justify-between gap-60">
-        <div className="flex flex-col gap-30">
+        {/** <div className="flex flex-col gap-30">
           <p className="uppercase font-text text-sm font-semibold">Кейсы</p>
           <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
             <NavLink
@@ -95,6 +101,12 @@ const Footer = () => {
               Менеджмент облачной инфраструктуры
             </NavLink>
           </div>
+        </div> **/}
+
+        <div>
+          <div className="p-0">{COMPANY_DATA.company}</div>
+          <div>ИНН {COMPANY_DATA.inn}</div>
+          <div>ОГРН {COMPANY_DATA.ogrn}</div>
         </div>
 
         <div className="flex flex-col gap-30 pr-30">
@@ -166,7 +178,7 @@ const Footer = () => {
               src="/images/icons/habr.svg"
             />
           </Link> */}
-          <Link to={CONTACTS_DATA.dzen} target="_blank">
+          <Link to={CONTACTS_DATA.dzen} target="_blank" rel="noreferrer">
             <LazyImage
               className="cursor-pointer"
               src="/images/icons/dzen.svg"
@@ -180,7 +192,7 @@ const Footer = () => {
         type="light"
         onClick={showFooterModal}
       >
-        Обратная связь с руководством
+        Обратная связь
       </PrimaryButton>
     </Section>
   );

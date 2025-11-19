@@ -9,7 +9,7 @@ const CALL_ME_BACK_MODAL_DATA = {
 };
 
 const FOOTER_MODAL_DATA = {
-  title: "Обратная связь с руководством",
+  title: "Обратная связь",
   subtitle: "",
   submitText: "Отправить",
   minimized: true,

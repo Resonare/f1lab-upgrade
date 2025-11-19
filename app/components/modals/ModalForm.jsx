@@ -202,9 +202,14 @@ const ModalForm = ({
               />
               <div className="select-none font-text text-base leading-tight">
                 <p>Я согласен на обработку персональных данных</p>
-                <p className="underline cursor-pointer">
+                <a
+                  className="underline cursor-pointer"
+                  href="/privacy_policy_f1lab.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Политика конфиденциальности
-                </p>
+                </a>
               </div>
             </div>
 

@@ -7,7 +7,6 @@ import Section from "../../layout/Section";
 import SectionTitle from "../../layout/SectionTitle";
 import Animation from "../../components/misc/animations/Animation";
 import Condition from "../../components/misc/Condition";
-import { LazyImage } from "../../components/LazyImage";
 import ModalForm from "../../components/modals/ModalForm";
 import FormInput from "../../components/misc/inputs/FormInput";
 import Result from "../../components/modals/Result";
@@ -67,25 +66,6 @@ const Contacts = () => {
             <Condition icon="phone-lg.svg">
               <a href="tel:84232025255">8-423-202-52-55</a>
             </Condition>
-
-            {/* <div className="flex gap-20">
-              <LazyImage
-                className="invert"
-                src="images/icons/instagram-lg.svg"
-              />
-              <LazyImage
-                className="invert"
-                src="images/icons/telegram-lg.svg"
-              />
-              <LazyImage
-                className="invert"
-                src="images/icons/linkedin-lg.svg"
-              />
-              <LazyImage
-                className="invert"
-                src="images/icons/play-store-lg.svg"
-              />
-            </div> */}
           </div>
         </div>
       </div>
