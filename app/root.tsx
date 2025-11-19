@@ -17,6 +17,7 @@ import PlanModal from "~/components/modals/plan/PlanModal";
 import BackgroundGrid from "~/layout/BackgroundGrid";
 import Footer from "~/layout/Footer";
 import Alert from "~/components/misc/Alert";
+import CookiesNotification from "~/components/misc/CookiesNotification";
 import ErrorNotFound from "~/pages/not-found-alert/Error";
 import YandexMetrika from "~/components/misc/YandexMetrika";
 import Recaptcha from "~/components/misc/Recaptcha";
@@ -194,6 +195,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <Alert />
           <PlanModal />
           <CallMeBackModal />
+          <CookiesNotification />
           <BackgroundGrid customBackground="" />
           <ScrollRestoration />
           <Scripts />
