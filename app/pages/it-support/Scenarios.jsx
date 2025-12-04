@@ -14,7 +14,11 @@ const Scenarios = () => {
 
   return (
     <Section id="scenarios">
-      <SectionTitle row="row-start-1" col="col-start-1 col-end-5">
+      <SectionTitle
+        className="max-sm:pb-30"
+        row="row-start-1"
+        col="col-start-1 col-end-5"
+      >
         Сценарии применения
       </SectionTitle>
 

@@ -11,6 +11,7 @@ const StepCard = ({
   tagsData = [],
   upperLabels = [],
   inverseColor = false,
+  accentTitle = false,
   className = "",
   children,
 }) => {
@@ -19,7 +20,7 @@ const StepCard = ({
   return (
     <div
       className={`${className} ${row} ${col} ${
-        inverseColor ? `bg-gray-400 max-sm:bg-gray-400` : `max-sm:${bgColor}`
+        inverseColor ? `bg-gray-400 max-sm:bg-gray-400 border-gray-300` : `max-sm:${bgColor}`
       } ${
         upperLabels.length == 0 ? "" : "gap-15"
       } lg:gap-60 sm:gap-30 xl:p-30 p-15 mt-[-1px] sm:mx-[1px] border-y border-dashed flex flex-col w-fit`}
@@ -51,7 +52,8 @@ const StepCard = ({
       >
         <p
           className={`${
-            inverseColor ? "text-f1-light" : ""
+            accentTitle ? "text-f1-light" :
+            inverseColor ? "text-gray-100" : ""
           } xl:text-[26px] lg:text-[22px] md:text-[26px] sm:text-[22px] text-xl font-bold font-extended sm:leading-[30px] leading-[24px] w-fit`}
         >
           {title}
@@ -59,7 +61,7 @@ const StepCard = ({
         <div
           className={`${
             tagsData.length == 0 ? "mt-30" : ""
-          } sm:text-xl text-[1rem] text-gray-300 font-light font-text`}
+          } ${inverseColor ? "text-gray-200" : "text-gray-300"} sm:text-xl text-[1rem] font-light font-text`}
         >
           {children}
         </div>

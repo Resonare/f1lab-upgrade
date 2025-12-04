@@ -23,7 +23,7 @@ const Navbar = ({ navsChangeHandler, inverseColor = false }) => {
   const { pathname } = useLocation();
   const segments = pathname.split("/").filter(Boolean);
 
-  inverseColor = segments.length == 0 ? true : inverseColor;
+  inverseColor = segments.length == 0 || segments[segments.length - 1] == "automation" ? true : inverseColor;
 
   const { showCallMeBackModal } = useModalStore();
   const { bgColor } = useContext(ThemeContext);

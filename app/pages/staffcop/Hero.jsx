@@ -68,13 +68,13 @@ const Hero = () => {
       <div className="row-start-3 row-end-4 col-start-1 col-end-2 flex items-end justify-end">
         <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
           <div className=""></div>
-          <div className="lg:border-b lg:border-l lg:border-dashed lg:rounded-bl-2xl"></div>
           <div className=""></div>
           <div className=""></div>
+          <div className="lg:border-t lg:border-l lg:border-dashed lg:rounded-tl-2xl"></div>
         </div>
       </div>
 
-      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between sm:mt-60 mt-30">
+      <div className="md:row-start-4 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between lg:mt-0 sm:mt-60 mt-30">
         <PrimaryButton
           className="h-full max-lg:grow max-sm:hidden"
           type="accent"

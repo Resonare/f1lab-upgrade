@@ -11,7 +11,7 @@ const ImageCard = ({
     <div
       className={`${row} ${col} ${
         inverseColor ? "border-gray-300" : ""
-      } ${className} p-10 border-dashed`}
+      } ${className} p-10 border-dashed flex`}
     >
       <LazyImage src={`/images/${imagePath}`} alt="" />
     </div>

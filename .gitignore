@@ -6,3 +6,4 @@ package-lock.json
 /prisma/data.db
 Dockerfile
 .dockerignore
+.idea

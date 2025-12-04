@@ -39,6 +39,13 @@ export const navData = [
             textColor: "text-consulting",
             items: [],
           },
+          {
+            link: "automation",
+            title: "Автоматизация бизнес-процессов",
+            bgColor: "bg-gray-100",
+            textColor: "text-white",
+            items: [],
+          },
           /*{
             link: "networking",
             title: "Обслуживание сетевого оборудования",

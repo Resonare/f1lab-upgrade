@@ -9,6 +9,7 @@ import CritiqueSection from "./CritiquesSection";
 
 const CasesSection = ({
   title = "Примеры кейсов",
+  inverseColor = false,
   mobileInverseColor = false,
   critiquesData,
   serviceCasesData,
@@ -26,11 +27,15 @@ const CasesSection = ({
 
   return (
     <>
-      <Section id="cases" className="max-sm:hidden my-60">
+      <Section
+        id="cases"
+        className="max-sm:hidden py-60"
+        inverseColor={inverseColor}
+      >
         <SectionTitle
+          className={`${inverseColor ? "text-gray-100" : ""} md:pb-60`}
           row="row-start-1"
           col="md:col-start-2 col-start-1 lg:col-end-4 md:col-end-4 col-end-5"
-          className="md:pb-60"
         >
           {title}
         </SectionTitle>
@@ -48,12 +53,13 @@ const CasesSection = ({
                       className="mr-[-1px]"
                       outerClassName="sm:mt-[-1px]"
                       caseData={caseData}
+                      inverseColor={inverseColor}
                     />
                   ))}
 
                   {index == 0 && (
                     <SecondaryButton
-                      variant="shaded"
+                      variant={inverseColor ? "dark-shaded" : "shaded"}
                       className="lg:border-t-0 mt-[-1px] text-base font-subtitle max-md:hidden"
                       onClick={() => navigate("/cases")}
                     >
@@ -65,7 +71,7 @@ const CasesSection = ({
             </div>
 
             <SecondaryButton
-              variant="shaded"
+              variant={inverseColor ? "dark-shaded" : "shaded"}
               className="md:hidden mt-[-1px] text-base font-subtitle"
               onClick={() => navigate("/cases")}
             >

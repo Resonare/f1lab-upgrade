@@ -17,17 +17,20 @@ const Hero = () => {
   const { showCallMeBackModal } = useModalStore();
 
   const content = {
-    header: "Защищённая 1С-инфраструктура в облаке для вашего бизнеса",
+    header: "Кастомная автоматизация бизнес-процессов с измеримым эффектом",
     cards: [
-      "Хотите увеличить скорость работы 1С и повысить уровень безопасности данных?",
-      "F1 Lab оптимизирует работу с 1С в облаке с помощью безопасного доступа через VPN и централизованного управления правами пользователей",
+      "Уберём ручной труд и хаос, свяжем 1С, сайт и CRM — без лишней сложности и навязанных коробок.",
+      "Спроектируем и внедрим веб-решение или предложим коробку (Битрикс 24), если так выгоднее. Интеграции, роли, отчётность. Запуск в облаках Яндекса и зарубежных гиперскейлеров с мониторингом и бэкапами.",
     ],
   };
 
   return (
-    <Section hero={true}>
+    <Section
+      className="relative 2xl:border-gray-250 text-5xl sm:font-expanded font-extended sm:font-extrabold font-bold lg:mt-90 sm:mt-[70px] mt-15"
+      inverseColor={true}
+    >
       <SectionTitle
-        className="xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px] sm:leading-[60px]"
+        className="text-gray-100 xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px] sm:leading-[60px]"
         col="col-start-1 lg:col-end-3 col-end-5"
       >
         {content.header}
@@ -35,9 +38,10 @@ const Hero = () => {
 
       <ContentCard
         className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
+        inverseColor={true}
         row="row-start-2"
         col="col-start-1 max-md:col-end-3 max-sm:col-end-5"
-        bg={themeContext.bgColor}
+        bg="bg-gray-400"
       >
         {content.cards[0]}
       </ContentCard>
@@ -46,16 +50,17 @@ const Hero = () => {
         <div className="grid grid-rows-2 grid-cols-2 w-full h-full">
           <div className=""></div>
           <div className=""></div>
-          <div className="lg:border-t lg:border-r lg:border-dashed lg:rounded-tr-2xl"></div>
+          <div className="border-gray-300 lg:border-t lg:border-r lg:border-dashed lg:rounded-tr-2xl"></div>
           <div className=""></div>
         </div>
       </div>
 
       <ContentCard
-        className="sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
+        className="border-gray-300 sm:border-y max-sm:px-0 max-sm:bg-[transparent]"
+        inverseColor={true}
         row="row-start-3"
         col="col-start-2 max-md:col-start-3 max-sm:col-start-1 max-md:col-end-5"
-        bg={themeContext.bgColor}
+        bg="bg-gray-400"
       >
         {content.cards[1]}
       </ContentCard>
@@ -65,7 +70,7 @@ const Hero = () => {
           <div className=""></div>
           <div className=""></div>
           <div className=""></div>
-          <div className="lg:border-t lg:border-l lg:border-dashed lg:rounded-tl-2xl"></div>
+          <div className="border-gray-300 lg:border-t lg:border-l lg:border-dashed lg:rounded-tl-2xl"></div>
         </div>
       </div>
 

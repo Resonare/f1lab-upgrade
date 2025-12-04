@@ -1,4 +1,4 @@
-import { Outlet } from "@remix-run/react";
+import {Outlet, useLocation} from "@remix-run/react";
 
 import SidebarButtons from "../components/navigation/SidebarButtons";
 
@@ -86,9 +86,14 @@ export const meta = () => {
 };
 
 export default function Services() {
+  const { pathname } = useLocation();
+  const segments = pathname.split("/").filter(Boolean);
+
+  const sidebarInverseColor = segments[segments.length - 1] == "automation"
+
   return (
     <>
-      <SidebarButtons />
+      <SidebarButtons inverseColor={sidebarInverseColor} />
       <Outlet />
     </>
   );
