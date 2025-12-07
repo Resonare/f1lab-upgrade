@@ -24,8 +24,12 @@ const ServicesNavigationItem = ({ item }) => {
 
   return (
     <li key={item.link} className={`${currentTextColor} bg-gray-400`}>
-      <div className={`${currentBgColor} transition-all duration-300`}>
-        <div className={`h-15 rounded-br-full bg-gray-400`}></div>
+      {/*<div className="h-[16px] w-full relative">*/}
+      {/*  <div className={`${currentBgColor} absolute h-[16px] w-full transition-all duration-300`}></div>*/}
+      {/*  <div className={`absolute h-[16px] w-[calc(100%+1px)] ml-[-1px] rounded-br-full bg-gray-400`}></div>*/}
+      {/*</div>*/}
+      <div className={`${currentBgColor} h-[16px] transition-all duration-300`}>
+        <div className={`h-[calc(100%+2px)] translate-y-[-1px] ml-[-1px] rounded-br-full bg-gray-400`}></div>
       </div>
       <button
         onClick={currentStateChangeHandler}
@@ -36,10 +40,13 @@ const ServicesNavigationItem = ({ item }) => {
         }`}
       >
         {item.title}
-        <ArrowTertiary color={item.textColor.substring(5)} />
+        <ArrowTertiary
+          className={currentBgColor === bgColor ? "opacity-0" : ""}
+          color={item.textColor.substring(5)}
+        />
       </button>
-      <div className={`${currentBgColor} transition-all duration-300`}>
-        <div className={`h-15 rounded-tr-full bg-gray-400`}></div>
+      <div className={`${currentBgColor} h-[16px] transition-all duration-300`}>
+        <div className={`h-[calc(100%+2px)] translate-y-[-1px] ml-[-1px] rounded-tr-full bg-gray-400`}></div>
       </div>
     </li>
   );

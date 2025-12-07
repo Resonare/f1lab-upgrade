@@ -67,7 +67,7 @@ const ProcessSection = ({ stepsData, tagsData, title = "Процесс", inverse
             className="lg:absolute lg:bottom-[-60px]"
             onClick={showCallMeBackModal}
           >
-            Консультация1
+            Консультация
           </PrimaryButton>
         </div>
       </Section>

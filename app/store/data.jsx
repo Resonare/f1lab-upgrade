@@ -13,6 +13,21 @@ export const navData = [
     textColor: "text-consulting",
     items: [
       {
+        link: "development",
+        title: "Разработка",
+        bgColor: "bg-f1-light",
+        textColor: "text-gray-100",
+        items: [
+          {
+            link: "development",
+            title: "Разработка",
+            bgColor: "bg-gray-100",
+            textColor: "text-gray-400",
+            items: [],
+          },
+        ]
+      },
+      {
         link: "it-consulting",
         title: "ИТ-консалтинг",
         bgColor: "bg-consulting",
@@ -37,13 +52,6 @@ export const navData = [
             title: "Техподдержка",
             bgColor: "bg-consulting",
             textColor: "text-consulting",
-            items: [],
-          },
-          {
-            link: "automation",
-            title: "Автоматизация бизнес-процессов",
-            bgColor: "bg-gray-100",
-            textColor: "text-white",
             items: [],
           },
           /*{

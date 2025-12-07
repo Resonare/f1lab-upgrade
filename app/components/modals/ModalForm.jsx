@@ -154,7 +154,7 @@ const ModalForm = ({
         onDragOver={handleDragLeave}
       ></div>
       <fetcher.Form
-        className={`${className} border-dashed border-gray-200 grow lg:p-30 lg:gap-10 sm:gap-15 gap-30 p-20 flex flex-col justify-between`}
+        className={`${className} ${inverseColor ? "border-gray-300 text-gray-100" : "border-gray-200"} border-dashed grow lg:p-30 lg:gap-10 sm:gap-15 gap-30 p-20 flex flex-col justify-between`}
         ref={formRef}
         onSubmit={handleSubmit}
         onDragEnter={handleDragEnter}

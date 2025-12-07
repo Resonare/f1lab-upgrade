@@ -26,7 +26,7 @@ const Scenarios = () => {
         row="row-start-2"
         col="col-start-1"
         className="sm:hidden border-r border-y aspect-square"
-        imagePath="automation/scenario-icon1.svg"
+        imagePath="development/scenario-icon1.svg"
         inverseColor={true}
       />
 
@@ -35,7 +35,7 @@ const Scenarios = () => {
         inverseColor={true}
         row="sm:row-start-2 row-start-3"
         col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
-        iconPath="/images/automation/scenario-icon1.svg"
+        iconPath="/images/development/scenario-icon1.svg"
       >
         Excel и чаты вместо системы
         <br />
@@ -48,7 +48,7 @@ const Scenarios = () => {
         row="row-start-5"
         col="col-start-4"
         className="sm:hidden border-l border-y"
-        imagePath="automation/scenario-icon2.svg"
+        imagePath="development/scenario-icon2.svg"
         inverseColor={true}
       />
 
@@ -57,7 +57,7 @@ const Scenarios = () => {
         inverseColor={true}
         row="sm:row-start-2 row-start-6"
         col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
-        iconPath="/images/automation/scenario-icon2.svg"
+        iconPath="/images/development/scenario-icon2.svg"
       >
         1С, сайт и CRM не синхронизированы
         <br />
@@ -70,7 +70,7 @@ const Scenarios = () => {
         row="row-start-8"
         col="col-start-1"
         className="sm:hidden border-r border-y"
-        imagePath="automation/scenario-icon3.svg"
+        imagePath="development/scenario-icon3.svg"
         inverseColor={true}
       />
 
@@ -79,7 +79,7 @@ const Scenarios = () => {
         inverseColor={true}
         row="lg:row-start-2 sm:row-start-3 row-start-9"
         col="lg:col-start-3 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
-        iconPath="/images/automation/scenario-icon3.svg"
+        iconPath="/images/development/scenario-icon3.svg"
       >
         Техподдержка «в почте»
         <br />
@@ -92,7 +92,7 @@ const Scenarios = () => {
         row="row-start-11"
         col="col-start-4"
         className="sm:hidden border-l border-y"
-        imagePath="automation/scenario-icon4.svg"
+        imagePath="development/scenario-icon4.svg"
         inverseColor={true}
       />
 
@@ -101,7 +101,7 @@ const Scenarios = () => {
         inverseColor={true}
         row="sm:row-start-3 row-start-12"
         col="lg:col-start-3 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
-        iconPath="/images/automation/scenario-icon4.svg"
+        iconPath="/images/development/scenario-icon4.svg"
       >
         Согласования буксуют
         <br />
@@ -114,7 +114,7 @@ const Scenarios = () => {
         row="row-start-[14]"
         col="col-start-1"
         className="sm:hidden border-r border-y"
-        imagePath="automation/scenario-icon5.svg"
+        imagePath="development/scenario-icon5.svg"
         inverseColor={true}
       />
 
@@ -123,7 +123,7 @@ const Scenarios = () => {
         inverseColor={true}
         row="lg:row-start-3 sm:row-start-4 row-start-[15]"
         col="lg:col-start-4 sm:col-start-3 col-start-2 sm:col-end-5 col-end-5"
-        iconPath="/images/automation/scenario-icon5.svg"
+        iconPath="/images/development/scenario-icon5.svg"
       >
         Нет сквозной аналитики
         <br />

@@ -3,7 +3,17 @@ import { useContext } from "react";
 import { ThemeContext } from "../../../store/theme-context";
 import Contacts from "../Contacts";
 
-const CallMeBackInfo = ({ success }) => {
+const defaultTitle = "Поговорим о сотрудничестве?";
+
+const defualtPointsText = [
+  "Текущие задачи и проблемы в IT-инфраструктуре",
+  "Подбор решений для поддержки и оптимизации работы",
+  "Облачные решения и защиту данных",
+  "Детали сотрудничества и условия работы",
+  "Поддержка 24/7 и помощь на каждом этапе"
+];
+
+const CallMeBackInfo = ({ inverseColor = false, success, title = defaultTitle, pointsText = defualtPointsText }) => {
   const { bgColor } = useContext(ThemeContext);
 
   const circleOrPoint = (
@@ -25,7 +35,7 @@ const CallMeBackInfo = ({ success }) => {
 
   return (
     <div
-      className={`${bgColor} ${
+      className={`${inverseColor ? "bg-gray-400 text-gray-100" : bgColor} ${
         success !== null && `hidden`
       } xl:w-[40%] lg:w-[50%] lg:p-30 sm:p-20 p-15 border-dashed flex flex-col justify-between `}
     >
@@ -36,7 +46,7 @@ const CallMeBackInfo = ({ success }) => {
           </h1>
         ) : (
           <h1 className="max-md:w-[80%] max-sm:mt-40 sm:font-expanded font-extended sm:font-extrabold font-bold lg:text-[44px] sm:text-[40px] text-2xl sm:leading-[44px] leading-[30px]">
-            Поговорим о сотрудничестве?
+            {title}
           </h1>
         )}
 
@@ -45,21 +55,14 @@ const CallMeBackInfo = ({ success }) => {
             Что обсудим:
           </p>
           <div className="flex flex-col gap-15 font-text sm:font-light sm:text-20 text-sm lg:leading-6 leading-tight">
-            <p className="flex">
-              {circleOrPoint} Текущие задачи и проблемы в IT-инфраструктуре
-            </p>
-            <p className="flex">
-              {circleOrPoint} Подбор решений для поддержки и оптимизации работы
-            </p>
-            <p className="flex">
-              {circleOrPoint} Облачные решения и защиту данных
-            </p>
-            <p className="flex">
-              {circleOrPoint} Детали сотрудничества и условия работы
-            </p>
-            <p className="flex">
-              {circleOrPoint} Поддержка 24/7 и помощь на каждом этапе
-            </p>
+            {pointsText.map((pointText, index) => (
+              <p
+                key={index}
+                className="flex gap-[2px]"
+              >
+                {circleOrPoint} {pointText}
+              </p>
+            ))}
           </div>
         </div>
       </div>
@@ -68,7 +71,7 @@ const CallMeBackInfo = ({ success }) => {
         <p className="font-extended font-bold text-[22px] leading-6">
           Контакты:
         </p>
-        <Contacts />
+        <Contacts inverseColor={inverseColor} />
       </div>
     </div>
   );

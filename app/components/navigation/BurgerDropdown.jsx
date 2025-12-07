@@ -12,8 +12,13 @@ import {
 import { ThemeContext } from "../../store/theme-context";
 
 import { navData } from "../../store/data";
+import {NavLink, useNavigate} from "@remix-run/react";
+import {LazyImage} from "../LazyImage.tsx";
 
 const BurgerDropdown = ({ navs }) => {
+  const navigate = useNavigate();
+  const { closeServicesDropdownHandler } = useContext(NavbarContext);
+
   const themeContext = useContext(ThemeContext);
   const navbarContext = useContext(NavbarContext);
   const dropdownContext = useContext(ServicesDropdownContext);
@@ -122,7 +127,26 @@ const BurgerDropdown = ({ navs }) => {
             </div>
             {navs
               .filter((nav) => nav.link === "services")[0]
-              .items.map((nav) => (
+              .items.filter((nav) => nav.link === "development")
+              .map((nav) => (
+                <div key={nav.link}>
+                  <TertiaryButton
+                    key={nav.link}
+                    bg={nav.bgColor}
+                    onClick={() => {
+                      closeServicesDropdownHandler()
+                      navigate(`/services/${nav.link}`)
+                    }}
+                  >
+                    {nav.title}
+                  </TertiaryButton>
+                </div>
+              ))
+            }
+            {navs
+              .filter((nav) => nav.link === "services")[0]
+              .items.filter((nav) => nav.link !== "development")
+              .map((nav) => (
                 <div key={nav.link}>
                   <TertiaryButton
                     key={nav.link}
@@ -141,7 +165,7 @@ const BurgerDropdown = ({ navs }) => {
                 </div>
               ))}
             <BackButton
-              className="border-x"
+              className="border-x border-gray-300"
               textColor={`text-${themeContext.bgColor?.substring(3)}`}
               onClick={() => {
                 setServiceState({

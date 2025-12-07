@@ -1,5 +1,3 @@
-import { useContext } from "react";
-
 import useModalStore from "../../store/modal";
 
 import Section from "../../layout/Section";
@@ -8,12 +6,9 @@ import PrimaryButton from "../../components/buttons/PrimaryButton";
 import ContentCard from "../../components/cards/ContentCard";
 import Animation from "../../components/misc/animations/Animation";
 
-import { ThemeContext } from "../../store/theme-context";
-
-import homeAnimationJson from "../../animations/service-cloud.json";
+import homeAnimationJson from "../../animations/service-development.json";
 
 const Hero = () => {
-  const themeContext = useContext(ThemeContext);
   const { showCallMeBackModal } = useModalStore();
 
   const content = {
@@ -30,7 +25,7 @@ const Hero = () => {
       inverseColor={true}
     >
       <SectionTitle
-        className="text-gray-100 xl:text-[56px] lg:text-[44px] sm:text-[56px] text-[28px] sm:leading-[60px]"
+        className="text-gray-100 xl:text-[50px] lg:text-[44px] sm:text-[56px] text-[28px] sm:leading-[50px]"
         col="col-start-1 lg:col-end-3 col-end-5"
       >
         {content.header}
@@ -77,7 +72,7 @@ const Hero = () => {
       <div className="md:row-start-4 row-start-5 col-start-1 col-end-5 lg:col-end-2 flex max-sm:flex-col max-sm:gap-15 justify-between lg:mt-0 sm:mt-60 mt-30">
         <PrimaryButton
           className="h-full max-lg:grow max-sm:hidden"
-          type="accent"
+          type="accent-to-light"
           fullHeight="true"
           onClick={showCallMeBackModal}
         >
@@ -86,7 +81,7 @@ const Hero = () => {
 
         <PrimaryButton
           className="h-full max-lg:grow sm:hidden"
-          type="dark"
+          type="light"
           fullHeight="true"
           onClick={showCallMeBackModal}
         >
@@ -94,7 +89,7 @@ const Hero = () => {
         </PrimaryButton>
       </div>
 
-      <div className="max-md:h-[400px] max-sm:h-[280px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
+      <div className="lg:mt-[-50px] max-md:mt-[-50px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
         <Animation data={homeAnimationJson} />
       </div>
     </Section>

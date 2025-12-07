@@ -1,7 +1,7 @@
-const ArrowTertiary = ({ color }) => {
+const ArrowTertiary = ({ className = "", color }) => {
   return (
     <span
-      className={`stroke-${
+      className={`${className} stroke-${
         color ? color : `gray-400`
       } p-10 group-hover:px-5 group-hover:self-start transition-all duration-300`}
     >

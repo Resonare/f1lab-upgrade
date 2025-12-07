@@ -9,7 +9,6 @@ import { ThemeContext } from "../../store/theme-context";
 
 const BurgerMenu = ({ inverseColor = false }) => {
   const themeContext = useContext(ThemeContext);
-  const image = "/images/burger-menu.svg";
 
   const navbarContext = useContext(NavbarContext);
   const dropdownContext = useContext(ServicesDropdownContext);
@@ -28,22 +27,10 @@ const BurgerMenu = ({ inverseColor = false }) => {
     setTextColor(color);
   };
 
-  const [buttonBgColor, setButtonBgColor] = useState(themeContext);
-
-  useEffect(() => {
-    if (!navbarContext.showServicesDropdown) {
-      setButtonBgColor(themeContext);
-    }
-  }, [navbarContext.showServicesDropdown, themeContext]);
-
   const showMenuHandler = () => {
     navbarContext.showServicesDropdownHandler();
-    if (!navbarContext.showServicesDropdown) {
-      setButtonBgColor("bg-f1-light");
-    } else {
-      setButtonBgColor(themeContext);
-    }
   };
+
   return (
     <>
       <ServicesDropdownContext.Provider
@@ -59,7 +46,9 @@ const BurgerMenu = ({ inverseColor = false }) => {
         <button
           className={`${
             inverseColor ? `border-gray-300` : `border-gray-200`
-          } group max-lg:border-l border-r border-dashed ${buttonBgColor} hover:bg-f1-light h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
+          } ${
+            navbarContext.showServicesDropdown ? "bg-f1-light" : themeContext
+          } group max-lg:border-l border-r border-dashed h-[100%] hidden max-lg:flex lg:hidden shrink-0 items-center transition-all ease-in-out duration-300`}
           onClick={showMenuHandler}
         >
           <div className={`px-20`}>
@@ -73,8 +62,8 @@ const BurgerMenu = ({ inverseColor = false }) => {
               <g
                 className={`${
                   inverseColor
-                    ? `stroke-gray-100 group-hover:stroke-gray-400`
-                    : `stroke-gray-300`
+                    ? navbarContext.showServicesDropdown ? "stroke-gray-400" : "stroke-gray-100"
+                    : navbarContext.showServicesDropdown ? "stroke-gray-400" : "stroke-gray-300"
                 } transition-all`}
               >
                 <path d="M1 5H31" strokeWidth="2" strokeLinecap="round" />

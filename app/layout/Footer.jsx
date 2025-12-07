@@ -71,130 +71,133 @@ const Footer = () => {
   };
 
   return (
-    <Section
-      className="sm:py-40 text-gray-100 border-t border-dashed border-gray-300 mt-[-1px]"
-      inverseColor={true}
-    >
-      <div className="col-start-1 md:col-end-3 col-end-5 flex flex-col justify-between gap-60">
-        {/** <div className="flex flex-col gap-30">
-          <p className="uppercase font-text text-sm font-semibold">Кейсы</p>
-          <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
-            <NavLink
-              className="hover:underline cursor-pointer"
-              to="/cases?branchId=1"
-              viewTransition
-            >
-              IT-консалтинг
-            </NavLink>
-            <NavLink
-              className="hover:underline cursor-pointer"
-              to="/cases?branchId=3"
-              viewTransition
-            >
-              Информационная безопасность
-            </NavLink>
-            <NavLink
-              className="hover:underline cursor-pointer"
-              to="/cases?branchId=4"
-              viewTransition
-            >
-              Менеджмент облачной инфраструктуры
-            </NavLink>
-          </div>
-        </div> **/}
+    <div className="2xl:border-x border-gray-200 border-dashed flex flex-col">
+      <Section
+        className="sm:py-40 text-gray-100 border-t border-dashed border-gray-300 mt-[-1px]"
+        inverseColor={true}
+      >
+        <div className="col-start-1 md:col-end-3 col-end-5 flex flex-col justify-between gap-60">
+          {/** <div className="flex flex-col gap-30">
+           <p className="uppercase font-text text-sm font-semibold">Кейсы</p>
+           <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
+           <NavLink
+           className="hover:underline cursor-pointer"
+           to="/cases?branchId=1"
+           viewTransition
+           >
+           IT-консалтинг
+           </NavLink>
+           <NavLink
+           className="hover:underline cursor-pointer"
+           to="/cases?branchId=3"
+           viewTransition
+           >
+           Информационная безопасность
+           </NavLink>
+           <NavLink
+           className="hover:underline cursor-pointer"
+           to="/cases?branchId=4"
+           viewTransition
+           >
+           Менеджмент облачной инфраструктуры
+           </NavLink>
+           </div>
+           </div> **/}
 
-        <div className="flex flex-col gap-30 pr-30">
-          <p className="uppercase font-text text-sm font-semibold">Контакты</p>
-          <Contacts
-            className="gap-30 sm:justify-start max-sm:flex-col"
-            inverseColor={true}
-            minimized={true}
-          />
-        </div>
-
-        <div>
-          <div className="p-0">{COMPANY_DATA.company}</div>
-          <div>ИНН {COMPANY_DATA.inn}</div>
-          <div>ОГРН {COMPANY_DATA.ogrn}</div>
-        </div>
-      </div>
-
-      <div className="flex flex-col gap-30 md:col-start-3 col-start-1 col-end-5 max-md:mt-60 justify-between">
-        <div className="flex flex-col gap-15">
-          <p className="uppercase font-text text-sm font-semibold">
-            На почту мы присылаем:
-          </p>
-          <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
-            <ul className="text-lg font-light">
-              <li>
-                <span className="px-10">•</span>Анонсы новых направлений и услуг
-              </li>
-              <li>
-                <span className="px-10">•</span>Ссылки на полезные новости и
-                наши статьи
-              </li>
-            </ul>
-          </div>
-
-          <fetcher.Form
-            className={`${subscribed && `hidden`} grid grid-cols-2`}
-            onSubmit={(event) => {
-              handleSubmit(event);
-            }}
-          >
-            <FormInput
-              className="border-b border-gray-300 border-l-0 col-start-1 col-end-3"
-              placeholder="E-mail"
-              name="email"
-              setValues={setValues}
-              value={values.email}
-              error={errors.email}
+          <div className="flex flex-col gap-30 pr-30">
+            <p className="uppercase font-text text-sm font-semibold">Контакты</p>
+            <Contacts
+              className="gap-30 sm:justify-start max-sm:flex-col"
               inverseColor={true}
-            ></FormInput>
+              minimized={true}
+            />
+          </div>
 
-            <SecondaryButton
-              variant="dark-shaded"
-              className="sm:py-30 border-gray-300 lg:col-start-2 col-start-1 col-end-3 border-t-0"
-              titleClassName="text-base"
-              onClick={() => {}}
-            >
-              Подписаться на рассылку
-            </SecondaryButton>
-          </fetcher.Form>
-
-          <p
-            className={`${
-              !subscribed && `hidden`
-            } uppercase font-text text-sm font-semibold`}
-          >
-            Вы подписаны на рассылку
-          </p>
+          <div>
+            <div className="p-0">{COMPANY_DATA.company}</div>
+            <div>ИНН {COMPANY_DATA.inn}</div>
+            <div>ОГРН {COMPANY_DATA.ogrn}</div>
+          </div>
         </div>
 
-        <div className="flex gap-30">
-          {/* <Link to={CONTACTS_DATA.habr} target="_blank">
+        <div className="flex flex-col gap-30 md:col-start-3 col-start-1 col-end-5 max-md:mt-60 justify-between">
+          <div className="flex flex-col gap-15">
+            <p className="uppercase font-text text-sm font-semibold">
+              На почту мы присылаем:
+            </p>
+            <div className="text-gray-200 flex flex-col gap-15 font-text text-sm">
+              <ul className="text-lg font-light">
+                <li>
+                  <span className="px-10">•</span>Анонсы новых направлений и услуг
+                </li>
+                <li>
+                  <span className="px-10">•</span>Ссылки на полезные новости и
+                  наши статьи
+                </li>
+              </ul>
+            </div>
+
+            <fetcher.Form
+              className={`${subscribed && `hidden`} grid grid-cols-2`}
+              onSubmit={(event) => {
+                handleSubmit(event);
+              }}
+            >
+              <FormInput
+                className="border-b border-gray-300 border-l-0 col-start-1 col-end-3"
+                placeholder="E-mail"
+                name="email"
+                setValues={setValues}
+                value={values.email}
+                error={errors.email}
+                inverseColor={true}
+              ></FormInput>
+
+              <SecondaryButton
+                variant="dark-shaded"
+                className="sm:py-30 border-gray-300 lg:col-start-2 col-start-1 col-end-3 border-t-0"
+                titleClassName="text-base"
+                onClick={() => {}}
+              >
+                Подписаться на рассылку
+              </SecondaryButton>
+            </fetcher.Form>
+
+            <p
+              className={`${
+                !subscribed && `hidden`
+              } uppercase font-text text-sm font-semibold`}
+            >
+              Вы подписаны на рассылку
+            </p>
+          </div>
+
+          <div className="flex gap-30">
+            {/* <Link to={CONTACTS_DATA.habr} target="_blank">
             <LazyImage
               className="cursor-pointer"
               src="/images/icons/habr.svg"
             />
           </Link> */}
-          <Link to={CONTACTS_DATA.dzen} target="_blank" rel="noreferrer">
-            <LazyImage
-              className="cursor-pointer"
-              src="/images/icons/dzen.svg"
-            />
-          </Link>
+            <Link to={CONTACTS_DATA.dzen} target="_blank" rel="noreferrer">
+              <LazyImage
+                className="cursor-pointer"
+                src="/images/icons/dzen.svg"
+              />
+            </Link>
+          </div>
         </div>
-      </div>
 
-      <PrimaryButton
-        className="col-start-1 col-end-5 mt-60"
-        type="light"
-        onClick={showFooterModal}
-      >
-        Обратная связь
-      </PrimaryButton>
-    </Section>
+        <PrimaryButton
+          className="col-start-1 col-end-5 mt-60"
+          type="light"
+          onClick={showFooterModal}
+        >
+          Обратная связь
+        </PrimaryButton>
+      </Section>
+    </div>
+
   );
 };
 

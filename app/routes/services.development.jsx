@@ -1,15 +1,16 @@
 import { useLoaderData } from "@remix-run/react";
 
-import Hero from "../pages/automation/Hero";
+import Hero from "../pages/development/Hero";
 import TailwindCrutch from "../components/misc/TailwindCrutch";
 
 import { getAllPublished as getAllServiceCases } from "../data/cases.server";
 import { getAll as getAllCritiques } from "../data/critiques.server";
 import { getAll as getAllTags } from "../data/tags.server";
-import Scenarios from "../pages/automation/Scenarios";
-import Offers from "../pages/automation/Offers";
-import ProcessSection from "../layout/ProcessSection.jsx";
-import CasesSection from "../layout/CasesSection.jsx";
+import Scenarios from "../pages/development/Scenarios";
+import Offers from "../pages/development/Offers";
+import CallMeBack from "../pages/development/CallMeBack";
+import ProcessSection from "../layout/ProcessSection";
+import CasesSection from "../layout/CasesSection";
 
 const STEPS_DATA = [
   {
@@ -66,7 +67,7 @@ export const meta = () => {
   ];
 };
 
-export default function Automation() {
+export default function Development() {
   const { serviceCasesData, critiquesData, tagsData } = useLoaderData();
 
   return (
@@ -87,6 +88,7 @@ export default function Automation() {
         critiquesData={critiquesData}
         inverseColor={true}
       />
+      <CallMeBack />
 
       <TailwindCrutch />
     </div>

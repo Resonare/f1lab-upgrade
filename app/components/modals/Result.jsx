@@ -19,7 +19,7 @@ const Result = ({
 
   return (
     <div
-      className={`${className} max-lg:h-[550px] xl:w-auto lg:w-[50%] w-full sm:grow md:p-30 sm:p-15 pt-15 max-sm:pb-30 flex flex-col gap-60 max-sm:gap-30 sm:justify-between`}
+      className={`${className} ${inverseColor ? "text-gray-100" : ""} max-lg:h-[550px] xl:w-auto lg:w-[50%] w-full sm:grow md:p-30 sm:p-15 pt-15 max-sm:pb-30 flex flex-col gap-60 max-sm:gap-30 sm:justify-between`}
     >
       <SuccessCircle className={`${!success && `hidden`} max-sm:px-15`} />
 
@@ -52,7 +52,7 @@ const Result = ({
             </div>
           </div>
 
-          <Contacts className="gap-30 !justify-start" />
+          <Contacts className="gap-30 !justify-start" inverseColor={inverseColor} />
         </div>
       )}
 

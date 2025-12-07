@@ -72,11 +72,7 @@ const Hero = () => {
         </PrimaryButton>
       </div>
 
-      <div className="max-md:pt-30 max-sm:pt-0 max-md:h-[400px] max-sm:h-[280px] flex justify-center lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-5 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
-        {/* <LazyImage
-          className="xl:h-full md:h-[410px] h-[285px]"
-          src="/images/antivirus/hero-banner.svg"
-        /> */}
+      <div className="lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 md-row-end-5 lg:col-start-3 md:col-start-3 col-start-1 lg:col-end-5 col-end-5">
         <Animation data={homeAnimationJson} />
       </div>
     </Section>

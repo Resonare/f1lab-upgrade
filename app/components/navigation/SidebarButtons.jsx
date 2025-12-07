@@ -30,7 +30,7 @@ const SidebarWhyButton = ({ inverseColor = false }) => {
   };
 
   return (
-    <div className={`border-gray-200 max-sm:hidden 2xl:border-l border-dashed fixed top-[70px] z-[9] lg:top-90 max-lg:right-0 grid lg:justify-items-start justify-items-end`}>
+    <div className={`${inverseColor ? "border-gray-300" : "border-gray-200"} max-sm:hidden 2xl:border-l border-dashed fixed top-[70px] z-[9] lg:top-90 max-lg:right-0 grid lg:justify-items-start justify-items-end`}>
       {sideButtons.map((button) => (
         <div
           key={button.text}

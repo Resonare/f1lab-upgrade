@@ -109,7 +109,7 @@ const Hero = () => {
         <div className="h-full flex"></div>
       </div>
 
-      <div className="max-md:h-[400px] max-sm:h-[280px] lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 sm:row-end-5 md:col-start-3 col-start-1 col-end-5">
+      <div className="lg:row-start-1 md:row-start-2 row-start-4 lg:row-end-5 md:row-end-4 sm:row-end-5 md:col-start-3 col-start-1 col-end-5">
         {/* <LazyImage
           className="w-full h-full object-cover"
           src="/images/staffcop/hero-banner.png"

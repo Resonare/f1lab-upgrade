@@ -89,7 +89,7 @@ export default function Services() {
   const { pathname } = useLocation();
   const segments = pathname.split("/").filter(Boolean);
 
-  const sidebarInverseColor = segments[segments.length - 1] == "automation"
+  const sidebarInverseColor = segments[segments.length - 1] == "development"
 
   return (
     <>
