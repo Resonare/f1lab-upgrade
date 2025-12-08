@@ -21,7 +21,7 @@ const ProcessSection = ({ stepsData, tagsData, title = "Процесс", inverse
   const { showCallMeBackModal } = useModalStore();
 
   const findTag = (targetTitle) => {
-    return tagsData.filter((tagData) => tagData.title == targetTitle)[0];
+    return tagsData.filter((tagData) => tagData.title.toLowerCase().trim() == targetTitle.toLowerCase().trim())[0];
   };
 
   return (

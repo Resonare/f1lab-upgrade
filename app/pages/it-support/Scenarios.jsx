@@ -35,7 +35,7 @@ const Scenarios = () => {
         col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
         iconPath="/images/scenarios/balance.svg"
       >
-        Снижение затрат на обслуживание и улучшение качества ит-сервиса
+        Снижение затрат на обслуживание и улучшение качества ИТ-сервиса
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-4"></div>
@@ -71,8 +71,7 @@ const Scenarios = () => {
         col="lg:col-start-2 sm:col-start-1 col-start-2 sm:col-end-3 col-end-5"
         iconPath="/images/scenarios/exit-circle.svg"
       >
-        Высвобождение времени ит-директора и избавление от выполнения рутинных
-        задач
+        Высвобождение времени ИТ-директора и избавление от выполнения рутинных задач
       </ContentCard>
 
       <div className="max-sm:hidden bg-gray-400 xl:px-[110px] xl:py-[50px] lg:px-90 lg:py-[50px] md:px-200 md:py-[50px] sm:px-100 sm:py-40 border-y border-dashed sm:row-start-3 row-start-10 lg:col-start-4 sm:col-start-3 col-end-5">

@@ -65,8 +65,10 @@ const StepCard = ({
         >
           {children}
         </div>
-
-        {tagsData.length != 0 ? <TagContainer>{tagsData}</TagContainer> : null}
+        {tagsData.length != 0
+          ? <TagContainer>{tagsData}</TagContainer>
+          : null
+        }
       </div>
     </div>
   );

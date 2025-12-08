@@ -20,7 +20,7 @@ const Error = () => {
   return (
     <Section className="sm:mb-100 mb-60 xl:mt-90 mt-30">
       <div className="col-start-1 col-end-5 xl:border-t-0 sm:border-y border-dashed max-xl:mt-90 max-sm:mt-0">
-        <div className="lg:h-[500px] md:h-[400px] sm:h-[300px] h-[120px]">
+        <div className="lg:h-[650px] md:h-[450px] sm:h-[350px] h-[200px]">
           <Animation
             className="lg:[&>div>svg]:h-[800px] md:[&>div>svg]:h-[650px] sm:[&>div>svg]:h-[450px] [&>div>svg]:h-[200px]"
             data={animationData}
@@ -29,7 +29,7 @@ const Error = () => {
         </div>
       </div>
 
-      <p className="mt-60 col-start-1 col-end-5 text-gray-400 lg:text-[56px] sm:text-[44px] text-[28px] font-extrabold font-expanded text-center">
+      <p className="mt-60 col-start-1 col-end-5 row-start-3 text-gray-400 lg:text-[56px] sm:text-[44px] text-[28px] font-extrabold font-expanded text-center">
         Эта страница не найдена
       </p>
 

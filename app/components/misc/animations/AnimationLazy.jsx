@@ -28,7 +28,7 @@ const AnimationLazy = ({ className, data }) => {
   }, [animationContainerRef]);
 
   return (
-    <div ref={animationContainerRef} className={className}>
+    <div ref={animationContainerRef} className={`${className} ${loaded ? "opacity-1" : "opacity-0"} transition-all`}>
       {View}
     </div>
   );

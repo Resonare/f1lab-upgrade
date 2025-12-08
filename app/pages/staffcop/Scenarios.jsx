@@ -126,7 +126,7 @@ const Scenarios = () => {
         col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
         iconPath="/images/staffcop/scenario-icon6.svg"
       >
-        Оптимизировать затраты на ит-инфраструктуру
+        Оптимизировать затраты на ИТ-инфраструктуру
       </ContentCard>
     </Section>
   );

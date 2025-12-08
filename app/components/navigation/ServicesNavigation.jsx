@@ -40,7 +40,7 @@ const ServicesNavigation = ({ items }) => {
     );
   }, [currentState]);
 
-  const isDevelopmentService = currentService[0].link === "development";
+  const isDevelopmentService = currentState === "development";
 
   return (
     <ServicesDropdownContext.Provider
@@ -72,11 +72,11 @@ const ServicesNavigation = ({ items }) => {
           </div>
         </div>
         <div
-          className={`${isDevelopmentService ? "pl-30 mb-[-0.5px]" : "xl:pr-120 lg:pr-60 px-30"} w-1/2 ${bgColor} flex flex-col border-b border-dashed border-gray-200`}
+          className={`${isDevelopmentService ? "pl-30 mb-[-0.5px]" : "xl:pr-120 lg:pr-60 px-30"} ${bgColor} w-1/2 flex flex-col border-b border-dashed border-gray-200`}
         >
           {isDevelopmentService ? (
             <div className="flex flex-col gap-20 overflow-hidden w-full pb-60">
-              <div className="h-full w-[950px] bg-gray-400 overflow-hidden">
+              <div className="w-[950px] h-[1000px] bg-gray-400 overflow-hidden">
                 <div className="mt-[-580px]">
                   <Animation data={developmentAnimationJson} />
                 </div>
@@ -94,7 +94,7 @@ const ServicesNavigation = ({ items }) => {
             </div>
           ) : (
             <>
-              <div className={`${isDevelopmentService ? "" : "border-dashed border-r"} h-60`}></div>
+              <div className={`border-dashed border-r h-60`}></div>
               <div className="max-w-full grid grid-cols-1 grid-rows-5 justify-start gap-15 border-dashed border-x">
                 {isDevelopmentService ? (<div>hello</div>) : null}
                 {currentService[0].items.map((service) => (

@@ -50,7 +50,7 @@ const Scenarios = () => {
         col="sm:col-start-3 col-start-1 xl:col-end-4 lg:col-end-4 sm:col-end-5 col-end-4"
         iconPath="/images/audit/audit-scenario-icon2.svg"
       >
-        Подготовиться к внедрению новых технологий и ит-решений
+        Подготовиться к внедрению новых технологий и ИТ-решений
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-7"></div>
@@ -86,7 +86,7 @@ const Scenarios = () => {
         col="lg:col-start-4 sm:col-start-3 col-start-1 sm:col-end-5 col-end-4"
         iconPath="/images/audit/audit-scenario-icon4.svg"
       >
-        Оптимизировать затраты на ит-инфраструктуру
+        Оптимизировать затраты на ИТ-инфраструктуру
       </ContentCard>
     </Section>
   );
