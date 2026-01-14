@@ -10,10 +10,7 @@ const Offers = () => {
   const { showCallMeBackModal } = useModalStore();
 
   return (
-    <Section
-      className="sm:py-60"
-      id="offers"
-    >
+    <Section className="sm:py-60" id="offers">
       <SectionTitle
         className="max-sm:pb-30"
         row="row-start-1"
@@ -35,9 +32,11 @@ const Offers = () => {
         col="lg:col-start-2 col-start-1 lg:col-end-2 sm:col-end-3 col-end-5"
         iconPath="/images/development/offer-icon1.svg"
       >
-        Быстрый старт без лишней бюрократии
-        <br />
-        Уточняем цели и ограничения, фиксируем метрики успеха и план первых релизов.
+        <div className="font-bold">Быстрый старт без лишней бюрократии</div>
+        <div>
+          Уточняем цели и ограничения, фиксируем метрики успеха и план первых
+          релизов.
+        </div>
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-4"></div>
@@ -55,9 +54,11 @@ const Offers = () => {
         col="sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
         iconPath="/images/development/offer-icon2.svg"
       >
-        Рациональный путь: коробка или кастом
-        <br />
-        Где хватает готовых продуктов — внедрим и настроим; где упираются — спроектируем веб-систему.
+        <div className="font-bold">Рациональный путь: коробка или кастом</div>
+        <div>
+          Где хватает готовых продуктов — внедрим и настроим; где упираются —
+          спроектируем индивидуальное решение.
+        </div>
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-7"></div>
@@ -75,7 +76,11 @@ const Offers = () => {
         col="lg:col-start-4 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
         iconPath="/images/development/offer-icon3.svg"
       >
-        Интеграции и обмены без ручного труда
+        <div className="font-bold">Интеграции и обмены без ручного труда</div>
+        <div>
+          Автоматический обмен данными между системами, API и внешними сервисами
+          для бесшовной работы всех компонентов.
+        </div>
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-10"></div>
@@ -85,7 +90,6 @@ const Offers = () => {
         col="col-start-4"
         className="sm:hidden border-l border-y"
         imagePath="development/offer-icon4.svg"
-        
       />
 
       <ContentCard
@@ -93,11 +97,12 @@ const Offers = () => {
         row="sm:row-start-3 row-start-12"
         col="lg:col-start-1 sm:col-start-3 col-start-1 lg:col-end-2 sm:col-end-5 col-end-4"
         iconPath="/images/development/offer-icon4.svg"
-        
       >
-        Запуск и сопровождение
-        <br />
-        Мониторинг, бэкапы, отказоустойчивость; реакция до 15 минут в рабочее время.
+        <div className="font-bold">Запуск и сопровождение</div>
+        <div>
+          Мониторинг, бэкапы, отказоустойчивость; реакция до 15 минут в рабочее
+          время.
+        </div>
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-13"></div>
@@ -107,7 +112,6 @@ const Offers = () => {
         col="col-start-1"
         className="sm:hidden border-r border-y"
         imagePath="development/offer-icon5.svg"
-        
       />
 
       <ContentCard
@@ -116,9 +120,10 @@ const Offers = () => {
         col="lg:col-start-2 sm:col-start-1 col-start-2 lg:col-end-3 sm:col-end-3 col-end-5"
         iconPath="/images/development/offer-icon5.svg"
       >
-        Дашборды для решений, а не ради отчётов
-        <br />
-        Сквозная аналитика: воронка, доходность, SLA/затраты — в одном окне.
+        <div className="font-bold">Дашборды</div>
+        <div>
+          Сквозная аналитика: воронка, доходность, SLA/затраты — в одном окне.
+        </div>
       </ContentCard>
 
       <PrimaryButton

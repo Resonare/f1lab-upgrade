@@ -10,10 +10,7 @@ const Scenarios = () => {
   const { bgColor } = useContext(ThemeContext);
 
   return (
-    <Section
-      id="scenarios"
-      inverseColor={true}
-    >
+    <Section id="scenarios" inverseColor={true}>
       <SectionTitle
         className="text-gray-100 max-sm:pb-30"
         row="row-start-1"
@@ -37,9 +34,10 @@ const Scenarios = () => {
         col="sm:col-start-1 col-start-2 xl:col-end-2 lg:col-end-2 sm:col-end-3 col-end-5"
         iconPath="/images/development/scenario-icon1.svg"
       >
-        Excel и чаты вместо системы
-        <br />
-        Лиды теряются, сроки плывут, ответственность размыта.
+        <div className="font-bold sm:mt-[32px] mt-0">
+          Excel и чаты вместо системы
+        </div>
+        <div>Лиды теряются, сроки плывут, ответственность размыта.</div>
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-4"></div>
@@ -59,9 +57,8 @@ const Scenarios = () => {
         col="lg:col-start-2 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
         iconPath="/images/development/scenario-icon2.svg"
       >
-        1С, сайт и CRM не синхронизированы
-        <br />
-        Двойной ввод, ошибки в заказах/остатках, ручные сверки.
+        <div className="font-bold">1С, сайт и CRM не синхронизированы</div>
+        <div>Двойной ввод, ошибки в заказах/остатках, ручные сверки.</div>
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-7"></div>
@@ -81,9 +78,11 @@ const Scenarios = () => {
         col="lg:col-start-3 sm:col-start-1 col-start-2 lg:col-end-4 sm:col-end-3 col-end-5"
         iconPath="/images/development/scenario-icon3.svg"
       >
-        Техподдержка «в почте»
-        <br />
-        Нет статусов и SLA, время не учитывается, стоимость услуг не считается.
+        <div className="font-bold">Техподдержка «в почте»</div>
+        <div>
+          Нет статусов и SLA, время не учитывается, стоимость услуг не
+          считается.
+        </div>
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-10"></div>
@@ -103,9 +102,8 @@ const Scenarios = () => {
         col="lg:col-start-3 sm:col-start-3 col-start-1 lg:col-end-3 sm:col-end-5 col-end-4"
         iconPath="/images/development/scenario-icon4.svg"
       >
-        Согласования буксуют
-        <br />
-        Длинные цепочки, «висящие» задачи, нет прозрачного пайплайна.
+        <div className="font-bold">Согласования буксуют</div>
+        <div>Длинные цепочки, «висящие» задачи, нет прозрачного пайплайна.</div>
       </ContentCard>
 
       <div className="sm:hidden h-15 row-start-[13]"></div>
@@ -125,9 +123,10 @@ const Scenarios = () => {
         col="lg:col-start-4 sm:col-start-3 col-start-2 sm:col-end-5 col-end-5"
         iconPath="/images/development/scenario-icon5.svg"
       >
-        Нет сквозной аналитики
-        <br />
-        Разрозненные отчёты, не видно воронку, выручку и маржу по каналам.
+        <div className="font-bold">Нет сквозной аналитики</div>
+        <div>
+          Разрозненные отчёты, не видно воронку, выручку и маржу по каналам.
+        </div>
       </ContentCard>
     </Section>
   );
