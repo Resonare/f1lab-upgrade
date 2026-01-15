@@ -115,7 +115,7 @@ const Offers = () => {
       />
 
       <ContentCard
-        className="border-y max-sm:border-x max-sm:ml-[-1px]"
+        className="[&>div:first-child]:py-[6.5px] border-y max-sm:border-x max-sm:ml-[-1px]"
         row="lg:row-start-3 sm:row-start-4 row-start-[15]"
         col="lg:col-start-2 sm:col-start-1 col-start-2 lg:col-end-3 sm:col-end-3 col-end-5"
         iconPath="/images/development/offer-icon5.svg"

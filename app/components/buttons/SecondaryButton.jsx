@@ -15,6 +15,7 @@ const SecondaryButton = ({
   customIcon,
   titleClassName = "",
   className = "",
+  arrowClassName = "",
   children,
 }) => {
   const { showServicesDropdownHandler } = useContext(NavbarContext);
@@ -85,7 +86,7 @@ const SecondaryButton = ({
             {customIcon ? (
               <LazyImage src={customIcon} alt="" />
             ) : (
-              <ArrowURSecondary className={`${styles.arrow}`} />
+              <ArrowURSecondary className={`${styles.arrow} ${arrowClassName}`} />
             )}
           </div>
         </button>
@@ -101,7 +102,7 @@ const SecondaryButton = ({
           {customIcon ? (
             <LazyImage src={customIcon} alt="" />
           ) : (
-            <ArrowURSecondary className={`${styles.arrow} flex items-center`} />
+            <ArrowURSecondary className={`${styles.arrow} ${arrowClassName} flex items-center`} />
           )}
         </NavLink>
       )}

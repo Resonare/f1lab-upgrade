@@ -127,26 +127,7 @@ const BurgerDropdown = ({ navs }) => {
             </div>
             {navs
               .filter((nav) => nav.link === "services")[0]
-              .items.filter((nav) => nav.link === "development")
-              .map((nav) => (
-                <div key={nav.link}>
-                  <TertiaryButton
-                    key={nav.link}
-                    bg={nav.bgColor}
-                    onClick={() => {
-                      closeServicesDropdownHandler()
-                      navigate(`/services/${nav.link}`)
-                    }}
-                  >
-                    {nav.title}
-                  </TertiaryButton>
-                </div>
-              ))
-            }
-            {navs
-              .filter((nav) => nav.link === "services")[0]
-              .items.filter((nav) => nav.link !== "development")
-              .map((nav) => (
+              .items.map((nav) => (
                 <div key={nav.link}>
                   <TertiaryButton
                     key={nav.link}

@@ -14,7 +14,7 @@ export const navData = [
     items: [
       {
         link: "development",
-        title: "Разработка",
+        title: "Автоматизация бизнеса",
         bgColor: "bg-f1-light",
         textColor: "text-gray-100",
         items: [

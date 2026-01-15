@@ -72,45 +72,24 @@ const ServicesNavigation = ({ items }) => {
           </div>
         </div>
         <div
-          className={`${isDevelopmentService ? "pl-30 mb-[-0.5px]" : "xl:pr-120 lg:pr-60 px-30"} ${bgColor} w-1/2 flex flex-col border-b border-dashed border-gray-200`}
+          className={`${bgColor} xl:pr-120 lg:pr-60 px-30 w-1/2 flex flex-col border-b border-dashed border-gray-200`}
         >
-          {isDevelopmentService ? (
-            <div className="flex flex-col gap-20 overflow-hidden w-full pb-60">
-              <div className="w-[950px] h-[1000px] bg-gray-400 overflow-hidden">
-                <div className="mt-[-580px]">
-                  <Animation data={developmentAnimationJson} />
-                </div>
-              </div>
-              <div className="xl:pr-120 lg:pr-60">
+            <div className={`border-dashed border-r h-60`}></div>
+            <div className="max-w-full grid grid-cols-1 grid-rows-5 justify-start gap-15 border-dashed border-x">
+              {currentService[0].items.map((service) => (
                 <SecondaryButton
-                  variant="info"
+                  key={service.link}
+                  className={isDevelopmentService ? "hover:!bg-gray-400 hover:text-gray-100" : ""}
+                  arrowClassName={isDevelopmentService ? "group-hover:stroke-gray-100" : ""}
+                  variant={"shaded"}
                   link
-                  to={`/services/${currentService[0].items[0].link}`}
+                  to={`/services/${service.link}`}
                 >
-                  Перейти
+                  {service.title}
                 </SecondaryButton>
-              </div>
-
+              ))}
             </div>
-          ) : (
-            <>
-              <div className={`border-dashed border-r h-60`}></div>
-              <div className="max-w-full grid grid-cols-1 grid-rows-5 justify-start gap-15 border-dashed border-x">
-                {isDevelopmentService ? (<div>hello</div>) : null}
-                {currentService[0].items.map((service) => (
-                  <SecondaryButton
-                    key={service.link}
-                    variant="shaded"
-                    link
-                    to={`/services/${service.link}`}
-                  >
-                    {service.title}
-                  </SecondaryButton>
-                ))}
-              </div>
-              <div className="grow border-dashed border-x"></div>
-            </>
-          )}
+            <div className="grow border-dashed border-x"></div>
         </div>
       </div>
       <button
