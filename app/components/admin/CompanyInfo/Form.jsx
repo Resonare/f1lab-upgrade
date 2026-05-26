@@ -43,6 +43,26 @@ export default function CompanyInfoForm({ info = {} }) {
           className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
         />
       </div>
+      <div className="flex flex-col gap-10">
+        <label className="font-text text-lg text-gray-300">Telegram (ссылка)</label>
+        <input
+          defaultValue={info?.telegram}
+          type="text"
+          name="telegram"
+          placeholder="https://t.me/..."
+          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
+        />
+      </div>
+      <div className="flex flex-col gap-10">
+        <label className="font-text text-lg text-gray-300">WhatsApp (ссылка)</label>
+        <input
+          defaultValue={info?.whatsapp}
+          type="text"
+          name="whatsapp"
+          placeholder="https://wa.me/..."
+          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
+        />
+      </div>
       <button
         type="submit"
         name="intent"

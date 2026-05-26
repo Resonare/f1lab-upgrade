@@ -1,14 +1,9 @@
+import { useRouteLoaderData } from "@remix-run/react";
+
 import Condition from "../misc/Condition";
 import SecondaryButton from "../buttons/SecondaryButton";
 
 import useAlertStore from "../../store/alert";
-
-const CONTACTS_DATA = {
-  mail: "info@f1lab.ru",
-  phone: "+7 (423) 202-52-55",
-  telegram: "https://t.me/f1lab_it",
-  whatsapp: "https://wa.me/79240424058",
-};
 
 const Contacts = ({
   className = "",
@@ -16,6 +11,15 @@ const Contacts = ({
   minimized = false,
 }) => {
   const { showAlert, closeAlert } = useAlertStore();
+
+  const rootData = useRouteLoaderData("root");
+  const companyInfo = rootData?.companyInfo || {};
+  const CONTACTS_DATA = {
+    mail: companyInfo.email || "",
+    phone: companyInfo.phone || "",
+    telegram: companyInfo.telegram || "",
+    whatsapp: companyInfo.whatsapp || "",
+  };
 
   const getPosition = (event) => {
     return {

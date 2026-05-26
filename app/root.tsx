@@ -26,6 +26,12 @@ import { CriticalSVGs } from "./components/CriticalSVGs";
 
 import { ThemeContext } from "~/store/theme-context";
 import { LinksFunction } from "@remix-run/node";
+import { get as getCompanyInfo } from "./data/companyInfo.server";
+
+export async function loader() {
+  const companyInfo = (await getCompanyInfo()) || {};
+  return { companyInfo };
+}
 
 export const links: LinksFunction = () => {
   return [
