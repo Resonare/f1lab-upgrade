@@ -37,4 +37,4 @@ RUN mkdir -p /app/prisma/data && chmod 777 /app/prisma/data
 EXPOSE 3000
 
 # Start the application
-CMD npm run start
+CMD npx prisma db push && npm run start

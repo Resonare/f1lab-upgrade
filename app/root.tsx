@@ -220,4 +220,19 @@ export function ErrorBoundary() {
   if (isRouteErrorResponse(error) && error.status == 404) {
     return <ErrorNotFound />;
   }
+
+  return (
+    <html lang="ru">
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ошибка</title>
+      </head>
+      <body>
+        <div style={{ padding: "40px", fontFamily: "sans-serif" }}>
+          Произошла ошибка. Попробуйте обновить страницу.
+        </div>
+      </body>
+    </html>
+  );
 }
