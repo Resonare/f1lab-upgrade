@@ -53,10 +53,10 @@ const Contacts = ({ info = {} }) => {
         </div>
         <div className="flex h-fit">
           <div className="flex flex-col gap-30 font-text text-xl text-gray-400">
-            {info.address && (
+            {info?.address && (
               <Condition icon="location-lg.svg">
                 <a
-                  href={info.addressLink || "#"}
+                  href={info?.addressLink || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -64,12 +64,12 @@ const Contacts = ({ info = {} }) => {
                 </a>
               </Condition>
             )}
-            {info.email && (
+            {info?.email && (
               <Condition icon="mail-lg.svg">
                 <a href={`mailto:${info.email}`}>{info.email}</a>
               </Condition>
             )}
-            {info.phone && (
+            {info?.phone && (
               <Condition icon="phone-lg.svg">
                 <a href={`tel:${info.phone.replace(/\D/g, "")}`}>{info.phone}</a>
               </Condition>

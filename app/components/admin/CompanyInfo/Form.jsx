@@ -6,7 +6,7 @@ export default function CompanyInfoForm({ info = {} }) {
       <div className="flex flex-col gap-10">
         <label className="font-text text-lg text-gray-300">Адрес</label>
         <input
-          defaultValue={info.address}
+          defaultValue={info?.address}
           type="text"
           name="address"
           placeholder="Владивосток, ул. Батарейная, 3А"
@@ -16,7 +16,7 @@ export default function CompanyInfoForm({ info = {} }) {
       <div className="flex flex-col gap-10">
         <label className="font-text text-lg text-gray-300">Ссылка на карту</label>
         <input
-          defaultValue={info.addressLink}
+          defaultValue={info?.addressLink}
           type="text"
           name="addressLink"
           placeholder="https://go.2gis.com/..."
@@ -26,7 +26,7 @@ export default function CompanyInfoForm({ info = {} }) {
       <div className="flex flex-col gap-10">
         <label className="font-text text-lg text-gray-300">Email</label>
         <input
-          defaultValue={info.email}
+          defaultValue={info?.email}
           type="text"
           name="email"
           placeholder="info@f1lab.ru"
@@ -36,7 +36,7 @@ export default function CompanyInfoForm({ info = {} }) {
       <div className="flex flex-col gap-10">
         <label className="font-text text-lg text-gray-300">Телефон</label>
         <input
-          defaultValue={info.phone}
+          defaultValue={info?.phone}
           type="text"
           name="phone"
           placeholder="8-423-202-52-55"

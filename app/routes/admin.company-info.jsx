@@ -25,7 +25,7 @@ export async function loader({ request }) {
     return redirect("/admin");
   }
 
-  const info = await get();
+  const info = (await get()) || {};
   return { info };
 }
 

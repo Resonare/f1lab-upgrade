@@ -11,7 +11,7 @@ export const meta = () => {
 };
 
 export async function loader() {
-  const info = await get();
+  const info = (await get()) || {};
   return { info };
 }
 
