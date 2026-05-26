@@ -11,6 +11,8 @@ import ModalForm from "../../components/modals/ModalForm";
 import FormInput from "../../components/misc/inputs/FormInput";
 import Result from "../../components/modals/Result";
 
+import PropTypes from "prop-types";
+
 import whyAnimationJson from "../../animations/why-animation.json";
 
 const INITIAL_ERRORS = {
@@ -29,7 +31,7 @@ const INITIAL_VALUES = {
   policy: false,
 };
 
-const Contacts = () => {
+const Contacts = ({ info = {} }) => {
   const location = useLocation();
   const { bgColor } = useContext(ThemeContext);
 
@@ -51,21 +53,27 @@ const Contacts = () => {
         </div>
         <div className="flex h-fit">
           <div className="flex flex-col gap-30 font-text text-xl text-gray-400">
-            <Condition icon="location-lg.svg">
-              <a
-                href="https://go.2gis.com/L6MnY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Владивосток, ул. Батарейная, 3А
-              </a>
-            </Condition>
-            <Condition icon="mail-lg.svg">
-              <a href="mailto:info@f1lab.ru">info@f1lab.ru</a>
-            </Condition>
-            <Condition icon="phone-lg.svg">
-              <a href="tel:84232025255">8-423-202-52-55</a>
-            </Condition>
+            {info.address && (
+              <Condition icon="location-lg.svg">
+                <a
+                  href={info.addressLink || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {info.address}
+                </a>
+              </Condition>
+            )}
+            {info.email && (
+              <Condition icon="mail-lg.svg">
+                <a href={`mailto:${info.email}`}>{info.email}</a>
+              </Condition>
+            )}
+            {info.phone && (
+              <Condition icon="phone-lg.svg">
+                <a href={`tel:${info.phone.replace(/\D/g, "")}`}>{info.phone}</a>
+              </Condition>
+            )}
           </div>
         </div>
       </div>
@@ -151,6 +159,15 @@ const Contacts = () => {
       </div>
     </Section>
   );
+};
+
+Contacts.propTypes = {
+  info: PropTypes.shape({
+    address: PropTypes.string,
+    addressLink: PropTypes.string,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+  }),
 };
 
 export default Contacts;

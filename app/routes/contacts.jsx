@@ -1,4 +1,7 @@
+import { useLoaderData } from "@remix-run/react";
+
 import Contacts from "../pages/contacts/Contacts";
+import { get } from "../data/companyInfo.server";
 
 export const meta = () => {
   return [
@@ -7,10 +10,16 @@ export const meta = () => {
   ];
 };
 
-export default function Services() {
+export async function loader() {
+  const info = await get();
+  return { info };
+}
+
+export default function ContactsRoute() {
+  const { info } = useLoaderData();
   return (
     <div className="2xl:border-x border-gray-200 border-dashed lg:pt-90 pt-[70px]">
-      <Contacts />
+      <Contacts info={info} />
     </div>
   );
 }

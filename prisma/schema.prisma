@@ -121,3 +121,11 @@ model SEO {
   id            Int    @id @default(autoincrement())
   yandexMetrika String @default("")
 }
+
+model CompanyInfo {
+  id          Int    @id @default(autoincrement())
+  address     String @default("")
+  addressLink String @default("")
+  email       String @default("")
+  phone       String @default("")
+}

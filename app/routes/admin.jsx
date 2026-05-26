@@ -43,6 +43,10 @@ export default function AdminPanel() {
       title: "Тэги",
       link: "tags",
     },
+    {
+      title: "Контакты",
+      link: "company-info",
+    },
   ];
 
   return (
