@@ -63,6 +63,16 @@ export default function CompanyInfoForm({ info = {} }) {
           className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
         />
       </div>
+      <div className="flex flex-col gap-10">
+        <label className="font-text text-lg text-gray-300">Дзен (ссылка)</label>
+        <input
+          defaultValue={info?.dzen}
+          type="text"
+          name="dzen"
+          placeholder="https://dzen.ru/..."
+          className="border border-gray-200 px-10 rounded-md placeholder:text-gray-200 text-md font-text h-40 w-full"
+        />
+      </div>
       <button
         type="submit"
         name="intent"

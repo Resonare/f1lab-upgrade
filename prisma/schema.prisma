@@ -130,4 +130,5 @@ model CompanyInfo {
   phone       String @default("")
   telegram    String @default("")
   whatsapp    String @default("")
+  dzen        String @default("")
 }

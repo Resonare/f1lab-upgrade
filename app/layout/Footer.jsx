@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useFetcher } from "@remix-run/react";
+import { useFetcher, useRouteLoaderData } from "@remix-run/react";
 import { Link } from "@remix-run/react";
 
 import useModalStore from "../store/modal";
@@ -9,11 +9,6 @@ import Contacts from "../components/modals/Contacts";
 import FormInput from "../components/misc/inputs/FormInput";
 import SecondaryButton from "../components/buttons/SecondaryButton";
 import { LazyImage } from "../components/LazyImage";
-
-const CONTACTS_DATA = {
-  dzen: "https://dzen.ru/f1lab",
-  habr: "",
-};
 
 const COMPANY_DATA = {
   company: `ООО "Ф1"`,
@@ -38,6 +33,9 @@ const Footer = () => {
   const [errors, setErrors] = useState(INITIAL_ERRORS);
   const [values, setValues] = useState(INITIAL_VALUES);
   const [subscribed, setSubscribed] = useState(false);
+
+  const rootData = useRouteLoaderData("root");
+  const dzenLink = rootData?.companyInfo?.dzen || "";
 
   const { showFooterModal } = useModalStore();
 
@@ -173,18 +171,14 @@ const Footer = () => {
           </div>
 
           <div className="flex gap-30">
-            {/* <Link to={CONTACTS_DATA.habr} target="_blank">
-            <LazyImage
-              className="cursor-pointer"
-              src="/images/icons/habr.svg"
-            />
-          </Link> */}
-            <Link to={CONTACTS_DATA.dzen} target="_blank" rel="noreferrer">
-              <LazyImage
-                className="cursor-pointer"
-                src="/images/icons/dzen.svg"
-              />
-            </Link>
+            {dzenLink && (
+              <Link to={dzenLink} target="_blank" rel="noreferrer">
+                <LazyImage
+                  className="cursor-pointer"
+                  src="/images/icons/dzen.svg"
+                />
+              </Link>
+            )}
           </div>
         </div>
 
